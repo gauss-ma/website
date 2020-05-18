@@ -5,11 +5,11 @@ body {
 }
 
 #view {
-  position: absolute;
-  width: 80vw;
-  height: 100%;
+  /*position: absolute;*/
+  /*width: 80vw;*/
 }
 
+#view canvas{width:110% !important; height:100%!important;}
 #view.sky {
   background: -webkit-gradient(linear, left top, left bottom, from(#98c8f6), color-stop(0.4, #cbebff), to(#f0f9ff));
   background: linear-gradient(to bottom, #98c8f6 0%,#cbebff 40%,#f0f9ff 100%);

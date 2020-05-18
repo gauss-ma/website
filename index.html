@@ -12,16 +12,16 @@
 	</script>
 
 <!-- COSAS PARA EL CANVAS DE GIS -->
-<link rel="stylesheet" type="text/css" href="./Qgis2threejs.css">
-<link rel="stylesheet" type="text/css" href="./mobile.css">
+<link rel="stylesheet" type="text/css" href="./qgis/Qgis2threejs.css">
+<link rel="stylesheet" type="text/css" href="./qgis/mobile.css">
 <!-- <script defer src="./fontawesome/solid.min.js"></script> -->
 <!-- <script defer src="./fontawesome/fontawesome.min.js"></script> -->
-<script src="./threejs/three.min.js"></script>
-<script src="./threejs/OrbitControls.js"></script>
-<script src="./threejs/DeviceOrientationControls.js"></script>
-<script src="./proj4js/proj4.js"></script>
-<script src="./Qgis2threejs.js"></script>
-<script src="./mobile.js"></script>
+<script src="./js/threejs/three.min.js"></script>
+<script src="./js/threejs/OrbitControls.js"></script>
+<script src="./js/threejs/DeviceOrientationControls.js"></script>
+<script src="./js/proj4js/proj4.js"></script>
+<script src="./qgis/Qgis2threejs.js"></script>
+<script src="./qgis/mobile.js"></script>
 
 <!-- Captcha key- Google Recaptchav3 -->
 <!-- script src="https://www.google.com/recaptcha/api.js?render=6Ldp9vQUAAAAAHi5meo3bKPIhW8mliocsD0P0yFo"></script>
@@ -253,6 +253,7 @@ Contemplan la interaccion de los contaminantes con su entorno. Son los modelos d
 		</div>
 		<div class="Productos" style="text-align:center;">
     		<div class="flex columns-3" >
+
                 	<article class="productos__article cell">
                 	    <a href="#" class="productos__link" data-context-text="aire">
                 	    <figure class="productos__image">
@@ -301,20 +302,21 @@ Contemplan la interaccion de los contaminantes con su entorno. Son los modelos d
 <!-- S E P A R A D O R  2 -->
 <div name="GISshowcase" class="PartDetector_root">
 	<section class="Slide_root" style="background-color:#1f1f1f; color:#fff;">
-		<div class="BloqueCentrado_root">
-			<article>
-		            <h1 class="white"> Servicios Geo-espaciales. </h1>
-			    <p  class="white"> Llevamos a cabo estudios ambientalesmediante el uso de Sistemas de Información Geográfica (SIG) </p>
-			    <p  class="white"> </p>
-			</article>
-			<article>
-					<!-- <img src="img/Riemann.png" style="position: absolute;top:12.5vh;left:25vw;width:45vw;z-index:-10;"></img>  -->
-					
-	</article>	
-		
-		
-		
-
+		<div class="BloqueCentrado_root" style:"display:flex; flex-wrap:wrap;">
+			<div class="columns-2 flex">
+				<div class="col">
+				<article>
+		        	    <h1 class="white"> Servicios Geo-espaciales. </h1>
+				    <p  class="white"> Llevamos a cabo estudios ambientalesmediante el uso de Sistemas de Información Geográfica (SIG) </p>
+				    <p  class="white"> </p>
+				</article>
+				</div>
+				<!-- <img src="img/Riemann.png" style="position: absolute;top:12.5vh;left:25vw;width:45vw;z-index:-10;"></img>  -->
+				<div id="view" class="col" style="">                    		
+        				<div id="labels"></div>
+        				<div id="northarrow"></div>
+        			</div>
+			</div>
 		</div>
 	</section>
 </div

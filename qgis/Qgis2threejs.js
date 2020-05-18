@@ -31,7 +31,7 @@ Q3D.Config = {
     },
     {
       type: "directional",
-      color: 0xffffff,
+      color: "#1f1f1f",
       intensity: 0.1,
       azimuth: 40,
       altitude: -45
@@ -795,7 +795,7 @@ limitations:
 
   app.setCanvasSize = function (width, height) {
     app.width = width;
-    app.height = height;
+    app.height = width;//height; acá toco rama
     app.camera.aspect = width / height;
     app.camera.updateProjectionMatrix();
     app.renderer.setSize(width, height);

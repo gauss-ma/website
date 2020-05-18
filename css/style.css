@@ -4461,3 +4461,30 @@ transition: all 200ms;
 
 
 
+
+
+/* QGIS: */
+
+.columns-2 {
+	width:100%;
+}
+.columns-2 div{
+	width: 45.7%;
+  	justify-content: center;
+  	align-items: center;
+}
+.columns-2 > div:nth-child(1){
+	margin-right: 0.25%;/*4.16667%;*/
+	margin-left: 0;
+}
+
+.columns-2 >div:nth-child(2){
+	margin-left: 0.25%;/*4.16667%;*/
+	margin-right: 0;
+}
+
+
+
+
+
+
