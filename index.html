@@ -11,6 +11,18 @@
 	  gtag('config', 'UA-152051002-1');
 	</script>
 
+<!-- COSAS PARA EL CANVAS DE GIS -->
+<link rel="stylesheet" type="text/css" href="./Qgis2threejs.css">
+<link rel="stylesheet" type="text/css" href="./mobile.css">
+<!-- <script defer src="./fontawesome/solid.min.js"></script> -->
+<!-- <script defer src="./fontawesome/fontawesome.min.js"></script> -->
+<script src="./threejs/three.min.js"></script>
+<script src="./threejs/OrbitControls.js"></script>
+<script src="./threejs/DeviceOrientationControls.js"></script>
+<script src="./proj4js/proj4.js"></script>
+<script src="./Qgis2threejs.js"></script>
+<script src="./mobile.js"></script>
+
 <!-- Captcha key- Google Recaptchav3 -->
 <!-- script src="https://www.google.com/recaptcha/api.js?render=6Ldp9vQUAAAAAHi5meo3bKPIhW8mliocsD0P0yFo"></script>
 <script>
@@ -287,7 +299,7 @@ Contemplan la interaccion de los contaminantes con su entorno. Son los modelos d
 
 
 <!-- S E P A R A D O R  2 -->
-<!-- div name="" class="PartDetector_root">
+<div name="GISshowcase" class="PartDetector_root">
 	<section class="Slide_root" style="background-color:#1f1f1f; color:#fff;">
 		<div class="BloqueCentrado_root">
 			<article>
@@ -296,7 +308,8 @@ Contemplan la interaccion de los contaminantes con su entorno. Son los modelos d
 			    <p  class="white"> </p>
 			</article>
 			<article>
-					<img src="img/Riemann.png" style="position: absolute;top:12.5vh;left:25vw;width:45vw;z-index:-10;"></img> 
+					<!-- <img src="img/Riemann.png" style="position: absolute;top:12.5vh;left:25vw;width:45vw;z-index:-10;"></img>  -->
+					
 	</article>	
 		
 		
@@ -304,10 +317,86 @@ Contemplan la interaccion de los contaminantes con su entorno. Son los modelos d
 
 		</div>
 	</section>
-</div -->
+</div
 
 
+<!-- S E P A R A D O R  TESTING -->
 
+<div name="GISshowcase2" class="PartDetector_root">
+	<section class="Slide_root" style="background-color:#aa7070; color:#fff;">
+		<div class="BloqueCentrado_root">
+
+<div id="view">
+	<div id="labels"></div>
+	<div id="northarrow"></div>
+  </div>
+  
+  <!-- buttons -->
+  <button class="btn" id="stop-button" title="stop orbitting"><i class="fas fa-stop-circle fa-2x"></i></button>
+  
+  <label class="switch hidden" title="AR mode">
+	<div>AR</div>
+	<input type="checkbox" id="ar-checkbox">
+	<span class="slider"></span>
+  </label>
+  
+  <button class="btn hidden" id="current-location" title="move to current location"><i class="fas fa-crosshairs fa-2x"></i></button>
+  
+  <div class="expand hidden">
+	<input type="checkbox" id="expand-checkbox">
+	<label for="expand-checkbox" title="show/hide buttons">
+	  <div class="btn btn1"><i class="fas fa-ellipsis-h fa-2x"></i></div>
+	</label>
+	<button class="btn btn2" id="layers-button" title="layer list"><i class="fas fa-layer-group fa-2x"></i></button>
+	<button class="btn btn3" id="settings-button" title="settings"><i class="fas fa-cog fa-2x"></i></button>
+	<button class="btn btn4" id="info-button" title="about this page"><i class="fas fa-info-circle fa-2x"></i></button>
+  </div>
+  
+  <!-- layer list -->
+  <div id="layerlist" class="hidden"></div>
+  
+  <!-- settings -->
+  <div id="settings" class="hidden">
+	<div>AR mode camera settings</div>
+	<div>
+	  <div>
+		<label>
+		  Enabled: <input type="checkbox" id="camera-enabled" checked disabled>
+		</label>
+	  </div>
+	  <div>
+		<label>
+		  Field of View (in degrees): <input type="number" id="fov">
+		</label>
+	  </div>
+	</div>
+	<div>
+	  <label>
+		<input type="checkbox" id="save-in-storage"> Save settings in local storage
+	  </label>
+	</div>
+	<div>
+	  <button id="settings-ok">OK</button>
+	  <button id="settings-cancel">Cancel</button>
+	</div>
+  </div>
+  
+		<!-- camera actions -->
+		<div class="action-btn action-zoom" onclick="app.cameraAction.zoomIn(); app.closePopup();">Zoom in here</div>
+		<div class="action-btn action-move" onclick="startARModeHere(); app.closePopup();">Start AR mode here</div>
+		<div class="action-btn action-move hidden" onclick="moveHere(); app.closePopup();">Move here</div>
+		<div class="action-btn action-orbit" onclick="app.cameraAction.orbit(); app.closePopup();">Orbit around here</div>
+    <!-- progress bar -->
+  <div id="progress"><div id="bar"></div></div>
+    <!-- header and footer -->
+  <div id="header"></div>
+  <div id="footer"></div>		
+		
+		
+
+		</div>
+	</section>
+</div
 
 
 <!--·················· S E R V I C I O S·····················-->
@@ -438,7 +527,7 @@ Contemplan la interaccion de los contaminantes con su entorno. Son los modelos d
 
 
 <!--·· S E P A R A D O R   3  ··-->
-<!--div name="prueba" class="PartDetector_root">
+<!-- div name="prueba" class="PartDetector_root">
 	<section class="Slide_root" style="background-color:#f1819f">
 		<div class="BloqueCentrado_root">
 			<article>

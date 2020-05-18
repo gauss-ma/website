@@ -169,7 +169,36 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 
-// Formulario de contacto--
+// CANVAS--
+
+Q3D.Config.bgColor = 0x4f4f4f;
+Q3D.Config.localMode = true;
+Q3D.Config.AR.MND = 0.0;
+
+var container = document.getElementById("view");
+app.init(container);          // initialize application
+init();                       // initialization for mobile template
+
+app.addEventListener("sceneLoaded", function () {
+  initLayerList();
+});
+
+// load the scene
+app.loadSceneFile("./data/index/scene.js", function () {
+  app.start();
+
+  // North arrow inset
+  if (Q3D.Config.northArrow.visible) app.buildNorthArrow(document.getElementById("northarrow"), app.scene.userData.rotation);
+
+  if ("AR" in app.urlParams) {
+    document.getElementById("ar-checkbox").checked = true;
+    startARMode();
+    moveToCurrentLocation();
+  }
+});
+
+
+
 
 // var $form = $('form#test-form'),
 //     url = 'https://script.google.com/macros/s/AKfycbxYwrCZzUoD8FhYrQ1KUGdDpicMMCi8CwLwkJAmTqlQ-v41C8Bd/exec'

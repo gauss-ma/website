@@ -8,6 +8,9 @@ require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 
+
+
+
 $nombre = $_POST['nombre'];
 $email = $_POST['email'];
 $mensaje = $_POST['mensaje'];
@@ -37,10 +40,13 @@ try {
     $mail->AltBody ="$mensaje_a_gauss";                    // 'Este es el contenido del mensaje en texto plano';    // Contenido del mensaje alternativo (texto plano)
  
     $mail->send();
-    echo "<script>alert('El mensaje ha sido enviado exitosamente!');</script>";
+
+
+echo "<script>alert('El mensaje ha sido enviado exitosamente!');window.location = 'https://gauss-ma.com.ar/';</script>";
 } catch (Exception $e) {
     echo "<script>alert('El mensaje no se ha podido enviar, ERROR:</script>",$mail->ErrorInfo;
 }
+
 
 $mail_a_usr= new PHPMailer(true);
 
