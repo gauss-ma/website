@@ -4240,39 +4240,35 @@ h1, ul li {
 
 
 
-/*  NUEVA SECCION 1       */
-.Slide_root {
- display:-webkit-box;
- display:-ms-flexbox;
- display:flex;
- -webkit-box-orient:vertical;
- -webkit-box-direction:normal;
- -ms-flex-direction:column;
- flex-direction:column;
- padding-bottom:110px;
- padding-top:110px;
- width:100%;
- min-height:100vh;
- color:#fff;
- line-height:1;
-} 
 
-.Slide_root article{
-	max-width:45vw;
-}
 
-.Slide_root article h1{
-	display:block;
-	padding-top:40px;
-	padding-bottom:25px;
-}
 
-.Slide_root article p {
- font-size:20px;
- line-height:25px;
- -webkit-font-smoothing:antialiased;
- width:80%;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4361,18 +4357,9 @@ transition: all 200ms;
     flex-wrap: wrap;
 }
 
-.derecha{
-	margin-left: 0.25%;/*4.16667%;*/
-	margin-right: 0;
-	width: 41.66666667%;
-}
-.izquierda{
-	margin-right: 0.25%;/*4.16667%;*/
-	margin-left: 0;
-	width: 41.66666667%;
-}
 
 
+/* 3-COLUMNAS PARA PRODUCTOS: */
 .columns-3 article{width:30%;}
 .columns-3 article img{width:100%;}
 
@@ -4391,7 +4378,7 @@ transition: all 200ms;
 
 
 @media screen and (max-width:1024px) {
- .columns-3>.cell {
+ .columns-3 > .cell {
   width:33.%;
  }
 }
@@ -4418,7 +4405,7 @@ transition: all 200ms;
  	margin-right:0px;
    }
   .productos__article{
-  padding-right:15px;
+  padding-right:20px;
   padding-bottom:10px;
   text-align:right;
   }
@@ -4463,29 +4450,92 @@ transition: all 200ms;
 
 
 
-/* QGIS: */
 
-.columns-2 {
-  width:80%;
-  height: 100%;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  SEPARADORES  */
+.Slide_root {
+ display:-webkit-box;
+ display:-ms-flexbox;
+ display:flex;
+ -webkit-box-orient:vertical;
+ -webkit-box-direction:normal;
+ -ms-flex-direction:column;
+ flex-direction:column;
+ padding-top:120px;
+ padding-bottom:120px;
+ width:100%;
+ min-height:60vh;
+ color:#fff;
+ line-height:1;
+} 
+
+.Slide_root article{
+	max-width:100vw;
 }
-.columns-2 div{
-  width: 45.7%;
-  justify-content: center;
-  align-items: center;
+
+.Slide_root article h1,
+.Slide_root article h2{
+	display:block;
+	padding-top:40px;
+	padding-bottom:30px;
+}
+
+.Slide_root article p {
+ font-size:20px;
+ line-height:25px;
+ -webkit-font-smoothing:antialiased;
+ width:80%;
+}
+
+
+/* ARTICULOS DE 2 COLUMNAS: */
+
+.columns-2 article {
+}
+.columns-2 > div{
+  width: 48.0%;
+  margin-bottom:30px;
 }
 .columns-2 > div:nth-child(1){
-	margin-right: 0.25%;/*4.16667%;*/
+	margin-right: 0.5%;/*4.16667%;*/
 	margin-left: 0;
 }
 
 .columns-2 >div:nth-child(2){
-	margin-left: 0.25%;/*4.16667%;*/
+	margin-left: 0.5%;/*4.16667%;*/
 	margin-right: 0;
 }
 
 
+@media screen and (max-width:800px) {
 
-
-
-
+.columns-2 > div {
+ width:100%;
+ margin-left:0px;
+ margin-right:0px;
+ margin-bottom:30px;
+} 
+ 
+}
