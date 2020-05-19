@@ -171,7 +171,7 @@ function showSlides(n) {
 
 // CANVAS--
 
-Q3D.Config.bgColor = 0x4f4f4f;
+Q3D.Config.bgColor = '#1f1f1f';
 Q3D.Config.localMode = true;
 Q3D.Config.AR.MND = 0.0;
 
