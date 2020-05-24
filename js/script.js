@@ -45,7 +45,7 @@ $(document).ready(function(){
 
             $('body,html').animate({
                 scrollTop: scrollPoint
-            }, 500);
+            }, 800);
 
             cerrarMenu()
 
@@ -77,15 +77,17 @@ $(document).ready(function(){
         $logo.on('click', function() {
             $('body,html').animate({
                 scrollTop: 0
-                }, 500);
+                }, "slow",'swing');
 
+
+                
             cerrarMenu();
             return false;
         })
         //SCROLLEAR HASTA lista de servicios cuando clickias un icono de servicios
         $('.icon').on('click', function() {
             var scrollAnchor = $(this).attr('data-scroll'),
-            scrollPoint = $('.icon_wrapper').offset().top - 30;
+            scrollPoint = $('.icon_wrapper').offset().top - 100;
             $('body,html').animate({ scrollTop: scrollPoint }, 500);
 
             return false;
@@ -196,52 +198,3 @@ app.loadSceneFile("./data/index/scene.js", function () {
     moveToCurrentLocation();
   }
 });
-
-
-
-
-// var $form = $('form#test-form'),
-//     url = 'https://script.google.com/macros/s/AKfycbxYwrCZzUoD8FhYrQ1KUGdDpicMMCi8CwLwkJAmTqlQ-v41C8Bd/exec'
-//
-//$('#submit-form').on('click', function(e) {
-//    console.log("click")
-//    console.log(document.getElementsByTagName("input")[10].value) //manera alternativa de levantar los inputs, los 10 inputs anteriores a estos son los checkbox.
-//    console.log(document.getElementsByTagName("input")[11].value)
-//    console.log(document.getElementsByTagName("input")[12].value)
-//    
-//    var x = new XMLHttpRequest();
-//    x.open("GET","phpmailer/envio.php",true);
-//    x.send();
-//    console.log('Enviado');
-//    return false;
-//
-//})
-//
-
-//Cosas que pruebo y no funcionan
-
-
-//     var xhr = new XMLHttpRequest();
-//     var url = "https://script.google.com/macros/s/AKfycbxYwrCZzUoD8FhYrQ1KUGdDpicMMCi8CwLwkJAmTqlQ-v41C8Bd/exec" + encodeURIComponent(JSON.stringify({"email": email}));
-//     xhr.open("GET", url, true);
-//     xhr.setRequestHeader("Content-Type", "application/json");
-//     xhr.onreadystatechange = function () {
-//         if (xhr.readyState === 4 && xhr.status === 200) {
-//             var json = JSON.parse(xhr.responseText);
-//             console.log(json.email);
-//         }
-//     };
-//     xhr.send();
-//     console.log(json)
-
-//     //e.preventDefault();
-// //   var jqxhr = $.ajax({
-// //      url: 'https://script.google.com/macros/s/AKfycbxYwrCZzUoD8FhYrQ1KUGdDpicMMCi8CwLwkJAmTqlQ-v41C8Bd/exec',
-// //      method: "GET",
-// //     dataType: "json",
-// //     data: $('form#test-form').serializeObject()
-
-//   }).success(
-//     console.log("mensaje enviado") // do something
-//   )
-//   //})

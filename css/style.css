@@ -163,14 +163,7 @@ button {
   width:90vw
  }
 }
-.Preloader_root {
- width:100vw;
- height:100vh;
- z-index:999;
- top:0;
- display:none;
- position:fixed
-}
+
 .PartDetector_root {
  width:100%
 }
@@ -871,125 +864,7 @@ button {
   margin-right:5vw
  }
 }
-@-webkit-keyframes LoadingLine__increase-width__2HvzJ {
- 0% {
-  width:0
- }
- to {
-  width:100%
- }
-}
-@keyframes LoadingLine__increase-width__2HvzJ {
- 0% {
-  width:0
- }
- to {
-  width:100%
- }
-}
-.LoadingLine_root {
- -webkit-animation-name:LoadingLine__increase-width__2HvzJ;
- animation-name:LoadingLine__increase-width__2HvzJ;
- opacity:1;
- z-index:9999;
- top:0;
- display:block;
- position:fixed;
- height:5px;
- background-color:#fff
-}
-@-webkit-keyframes Preloader__show__26Rl6 {
- 0% {
-  opacity:0
- }
- 5% {
-  opacity:1
- }
- to {
-  opacity:1
- }
-}
-@keyframes Preloader__show__26Rl6 {
- 0% {
-  opacity:0
- }
- 5% {
-  opacity:1
- }
- to {
-  opacity:1
- }
-}
-@-webkit-keyframes Preloader__fade-in__kYLkN {
- 0% {
-  opacity:0
- }
- to {
-  opacity:1
- }
-}
-@keyframes Preloader__fade-in__kYLkN {
- 0% {
-  opacity:0
- }
- to {
-  opacity:1
- }
-}
-@-webkit-keyframes Preloader__fade-in-up__1jvEC {
- 0% {
-  opacity:0
- }
- to {
-  opacity:1
- }
-}
-@keyframes Preloader__fade-in-up__1jvEC {
- 0% {
-  opacity:0
- }
- to {
-  opacity:1
- }
-}
-@-webkit-keyframes Preloader__fade-out-up__1yevR {
- 0% {
-  opacity:1
- }
- to {
-  opacity:0
- }
-}
-@keyframes Preloader__fade-out-up__1yevR {
- 0% {
-  opacity:1
- }
- to {
-  opacity:0
- }
-}
-@-webkit-keyframes Preloader__border-animation__nF-LK {
- 0% {
-  border-width:10px
- }
- 50% {
-  border-width:1px
- }
- to {
-  border-width:10px
- }
-}
-@keyframes Preloader__border-animation__nF-LK {
- 0% {
-  border-width:10px
- }
- 50% {
-  border-width:1px
- }
- to {
-  border-width:10px
- }
-}
+
 .Articulo_root {
  max-width:320px
 }
@@ -1272,12 +1147,6 @@ margin-bottom:30px;
   line-height:20px;
   width:83vw
  }
-}
-.Render3D_root {
- position:absolute;
- top:0;
- left:0;
- z-index:0
 }
 .TextoCentradoGrande_root {
  width:100vw;
@@ -2000,15 +1869,7 @@ margin-bottom:30px;
 		}
 	}
 	
-	
- 	
- 	
-	
 	.fa{color:#202020;}
-	
-	/*
-	
-	.TopSlide_header, .Header_negro, .Item_item{font-family: neutra;}*/
 	.HeaderServicios {
 	 font-size:50px;
 	 line-height:60px;
@@ -2028,75 +1889,7 @@ margin-bottom:30px;
 	  line-height:40px
 	 }
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 .content {
  margin-left:auto;
  margin-right:auto
@@ -2133,12 +1926,12 @@ margin-bottom:30px;
 .productos__article {
  padding-bottom:2.5rem;
  margin-bottom:3.75rem;
- border-style:solid;
- border-color:#64c3c3;
+ border-style:none;
+ /* border-color:#64c3c3; */
  border-width:1px;
 }
 .productos__article:hover{
-box-shadow: 0 2px 10px rgba(66, 176, 117, 0.78);
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.78);
 transition: all 200ms;
 }
 .productos__info h3{
@@ -2146,12 +1939,6 @@ transition: all 200ms;
 	margin-bottom:0.25em;
  color:#64c3c3;
 }
-/*@media screen and (min-width:68.75em) {
- .productos__article {
-  padding-left:.625rem;
-  padding-right:.625rem
- }
-}*/
 .flex {
     -ms-flex-wrap: wrap;
     display: -ms-flexbox;
