@@ -142,7 +142,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: AvenirNextBold, Roboto, Ubuntu;
+  font-family: MontserratExtraBold,MontserratBold,AvenirNextBold, Roboto, Ubuntu;
 }
 p {
   color: #454545;
@@ -610,7 +610,7 @@ button {
   }
 }
 .Item_item {
-  font-family: AvenirNextBold;
+  font-family: MontserratExtraBold,MontserratBold,AvenirNextBold;
   cursor: pointer;
   -webkit-animation-name: Item__fade-in-down__MLrwb;
   animation-name: Item__fade-in-down__MLrwb;
@@ -684,7 +684,7 @@ button {
   top: 25px;
   font-size: 25px;
   cursor: pointer;
-  font-family: AvenirNextBold;
+  font-family: MontserratExtraBold,MontserratBold,AvenirNextBold;
 }
 @media screen and (max-width: 1024px) {
   .Logo_logo {
@@ -1012,7 +1012,7 @@ button {
 .Header_root {
   font-size: 60px;
   line-height: 70px;
-  font-family: AvenirNextBold;
+  font-family: MontserratExtraBold,MontserratBold,AvenirNextBold;
   /*margin-bottom:130px*/
   margin-bottom: 50px;
 }
@@ -1091,11 +1091,11 @@ button {
 .TopSlide_header {
   font-size: 160px;
   white-space: nowrap;
-  font-family: AvenirNextBold;
+  font-family: MontserratExtraBold,MontserratBold,AvenirNextBold;
 }
 .TopSlide_subheader {
   font-size: 60px;
-  font-family: AvenirNextDemiBold;
+  font-family: MontserratExtraBold,MontserratBold,AvenirNextDemiBold;
 }
 .TopSlide_header,
 .TopSlide_subheader {
@@ -1274,7 +1274,7 @@ button {
 .TextoRender_HORIZONTAL-en {
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
-  font-family: AvenirNextBold;
+  font-family: MontserratExtraBold,MontserratBold,AvenirNextBold;
   color: #fefefe;
   line-height: 160px;
   margin-left: 8px;
@@ -1701,7 +1701,7 @@ button {
   color: #202020; /*#64c3c3;*/
   font-size: 50px;
   line-height: 50px;
-  font-family: AvenirNextBold;
+  font-family: MontserratExtraBold,MontserratBold,AvenirNextBold;
 }
 .Articulo_contenido {
   font-family: RobotoRegular;
@@ -1983,7 +1983,7 @@ b {
 .HeaderServicios {
   font-size: 50px;
   line-height: 60px;
-  font-family: AvenirNextBold;
+  font-family: MontserratExtraBold,MontserratBold,AvenirNextBold;
   opacity: 1;
   color: #202020;
 }
