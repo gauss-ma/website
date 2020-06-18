@@ -1541,3 +1541,47 @@ a.github:hover >i{  color:inherit;}
     text-align:center
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*/ start count stats /*/ 
+
+.StatsContainer {
+	display: flex;
+	flex-direction:row;
+	justify-content: center;
+	margin-top: 100px;
+	width: calc(100%);
+	padding-bottom:30px;
+	margin-bottom:30px;
+  text-align: center;
+	}
+
+.StatsContainer > .stats{
+	width: calc(33.3%);
+  font-family: 'MontserratRegular';
+}
+.stats .counting {
+  text-align: center;
+  font-size: 80px;
+    font-weight: 400;
+}
+.stats .texto {
+  font-size: 22px;
+    font-weight: 400;
+  text-align: center;
+	text-transform:uppercase;
+}
+
+
+/*/ end count stats /*/
