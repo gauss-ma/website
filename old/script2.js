@@ -41,7 +41,7 @@ $(document).ready(function(){
         // FUNCION PARA SCROLLEAR CUANDO APRETAS UN ITEM DEL MENU:
         $('nav a').on('click', function() {
             var scrollAnchor = $(this).attr('data-scroll'),
-                scrollPoint = $('section[name="' + scrollAnchor + '"]').offset().top - 0;
+                scrollPoint = $('div[name="' + scrollAnchor + '"]').offset().top - 0;
 
             $('body,html').animate({
                 scrollTop: scrollPoint
@@ -119,24 +119,24 @@ $(document).ready(function(){
 
         ;}
         
- 	pos_home = $("section[name=home]").position().top;             
- 	//pos_objetivo = $("section[name=objetivo]").position().top;
- 	//pos_modelos = $("section[name=modelos]").position().top;
- 	pos_productos = $("section[name=productos]").position().top;
- 	pos_servicios = $("section[name=servicios]").position().top;       
- 	pos_contacto = $("section[name=contacto]").position().top;
- 	//pos_office = $("section[name=office]").position().top;
+ 	pos_home = $("div[name=home]").position().top;             
+ 	//pos_objetivo = $("div[name=objetivo]").position().top;
+ 	//pos_modelos = $("div[name=modelos]").position().top;
+ 	pos_productos = $("div[name=productos]").position().top;
+ 	pos_servicios = $("div[name=servicios]").position().top;       
+ 	pos_contacto = $("div[name=contacto]").position().top;
+ 	//pos_office = $("div[name=office]").position().top;
 
 	$(window).on("scroll", function() {
             var position = $(window).scrollTop()
             console.log(position);
             //     if (position > pos_objetivo  & position < pos_modelos  ) { setWhite(); showObjetivoText();  console.log("Objetivo!!"); }
-           //if (position > pos_modelos   & position < pos_productos) { setBlack();$(".Modelos").addClass("faded")  ;  console.log("Modelos!!");  }
-           if (position > pos_productos & position < pos_servicios) { setBlack();$(".Productos").show();  console.log("Productos!!");}
-           else if (position > pos_servicios & position < pos_contacto ) { setBlack();$(".Servicios").show();  console.log("Servicios!!");}
-           else if (position > pos_contacto  ) { setBlack();$(".Contacto").show();  console.log("Contacto!!"); }
-           //else if (position > pos_office ){ setWhite();}
-           else{setBlack();}
+           // if (position > pos_modelos   & position < pos_productos) { setBlack();$(".Modelos").addClass("faded")  ;  console.log("Modelos!!");  }
+             if (position > pos_productos & position < pos_servicios) { setBlack();$(".Productos").addClass("faded");  console.log("Productos!!");}
+            else if (position > pos_servicios & position < pos_contacto ) { setBlack();$(".Servicios").addClass("faded");  console.log("Servicios!!");}
+            else if (position > pos_contacto  & position < pos_office   ) { setBlack();$(".Contacto").addClass("faded") ;  console.log("Contacto!!"); }
+            //else if (position > pos_office ){ setWhite();}
+            else{setBlack();}
         });
 
 });
