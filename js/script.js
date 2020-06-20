@@ -5,6 +5,9 @@ const $menu=$('.TabletMenu_root');
 const $btn_menu=$('#botonMenu');
 const $logo=$(".Logo_logo");
 
+
+document.title = "Gauss";
+
 $(document).ready(function(){
 
 

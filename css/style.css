@@ -1,3 +1,8 @@
+
+índice general
+
+
+
 a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video {  
 margin: 0;  padding: 0;  border: 0;  font-size: 100%;/*  font: inherit;  vertical-align: baseline;*/
 }
@@ -155,6 +160,21 @@ button {
   opacity: 1;
 }
 
+.Slide-oscuro{
+
+  background-color:#1f1f1f;
+
+}
+
+.Slide-claro{
+
+
+}
+
+.Slide-alternativo{
+
+
+}
 
 .SlideContenido {
  	 -webkit-animation: fade-UP 0.5s ease both;
@@ -185,6 +205,16 @@ margin-bottom: 50px;
 
 
 
+.section-divider{
+
+  border-top: 1px solid #dadada;
+  margin: auto 80px;
+  max-width: 1420px;
+
+
+}
+
+
 
 /* SLIDES SEPARADORES  (GEO, TOXDB, REBECA)*/
 
@@ -205,8 +235,11 @@ padding-left:30px;
 .SlideSeparador p{}
 
 
+.img-card{
 
+  z-index:-10;width:100%;
 
+}
 
 
 
@@ -241,7 +274,7 @@ padding-left:30px;
 .columns-3{
 	display:flex;
 	flex-wrap:wrap;
-	flex-direcion:row;
+	flex-direction:row;
 	margin-top:50px;
 }
 
@@ -1493,7 +1526,24 @@ margin-top: 14px*/
   font-size:15px;
   line-height:24px;
   color:#d3d3d3;
+  justify-content: center;
+  display:flex-inline; 
+  padding:60px;
+  
+  
+  
 }
+
+.site-footer-wrapper{
+
+max-width: 1200;
+text-align: left;
+width:90%;
+padding-bottom:30px;
+
+
+}
+
 .site-footer hr
 {
   border-top-color:#bbb;
@@ -1538,7 +1588,7 @@ a.github:hover >i{  color:inherit;}
   }
   .site-footer .copyright-text,.site-footer 
   {
-    text-align:center
+    text-align:left
   }
 }
 
@@ -1565,6 +1615,7 @@ a.github:hover >i{  color:inherit;}
 	padding-bottom:30px;
 	margin-bottom:30px;
   text-align: center;
+
 	}
 
 .StatsContainer > .stats{

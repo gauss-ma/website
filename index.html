@@ -14,8 +14,6 @@
 	<!-- COSAS PARA EL CANVAS DE GIS -->
 	<link rel="stylesheet" type="text/css" href="./qgis/Qgis2threejs.css">
 	<link rel="stylesheet" type="text/css" href="./qgis/mobile.css">
-	<!-- <script defer src="./fontawesome/solid.min.js"></script> -->
-	<!-- <script defer src="./fontawesome/fontawesome.min.js"></script> -->
 	<script src="./js/threejs/three.min.js"></script>
 	<script src="./js/threejs/OrbitControls.js"></script>
 	<script src="./js/threejs/DeviceOrientationControls.js"></script>
@@ -23,47 +21,58 @@
 	<script src="./qgis/Qgis2threejs.js"></script>
 	<script src="./qgis/mobile.js"></script>
 
-	<!-- Captcha key- Google Recaptchav3 -->
-	<!-- script src="https://www.google.com/recaptcha/api.js?render=6Ldp9vQUAAAAAHi5meo3bKPIhW8mliocsD0P0yFo"></script>
-	<script>
-	grecaptcha.ready(function() {
-	    grecaptcha.execute('6Ldp9vQUAAAAAHi5meo3bKPIhW8mliocsD0P0yFo_', {action: 'homepage'}).then(function(token) {
-	       //EJECUCIÓN
-	    });
-	});
-	</script-->
+	<!-- Captcha key- Google Recaptchav3 - Pendiente de agregar... ante evidencia de spam y robots-->
+
+
+<!-- Metadata para que la internet nos conozca -->
 
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="msapplication-TileColor" content="#fff">
-
-	<title>gauss</title>
 	<meta name="description" content="Gauss - modelado ambiental. Servicios ambientales, calidad de aire, aguas subterraneas, aires superficiales.">
+	<meta name="keywords" content="gauss, aermod, calpuff, WRF, ambiental, consultora, modelado">
 	<!-- meta name="og:image" content="images/sharing.63ae2f.jpg" -->
 	<!-- meta property="og:image" content="images/sharing.63ae2f.jpg" -->
 	<!-- meta property="og:type" content="website" -->
 	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	
+	<meta name="msapplication-config" content="/static/faviconFiles/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+
+	<title>Gauss - modelado ambiental</title>
+
+
+	<!-- Tal vez haga figurar a gauss como empresa en una gglseach -->
+	<script type="application/ld+json">
+		{
+		  "@context": "https://schema.org",
+		  "@type": "Organization",
+		  "url": "https://www.gauss-ma.com.ar",
+		  "logo": "https://www.gauss-ma.com.ar/img/gauss-icon-monochrome-075pt.svg",
+		  "location": "Argentina"
+		}
+		</script>
+
+
+
+
+
 	<link rel="icon" type="image/png" href="img/icon-gauss.png" sizes="512x512">
 	<link rel="mask-icon" href="fonts/safari-pinned-tab.fcceb5.svg" color="#5bbad5">
-	<meta name="msapplication-config" content="/static/faviconFiles/browserconfig.xml">
 	<link rel="manifest" href="/static/faviconFiles/manifest.json">
-	<meta name="theme-color" content="#ffffff">
-	<!-- link rel="shortcut icon" href="images/favicon.cfa0b1.ico" -->
-
 	<script src="https://kit.fontawesome.com/32f3fc8ac1.js" crossorigin="anonymous"></script>
 	<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
 
-	<script>
+	<!-- <script>
 		document.documentElement.style.fontFamily = 'AvenirNextBold';
 		window.__REACT_DEVTOOLS_GLOBAL_HOOK__ = {}
-	</script>
+	</script> -->
 
 	<!-- CSS  & JQuery -->
 	<link href="css/transiciones.css" rel="stylesheet">
 	<link href="css/font-style.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<script type='text/javascript' src='js/jquery-3.3.1.min.js'></script>
+
 </head>
 
 
@@ -142,10 +151,10 @@
 			</div>
 		</section>
 
-<div class="section-divider" style="border-top: 1px solid #dadada;margin: auto 80px;max-width: 1420px;"></div>
+<div class="section-divider" ></div>
 
 		<!--  PRODUCTOS   -->
-		<section name="productos" class="Slide" style="background-color:#f7f7f">
+		<section name="productos" class="Slide" >
 			<div class="SlideContenido Productos">
 
 					<h2 class="titulo">Modelos</h2>
@@ -179,7 +188,7 @@
 
 
 		<!-- GEO-SP   -->
-		<section style="background-color:#1f1f1f;">
+		<section class="Slide-oscuro">
 			<div class="SlideSeparador">
 				<article class="columns-2 flex">
 					<div class="col">
@@ -190,7 +199,7 @@
 							Realiza estudios ambientales mediante el uso de herramientas de análisis
 							espacial (GIS). </p>
 					</div>
-					<div id="view" class="col" style="">
+					<div id="view" class="col">
 						<div id="labels"></div>
 						<div id="northarrow"></div>
 
@@ -356,15 +365,16 @@
 
 
 			<!--   TOXDB   -->
-			<section style="background-color: #1F1F1F">
+			<section class="Slide-oscuro">
 				<div class="SlideSeparador">
 					<article class="columns-2 flex">
 						<div>	<h2>Bases de datos</h2>
 							<h3> Tox.db </h3>
 							<p class="white"> Desarrollamos <strong>Tox.db</strong>: Una base de datos abierta a la comunidad de profesionales del ambiente y la salud, condensando la información relevante de los compuestos químicos de interés regulados. Es una plataforma gratuita y abierta, en constante crecimiento.</p>
+						
 						</div>
 						<div>
-							<img src="img/Toxb-mac-dark.png" style="z-index:-10;width:100%;"></img>
+							<img class="img-card" src="img/Toxb-mac-dark.png"></img>
 						</div>
 					</article>
 
@@ -476,11 +486,12 @@
 	</div>
 </main>
 
-<footer class="site-footer" style="display:flex-inline; padding:60px;">
-  <div class="container">
-    <div class="row">
-  	<div class="articulo" style="width:90%;padding-bottom:30px">
-  	    <h6 style="">Sobre GAUSS</h6>
+<footer class="site-footer">
+  <!-- <div class="container"> -->
+    <div class="row site-footer-wrapper">
+
+  	<div class="articulo" >
+  	    <h6 >Sobre GAUSS</h6>
   	    <p>
 	    Acá se podría poner un texto sobre el proyecto, alcances, contriubudores, y esas cosas. 
   	    Al mismo tiempo, the font features friendly and open curves. 
@@ -507,9 +518,11 @@
 
 </div>
 
-	<script type="text/javascript" src="js/script.js"></script>
+	
 
 
 </body>
+
+<script type="text/javascript" src="js/script.js"></script>
 
 </html>
