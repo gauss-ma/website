@@ -231,7 +231,7 @@ button {
 
 .Slide-alternativo{
 color: var(--blanco);
-background-color: var(--azul);
+background-color: var(--celeste-oscuro);
 }
 
 .objetivo{
@@ -242,8 +242,10 @@ background-color: var(--azul);
   }
 
 .SlideContenido {
- 	 -webkit-animation: fade-UP 0.5s ease both;
-  	animation: fade-UP 0.5s ease both;
+ 	 /* -webkit-animation: fade-UP 0.5s ease both; */
+    /* animation: fade-in 0.5s ease both; */
+    -webkit-animation: fade-in 2s 1 0s ease-in;
+    animation: fade-in 2s 1 0s ease-in;
 
 	flex-direction:column;
   box-sizing: border-box;
@@ -252,7 +254,7 @@ background-color: var(--azul);
 	margin-left:auto;
 	padding-bottom:50px;
 	padding-left:30px;
-		display:none;
+	display:none;
 
 
 
@@ -335,6 +337,43 @@ padding-left:30px;
 
 
 /* 3-COLUMNAS */
+/* .contenedor-tarjetas .tarjeta img{
+  width: 100%;
+	height: 30%;
+
+}
+
+.contenedor-tarjetas{
+  display: flex;
+	justify-content: center;
+	width: 200x;
+	margin: auto;
+
+}
+
+.contenedor-tarjetas .tarjeta{
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 0px; */
+	/* 
+	In the order, equal to
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 300px;
+} */
+
+
+/* .tarjeta {
+
+  display: flex;
+
+} */
+
+/* @media (max-width: 900px) {
+	.contenedor-tarjetas {
+		flex-wrap: wrap;
+	} */
+
 
 .columns-3{
 	display:flex;
@@ -344,7 +383,7 @@ padding-left:30px;
 }
 
 .columns-3 div {
-	/*flex-basis: calc(100% / 3 - 30px);*/
+
     width: calc(100% / 3 - 35px);
 	border-radius: 10px;
 	box-shadow: 0 0 36px rgba(0,0,0,0.1);
@@ -352,8 +391,10 @@ padding-left:30px;
  flex-direction: column;
 	/*flex-grow: 0;
     flex-shrink: 1;*/
-    margin: 5px;
-    /*position: relative;*/
+    /*position: relative;*/	
+    /*flex-basis: calc(100% / 3 - 30px);*/
+ 
+    margin: 7px;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
     transition: box-shadow .2s linear,opacity .2s linear;
@@ -363,24 +404,39 @@ padding-left:30px;
 	margin-top:10px;
 	margin-bottom:0px;
 	font-size:10px;
-	color:var(--azul);
+	color:var(--celeste-oscuro);
 	text-transform:uppercase;
 }
 .columns-3 div h3 {
-	color:var(--azul);
+	color:var(--celeste-oscuro);
 	margin-top:0;
 	margin-bottom:20px;
 }
 .columns-3 div p {
-	margin-bottom:10px;
+  margin-bottom:10px;
+  
 }
 
-.columns-3 div img {
-	width:100%;	
+.columns-3>div>p {
+  margin-bottom:50px;
+  height: 100px;
 }
+.columns-3 div img {
+  width:100%;
+}
+.columns-3>div>img {
+  width:100%;
+  /* height: 20rem; */
+  /* clip-path: inset(10px 10px 100px 100px); */
+  /* margin: 0px; */
+  overflow: hidden;
+
+}
+
 .columns-3 div:hover {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.78);
   transition: all 200ms;
+  
 }
 
 
@@ -919,7 +975,7 @@ nav a {
   opacity: 0.8;
 }
 nav a:hover {
-  color: var(--azul);
+  color: var(--celeste-oscuro);
   opacity: 1;
 }
 
@@ -1282,7 +1338,9 @@ ul li i:after {
 }
 .icon-effect-1 .icon:hover{
   /* opacity:1; */
-  color: var(--azul)
+  color: var(--celeste-oscuro);
+  transform: translateY(-2px);
+  /* box-shadow: 0 3px 6px 0 rgba(0,0,0,.26); */
 }
 
 /*     CONTACTO         */
@@ -1535,8 +1593,8 @@ margin-top: 14px*/
 .Formulario_campo > input:focus {
   border-style: none none solid;
   border-width: medium medium 2px;
-  border-color: var(--azul);
-  color: var(--azul);
+  border-color: var(--celeste-oscuro);
+  color: var(--celeste-oscuro);
   
   
 }
@@ -1568,13 +1626,14 @@ margin-top: 14px*/
   /* background: none !important; */
   /* color: #202020 !important; */
   cursor: pointer;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   /* transition: box-shadow .3s cubic-bezier(0.55, 0, 0.55, 0.2); */
 }
 .boton:hover {
-  color: var(--azul);
-  /* border: 2px solid var(--azul); */
-  animation-duration: 0.5s;
+  color: var(--celeste-oscuro);
+  /* border: 2px solid var(--); */
+  transform: translateY(-2px);
+  box-shadow: 0 3px 6px 0 rgba(0,0,0,.26);
 
 }
 @media screen and (max-width: 600px) {
@@ -1601,7 +1660,8 @@ margin-top: 14px*/
   animation-timing-function: cubic-bezier(0, 0.16, 0.12 0, 1);
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
-  background-color: var(--azul);
+  background-color: var(--celeste-oscuro);
+  
 }
 
 

@@ -193,13 +193,13 @@ app.loadSceneFile("./data/index/scene.js", function () {
   app.start();
 
   // North arrow inset
-  if (Q3D.Config.northArrow.visible) app.buildNorthArrow(document.getElementById("northarrow"), app.scene.userData.rotation);
+  // if (Q3D.Config.northArrow.visible) app.buildNorthArrow(document.getElementById("northarrow"), app.scene.userData.rotation);
 
-  if ("AR" in app.urlParams) {
-    document.getElementById("ar-checkbox").checked = true;
-    startARMode();
-    moveToCurrentLocation();
-  }
+  // if ("AR" in app.urlParams) {
+  //   document.getElementById("ar-checkbox").checked = true;
+  //   startARMode();
+  //   moveToCurrentLocation();
+  // }
 });
 
 
@@ -211,7 +211,7 @@ app.loadSceneFile("./data/index/scene.js", function () {
 
 
 
-// number count for stats, using jQuery animate
+// Animación de contador, using jQuery animate
 
 $('.counting').each(function() {
   var $this = $(this),
