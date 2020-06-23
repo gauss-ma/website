@@ -8,7 +8,7 @@
   /* 
   color: #52C0C0;
   color: #108AA8;
-  color: #063959;
+  color: #063959;<-buscar reemplazo
   color: #8C5B8D;
   color: #F2809F;
   color: #1F1F1F;
@@ -109,13 +109,15 @@ body {
   -moz-font-smoothing: grayscale;
 }
 h1,h2,h3,h4,h5,h6 {
-  font-family: MontserratSemiBold,MontserratExtraBold, Roboto, Ubuntu;
+  font-family: MontserratExtraBold, Roboto, Ubuntu;
+  max-width:650px;
+  /* MontserratSemiBold, */
 
 }
 p {
   font-size: 1.125em;
   letter-spacing: 0;
-	max-width:650px;
+  max-width:650px;
 }
 h1 {
   font-size: 6em;
@@ -128,11 +130,9 @@ h3 {
 }
 
 h4{
-
   font-family: 'RobotoRegular';
   font-size: 1.5em;
-
-
+  font-weight: 300;
 }
 
 :focus {
@@ -221,6 +221,7 @@ button {
 .Slide-oscuro{
 
   background-color: var(--negro);
+  min-height: 100vh;
 
 }
 
@@ -232,6 +233,7 @@ button {
 .Slide-alternativo{
 color: var(--blanco);
 background-color: var(--celeste-oscuro);
+min-height: 100vh;
 }
 
 .objetivo{
@@ -254,7 +256,8 @@ background-color: var(--celeste-oscuro);
 	margin-left:auto;
 	padding-bottom:50px;
 	padding-left:30px;
-	display:none;
+  display:none;
+  min-height: 100vh;
 
 
 
@@ -293,8 +296,8 @@ margin-left:auto;
 padding-left:30px;
 	padding-top:20px;padding-bottom:20px;
 	color:var(--blanco);
-	min-height:70vh;
-}
+  min-height:100vh;
+  }
 
 
 .SlideSeparador h2{padding-top:0px;}
@@ -309,12 +312,19 @@ padding-left:30px;
 }
 
 
+.subtitulo{
+
+  color: var(--gris-oscuro);
+  font-style: 'MontserratSemiBold';
+}
+
 
 /* 2 COLUMNAS: */
 .columns-2{
 	display:flex;
 	flex-direction:row;
-	flex-wrap:wrap;
+  flex-wrap:wrap;
+  /* align-items: stretch; */
 
 	margin-top:50px;
 }
@@ -1052,10 +1062,16 @@ font-size: 1rem;
 .texto-home>h2{
 
 padding-bottom: 20px;
-}
-.texto-home>span{
+color: var(--gris-oscuro);
+/* font-family: 'RobotoRegular'; */
+font-weight: 900;
 
-  color: var(--gris-oscuro)
+}
+.texto-home>span>h4{
+
+  color: var(--gris-oscuro);
+  font-family: 'RobotoRegular';
+  font-weight: 300;
 
 }
 /* 
@@ -1394,6 +1410,7 @@ ul li i:after {
 }
 .Info_wrapper {
   margin-bottom: 70px;
+  padding: 10px;
 }
 .Info_emails {
   display: flex;
@@ -1401,6 +1418,12 @@ ul li i:after {
   justify-content: center;
   width: 100%;
 }
+
+.Contacto_article>p{
+margin-bottom: 30px;
+
+}
+
 
 @media screen and (max-width: 1200px) {
   .Contactos_root {
@@ -1432,6 +1455,7 @@ ul li i:after {
   .Info_emails {
     width: 100%;
     display: block;
+    /* padding: 10px; */
     /*-webkit-box-pack:justify;
   -ms-flex-pack:justify;
   justify-content:space-between*/
@@ -1439,6 +1463,7 @@ ul li i:after {
   .Info_wrapper {
     box-sizing: border-box;
     margin-bottom: 20px;
+    /* padding: 10px; */
   }
 }
 @media screen and (max-width: 800px) {
@@ -1664,7 +1689,12 @@ margin-top: 14px*/
   
 }
 
+.contacto>h3{
+  margin-bottom: 30px;
+  
 
+
+}
 
 
 
