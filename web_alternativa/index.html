@@ -136,8 +136,7 @@
 <main id="content">
 
 		<!--   H O M E   -->
-		<section name="home" class="Slide">
-			<div class="SlideContenido Home">
+		<section name="home" class="SlideHOME Home">
 				<div class="img-abstracta">
 					<img  src="img/gauss-abstract-asset.svg"></img>
 				</div>
@@ -150,18 +149,11 @@
 							Consultoria, desarrollo y soporte técnico.
 					</h4></span>
 				</div>		
-			</div>
 		</section>
 
 
-<section class="section center" style="background-color:var(--celeste-oscuro)"> <!-- name="objtivo" class="Slide slide-alternativo">
-        <div class="objetivo">
-        <span class="word">Modelado</span>
-        <span class="word">para</span>
-        <span class="word">resolver</span>
-        <span class="word">problemas</span>
-        <span class="word">ambientales</span>
-        </div-->
+<section class="slide center" style="background-color:var(--celeste-oscuro)">
+
 	<div style="margin-top:auto;margin-bottom:auto;color:var(--blanco);">
 	<h2>Modelado para resolver problemas ambientales</h2>
 	</div>
@@ -169,13 +161,7 @@
 
 
 
-
-
-
-
-
-
-		<section class="section right">
+		<section class="slide right">
 					<div class="column-image">
 						  <img src="img/am-pholder.png" alt="">
 					</div>
@@ -189,7 +175,7 @@
 					</div>
 		</section>
 
-		<section class="section left">
+		<section class="slide left">
 					<div class="column-image animate">
 						  <img src="img/gw-pholder.png" alt="">
 					</div>
@@ -203,7 +189,7 @@
 					</div>
 		</section>
 
-		<section class="section right">
+		<section class="slide right">
 					<div class="column-image animate">
 						  <img src="img/sw-pholder.png" alt="">
 					</div>
@@ -222,43 +208,42 @@
 
 
                 <!-- GEO-SP   -->
-                <section class="Slide-oscuro section center">
-                                        <div class="col">
-                                                <!-- <h3>GIS</h3> -->
-                                         	<i class="fa fa-globe fa-4x" aria-hidden="true" style="fill:white;color:white;margin-bottom:10px;"></i>
-					        <h2 class="white"> Soluciones <br> Geo-espaciales.</h2>
-                                                <p class="white"> Explotamos la dimensión espacial de tu proyecto para darte nuevas
-                                                        perspectivas. Generamos cartografía digital en ambientes web.
-                                                        Realizamos estudios ambientales mediante el uso de herramientas de análisis
-                                                        espacial (GIS). </p>
-                                        </div>
-                                        <div id="view" class="col">
-                                                <div id="labels"></div>
-                                                <!-- <div id="northarrow"></div> -->
-
-                                        </div>
-                                <label class=hidden>
-                                        <button class="btn hidden" id="stop-button" title="stop orbitting"><i
-                                                        class="fas fa-stop-circle fa-2x"></i></button>
-                                        <label class="switch hidden" title="AR mode"></label>
-                                        <button class="btn hidden" id="current-location" title="move to current location"><i
-                                                        class="fas fa-crosshairs fa-2x hidden"></i></button>
-                                        <button class="btn btn2 " id="layers-button" title="layer list"><i
-                                                        class="fas fa-layer-group fa-2x"></i></button>
-                                        <button class="btn btn3" id="settings-button" title="settings"><i
-                                                        class="fas fa-cog fa-2x"></i></button>
-                                        <button class="btn btn4" id="info-button" title="about this page"><i
-                                                        class="fas fa-info-circle fa-2x"></i></button>
-                                        <input type="checkbox hidden" id="ar-checkbox">
-                                        <input type="checkbox" class="hidden" id="camera-enabled" checked disabled>
-                                        <input class="hidden" type="number" id="fov">
-                                        <input type="checkbox" class="hidden" id="save-in-storage">
-                                        <button id="settings-ok" class="hidden"></button>
-                                        <button id="settings-cancel" class="hidden"></button>
-                                </label>
+                <section class="slide center Slide-oscuro">
+                	<div class="column-text">
+                               <!-- <h3>GIS</h3> -->
+                               <i class="fa fa-globe fa-4x" aria-hidden="true" style="fill:white;color:white;margin-bottom:10px;"></i>
+			       <h2 class="white"> Soluciones <br> Geo-espaciales.</h2>
+                               <p class="white"> Explotamos la dimensión espacial de tu proyecto para darte nuevas
+                                       perspectivas. Generamos cartografía digital en ambientes web.
+                                       Realizamos estudios ambientales mediante el uso de herramientas de análisis
+                                       espacial (GIS). </p>
+                               <div id="view">
+                               		<div id="labels"></div>
+                                       <!-- <div id="northarrow"></div> -->
+                               		</div>
+                                	<label class=hidden>
+                                	        <button class="btn hidden" id="stop-button" title="stop orbitting"><i
+                                	                        class="fas fa-stop-circle fa-2x"></i></button>
+                                	        <label class="switch hidden" title="AR mode"></label>
+                                	        <button class="btn hidden" id="current-location" title="move to current location"><i
+                                	                        class="fas fa-crosshairs fa-2x hidden"></i></button>
+                                	        <button class="btn btn2 " id="layers-button" title="layer list"><i
+                                	                        class="fas fa-layer-group fa-2x"></i></button>
+                                	        <button class="btn btn3" id="settings-button" title="settings"><i
+                                	                        class="fas fa-cog fa-2x"></i></button>
+                                	        <button class="btn btn4" id="info-button" title="about this page"><i
+                                	                        class="fas fa-info-circle fa-2x"></i></button>
+                                	        <input type="checkbox hidden" id="ar-checkbox">
+                                	        <input type="checkbox" class="hidden" id="camera-enabled" checked disabled>
+                                	        <input class="hidden" type="number" id="fov">
+                                	        <input type="checkbox" class="hidden" id="save-in-storage">
+                                	        <button id="settings-ok" class="hidden"></button>
+                                	        <button id="settings-cancel" class="hidden"></button>
+                                	</label>
+                	</div>
                 </section>
 
-		<section name="servicios" class="Slide">
+		<section name="servicios" class="slide center">
 			<div class="SlideContenido Servicios">
 			<h2 class="titulo"> Servicios </h2>
 			<h3 class="subtitulo">Trabajamos en las principales demandas de la industria en materia ambiental.</h3>
@@ -266,43 +251,40 @@
 		</section>
 
 
-			<!--   TOXDB   -->
-			<section class="Slide-oscuro section center">
-						<div class="column-text">	
-							<i class="fa fa-code fa-4x" aria-hidden="true" style="fill:white;color:white;margin-bottom:10px;"></i>
-							<h2 class="white">Bases de datos </h2>
-							<p class="white"> Desarrollamos y mantenemos bases de datos de contenido ambiental para agilizar el  <strong>Tox.db</strong>: Una base de datos abierta a la comunidad de profesionales del ambiente y la salud, condensando la información relevante de los compuestos químicos de interés regulados. Es una plataforma gratuita y abierta, en constante crecimiento.</p>
-							<a class="btn" href="">                					
-        							<div class="text">Ver más</div>
-        						</a>
+		<!--   TOXDB   -->
+		<section class="Slide-oscuro slide center">
+			<div class="column-text">	
+				<i class="fa fa-code fa-4x" aria-hidden="true" style="fill:white;color:white;margin-bottom:10px;"></i>
+				<h2 class="white">Bases de datos </h2>
+				<p class="white"> Desarrollamos y mantenemos bases de datos de contenido ambiental para agilizar el  <strong>Tox.db</strong>: Una base de datos abierta a la comunidad de profesionales del ambiente y la salud, condensando la información relevante de los compuestos químicos de interés regulados. Es una plataforma gratuita y abierta, en constante crecimiento.</p>
+				<a class="btn" href="">	<div class="text">Ver más</div>	</a>
 
+			<!--div>
+				<img class="img-card" src="img/Toxb-mac-dark.png"></img>
+			</div -->
+			<!-- div class="StatsContainer" style="color:white">
+					<div class="stats">
+						<div class="counting" data-count="5000">0</div>
+						<h5 class="texto">Compuestos</h5>
+					</div>
 
-						</div>
-						<!--div>
-							<img class="img-card" src="img/Toxb-mac-dark.png"></img>
-						</div -->
-						<div class="StatsContainer" style="color:white">
-								<div class="stats">
-									<div class="counting" data-count="5000">0</div>
-									<h5 class="texto">Compuestos</h5>
-								</div>
-
-								<div class="stats">
-									<div class="counting" data-count="10">0</div>
-									<h5 class="texto">Repositorios</h5>
-								</div>
-								<div class="stats">
-									<div class="counting" data-count="5">0</div>
-									<h5 class="texto">Decretos</h5>
-								</div>
-						</div>
-							<!-- end container -->
-			</section>
+					<div class="stats">
+						<div class="counting" data-count="10">0</div>
+						<h5 class="texto">Repositorios</h5>
+					</div>
+					<div class="stats">
+						<div class="counting" data-count="5">0</div>
+						<h5 class="texto">Decretos</h5>
+					</div>
+			</div -->
+				<!-- end container -->
+			</div>
+		</section>
 
 
 
 		<!--  C O N T A C T O -->
-			<section name="contacto" class="section center">
+			<section name="contacto" class="slide center">
 					<h2>Contacto</h2>
 					<h3>¿En qué podemos ayudarte? </h3>
 					<!-- <small> Contactanos</small> -->
@@ -333,12 +315,11 @@
 									placeholder="Tu mensaje">
 							</div>
 						</div>
+							<a class="btn">
 						<div class="Formulario_control">
-							<span></span>
-							<div class="Formulario_boton">
-								<button class="boton" type="submit" id="submit-form">Enviar</button>
-							</div>
+								<button class="" type="submit" id="submit-form">Enviar</button>
 						</div>
+							</a>
 					</form>
 					<!-- INFO : -->
 					<div class="Contactos_info">
