@@ -146,62 +146,61 @@ $(document).ready(function(){
 
 
 //Para el slider de SERVICIOS
+//var slideIndex = 1;
+//showSlides(slideIndex);
+//
+//function plusSlides(n) {
+//  showSlides(slideIndex += n);
+//}
+//
+//function currentSlide(n) {
+//  showSlides(slideIndex = n);
+//}
+//
+//function showSlides(n) {
+//  var i;
+//  var slides = document.getElementsByClassName("mySlides");
+//  var dots = document.getElementsByClassName("dot");
+//  if (n > slides.length) {slideIndex = 1}
+//  if (n < 1) {slideIndex = slides.length}
+//  for (i = 0; i < slides.length; i++) {
+//      slides[i].style.display = "none";
+//  }
+//  for (i = 0; i < dots.length; i++) {
+//      dots[i].className = dots[i].className.replace(" active", "");
+//  }
+//  slides[slideIndex-1].style.display = "block";
+//  dots[slideIndex-1].className += " active";
+//}
 
-var slideIndex = 1;
-showSlides(slideIndex);
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
 
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}
-
-// CANVAS--
-
-Q3D.Config.bgColor = '#1f1f1f';
-Q3D.Config.localMode = true;
-Q3D.Config.AR.MND = 0.0;
-
-var container = document.getElementById("view");
-app.init(container);          // initialize application
-init();                       // initialization for mobile template
-
-app.addEventListener("sceneLoaded", function () {
-  initLayerList();
-});
-
-// load the scene
-app.loadSceneFile("./data/index/scene.js", function () {
-  app.start();
-
-  // North arrow inset
-  // if (Q3D.Config.northArrow.visible) app.buildNorthArrow(document.getElementById("northarrow"), app.scene.userData.rotation);
-
-  // if ("AR" in app.urlParams) {
-  //   document.getElementById("ar-checkbox").checked = true;
-  //   startARMode();
-  //   moveToCurrentLocation();
-  // }
-});
-
+// QGIS-CANVAS
+//Q3D.Config.bgColor = '#1f1f1f';
+//Q3D.Config.localMode = true;
+//Q3D.Config.AR.MND = 0.0;
+//
+//var container = document.getElementById("view");
+//app.init(container);          // initialize application
+//init();                       // initialization for mobile template
+//
+//app.addEventListener("sceneLoaded", function () {
+//  initLayerList();
+//});
+//
+//// load the scene
+//app.loadSceneFile("./data/index/scene.js", function () {
+//  app.start();
+//
+//  // North arrow inset
+//  // if (Q3D.Config.northArrow.visible) app.buildNorthArrow(document.getElementById("northarrow"), app.scene.userData.rotation);
+//
+//  // if ("AR" in app.urlParams) {
+//  //   document.getElementById("ar-checkbox").checked = true;
+//  //   startARMode();
+//  //   moveToCurrentLocation();
+//  // }
+//});
 
 
 
@@ -212,29 +211,27 @@ app.loadSceneFile("./data/index/scene.js", function () {
 
 
 // Animación de contador, using jQuery animate
-
-$('.counting').each(function() {
-  var $this = $(this),
-      countTo = $this.attr('data-count');
-  
-  $({ countNum: $this.text()}).animate({
-    countNum: countTo
-  },
-
-  {
-
-    duration: 3000,
-    easing:'linear',
-    step: function() {
-      $this.text(Math.floor(this.countNum));
-    },
-    complete: function() {
-      $this.text(this.countNum);
-      //alert('finished');
-    }
-
-  });  
-  
-
-});
-
+//$('.counting').each(function() {
+//  var $this = $(this),
+//      countTo = $this.attr('data-count');
+//  
+//  $({ countNum: $this.text()}).animate({
+//    countNum: countTo
+//  },
+//
+//  {
+//
+//    duration: 3000,
+//    easing:'linear',
+//    step: function() {
+//      $this.text(Math.floor(this.countNum));
+//    },
+//    complete: function() {
+//      $this.text(this.countNum);
+//      //alert('finished');
+//    }
+//
+//  });  
+//  
+//
+//});
