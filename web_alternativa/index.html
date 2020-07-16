@@ -57,10 +57,10 @@
 
 
 	<link rel="icon" type="image/png" href="img/icon-gauss.png" sizes="512x512">
-	<!-- link rel="mask-icon" href="fonts/safari-pinned-tab.fcceb5.svg" color="#5bbad5">
+	<link rel="mask-icon" href="fonts/safari-pinned-tab.fcceb5.svg" color="#5bbad5">
 	<link rel="manifest" href="/static/faviconFiles/manifest.json">
 	<script src="https://kit.fontawesome.com/32f3fc8ac1.js" crossorigin="anonymous"></script>
-	<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script -->
+	<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
 
 	<!-- <script>
 		document.documentElement.style.fontFamily = 'AvenirNextBold';
@@ -93,41 +93,41 @@
 
 	<!--  MENU  -->
 	<div>
-		<section class="TabletMenu_root">
-		<div class="TabletMenu_wrapper">
-		<div class="TabletMenu_lenguaje">
-			<nav>
-				<a class="TabletMenu_deshabilitado" href="en.html">EN</a>
-				<a href="#"class="TabletMenu_current">ES</a>
-			</nav>
-		</div>
-		<nav class="TabletMenu_lista">
-			<a href="#" data-scroll="home">
-				<div class="Item_item" style="animation-delay: 0.1s;">Principal</div>
-			</a>
-			<a href="#" data-scroll="modelos">
-				<div class="Item_item" style="animation-delay: 0.17s;">Modelos</div>
-			</a>
-			<a href="#" data-scroll="servicios">
-				<div class="Item_item" style="animation-delay: 0.24s;">Servicios</div>
-			</a>
-			<a href="#" data-scroll="contacto">
-				<div class="Item_item" style="animation-delay: 0.31s;">Contacto</div>
-			</a>
+	<section class="TabletMenu_root">
+	<div class="TabletMenu_wrapper">
+	  <div class="TabletMenu_lenguaje">
+	    <nav>
+	    	<a class="TabletMenu_deshabilitado subrayar" href="en.html">EN</a>
+	    	<a href="#"class="TabletMenu_current">ES</a>
+	    </nav>
+	  </div>
+	  <nav class="TabletMenu_lista">
+	  	<a href="#" data-scroll="home">
+	  		<div class="TabletMenu_item" style="animation-delay: 0.1s;">Principal</div>
+	  	</a>
+	  	<a href="#" data-scroll="modelos">
+	  		<div class="TabletMenu_item" style="animation-delay: 0.17s;">Modelos</div>
+	  	</a>
+	  	<a href="#" data-scroll="servicios">
+	  		<div class="TabletMenu_item" style="animation-delay: 0.24s;">Servicios</div>
+	  	</a>
+	  	<a href="#" data-scroll="contacto">
+	  		<div class="TabletMenu_item" style="animation-delay: 0.31s;">Contacto</div>
+	  	</a>
 
-			<a class="TabletMenu__insta" title="linkedin"
-				href="https://www.linkedin.com/company/gauss-ma"><i class="fab fa-linkedin"
-					aria-hidden="true"></i></a>
-			<a class="TabletMenu__git" title="github" href="https://github.com/gauss-ma"><i
-					class="fab fa-github" aria-hidden="true"></i></a>
-		</nav>
-		<div class="TabletMenu_links">
-			<div class="TabletMenu_email">
-				<a target="_self" href="mailto:contacto@gauss-ma.com.ar">contacto@gauss-ma.com.ar</a>
-			</div>
-		</div>
-		</div>
-		</section>
+	  	<a class="TabletMenu__insta" title="linkedin"
+	  		href="https://www.linkedin.com/company/gauss-ma"><i class="fab fa-linkedin"
+	  			aria-hidden="true"></i></a>
+	  	<a class="TabletMenu__git" title="github" href="https://github.com/gauss-ma"><i
+	  			class="fab fa-github" aria-hidden="true"></i></a>
+	  </nav>
+	  <div class="TabletMenu_links">
+	  	<div class="TabletMenu_email subrrayar">
+	  		<a target="_self" href="mailto:contacto@gauss-ma.com.ar">contacto@gauss-ma.com.ar</a>
+	  	</div>
+	  </div>
+	</div>
+	</section>
 	</div>
 
 
@@ -138,7 +138,8 @@
 		<!--   H O M E   -->
 		<section name="home" class="SlideHOME Home">
 				<div class="img-abstracta">
-					<img  src="img/gauss-abstract-asset.svg"></img>
+					<!--img  src="img/gauss-abstract-asset.svg"></img-->
+					<object type="image/svg+xml" data="img/gauss_abstract.svg"></object>
 				</div>
 				<div class="texto-home">	
 					<!-- <h1> Gauss </h1> -->
@@ -152,49 +153,54 @@
 		</section>
 
 
-<section class="slide center" style="background-color:var(--celeste-oscuro)">
-
-	<div style="margin-top:auto;margin-bottom:auto;color:var(--blanco);">
-	<h2>Modelado para resolver problemas ambientales</h2>
+<section name="objetivo" class="slide center" style="background-color:var(--celeste-oscuro)">
+	<div class="words">
+		<span>Modelos		</span> 
+		<span>computacionales	</span>
+	    	<span>al		</span> 
+		<span>servicio		</span>
+		<span>del		</span>
+		<span>ambiente.		</span>
 	</div>
 </section>
 
 
 		<section name="modelos" class="slide right">
-					<div class="column-image">
-						  <img src="img/img-air.png" alt="">
-					</div>
 					<div class="column-text">
 						<h4>MODELADO</h4>
 						<h2>Calidad del Aire</h2>
 						<p>Simulamos la calidad del aire para fuentes emisoras, utilizando softwar reconocido internacionalmente y aprobado por autoridades regulatorias locales.</p>
 						<a class="btn" href="">Ver más</a>
 					</div>
+					<div class="column-image">
+						  <img src="img/img-air.png" alt="">
+					</div>
+
 		</section>
 
 		<section class="slide left">
-					<div class="column-image animate">
-						  <img src="img/img-gw.png" alt="">
-					</div>
 					<div class="column-text">
 						<h4>MODELADO</h4>
 						<h2>Aguas subterraneas</h2>
-						<p>Modelamos el movimiento de contaminantes en medios  porosos saturados y no saturados mediante el sistema de modelado MODFLOW desarrollado por el US-GS.</p>
+						<p>Modelamos el movimiento de contaminantes en medios  porosos saturados y no saturados mediante el sistema de modelado MODFLOW desarrollado por el USGS.</p>
 						<a class="btn" href="">Ver más</a>
+					</div>
+					<div class="column-image">
+						 <img src="img/img-gw.png" alt="">
 					</div>
 		</section>
 
 		<section class="slide right">
-					<div class="column-image animate">
-						  <img src="img/img-sw.png" alt="">
-					</div>
 					<div class="column-text">
 						<h4>MODELADO</h4>
 						<h2>Aguas superficiales</h2>
-						<p>Modelamos el movimiento de contaminantes en medios  porosos saturados y no saturados mediante el sistema de modelado MODFLOW desarrollado por el US-GS.</p>
+						<p>Modelamos el transporte de especies químicas en ríos y lagos mediante modelos desarrollados y recomendados por EPA tales como WASP, AQUATOX, entre otros.</p>
 						<a class="btn" href="">Ver más</a>
 					</div>
-		</section>
+					<div class="column-image">
+        					  <img src="img/img-sw.png" alt="">
+        				</div>
+	</section>
 
 
 
@@ -253,7 +259,7 @@
 			<div class="column-text">	
 				<i class="fa fa-code fa-4x" aria-hidden="true" style="fill:white;color:white;margin-bottom:10px;"></i>
 				<h2 class="white">Bases de datos </h2>
-				<p class="white"> Desarrollamos y mantenemos bases de datos de contenido ambiental para agilizar el  <strong>Tox.db</strong>: Una base de datos abierta a la comunidad de profesionales del ambiente y la salud, condensando la información relevante de los compuestos químicos de interés regulados. Es una plataforma gratuita y abierta, en constante crecimiento.</p>
+				<p class="white"> Desarrollamos y mantenemos bases de datos con aplicaciones ambientales con el fin de agilizar el acceso de información.<br> Creamos <strong>Tox.db</strong>: una base de datos abierta a la comunidad de profesionales del ambiente y la salud que condensa información relevante de los compuestos químicos de interés regulados. Es una plataforma gratuita y abierta en constante crecimiento.</p>
 				<a class="btn" href="">	<div class="text">Ver más</div>	</a>
 
 			<!--div>
@@ -285,9 +291,9 @@
 					<h2>Contacto</h2>
 					<h3>¿En qué podemos ayudarte? </h3>
 					<!-- <small> Contactanos</small> -->
-				<div class="Contactos_wrapper">
+				<div class="Contactos_wrapper ">
 					<!-- FORM : -->
-					<form class="Contactos_formulario" action="php/mail.php" method="POST">
+					<form class="column-text Contactos_formulario" action="php/mail.php" method="POST">
 						<div class="Formulario_input-wrapper">
 							<div class="Formulario_mitad">
 								<div class="Formulario_campo">
@@ -307,21 +313,21 @@
 						<div class="Formulario_campo">
 							<label for="mensaje" class="Formulario_cuadro"></label>
 							<div class="Formulario_mensaje">
-								<textarea tabindex="-1" rows="1" readonly=""></textarea>
-								<input id="mensaje" name="mensaje" rows="1" class="Formulario_texto"
-									placeholder="Tu mensaje">
+								<!-- textarea tabindex="-1" rows="3" readonly="" class="Formulario_texto" placeholder="Tu mensaje"></textarea-->
+								<input id="mensaje" name="mensaje" rows="3" class="Formulario_texto" placeholder="Tu mensaje">
 							</div>
 						</div>
 						<a class="btn" type="submit" id="submit-form">Enviar</a>
 					</form>
 					<!-- INFO : -->
-					<div class="Contactos_info">
-						<div>	
+					<div class="column-text">
+						<div class="Contactos_info">
+							<!-- i class="fa fa-4x fa-life-ring"></i><br -->
 							<p>¿Necesitás asesoramiento?<br>Escribinos y trabajemos juntos.</p>
 							<a class="subrrayar" href="mailto:contacto@gauss-ma.com.ar">contacto@gauss-ma.com.ar</a>
 						</div>
-        					<div>	
-							<!-- i class="fa fa-4x fa-life-ring"></i><br -->                                        			
+        					<div class="Contactos_info">	
+							<!-- i class="fa fa-4x fa-life-ring"></i><br -->
         						<p>¿Querés unirte al grupo?<br>¡Contanos tu historia!</p>
                                                         <a class="subrrayar" href="mailto:join@gauss-ma.com.ar">join@gauss-ma.com.ar</a>
         					</div>
@@ -341,17 +347,16 @@
   	<div class="articulo" >
   	    <h6 >Sobre GAUSS</h6>
   	    <p>
-	    Gauss es un emprendimiento joven, comprometido con crear un producto cada vez mejor y siempre en busca de un nuevo desafío. Somos un grupo de profesionales del Ambiente, tantas disciplinas como problemas haya por resolver.       
-  	    </p>
+	    Gauss es un emprendimiento joven, comprometido con crear productos de calidad con alto nivel tecnológico y apasionados por resolver nuevos desafíos. Somos un grupo de profesionales del ambiente especializados en distintas áreas lo que nos brinda una mirada profunda al enfrentar problemas ambientales de alta complejidad.</p>
   	</div>
     <hr>
   	<div class="container">
   	  <div class="row">
   	    <div>
-  	    <p>Desde GAUSS realizamos desarrollos de código abierto.</p>
+  	    <p>Desde GAUSS también realizamos desarrollo de software libre.</p>
   	    <p>Para contribuir, visitá <a href="https://github.com/gauss-ma/">github.com/gauss-ma/</a></p>
   	    </div>
-  	    <a class="github" href="#"><i class="fa fa-3x fa-github"></i></a>
+  	    <a class="github" href="#"><i class="fa fa-4x fa-github"></i></a>
   	  </div>
   	</div>
 </footer>

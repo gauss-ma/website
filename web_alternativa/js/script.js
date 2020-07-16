@@ -19,7 +19,7 @@ $(document).ready(function(){
                 $menu.addClass("activo");
                 $btn_menu.addClass('burguer_activo');
                 $btn_menu.removeClass('burger_inactivo');
-                $menu.show();
+                $menu.toggle();//show();
                 $("body").addClass("touch-off no-scroll");
                 setBlack();
         };
@@ -29,7 +29,7 @@ $(document).ready(function(){
                 $menu.removeClass("activo");
                 $btn_menu.addClass('burger_inactivo');
                 $btn_menu.removeClass('burguer_activo');
-                $menu.slideUp(); // $menu.hide();
+                $menu.toggle();//$menu.slideUp(); // $menu.hide();
                 $("body").removeClass("touch-off no-scroll");
                 //setWhite();
         };
@@ -123,9 +123,9 @@ $(document).ready(function(){
         ;}
         
  	pos_home = $("section[name=home]").position().top;             
- 	//pos_objetivo = $("section[name=objetivo]").position().top;
- 	//pos_modelos = $("section[name=modelos]").position().top;
- 	pos_productos = $("section[name=productos]").position().top;
+ 	pos_objetivo = $("section[name=objetivo]").position().top;
+ 	pos_modelos = $("section[name=modelos]").position().top;
+ 	//pos_productos = $("section[name=productos]").position().top;
  	pos_servicios = $("section[name=servicios]").position().top;       
  	pos_contacto = $("section[name=contacto]").position().top;
  	//pos_office = $("section[name=office]").position().top;
