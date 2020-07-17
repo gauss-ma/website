@@ -371,20 +371,12 @@
 
 
 @keyframes shake {
-  10%, 90% {
-    transform: translate3d( 0px,-1px,  0px);
-  }
-
-  20%, 80% {
-    transform: translate3d( 2px, 0px, 0px);
-  }
-
-  30%, 50%, 70% {
-    transform: translate3d( 0px,-1px,  0px);
-  }
-
-  40%, 60% {
-    transform: translate3d( 0px, 0px, 2px);
-  }
+   5%, 20%{    transform: translate3d( 1px,-1px,  1px);   }
+  10%, 90%{    transform: translate3d( 0px,-1px,  0px);   }
+  20%, 30%{    transform: translate3d( 0px,-1px, -1px);   }
+  20%, 80%{    transform: translate3d( 2px, 0px,  0px);   }
+  30%, 50%{    transform: translate3d( 0px, 1px,  0px);   }
+  40%, 60%{    transform: translate3d( 0px, 0px,  2px);   }
+  50%, 70%{    transform: translate3d(-1px, 1px,  0px);   }
 }
 
