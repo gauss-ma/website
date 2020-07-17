@@ -262,13 +262,10 @@ $(document).ready(function(){
           compareTop    = partial === true ? _bottom : _top,
           compareBottom = partial === true ? _top : _bottom;
     
-    return ((compareBottom <= viewBottom) && (compareTop-50 >= viewTop));
+    return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
   };
   
 })(jQuery);
-
-
-
 
 var allMods = $(".column-text");
 
