@@ -114,33 +114,33 @@ $(document).ready(function(){
         };
 
         //
-        function showObjetivoText(){
-                // renred-word word_root word_show-now
-                $( ".renred-word" ).each(function( index ) {
-                        $(this).addClass("word_show-now");
-                });
+        //function showObjetivoText(){
+        //        // renred-word word_root word_show-now
+        //        $( ".renred-word" ).each(function( index ) {
+        //                $(this).addClass("word_show-now");
+        //        });
 
-        ;}
-        
- 	pos_home = $("section[name=home]").position().top;             
- 	pos_objetivo = $("section[name=objetivo]").position().top;
- 	pos_modelos = $("section[name=modelos]").position().top;
- 	//pos_productos = $("section[name=productos]").position().top;
- 	pos_servicios = $("section[name=servicios]").position().top;       
- 	pos_contacto = $("section[name=contacto]").position().top;
- 	//pos_office = $("section[name=office]").position().top;
+        //;}
+        //
+ 	//pos_home = $("section[name=home]").position().top;             
+ 	//pos_objetivo = $("section[name=objetivo]").position().top;
+ 	//pos_modelos = $("section[name=modelos]").position().top;
+ 	////pos_productos = $("section[name=productos]").position().top;
+ 	//pos_servicios = $("section[name=servicios]").position().top;       
+ 	//pos_contacto = $("section[name=contacto]").position().top;
+ 	////pos_office = $("section[name=office]").position().top;
 
-	$(window).on("scroll", function() {
-            var position = $(window).scrollTop()
-            console.log(position);
-            //     if (position > pos_objetivo  & position < pos_modelos  ) { setWhite(); showObjetivoText();  console.log("Objetivo!!"); }
-           //if (position > pos_modelos   & position < pos_productos) { setBlack();$(".Modelos").addClass("faded")  ;  console.log("Modelos!!");  }
-           if (position > pos_productos & position < pos_servicios) { setBlack();$(".Productos").show();  console.log("Productos!!");}
-           else if (position > pos_servicios & position < pos_contacto ) { setBlack();$(".Servicios").show();  console.log("Servicios!!");}
-           else if (position > pos_contacto  ) { setBlack();$(".Contacto").show();  console.log("Contacto!!"); }
-           //else if (position > pos_office ){ setWhite();}
-           else{setBlack();}
-        });
+	//$(window).on("scroll", function() {
+        //    var position = $(window).scrollTop()
+        //    console.log(position);
+        //    //     if (position > pos_objetivo  & position < pos_modelos  ) { setWhite(); showObjetivoText();  console.log("Objetivo!!"); }
+        //   //if (position > pos_modelos   & position < pos_productos) { setBlack();$(".Modelos").addClass("faded")  ;  console.log("Modelos!!");  }
+        //   if (position > pos_productos & position < pos_servicios) { setBlack();$(".Productos").show();  console.log("Productos!!");}
+        //   else if (position > pos_servicios & position < pos_contacto ) { setBlack();$(".Servicios").show();  console.log("Servicios!!");}
+        //   else if (position > pos_contacto  ) { setBlack();$(".Contacto").show();  console.log("Contacto!!"); }
+        //   //else if (position > pos_office ){ setWhite();}
+        //   else{setBlack();}
+        //});
 
 });
 
@@ -235,3 +235,67 @@ $(document).ready(function(){
 //  
 //
 //});
+//
+(function($) {
+
+	
+	
+//
+//  /**
+//   * Copyright 2012, Digital Fusion
+//   * Licensed under the MIT license.
+//   * http://teamdf.com/jquery-plugins/license/
+//   *
+//   * @author Sam Sehnert
+//   * @desc A small plugin that checks whether elements are within
+//   *     the user visible viewport of a web browser.
+//   *     only accounts for vertical position, not horizontal.
+//   */
+//
+  $.fn.visible = function(partial) {
+      var $t            = $(this),
+          $w            = $(window),
+          viewTop       = $w.scrollTop(),
+          viewBottom    = viewTop + $w.height()/10.,
+          _top          = $t.offset().top,
+          _bottom       = _top + $t.height(),
+          compareTop    = partial === true ? _bottom : _top,
+          compareBottom = partial === true ? _top : _bottom;
+    
+    return ((compareBottom <= viewBottom) && (compareTop-50 >= viewTop));
+  };
+  
+})(jQuery);
+
+
+
+
+var allMods = $(".column-text");
+
+var pos_objetivo = $("section[name=objetivo]").position().top;
+
+allMods.each(function(i, el) {
+  var el = $(el);
+  if (el.visible(true)) {
+    el.children().addClass("visible"); 
+  } 
+});
+
+$(window).scroll(function(event) {
+ 	pos=$(window).scrollTop(); 
+ 	console.log(pos);
+
+	if(pos>=pos_objetivo){
+		$(".words").children().addClass("activo");
+	}
+  	allMods.each(function(i, el) {
+  	  var el = $(el);
+  	  if (el.visible(true)) {
+  	    el.addClass("visible"); 
+  	  } 
+  	  else{
+  	    el.removeClass("visible"); 
+  	  }
+  	});
+  
+});

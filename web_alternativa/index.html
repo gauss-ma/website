@@ -166,7 +166,7 @@
 
 
 		<section name="modelos" class="slide right">
-					<div class="column-text">
+					<div class="column-text end">
 						<h4>MODELADO</h4>
 						<h2>Calidad del Aire</h2>
 						<p>Simulamos la calidad del aire para fuentes emisoras, utilizando softwar reconocido internacionalmente y aprobado por autoridades regulatorias locales.</p>
@@ -179,7 +179,7 @@
 		</section>
 
 		<section class="slide left">
-					<div class="column-text">
+					<div class="column-text center">
 						<h4>MODELADO</h4>
 						<h2>Aguas subterraneas</h2>
 						<p>Modelamos el movimiento de contaminantes en medios  porosos saturados y no saturados mediante el sistema de modelado MODFLOW desarrollado por el USGS.</p>
@@ -191,7 +191,7 @@
 		</section>
 
 		<section class="slide right">
-					<div class="column-text">
+					<div class="column-text start">
 						<h4>MODELADO</h4>
 						<h2>Aguas superficiales</h2>
 						<p>Modelamos el transporte de especies químicas en ríos y lagos mediante modelos desarrollados y recomendados por EPA tales como WASP, AQUATOX, entre otros.</p>
@@ -291,36 +291,24 @@
 					<h2>Contacto</h2>
 					<h3>¿En qué podemos ayudarte? </h3>
 					<!-- <small> Contactanos</small> -->
-				<div class="Contactos_wrapper ">
+				<div class="Contactos_wrapper">
 					<!-- FORM : -->
-					<form class="column-text Contactos_formulario" action="php/mail.php" method="POST">
-						<div class="Formulario_input-wrapper">
-							<div class="Formulario_mitad">
-								<div class="Formulario_campo">
-									<label for="nombre" class="Formulario_cuadro"></label>
-									<input type="text" name="nombre" id="nombre"
-										class="Formulario_texto" placeholder="Tu nombre">
-								</div>
-							</div>
-							<div class="Formulario_mitad">
-								<div class="Formulario_campo">
-									<label for="email" class="Formulario_cuadro"></label>
-									<input type="text" name="email" id="email" class="Formulario_texto"
-										placeholder="Tu correo">
-								</div>
-							</div>
+					<form class="Contactos-form-wrapper column-text center" action="php/mail.php" method="POST">
+						<div class="Form-2-col">
+						   <div class=" Form_campo Form-col-mitad">
+						   		<input type="text" name="nombre" id="nombre" class="Form-input" placeholder="Tu nombre">
+						   </div>
+						   <div class="Form_campo Form-col-mitad ">
+						   	<input type="text" name="email" id="email" class="Form-input" placeholder="Tu correo">
+						   </div>
 						</div>
-						<div class="Formulario_campo">
-							<label for="mensaje" class="Formulario_cuadro"></label>
-							<div class="Formulario_mensaje">
-								<!-- textarea tabindex="-1" rows="3" readonly="" class="Formulario_texto" placeholder="Tu mensaje"></textarea-->
-								<input id="mensaje" name="mensaje" rows="3" class="Formulario_texto" placeholder="Tu mensaje">
-							</div>
+						<div class="Form_campo">
+							<input id="mensaje" name="mensaje" rows="3" class="Form-input" placeholder="Tu mensaje">
 						</div>
 						<a class="btn" type="submit" id="submit-form">Enviar</a>
 					</form>
 					<!-- INFO : -->
-					<div class="column-text">
+					<div class="Contactos-info-wrapper column-text">
 						<div class="Contactos_info">
 							<!-- i class="fa fa-4x fa-life-ring"></i><br -->
 							<p>¿Necesitás asesoramiento?<br>Escribinos y trabajemos juntos.</p>
