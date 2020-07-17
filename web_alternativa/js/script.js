@@ -337,3 +337,137 @@ $(window).scroll(function(event) {
   	});
   
 });
+
+
+
+
+
+
+
+
+
+
+    	// ESCENA
+    	var scene = new THREE.Scene();
+    	
+	var canvasWidth=$("#miCanvas").innerWidth();
+	var canvasHeight=$("#miCanvas").innerHeight();
+    	// CAMARA
+    	var camera = new THREE.PerspectiveCamera(25, window.innerWidth/window.innerHeight, .1, 50) //params: zoom, ratioW/H, near, far
+    	//var camera = new THREE.PerspectiveCamera(50, canvasWidth/canvasHeight, .1, 500) //params: zoom, ratioW/H, near, far
+    	camera.position.set(-15,10,-16);
+	scene.position.x=10;
+	scene.position.y=1;
+	scene.position.z=-2;
+    	camera.lookAt(scene.position);
+    	// RENDERER
+    	var renderer = new THREE.WebGLRenderer({canvas:miCanvas});
+    	renderer.setSize(window.innerWidth*0.9, window.innerHeight*0.9);
+    	//renderer.setSize(canvasWidth, canvasHeight);
+    	renderer.setClearColor(0xf7f7f7);
+    	renderer.shadowMap.enabled = true;
+    	renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+	
+	//CONTROL
+	var controls = new THREE.OrbitControls( camera, renderer.domElement );
+
+
+    	// EJES VECTORES
+    	var axis = new THREE.AxesHelper(1);
+    	scene.add(axis);
+	
+	////// Grilla
+    	var grid = new THREE.GridHelper(10,10);
+    	scene.add(grid);
+    	
+	//Materiales:
+
+	var arrowMaterial = new THREE.MeshPhongMaterial({ color: 0xbbd9e3,                       
+	 	specular: 0xfffffff, 
+	 	opacity: 0.8, 
+	 	transparent: true, 
+	 	map: new THREE.TextureLoader().load('texture/arrow_down.png'),
+	 	normalMap: new THREE.TextureLoader().load('texture/arrow_down.png'),
+	});
+        var edifMaterial = new THREE.MeshLambertMaterial({ color: 0xf7d6a1 });
+	var linea = new THREE.LineBasicMaterial( { color: 0x202020 } );
+        
+
+
+	//Objetos:
+		//Piso
+		var planeGeo = new THREE.PlaneGeometry(5,5,4);
+		var planeMaterial = new THREE.MeshLambertMaterial({color:0xded9c6});
+		planeMaterial.side = THREE.DoubleSide;
+		var pisoX = new THREE.Mesh(planeGeo,planeMaterial);
+		var pisoY = new THREE.Mesh(planeGeo,planeMaterial);
+		var pisoZ = new THREE.Mesh(planeGeo,planeMaterial);
+		pisoX.receiveShadow = true;
+		//pisoY.receiveShadow = true;
+		//pisoZ.receiveShadow = true;
+		scene.add(pisoX);
+		//scene.add(pisoY);
+		//scene.add(pisoZ);
+		pisoX.rotation.x = -.5*Math.PI;
+		//pisoY.rotation.y = -.5*Math.PI;
+		//pisoZ.rotation.z = -.5*Math.PI;
+		//pisoZ.position.y=2.5;pisoZ.position.z=2.5;                                                                     
+		//pisoY.position.x=-2.5;pisoY.position.y=2.5;                                                                     
+		// Esfera
+		//var geometry = new THREE.SphereGeometry( 10, 32, 32 );
+		//var material = new THREE.MeshBasicMaterial( {color: 0xffff00} );
+		//var sphere = new THREE.Mesh( geometry, material );
+		//sphere.position.x=6;
+		//sphere.position.y=-3;
+		//sphere.position.z=7;
+		//scene.add( sphere );
+
+	//Edificio
+
+		var edifGeo = new THREE.BoxGeometry(.5,0.5,.5);
+		var edificio = new THREE.Mesh( edifGeo, edifMaterial );
+		scene.add( edificio );
+		edificio.castShadow = true;
+		edificio.position.y=1.2
+
+    	// Agregar a canvas
+    	//document.body.appendChild( renderer.domElement );
+    	// Renderizar
+    	renderer.render(scene,camera);
+        
+
+        // Luces
+        var spotLight = new THREE.SpotLight(0xffffff);
+        spotLight.position.set(20,30,-30);
+        spotLight.castShadow = true;
+        scene.add(spotLight);
+        var light = new THREE.AmbientLight( 0x606060 ); // soft white light
+        scene.add( light );
+                
+	
+	function animate() {
+
+	   requestAnimationFrame( animate );
+	     // required if controls.enableDamping or controls.autoRotate are set to true
+	     controls.update();
+	     renderer.render( scene, camera );
+
+		  
+    		  
+    	}
+
+animate();
+
+
+
+
+window.addEventListener( 'resize', onWindowResize, false );
+
+function onWindowResize(){
+
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize( window.innerWidth*0.9, window.innerHeight*0.9 );
+
+}
