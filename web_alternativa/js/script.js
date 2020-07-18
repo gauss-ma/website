@@ -3,7 +3,7 @@
 //
 const $menu=$('.TabletMenu_root');
 const $btn_menu=$('#botonMenu');
-const $logo=$(".Logo_logo");
+const $logo=$("#Logo_gauss");
 
 
 document.title = "Gauss";
@@ -56,25 +56,25 @@ $(document).ready(function(){
         })
 
 
-        $(window).scroll(function() {
-            var windscroll = $(window).scrollTop();
-            if (windscroll >= 100) {
-                $('nav').addClass('fixed');
-                $('.wrapper section').each(function(i) {
-                    if ($(this).position().top <= windscroll - 20) {
-                        $('nav a.active').removeClass('active');
-                        $('nav a').eq(i).addClass('active');
-                    }
-                });
+        //$(window).scroll(function() {
+        //    var windscroll = $(window).scrollTop();
+        //    if (windscroll >= 100) {
+        //        $('nav').addClass('fixed');
+        //        $('.wrapper section').each(function(i) {
+        //            if ($(this).position().top <= windscroll - 20) {
+        //                $('nav a.active').removeClass('active');
+        //                $('nav a').eq(i).addClass('active');
+        //            }
+        //        });
 
-            } else {
+        //    } else {
 
-                $('nav').removeClass('fixed');
-                $('nav a.active').removeClass('active');
-                $('nav a:first').addClass('active');
-            }
+        //        $('nav').removeClass('fixed');
+        //        $('nav a.active').removeClass('active');
+        //        $('nav a:first').addClass('active');
+        //    }
 
-        }).scroll();
+        //}).scroll();
 
         //SCROLLEAR HASTA ARRIBA CUANDO CLICKEAS EN EL LOGO
         $logo.on('click', function() {
@@ -99,48 +99,20 @@ $(document).ready(function(){
 	//Acciones que ocurren a medida que scrolleo:
 
         // CAMBIAR COLOR DE LOGO Y MENU-ICON SEGUN EL BACKGROUND/SECCION
-        function setBlack(){
-                $logo.removeClass("white");
-                $logo.addClass("black");
-                $btn_menu.removeClass("white");
-                $btn_menu.addClass("black");
-        };
+        
+        
+        
+        
+        
+        
 
-        function setWhite(){
-                $logo.removeClass("black");
-                $logo.addClass("white");
-                $btn_menu.removeClass("black");
-                $btn_menu.addClass("white");
-        };
+        
+        
+        
+        
 
-        //
-        //function showObjetivoText(){
-        //        // renred-word word_root word_show-now
-        //        $( ".renred-word" ).each(function( index ) {
-        //                $(this).addClass("word_show-now");
-        //        });
+        //STEPER DE SERVICIOS:
 
-        //;}
-        //
- 	//pos_home = $("section[name=home]").position().top;             
- 	//pos_objetivo = $("section[name=objetivo]").position().top;
- 	//pos_modelos = $("section[name=modelos]").position().top;
- 	////pos_productos = $("section[name=productos]").position().top;
- 	//pos_servicios = $("section[name=servicios]").position().top;       
- 	//pos_contacto = $("section[name=contacto]").position().top;
- 	////pos_office = $("section[name=office]").position().top;
-
-	//$(window).on("scroll", function() {
-        //    var position = $(window).scrollTop()
-        //    console.log(position);
-        //    //     if (position > pos_objetivo  & position < pos_modelos  ) { setWhite(); showObjetivoText();  console.log("Objetivo!!"); }
-        //   //if (position > pos_modelos   & position < pos_productos) { setBlack();$(".Modelos").addClass("faded")  ;  console.log("Modelos!!");  }
-        //   if (position > pos_productos & position < pos_servicios) { setBlack();$(".Productos").show();  console.log("Productos!!");}
-        //   else if (position > pos_servicios & position < pos_contacto ) { setBlack();$(".Servicios").show();  console.log("Servicios!!");}
-        //   else if (position > pos_contacto  ) { setBlack();$(".Contacto").show();  console.log("Contacto!!"); }
-        //   //else if (position > pos_office ){ setWhite();}
-        //   else{setBlack();}
-        //});
 		 curOpen = $('.step')[0];
 		  
 		  $('.next-btn').on('click', function() {
@@ -184,37 +156,6 @@ $(document).ready(function(){
 		    }
 		  });
 });
-
-
-//Para el slider de SERVICIOS
-//var slideIndex = 1;
-//showSlides(slideIndex);
-//
-//function plusSlides(n) {
-//  showSlides(slideIndex += n);
-//}
-//
-//function currentSlide(n) {
-//  showSlides(slideIndex = n);
-//}
-//
-//function showSlides(n) {
-//  var i;
-//  var slides = document.getElementsByClassName("mySlides");
-//  var dots = document.getElementsByClassName("dot");
-//  if (n > slides.length) {slideIndex = 1}
-//  if (n < 1) {slideIndex = slides.length}
-//  for (i = 0; i < slides.length; i++) {
-//      slides[i].style.display = "none";
-//  }
-//  for (i = 0; i < dots.length; i++) {
-//      dots[i].className = dots[i].className.replace(" active", "");
-//  }
-//  slides[slideIndex-1].style.display = "block";
-//  dots[slideIndex-1].className += " active";
-//}
-
-
 
 // QGIS-CANVAS
 //Q3D.Config.bgColor = '#1f1f1f';
@@ -321,7 +262,7 @@ allMods.each(function(i, el) {
 
 $(window).scroll(function(event) {
  	pos=$(window).scrollTop(); 
- 	console.log(pos);
+ 	//console.log(pos);
 
 	if(pos>=pos_objetivo){
 		$(".words").children().addClass("activo");
@@ -335,35 +276,53 @@ $(window).scroll(function(event) {
   	    el.removeClass("visible"); 
   	  }
   	});
+
+	//cambiar el color de los header segun el fondo
+	var is_bgoscuro=false;
+	$(".bg-oscuro").each(function(){
+		var lim_sup = $(this).offset().top - 50;
+    		var lim_inf = lim_sup + $(this).height() + 2*50;
+		is_bgoscuro=(is_bgoscuro || (pos >= lim_sup && pos <= lim_inf))
+	});
+	(is_bgoscuro)? (setWhite()):(setBlack());
   
 });
 
+function setBlack(){
+        $logo.removeClass("white");
+        $logo.addClass("black");
+        $btn_menu.removeClass("white");
+        $btn_menu.addClass("black");
+};
+                                        
+function setWhite(){
+        $logo.removeClass("black");
+        $logo.addClass("white");
+        $btn_menu.removeClass("black");
+        $btn_menu.addClass("white");
+};
 
 
 
 
 
 
-
-
+/*CANVAS GW*/
 
     	// ESCENA
     	var scene = new THREE.Scene();
     	
-	var canvasWidth=$("#miCanvas").innerWidth();
-	var canvasHeight=$("#miCanvas").innerHeight();
+	var canvasWidth=$("#canvasGW").innerWidth();
+	var canvasHeight=$("#canvasGW").innerHeight();
     	// CAMARA
-    	var camera = new THREE.PerspectiveCamera(25, window.innerWidth/window.innerHeight, .1, 50) //params: zoom, ratioW/H, near, far
-    	//var camera = new THREE.PerspectiveCamera(50, canvasWidth/canvasHeight, .1, 500) //params: zoom, ratioW/H, near, far
-    	camera.position.set(-15,10,-16);
-	scene.position.x=10;
-	scene.position.y=1;
-	scene.position.z=-2;
-    	camera.lookAt(scene.position);
+    	//var camera = new THREE.PerspectiveCamera(25, window.innerWidth/window.innerHeight, .1, 50) //params: zoom, ratioW/H, near, far
+    	var camera = new THREE.PerspectiveCamera(50, canvasWidth/canvasHeight, .1, 500) //params: zoom, ratioW/H, near, far
+    	
+    	
     	// RENDERER
-    	var renderer = new THREE.WebGLRenderer({canvas:miCanvas});
-    	renderer.setSize(window.innerWidth*0.9, window.innerHeight*0.9);
-    	//renderer.setSize(canvasWidth, canvasHeight);
+    	var renderer = new THREE.WebGLRenderer({canvas:canvasGW});
+    	//renderer.setSize(window.innerWidth*0.9, window.innerHeight*0.9);
+    	renderer.setSize(canvasWidth, canvasHeight);
     	renderer.setClearColor(0xf7f7f7);
     	renderer.shadowMap.enabled = true;
     	renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -371,103 +330,193 @@ $(window).scroll(function(event) {
 	//CONTROL
 	var controls = new THREE.OrbitControls( camera, renderer.domElement );
 
-
     	// EJES VECTORES
-    	var axis = new THREE.AxesHelper(1);
-    	scene.add(axis);
+    	//var axis = new THREE.AxesHelper(1);
+    	//scene.add(axis);
+		var points = [new THREE.Vector3( 0.5, 0, 0 )];
+		points.push( new THREE.Vector3( 0, 0, 0 ) );
+		var material = new THREE.LineBasicMaterial({	color: 0x202020,linewidth:1.2,linecap:'butt'});
+		var geometry = new THREE.BufferGeometry().setFromPoints( points );
+		
+		var lineX = new THREE.Line( geometry, material );
+		var lineY = new THREE.Line( geometry, material );
+		var lineZ = new THREE.Line( geometry, material );
 	
+		lineY.rotation.z = Math.PI*0.5;
+		lineZ.rotation.y = 0.5*Math.PI;
+        	var AXIS = new THREE.Group();
+        		AXIS.add( lineX );
+        		AXIS.add( lineY );
+        		AXIS.add( lineZ );
+        	scene.add( AXIS );
+		
 	////// Grilla
-    	var grid = new THREE.GridHelper(10,10);
-    	scene.add(grid);
+    	//var grid = new THREE.GridHelper(5,5);
+    	//scene.add(grid);
     	
 	//Materiales:
 
-	var arrowMaterial = new THREE.MeshPhongMaterial({ color: 0xbbd9e3,                       
-	 	specular: 0xfffffff, 
-	 	opacity: 0.8, 
-	 	transparent: true, 
-	 	map: new THREE.TextureLoader().load('texture/arrow_down.png'),
-	 	normalMap: new THREE.TextureLoader().load('texture/arrow_down.png'),
-	});
         var edifMaterial = new THREE.MeshLambertMaterial({ color: 0xf7d6a1 });
 	var linea = new THREE.LineBasicMaterial( { color: 0x202020 } );
-        
-
+        var planeMaterial = new THREE.MeshLambertMaterial({color:0xf7f7f7, reflectivity: 0.3 });
+        planeMaterial.side = THREE.DoubleSide;
 
 	//Objetos:
-		//Piso
-		var planeGeo = new THREE.PlaneGeometry(5,5,4);
-		var planeMaterial = new THREE.MeshLambertMaterial({color:0xded9c6});
-		planeMaterial.side = THREE.DoubleSide;
-		var pisoX = new THREE.Mesh(planeGeo,planeMaterial);
-		var pisoY = new THREE.Mesh(planeGeo,planeMaterial);
-		var pisoZ = new THREE.Mesh(planeGeo,planeMaterial);
-		pisoX.receiveShadow = true;
-		//pisoY.receiveShadow = true;
-		//pisoZ.receiveShadow = true;
-		scene.add(pisoX);
-		//scene.add(pisoY);
-		//scene.add(pisoZ);
-		pisoX.rotation.x = -.5*Math.PI;
-		//pisoY.rotation.y = -.5*Math.PI;
-		//pisoZ.rotation.z = -.5*Math.PI;
-		//pisoZ.position.y=2.5;pisoZ.position.z=2.5;                                                                     
-		//pisoY.position.x=-2.5;pisoY.position.y=2.5;                                                                     
-		// Esfera
-		//var geometry = new THREE.SphereGeometry( 10, 32, 32 );
-		//var material = new THREE.MeshBasicMaterial( {color: 0xffff00} );
-		//var sphere = new THREE.Mesh( geometry, material );
-		//sphere.position.x=6;
-		//sphere.position.y=-3;
-		//sphere.position.z=7;
-		//scene.add( sphere );
+	//Piso
+		var planeGeo = new THREE.PlaneGeometry(150,150,4);
+		var piso  = new THREE.Mesh(planeGeo,planeMaterial);
+		piso.receiveShadow = true;
+		scene.add(piso );
+		piso.rotation.x = -.5*Math.PI;
 
-	//Edificio
-
+	//CAJA
 		var edifGeo = new THREE.BoxGeometry(.5,0.5,.5);
 		var edificio = new THREE.Mesh( edifGeo, edifMaterial );
-		scene.add( edificio );
 		edificio.castShadow = true;
-		edificio.position.y=1.2
-
-    	// Agregar a canvas
-    	//document.body.appendChild( renderer.domElement );
-    	// Renderizar
-    	renderer.render(scene,camera);
+		scene.add( edificio );
         
+	// Agregar a canvas
+	renderer.render(scene,camera);	
 
-        // Luces
-        var spotLight = new THREE.SpotLight(0xffffff);
-        spotLight.position.set(20,30,-30);
-        spotLight.castShadow = true;
-        scene.add(spotLight);
-        var light = new THREE.AmbientLight( 0x606060 ); // soft white light
-        scene.add( light );
-                
-	
-	function animate() {
+	//SETUP ESTÁTICO:
+	camera.position.set(3.5,7.1,2.4);
+	scene.position.x=0;scene.position.y=1;	scene.position.z=0;
+	camera.lookAt(scene.position);
 
-	   requestAnimationFrame( animate );
-	     // required if controls.enableDamping or controls.autoRotate are set to true
-	     controls.update();
-	     renderer.render( scene, camera );
+	AXIS.position.x=-1;
+	AXIS.position.z= 2;
 
-		  
-    		  
-    	}
+	edificio.position.y=1.2
+        // LUZ
+	//luz ambiente
+        //var light = new THREE.AmbientLight( 0x151515 ); // soft white light
+        //scene.add( light );
 
-animate();
+	//luz direccionada
+        //var spotLight = new THREE.SpotLight(0xffffff);
+        //spotLight.position.set(camera.position.x+1,camera.position.y+5,camera.position.z+5);
+        //spotLight.castShadow = true;
+        //scene.add(spotLight);
+
+	//DirectionalLight and turn on shadows for the light
+	var light = new THREE.DirectionalLight( 0xf7f7f7, 1.1 );
+	light.position.set(camera.position.x-2,camera.position.y+2,camera.position.z+1);//default; light shining from top
+	light.castShadow = true;            // default false
+	scene.add( light );
+	//Set up shadow properties for the light
+	light.shadow.mapSize.width = 25;  // default
+	light.shadow.mapSize.height = 25; // default
+	light.shadow.camera.near = 1;    // default
+	light.shadow.camera.far = 50;     // default
+
+// Agregar a canvas
+renderer.render(scene,camera);
+		//function animate() {
+	//   requestAnimationFrame( animate );
+	//     // required if controls.enableDamping or controls.autoRotate are set to true
+	//     controls.update();
+	//     renderer.render( scene, camera );
+    	//}
+	//animate();
+
+
+
+
+
+
+
+
+
+
+
+/*CANVAS AIRE*/
+	var canvasAIRWidth=$("#canvasAIR").innerWidth();
+	var canvasAIRHeight=$("#canvasAIR").innerHeight();
+
+    var sceneAIR = new THREE.Scene();
+    //sceneAIR.add(new THREE.AmbientLight(0xeeeeee));
+
+    var cameraAIR = new THREE.PerspectiveCamera(45, canvasAIRWidth / canvasAIRHeight, 0.1, 1000);
+    cameraAIR.position.set(5, 15, 15);
+
+	var rendererAIR = new THREE.WebGLRenderer({canvas:canvasAIR});
+	    rendererAIR.setSize(canvasWidth, canvasHeight);
+	    rendererAIR.setClearColor(0xf7f7f7);
+	    rendererAIR.shadowMap.enabled = true;
+	    rendererAIR.shadowMap.type = THREE.PCFSoftShadowMap;
+
+	//CONTROL
+	var controlsAIR = new THREE.OrbitControls( cameraAIR, rendererAIR.domElement );
+    //var terrainLoader = new THREE.TerrainLoader();
+    //terrainLoader.load('js/threejs/data/jotunheimen.bin', function(data) {
+
+        var geometryTerrain = new THREE.PlaneGeometry(5, 5, 10, 10);
+
+        var materialTerrain = new THREE.MeshLambertMaterial({ color: 0xf7d6a1,reflecitvity:0.4 });
+        materialTerrain.side = THREE.DoubleSide;
+        //for (var i = 0, l = geometry.vertices.length; i < l; i++) {
+        //    geometry.vertices[i].z = Math.sin(i*0.02)**2;
+        //}
+
+        //var material = new THREE.MeshPhongMaterial({
+        //    map: THREE.ImageUtils.loadTexture('js/threejs/data/jotunheimen-texture.jpg')
+        //});
+
+        var Terrain = new THREE.Mesh(geometryTerrain, materialTerrain);
+        sceneAIR.add(Terrain);
+	Terrain.rotation.y=Math.PI;
+	Terrain.rotation.x=-0.5*Math.PI;
+	Terrain.position.y=2.5;
+	Terrain.castShadow=true;
+	sceneAIR.add(piso);
+	sceneAIR.add(light);
+	sceneAIR.add(AXIS);
+    //});
+
+
+    rendererAIR.render(sceneAIR,cameraAIR);
+	//function animateAIR() {
+	//   requestAnimationFrame( animateAIR );
+	//     // required if controls.enableDamping or controls.autoRotate are set to true
+	//     controlsAIR.update();
+	//     rendererAIR.render( sceneAIR, cameraAIR );
+	//}
+	//animateAIR();
+
+
+
+    //function render() {
+    //    controls.update();    
+    //    requestAnimationFrame(render);
+    //    renderer.render(sceneAIR, cameraAIR);
+    //}
+
 
 
 
 
 window.addEventListener( 'resize', onWindowResize, false );
-
 function onWindowResize(){
+    //camera.aspect = window.innerWidth / window.innerHeight;
+    //camera.updateProjectionMatrix();
+    //renderer.setSize( window.innerWidth*0.5, window.innerHeight*0.5 );
+    //rendererAIR.setSize( window.innerWidth*0.5, window.innerHeight*0.5 );
 
-    camera.aspect = window.innerWidth / window.innerHeight;
+	var canvasAIRWidth=$("#canvasAIR").innerWidth();
+	var canvasAIRHeight=$("#canvasAIR").innerHeight();
+	var canvasGWWidth=$("#canvasGW").innerWidth();
+	var canvasGWHeight=$("#canvasGW").innerHeight();
+
+renderer.setSize(canvasGWWidth, canvasGWHeight);
+rendererAIR.setSize(canvasAIRWidth, canvasAIRHeight);
+
+    cameraAIR.aspect =canvasAIRWidth / canvasAIRHeight;
+    camera.aspect =canvasGWWidth / canvasGWHeight;
+
     camera.updateProjectionMatrix();
+    cameraAIR.updateProjectionMatrix();
 
-    renderer.setSize( window.innerWidth*0.9, window.innerHeight*0.9 );
+
+
 
 }

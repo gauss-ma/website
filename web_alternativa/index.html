@@ -69,14 +69,19 @@
 	<script type='text/javascript' src='js/jquery-3.3.1.min.js'></script>
 	<script type='text/javascript' src='js/jquery-migrate.min.js'></script>
 	<script type='text/javascript' src='js/jquery.touchswipe.min.js'></script>
-  
+	<!-- threejs -->
+ <script src="js/threejs/gl-matrix-min.js"></script> 
+ <script src="js/threejs/three.min.js"></script>
+ <script src="js/threejs/OrbitControls.js"></script>
+ <script src="js/threejs/TerrainLoader.js"></script>
+
 </head>
 
 
 <body class="">
 
 <header>
-	<span class="Logo_gauss black"><img src="img/icon-gauss.png"></img> &nbsp;gauss </span>
+	<span id="Logo_gauss" class="Logo_gauss black"><img src="img/icon-gauss.png"></img> &nbsp;gauss </span>
 
 	<div class="Header_burguer">
 	</div>
@@ -151,7 +156,7 @@
 
 
 <!--   OBJETIVO   -->
-<section name="objetivo" class="slide center" style="background-color:var(--celeste-oscuro)">
+<section name="objetivo" class="slide center bg-oscuro" style="background-color:var(--celeste-oscuro)">
 	<div class="words">
 		<span>Modelos		</span> 
 		<span>computacionales	</span>
@@ -172,7 +177,8 @@
 		<a class="btn material-design" href="">Ver más</a>
 	</div>
 	<div class="column-image">
-		  <img src="img/img-air.png" alt="">
+		<!-- img src="img/img-air.png" alt="" -->
+		<canvas id="canvasAIR"> </canvas>
 	</div>
 
 </section>
@@ -186,13 +192,7 @@
 	</div>
 	<div class="column-image">
 
-		<canvas id="miCanvas" > </canvas>
-
-        <script src="js/threejs/gl-matrix-min.js"></script>
-        <script src="js/threejs/three.min.js"></script>
-        <script src="js/threejs/OrbitControls.js"></script>
-
-
+		<canvas id="canvasGW"> </canvas>
 		 <!-- img src="img/img-gw.png" alt="" -->
 	</div>
 </section>
@@ -211,7 +211,7 @@
 
 
 <!-- GEO-SP   -->
-<section class="slide center dark">
+<section class="slide center dark bg-oscuro">
 	<div class="column-text">
                <!-- <h3>GIS</h3> -->
                <i class="fa fa-globe fa-4x" aria-hidden="true" style="fill:white;color:white;margin-bottom:10px;"></i>
@@ -298,7 +298,7 @@
 
 
 <!--   TOXDB   -->
-<section class="slide center dark">
+<section class="slide center dark bg-oscuro">
 	<div class="column-text">	
 		<i class="fa fa-code fa-4x" aria-hidden="true" style="fill:white;color:white;margin-bottom:10px;"></i>
 		<h2 class="white">Bases de datos </h2>

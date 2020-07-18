@@ -193,7 +193,7 @@ textarea::placeholder {
 }
 input:focus::placeholder,
 textarea:focus::placeholder {
-  color: var(--gris-medio);
+  color: var(--celeste-oscuro);
   background-color: inherit;
 }
 button {
@@ -803,7 +803,7 @@ font-size: 1rem;
   /*height: 100%; 
 box-sizing: border-box;
 margin-top: 14px*/
-  border-color: var(--gris-medio);
+  border-color: var(--gris-claro);
   border-style: none none solid;
   border-width: medium medium 1px;
   bottom: 8px;
@@ -827,7 +827,7 @@ margin-top: 14px*/
 .Form_campo >input{
   border-style: none none solid;
   border-width: medium medium 2px;
-  border-color: var(--gris-medio);
+  border-color: var(--gris-claro);
   color: var(--gris-medio);
 }
 .Form_campo >textarea:focus,
@@ -1066,8 +1066,10 @@ main{
     max-width: 780px;
 }
 
+.column-image>canvas,
 .column-image>img{
 	width:100%;
+	pointer-events:none;
 }
 
 
@@ -1409,6 +1411,10 @@ end count stats*/
 .steps:hover{
 	background-color:#fafafa;
 }
+.steps:hover>.step.minimized:hover::before,
+.steps:hover>.step::before {
+		border:10px solid #fafafa;
+}
 .steps::before {
   content: '';
   position: absolute;
@@ -1498,7 +1504,7 @@ end count stats*/
 	display:flex;
 	flex-direction:column;
 	align-items:center;
-	justify-content:center;
+	justify-content:space-between;
 
   	color:var(--gris-medio);
 	background-color: var(--gris-claro);
@@ -1507,6 +1513,7 @@ end count stats*/
   margin-top: 10px;
 }
 
+.step-content p{margin-top:20px;}
 /* Cosas irrelavantes de estilo*/
 .next-btn {
   	border: 0;
@@ -1516,6 +1523,8 @@ end count stats*/
 .close-btn {
  	 border: 0;
 	background-color:var(--blanco);
+	margin-top:20px;
+	margin-bottom:20px;
 }
 
 .close-btn:focus {
