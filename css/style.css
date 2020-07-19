@@ -467,8 +467,11 @@ header {
 }
 .TabletMenu_lenguaje > div {
   display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+
 }
 
 .TabletMenu_current {
@@ -564,6 +567,8 @@ header {
 
 .Logo_gauss {
   display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   position: fixed;
@@ -633,8 +638,16 @@ b {
 		padding:20px;
   		padding-top:0px;
   		padding-bottom: 50px;
-	display: flex;
- 	flex-direction: column;  	
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+ 	    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -moz-box-direction: normal;
+    -moz-box-orient: vertical;
+    -ms-flex-direction: column;
+     flex-direction: column;
  	justify-content: center;
  	align-items: center;
 		-webkit-animation: fade-in-up 0.3s cubic-bezier(.12,.51,.49,.88) forwards; 
@@ -699,8 +712,18 @@ object:hover {
 /*SERVICIOS*/
 
 .steps {
-  display:flex;
-  flex-direction:column;
+     display: -webkit-box;
+     display: -moz-box;
+     display: -webkit-flex;
+     display: -ms-flexbox;
+     display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -moz-box-direction: normal;
+    -moz-box-orient: vertical;
+    -ms-flex-direction: column;
+     flex-direction: column;
+  
   justify-content:center;
   width: 100%;
   max-width: 700px;
@@ -709,45 +732,33 @@ object:hover {
   background-color: var(--blanco);
   box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.3);
 }
+/*
 .steps:hover{
 	background-color:#fafafa;
 }
 .steps:hover>.step.minimized:hover::before,
 .steps:hover>.step::before {
-		border:10px solid #fafafa;
+      border:10px solid #fafafa;
 }
-.steps::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  /*height: 24px;*/
-  width: 1px;
-  background-color: rgba(0, 0, 0, 0.2);
-  left: calc(50%);
-  z-index: 1;
-}
-
-.steps::after {
-  content: '';
-  position: absolute;
-  height: 13px;
-  width: 13px;
-  background-color: var(--primary-color);
-  box-shadow: 0px 0px 5px 0px var(--primary-color);
-  border-radius: 15px;
-  left: calc(50%);
-  bottom: 24px;
-  transform: translateX(-45%);
-  z-index: 2;
-}
-
+*/
 .step {
   padding: 20px;
   position: relative;
   transition: all 0.4s ease-in-out;
-	display:flex;
-	flex-direction:column;
+  	display: -webkit-box;
+  	display: -moz-box;
+  	display: -webkit-flex;
+  	display: -ms-flexbox;
+  	display: flex;
+        -webkit-box-direction: normal;
+        -webkit-box-orient: vertical;
+        -moz-box-direction: normal;
+        -moz-box-orient: vertical;
+        -ms-flex-direction: column;
+         flex-direction: column;
+
 	align-items:center;
+	text-align:center;
 }
 	
 	/*pelotita*/
@@ -789,7 +800,13 @@ object:hover {
 .step.minimized > .step-content {
   height: 0px;
 }
+.step.minimized:hover {
+  background-color: var(--gris-claro);
 
+}
+.step.minimized:hover .header { color:var(--celeste-oscuro);}
+
+/* interior de cada servicio */
 .step-header{  user-select: none;}
 .header {  color: var(--negro);}
 .subheader {  color: var(--gris-medio);}
@@ -802,21 +819,34 @@ object:hover {
  	margin:10px;
 	width: 90%;
 	height:200px;
-	display:flex;
-	flex-direction:column;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -moz-box-direction: normal;
+    -moz-box-orient: vertical;
+    -ms-flex-direction: column;
+     flex-direction: column;
+
 	align-items:center;
 	justify-content:space-between;
 
   	color:var(--gris-medio);
-	background-color: var(--gris-claro);
+	background-color: #fafafa;
+                -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+                   -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+                        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1)
 	text-align:center;
   border-radius: 4px;
   margin-top: 10px;
 }
 
-.step-content p{margin-top:20px;}
+.step-content p{padding:40px;}
 /* Cosas irrelavantes de estilo*/
-.next-btn {
+/*.next-btn {
   	border: 0;
 	background-color:var(--blanco);
 }
@@ -834,10 +864,11 @@ object:hover {
 .next-btn:focus {
   outline: 0;
 }
+*/
 
-.step.minimized:hover {
-  background-color: var(--gris-claro);
-}
+
+
+
 
 
 
@@ -852,6 +883,10 @@ object:hover {
 /*     CONTACTO         */
 
 .Contactos_wrapper {
+   display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
 	flex-direction:row;
 	justify-content:space-between;
@@ -875,8 +910,11 @@ object:hover {
 
 .Form-2-col {
   display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+
   /*white-space: nowrap;*/      
 	flex-direction:row;
   justify-content: space-between;
@@ -945,9 +983,18 @@ margin-top: 14px*/
 
 
 .Info_box {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -moz-box-direction: normal;
+    -moz-box-orient: vertical;
     -ms-flex-direction: column;
-    flex-direction: column;
+     flex-direction: column;
+
 	justify-content:space-between;
 	align-items:start;
 	text-align:left;
@@ -1032,56 +1079,7 @@ a.github:hover >i{  color:inherit;}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*prueba alternativa */
+/*GENERAL  LAYOUT*/
 main{
 	width:100%;
 	/*max-width:1300px;*/
@@ -1093,8 +1091,12 @@ main{
 	/*width:100%;
 	max-width:1300px;*/
     	padding: 50px;
-   	 text-align: center;
-	display:flex;
+   	/* text-align: center;*/
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 	/*border-bottom:1px solid var(--gris-claro);*/
 }
 
@@ -1104,27 +1106,33 @@ main{
 }
 .slide > h3{
 	margin-bottom:50px;
+	font-family:MontserratRegular;
+	text-align:center;
 }
 
 
 /* COLUMNA CON TEXTO */
 .column-text{
-	display:flex;
-	flex-direction:column;
-/*	margin-top:auto;
-    width: 100%;*/
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -moz-box-direction: normal;
+    -moz-box-orient: vertical;
+    -ms-flex-direction: column;
+     flex-direction: column;
+	/*margin-top:auto;
+	  width: 100%;    */
 	margin-bottom:5%;
-    max-width: 600px;
+   	max-width: 600px;
 	opacity:0;
 }
-.column-text.end   {	justify-content:end;	}
-.column-text.start {	justify-content:start;	}
-.column-text.center{	justify-content:center;	}
-
-
-
-.column-text > *{
-}
+.column-text.end   {justify-content:end;   }
+.column-text.start {justify-content:start; }
+.column-text.center{justify-content:center;}
 
 .visible{	
 	-webkit-animation: fade-in-UP 2s cubic-bezier(.19,1,.22,1) forwards;
@@ -1197,8 +1205,8 @@ main{
 	    	justify-content: space-between;
 	}
 	.right>.column-text{
-	    align-items:end;
-	    text-align:right;
+	    /*align-items:end;
+	    text-align:right;*/
 	}
 	.right>.column-image{
 		text-align:left;
@@ -1207,15 +1215,24 @@ main{
 	
 /* slide CENTER */
 	.center { 
-		display:flex;
-			flex-direction:column;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -moz-box-direction: normal;
+    -moz-box-orient: vertical;
+    -ms-flex-direction: column;
+     flex-direction: column;
 			justify-content:center;
 			align-items:center;
 		/*width:100%;*/
 	}
 	.center>.column-text{
-		align-items:center;
-		text-align:center;
+		/*align-items:center;
+		  text-align:center;*/
 	}
 	/*.center .btn{margin:auto;}*/
 
@@ -1232,7 +1249,7 @@ main{
 	font-size:8vh;
 	font-family:MontserratBold;
 	font-weight:800;
-	text-align:center;
+	/*text-align:center;*/
 	color:var(--blanco);
 }
 .words > *{
@@ -1255,7 +1272,11 @@ main{
 
 /* COUNT-STATS 
 .StatsContainer {
-	display: flex;
+	  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 	flex-direction:row;
 	justify-content: center;
 	margin-top: 100px;
@@ -1389,16 +1410,25 @@ end count stats*/
 
 	/*CONTACTOS*/
  	.Contactos_wrapper {
- 	    -ms-flex-direction: column;
- 	    flex-direction: column;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -moz-box-direction: normal;
+    -moz-box-orient: vertical;
+    -ms-flex-direction: column;
+     flex-direction: column;
  	   justify-content:space-between;
 		
  	}
 	.Form-2-col,
  	.Contactos-form-wrapper,
  	.Contactos-info-wrapper {
-		-ms-flex-direction: column;
-                flex-direction: column;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -moz-box-direction: normal;
+    -moz-box-orient: vertical;
+    -ms-flex-direction: column;
+     flex-direction: column;
+
  	     text-align:center;
                 justify-content:center;
 	     	align-items:center;
