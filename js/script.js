@@ -233,6 +233,10 @@ $(window).scroll(function(event) {
 	});
 	(is_bgoscuro)? (setWhite()):(setBlack());
   
+
+Terrain.rotation.z=pos/1000.;rendererAIR.render(sceneAIR,cameraAIR);
+edificio.rotation.z=pos/1000.;rendererGW.render(sceneGW,cameraGW);
+
 });
 
 function setBlack(){
@@ -254,119 +258,153 @@ function setWhite(){
 
 
 
-/*CANVAS GW*/
 
-    	// ESCENA
-    	var scene = new THREE.Scene();
-    	
-	var canvasWidth=$("#canvasGW").innerWidth();
-	var canvasHeight=$("#canvasGW").innerHeight();
-    	// CAMARA
-    	//var camera = new THREE.PerspectiveCamera(25, window.innerWidth/window.innerHeight, .1, 50) //params: zoom, ratioW/H, near, far
-    	var camera = new THREE.PerspectiveCamera(50, canvasWidth/canvasHeight, .1, 500) //params: zoom, ratioW/H, near, far
-    	
-    	
-    	// RENDERER
-    	var renderer = new THREE.WebGLRenderer({canvas:canvasGW});
-    	//renderer.setSize(window.innerWidth*0.9, window.innerHeight*0.9);
-    	renderer.setSize(canvasWidth, canvasHeight);
-    	renderer.setClearColor(0xf7f7f7);
-    	renderer.shadowMap.enabled = true;
-    	renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-	
-	//CONTROL
-	var controls = new THREE.OrbitControls( camera, renderer.domElement );
 
-    	// EJES VECTORES
-    	//var axis = new THREE.AxesHelper(1);
-    	//scene.add(axis);
-		var points = [new THREE.Vector3( 0.5, 0, 0 )];
-		points.push( new THREE.Vector3( 0, 0, 0 ) );
-		var material = new THREE.LineBasicMaterial({	color: 0x202020,linewidth:1.2,linecap:'butt'});
-		var geometry = new THREE.BufferGeometry().setFromPoints( points );
-		
-		var lineX = new THREE.Line( geometry, material );
-		var lineY = new THREE.Line( geometry, material );
-		var lineZ = new THREE.Line( geometry, material );
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//OBJETOS:
+	//AXIS:
+	var points = [new THREE.Vector3( 0.5, 0, 0 )];
+	points.push( new THREE.Vector3( 0, 0, 0 ) );
+	var material = new THREE.LineBasicMaterial({	color: 0x202020,linewidth:1.2,linecap:'butt'});
+	var geometry = new THREE.BufferGeometry().setFromPoints( points );
+	var lineX = new THREE.Line( geometry, material );
+	var lineY = new THREE.Line( geometry, material );
+	var lineZ = new THREE.Line( geometry, material );
 		lineY.rotation.z = Math.PI*0.5;
 		lineZ.rotation.y = 0.5*Math.PI;
-        	var AXIS = new THREE.Group();
-        		AXIS.add( lineX );
-        		AXIS.add( lineY );
-        		AXIS.add( lineZ );
-        	scene.add( AXIS );
-		
-	////// Grilla
-    	//var grid = new THREE.GridHelper(5,5);
-    	//scene.add(grid);
-    	
-	//Materiales:
+	var AXIS = new THREE.Group();
+		AXIS.add( lineX );
+		AXIS.add( lineY );
+		AXIS.add( lineZ );
 
-        var edifMaterial = new THREE.MeshLambertMaterial({ color: 0xf7d6a1 });
-	var linea = new THREE.LineBasicMaterial( { color: 0x202020 } );
-        var planeMaterial = new THREE.MeshLambertMaterial({color:0xf7f7f7, reflectivity: 0.3 });
-        planeMaterial.side = THREE.DoubleSide;
-
-	//Objetos:
 	//Piso
-		var planeGeo = new THREE.PlaneGeometry(150,150,4);
-		var piso  = new THREE.Mesh(planeGeo,planeMaterial);
-		piso.receiveShadow = true;
-		scene.add(piso );
-		piso.rotation.x = -.5*Math.PI;
+	var planeGeo = new THREE.PlaneGeometry(150,150,4);
+ 	var planeMaterial = new THREE.MeshLambertMaterial({color:0xf7f7f7, reflectivity: 0.3 });
+ 		planeMaterial.side = THREE.DoubleSide;
+	var piso  = new THREE.Mesh(planeGeo,planeMaterial);
+	piso.receiveShadow = true;
+	piso.rotation.x = -.5*Math.PI;
 
-	//CAJA
-		var edifGeo = new THREE.BoxGeometry(.5,0.5,.5);
-		var edificio = new THREE.Mesh( edifGeo, edifMaterial );
-		edificio.castShadow = true;
-		scene.add( edificio );
-        
-	// Agregar a canvas
-	renderer.render(scene,camera);	
+	//Terrain:
+	var geometryTerrain = new THREE.PlaneGeometry(8, 8, 10, 10);
+	var materialTerrain = new THREE.MeshLambertMaterial({ color: 0xf7d6a1});
+	materialTerrain.side = THREE.DoubleSide;
+        var Terrain = new THREE.Mesh(geometryTerrain, materialTerrain);
+		Terrain.rotation.y=Math.PI;
+		Terrain.rotation.x=-0.5*Math.PI;
+		Terrain.position.y=2.5;
+		Terrain.castShadow=true;
 
-	//SETUP ESTÁTICO:
-	camera.position.set(3.5,7.1,2.4);
-	scene.position.x=0;scene.position.y=1;	scene.position.z=0;
-	camera.lookAt(scene.position);
-
-	AXIS.position.x=-1;
-	AXIS.position.z= 2;
-
-	edificio.position.y=1.2
-        // LUZ
-	//luz ambiente
-        //var light = new THREE.AmbientLight( 0x151515 ); // soft white light
-        //scene.add( light );
-
-	//luz direccionada
-        //var spotLight = new THREE.SpotLight(0xffffff);
-        //spotLight.position.set(camera.position.x+1,camera.position.y+5,camera.position.z+5);
-        //spotLight.castShadow = true;
-        //scene.add(spotLight);
-
-	//DirectionalLight and turn on shadows for the light
-	var light = new THREE.DirectionalLight( 0xf7f7f7, 1.1 );
-	light.position.set(camera.position.x-2,camera.position.y+2,camera.position.z+1);//default; light shining from top
-	light.castShadow = true;            // default false
-	scene.add( light );
-	//Set up shadow properties for the light
-	light.shadow.mapSize.width = 25;  // default
-	light.shadow.mapSize.height = 25; // default
-	light.shadow.camera.near = 1;    // default
-	light.shadow.camera.far = 50;     // default
-
-// Agregar a canvas
-renderer.render(scene,camera);
-		//function animate() {
-	//   requestAnimationFrame( animate );
-	//     // required if controls.enableDamping or controls.autoRotate are set to true
-	//     controls.update();
-	//     renderer.render( scene, camera );
-    	//}
-	//animate();
-
-
+	//CAJA                                                         	
+	var edifGeo = new THREE.BoxGeometry(.5,0.5,.5);        	
+ 	var edifMaterial = new THREE.MeshLambertMaterial({ color: 0xf7d6a1 });
+	var edificio = new THREE.Mesh( edifGeo, edifMaterial );
+	edificio.castShadow = true;                            	
+		edificio.position.y=1.2
+	
 
 
 
@@ -377,51 +415,49 @@ renderer.render(scene,camera);
 
 
 /*CANVAS AIRE*/
-	var canvasAIRWidth=$("#canvasAIR").innerWidth();
-	var canvasAIRHeight=$("#canvasAIR").innerHeight();
+    var canvasAIRWidth=$("#canvasAIR").innerWidth();
+    var canvasAIRHeight=$("#canvasAIR").innerHeight();
 
-    var sceneAIR = new THREE.Scene();
-    //sceneAIR.add(new THREE.AmbientLight(0xeeeeee));
-
-    var cameraAIR = new THREE.PerspectiveCamera(45, canvasAIRWidth / canvasAIRHeight, 0.1, 1000);
-    cameraAIR.position.set(5, 15, 15);
-
+	//RENDERER
 	var rendererAIR = new THREE.WebGLRenderer({canvas:canvasAIR});
-	    rendererAIR.setSize(canvasWidth, canvasHeight);
+	    rendererAIR.setSize(canvasAIRWidth, canvasAIRHeight);
 	    rendererAIR.setClearColor(0xf7f7f7);
 	    rendererAIR.shadowMap.enabled = true;
 	    rendererAIR.shadowMap.type = THREE.PCFSoftShadowMap;
 
+	//ESCENA:
+   	 var sceneAIR = new THREE.Scene();
+    	sceneAIR.position.x=0;
+	sceneAIR.position.y=1;
+	sceneAIR.position.z=0;
+    	//sceneAIR.add(new THREE.AmbientLight(0xeeeeee));
+
+	//CAMARA
+    	var cameraAIR = new THREE.PerspectiveCamera(45, canvasAIRWidth / canvasAIRHeight, 0.1, 1000);
+    		cameraAIR.position.set(5, 12, 12);
+	
+
 	//CONTROL
 	var controlsAIR = new THREE.OrbitControls( cameraAIR, rendererAIR.domElement );
-    //var terrainLoader = new THREE.TerrainLoader();
-    //terrainLoader.load('js/threejs/data/jotunheimen.bin', function(data) {
 
-        var geometryTerrain = new THREE.PlaneGeometry(5, 5, 10, 10);
+        //LUZ
+	var lightAIR = new THREE.DirectionalLight( 0xf7f7f7, 1.1 );
+		lightAIR.position.set(cameraAIR.position.x-2,cameraAIR.position.y+3,cameraAIR.position.z+1);//default; light shining from top
+		lightAIR.castShadow = true;            // default false
+		//SetAIRp shadow properties for the light
+		lightAIR.shadow.mapSize.width = 25;  // default
+		lightAIR.shadow.mapSize.height = 25; // default
+		lightAIR.shadow.camera.near = 1;    // default
+		lightAIR.shadow.camera.far = 50;     // default
 
-        var materialTerrain = new THREE.MeshLambertMaterial({ color: 0xf7d6a1,reflecitvity:0.4 });
-        materialTerrain.side = THREE.DoubleSide;
-        //for (var i = 0, l = geometry.vertices.length; i < l; i++) {
-        //    geometry.vertices[i].z = Math.sin(i*0.02)**2;
-        //}
-
-        //var material = new THREE.MeshPhongMaterial({
-        //    map: THREE.ImageUtils.loadTexture('js/threejs/data/jotunheimen-texture.jpg')
-        //});
-
-        var Terrain = new THREE.Mesh(geometryTerrain, materialTerrain);
-        sceneAIR.add(Terrain);
-	Terrain.rotation.y=Math.PI;
-	Terrain.rotation.x=-0.5*Math.PI;
-	Terrain.position.y=2.5;
-	Terrain.castShadow=true;
+	//AGREGAR COSAS A LA ESCENA::
 	sceneAIR.add(piso);
-	sceneAIR.add(light);
 	sceneAIR.add(AXIS);
-    //});
+        sceneAIR.add(Terrain);
+	sceneAIR.add(lightAIR);
+	
+    	rendererAIR.render(sceneAIR,cameraAIR);
 
-
-    rendererAIR.render(sceneAIR,cameraAIR);
 	//function animateAIR() {
 	//   requestAnimationFrame( animateAIR );
 	//     // required if controls.enableDamping or controls.autoRotate are set to true
@@ -430,13 +466,71 @@ renderer.render(scene,camera);
 	//}
 	//animateAIR();
 
+/*CANVAS GW*/
+	var canvasGWWidth=$("#canvasGW").innerWidth();
+	var canvasGWHeight=$("#canvasGW").innerHeight();
+	
+ 	// RENDERER
+ 	var rendererGW = new THREE.WebGLRenderer({canvas:canvasGW});
+ 	//renderer.setSize(window.innerWidth*0.9, window.innerHeight*0.9);
+ 		rendererGW.setSize(canvasGWWidth, canvasGWHeight);
+ 		rendererGW.setClearColor(0xf7f7f7);
+ 		rendererGW.shadowMap.enabled = true;
+ 		rendererGW.shadowMap.type = THREE.PCFSoftShadowMap;
+	// ESCENA
+	var sceneGW = new THREE.Scene();
+    		sceneGW.position.x=0;sceneGW.position.y=1;	sceneGW.position.z=0;
+
+	// CAMARA
+        //var camera = new THREE.PerspectiveCamera(25, window.innerWidth/window.innerHeight, .1, 50) //params: zoom, ratioW/H, near, far
+        var cameraGW = new THREE.PerspectiveCamera(50, canvasGWWidth/canvasGWHeight, .1, 500) //params: zoom, ratioW/H, near, far
+        	cameraGW.position.set(3.5,7.1,2.4);
+		cameraGW.lookAt(sceneGW.position);
+	// LUZ
+	//luz ambiente
+	//var light = new THREE.AmbientLight( 0x151515 ); // soft white light
+	//scene.add( light );
+	                                                                                                                          
+	//luz direccionada
+	//var spotLight = new THREE.SpotLight(0xffffff);
+	//spotLight.position.set(camera.position.x+1,camera.position.y+5,camera.position.z+5);
+	//spotLight.castShadow = true;
+	//scene.add(spotLight);
+	                                                                                                                          
+	//DirectionalLight and turn on shadows for the light
+	var lightGW = new THREE.DirectionalLight( 0xf7f7f7, 1.1 );
+	lightGW.position.set(cameraGW.position.x-2,cameraGW.position.y+2,cameraGW.position.z+1);//default; light shining from top
+	lightGW.castShadow = true;            // default false
+	//Set up shadow properties for the light
+	lightGW.shadow.mapSize.width = 25;  // default
+	lightGW.shadow.mapSize.height = 25; // default
+	lightGW.shadow.camera.near = 1;    // default
+	lightGW.shadow.camera.far = 50;     // default
+
+	//CONTROL
+	//var controls = new THREE.OrbitControls( camera, renderer.domElement );
+
+	sceneGW.add(piso );
+        sceneGW.add(AXIS );
+
+	sceneGW.add(edificio );
+	sceneGW.add(lightGW );
+        
+	// Agregar a canvas
+	rendererGW.render(sceneGW,cameraGW);	
+
+	//SETUP ESTÁTICO:
+
+	// Agregar a canvas
+		//function animate() {
+	//   requestAnimationFrame( animate );
+	//     // required if controls.enableDamping or controls.autoRotate are set to true
+	//     controls.update();
+	//     renderer.render( scene, camera );
+    	//}
+	//animate();
 
 
-    //function render() {
-    //    controls.update();    
-    //    requestAnimationFrame(render);
-    //    renderer.render(sceneAIR, cameraAIR);
-    //}
 
 
 
@@ -454,14 +548,14 @@ function onWindowResize(){
 	var canvasGWWidth=$("#canvasGW").innerWidth();
 	var canvasGWHeight=$("#canvasGW").innerHeight();
 
-renderer.setSize(canvasGWWidth, canvasGWHeight);
 rendererAIR.setSize(canvasAIRWidth, canvasAIRHeight);
+rendererGW.setSize(canvasGWWidth, canvasGWHeight);
 
+    cameraGW.aspect =canvasGWWidth / canvasGWHeight;
     cameraAIR.aspect =canvasAIRWidth / canvasAIRHeight;
-    camera.aspect =canvasGWWidth / canvasGWHeight;
 
-    camera.updateProjectionMatrix();
     cameraAIR.updateProjectionMatrix();
+    cameraGW.updateProjectionMatrix();
 
 
 
