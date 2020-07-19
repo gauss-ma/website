@@ -193,13 +193,13 @@ $("#Logo_gauss").on('click', function() {
 
 
 
-var allMods = $(".column-text");
+var allMods = $(".animar_fade-in-up");
 var pos_objetivo = $("section[name=objetivo]").position().top;
 
 allMods.each(function(i, el) {
   var el = $(el);
   if (el.visible(true)) {
-    el.children().addClass("visible"); 
+    el.addClass("fade-in-up"); 
   } 
 });
 
@@ -207,16 +207,20 @@ $(window).scroll(function(event) {
  	pos=$(window).scrollTop(); 
  	//console.log(pos);
 
+
+	//fade-in palabras de OBJETIVOS:
 	if(pos>=pos_objetivo){
-		$(".words").children().addClass("activo");
+		$(".objetivo-words").children().addClass("fade-in");
 	}
+
+	//fade-in-up textos al scrollear:
   	allMods.each(function(i, el) {
   	  var el = $(el);
   	  if (el.visible(true)) {
-  	    el.addClass("visible"); 
+  	    el.addClass("fade-in-up"); 
   	  } 
   	  else{
-  	    el.removeClass("visible"); 
+  	    el.removeClass("fade-in-up"); 
   	  }
   	});
 

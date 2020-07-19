@@ -132,7 +132,6 @@
 	</section>
 	</div>
 
-
 </header>
 
 <main id="content">
@@ -157,24 +156,37 @@
 
 <!--   OBJETIVO   -->
 <section name="objetivo" class="slide center bg-oscuro" style="background-color:var(--celeste-oscuro)">
-	<div class="words">
-		<span>Modelos		</span> 
-		<span>computacionales	</span>
-	    	<span>al		</span> 
-		<span>servicio		</span>
-		<span>del		</span>
-		<span>ambiente.		</span>
+	<div class="objetivo-words">
+		<span class="animar_fade-in">Modelos		</span> 
+		<span class="animar_fade-in">computacionales	</span>
+	    	<span class="animar_fade-in">al		</span> 
+		<span class="animar_fade-in">servicio		</span>
+		<span class="animar_fade-in">del		</span>
+		<span class="animar_fade-in">ambiente.		</span>
 	</div>
 </section>
 
 
 <!--   MODELOS   -->
 <section name="modelos" class="slide right">
-	<div class="column-text end">
+	<div class="column-text end animar_fade-in-up" name="air">
 		<h4>MODELADO</h4>
 		<h2>Calidad del Aire</h2>
 		<p>Simulamos la calidad del aire para fuentes emisoras, utilizando softwar reconocido internacionalmente y aprobado por autoridades regulatorias locales.</p>
-		<a class="btn material-design" href="">Ver más</a>
+		<div class="expansible">
+			<p>
+        		On Saturday, May 30 at 3:22 p.m. EDT, SpaceX’s Falcon 9 launched Crew Dragon’s second demonstration (Demo-2) mission from Launch Complex 39A (LC-39A) at NASA’s Kennedy Space Center in Florida, and the next day Crew Dragon autonomously docked to the International Space Station. This test flight with NASA astronauts Bob Behnken and Doug Hurley on board the Dragon spacecraft returned human spaceflight to the United States.
+        		</p>
+        		<p>
+        		Demo-2 is the final major test for SpaceX’s human spaceflight system to be certified by NASA for operational crew missions to and from the International Space Station. SpaceX is returning human spaceflight to the United States with one of the safest, most advanced systems ever built, and NASA’s Commercial Crew Program is a turning point for America’s future in space exploration that lays the groundwork for future missions to the Moon, Mars, and beyond.
+        		</p>
+        		<p>
+			You can watch a replay of the launch above
+        		</p>		
+		</div>
+		<a class="btn material-design btn-expandir" onclick="$('[name=air]').addClass('expandido');">Ver más</a>
+		<a class="btn material-design btn-colapsar" onclick="$('[name=air]').removeClass('expandido');">Ver menos</a>
+
 	</div>
 	<div class="column-image">
 		<!-- img src="img/img-air.png" alt="" -->
@@ -184,11 +196,23 @@
 </section>
 
 <section class="slide left">
-	<div class="column-text center">
+	<div class="column-text center animar_fade-in-up" name="gw">
 		<h4>MODELADO</h4>
 		<h2>Aguas subterraneas</h2>
 		<p>Modelamos el movimiento de contaminantes en medios  porosos saturados y no saturados mediante el sistema de modelado MODFLOW desarrollado por el USGS.</p>
-		<a class="btn material-design" href="">Ver más</a>
+		<div class="expansible">
+			<p>
+			On Saturday, May 30 at 3:22 p.m. EDT, SpaceX’s Falcon 9 launched Crew Dragon’s second demonstration (Demo-2) mission from Launch Complex 39A (LC-39A) at NASA’s Kennedy Space Center in Florida, and the next day Crew Dragon autonomously docked to the International Space Station. This test flight with NASA astronauts Bob Behnken and Doug Hurley on board the Dragon spacecraft returned human spaceflight to the United States.
+			</p>
+			<p>
+			Demo-2 is the final major test for SpaceX’s human spaceflight system to be certified by NASA for operational crew missions to and from the International Space Station. SpaceX is returning human spaceflight to the United States with one of the safest, most advanced systems ever built, and NASA’s Commercial Crew Program is a turning point for America’s future in space exploration that lays the groundwork for future missions to the Moon, Mars, and beyond.
+			</p>
+			<p>
+			You can watch a replay of the launch above
+			</p>		
+		</div>
+		<a class="btn material-design btn-expandir" onclick="$('[name=gw]').addClass('expandido');">Ver más</a>
+		<a class="btn material-design btn-colapsar" onclick="$('[name=gw]').removeClass('expandido');">Ver menos</a>
 	</div>
 	<div class="column-image">
 
@@ -198,11 +222,23 @@
 </section>
 
 <section class="slide right">
-	<div class="column-text start">
+	<div class="column-text start animar_fade-in-up" name="sw">
 		<h4>MODELADO</h4>
 		<h2>Aguas superficiales</h2>
 		<p>Modelamos el transporte de especies químicas en ríos y lagos mediante modelos desarrollados y recomendados por EPA tales como WASP, AQUATOX, entre otros.</p>
-		<a class="btn material-design" href="">Ver más</a>
+	        <div class="expansible">
+                        <p>
+                        On Saturday, May 30 at 3:22 p.m. EDT, SpaceX’s Falcon 9 launched Crew Dragon’s second demonstration (Demo-2) mission from Launch Complex 39A (LC-39A) at NASA’s Kennedy Space Center in Florida, and the next day Crew Dragon autonomously docked to the International Space Station. This test flight with NASA astronauts Bob Behnken and Doug Hurley on board the Dragon spacecraft returned human spaceflight to the United States.
+                        </p>
+                        <p>
+                        Demo-2 is the final major test for SpaceX’s human spaceflight system to be certified by NASA for operational crew missions to and from the International Space Station. SpaceX is returning human spaceflight to the United States with one of the safest, most advanced systems ever built, and NASA’s Commercial Crew Program is a turning point for America’s future in space exploration that lays the groundwork for future missions to the Moon, Mars, and beyond.
+                        </p>
+                        <p>
+                        You can watch a replay of the launch above
+                        </p>
+                </div>
+                <a class="btn material-design btn-expandir" onclick="$('[name=sw]').addClass('expandido');">Ver más</a>
+                <a class="btn material-design btn-colapsar" onclick="$('[name=sw]').removeClass('expandido');">Ver menos</a>
 	</div>
 	<div class="column-image">
 		  <img src="img/img-sw.png" alt="">
@@ -212,7 +248,7 @@
 
 <!-- GEO-SP   -->
 <section class="slide center dark bg-oscuro">
-	<div class="column-text">
+	<div class="column-text animar_fade-in-up">
                <!-- <h3>GIS</h3> -->
                <i class="fa fa-globe fa-4x" aria-hidden="true" style="fill:white;color:white;margin-bottom:10px;"></i>
 	       <h2 class="white"> Soluciones <br> Geo-espaciales.</h2>
@@ -250,7 +286,7 @@
 
 <!-- SERVICIOS   -->
 
-<section name="servicios" class="slide center">
+<section name="servicios" class="slide center animar_fade-in-up">
 	<h2> Servicios </h2>
 	<h3>Trabajamos en las principales demandas de la industria en materia ambiental.</h3>
 
@@ -298,7 +334,7 @@
 
 <!--   TOXDB   -->
 <section class="slide center dark bg-oscuro">
-	<div class="column-text">	
+	<div class="column-text animar_fade-in-up">	
 		<i class="fa fa-code fa-4x" aria-hidden="true" style="fill:white;color:white;margin-bottom:10px;"></i>
 		<h2 class="white">Bases de datos </h2>
 		<p class="white"> Desarrollamos y mantenemos bases de datos con aplicaciones ambientales con el fin de agilizar el acceso de información.<br> Creamos <strong>Tox.db</strong>: una base de datos abierta a la comunidad de profesionales del ambiente y la salud que condensa información relevante de los compuestos químicos de interés regulados. Es una plataforma gratuita y abierta en constante crecimiento.</p>
@@ -325,13 +361,13 @@
 
 
 <!--  C O N T A C T O -->
-<section name="contacto" class="slide center">
+<section name="contacto" class="slide center animar_fade-in-up">
 	<h2>Contacto</h2>
 	<h3>¿En qué podemos ayudarte? </h3>
 	<!-- <small> Contactanos</small> -->
 	<div class="Contactos_wrapper">
 		<!-- FORM : -->
-		<form class="Contactos-form-wrapper column-text center" action="php/mail.php" method="POST">
+		<form class="Contactos-form-wrapper column-text center animar_fade-in-up" action="php/mail.php" method="POST">
 			<div class="Form-2-col">
 			   <div class=" Form_campo Form-mitad">
 			   		<input type="text" name="nombre" id="nombre" class="Form-input" placeholder="Tu nombre">
@@ -346,7 +382,7 @@
 			<a class="btn material-design" type="submit" id="submit-form">Enviar</a>
 		</form>
 		<!-- INFO : -->
-		<div class="Contactos-info-wrapper column-text">
+		<div class="Contactos-info-wrapper column-text animar_fade-in-up">
 			<div class="Info_box">
 				<!-- i class="fa fa-4x fa-life-ring"></i><br -->
 				<p>¿Necesitás asesoramiento?<br>Escribinos y trabajemos juntos.</p>
