@@ -726,11 +726,11 @@ object:hover {
      flex-direction: column;
   
   justify-content:center;
+	align-items:center;
   width: 100%;
   max-width: 700px;
   	padding: 24px;
   border-radius:8px;
-  background-color: var(--blanco);
   box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.3);
 }
 /*
@@ -757,12 +757,11 @@ object:hover {
         -moz-box-orient: vertical;
         -ms-flex-direction: column;
          flex-direction: column;
-
 	align-items:center;
 	text-align:center;
+	  background-color:var(--blanco);
 }
-	
-	/*pelotita*/
+/*
 	.step.minimized:hover::before,
 	.step::before {
 	  content: '';
@@ -773,7 +772,7 @@ object:hover {
 		margin:10px 0px;
 	  border-radius: 50%;
 		border:10px solid var(--blanco);
-	  left:0px;
+	  left:-10px;
 	  transform: translateX(-45%);
 	  z-index: 2;
 	  background-color:var(--celeste-oscuro);
@@ -782,33 +781,35 @@ object:hover {
 	.step.minimized::before {
 	  background-color:var(--gris-medio);
 	}
-	/* linea costado */
 	.step::after {
 	  content: '';
 	  position: absolute;
 	  height: 100%;
 	  width: 2px;
-	  background-color: var(--gris-claro);
-	  left:0px;
+	  background-color: var(--gris-medio);
+	  left:-10px;
 	  top: 0;
 	  z-index: 1;
 	}
-	
+*/	
 .step.minimized {
   transition: background-color 0.3s ease-in-out;
-  cursor: pointer;
 }
 .step.minimized > .step-content {
   height: 0px;
 }
 .step.minimized:hover {
-  background-color: var(--gris-claro);
+  background-color: #fafafa;
 
 }
 .step.minimized:hover .header { color:var(--celeste-oscuro);}
 
 /* interior de cada servicio */
-.step-header{  user-select: none;}
+.step-header{  
+  user-select: none;
+  cursor: pointer;
+	width:100%;
+}
 .header {  color: var(--negro);}
 .subheader {  color: var(--gris-medio);}
 
