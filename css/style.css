@@ -580,6 +580,7 @@ header {
   /*line-height:1.5em;*/margin:0;
   cursor: pointer;
   font-family: MontserratExtraBold,MontserratBold,AvenirNextBold;
+	pointer-events:auto;
 }
 .Logo_gauss img{
 	height:30px;

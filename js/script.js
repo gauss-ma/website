@@ -5,7 +5,6 @@ const $menu=$('.TabletMenu_root');
 const $btn_menu=$('#botonMenu');
 const $logo=$("#Logo_gauss");
 
-
 document.title = "Gauss";
 
 $(document).ready(function(){
@@ -56,61 +55,6 @@ $(document).ready(function(){
         })
 
 
-        //$(window).scroll(function() {
-        //    var windscroll = $(window).scrollTop();
-        //    if (windscroll >= 100) {
-        //        $('nav').addClass('fixed');
-        //        $('.wrapper section').each(function(i) {
-        //            if ($(this).position().top <= windscroll - 20) {
-        //                $('nav a.active').removeClass('active');
-        //                $('nav a').eq(i).addClass('active');
-        //            }
-        //        });
-
-        //    } else {
-
-        //        $('nav').removeClass('fixed');
-        //        $('nav a.active').removeClass('active');
-        //        $('nav a:first').addClass('active');
-        //    }
-
-        //}).scroll();
-
-        //SCROLLEAR HASTA ARRIBA CUANDO CLICKEAS EN EL LOGO
-        $logo.on('click', function() {
-            $('body,html').animate({
-                scrollTop: 0
-                }, "slow",'swing');
-
-
-                
-            cerrarMenu();
-            return false;
-        })
-        //SCROLLEAR HASTA lista de servicios cuando clickias un icono de servicios
-        $('.icon').on('click', function() {
-            var scrollAnchor = $(this).attr('data-scroll'),
-            scrollPoint = $('.icon_wrapper').offset().top - 100;
-            $('body,html').animate({ scrollTop: scrollPoint }, 500);
-
-            return false;
-        })
-
-	//Acciones que ocurren a medida que scrolleo:
-
-        // CAMBIAR COLOR DE LOGO Y MENU-ICON SEGUN EL BACKGROUND/SECCION
-        
-        
-        
-        
-        
-        
-
-        
-        
-        
-        
-
         //STEPER DE SERVICIOS:
 
 		 curOpen = $('.step')[0];
@@ -156,6 +100,19 @@ $(document).ready(function(){
 		    }
 		  });
 });
+
+
+//SCROLLEAR HASTA ARRIBA CUANDO CLICKEAS EN EL LOGO
+$("#Logo_gauss").on('click', function() {
+    $('body,html').animate({
+        scrollTop: 0
+        }, "slow",'swing');
+    cerrarMenu();
+    return false;
+});
+
+
+
 
 // QGIS-CANVAS
 //Q3D.Config.bgColor = '#1f1f1f';
@@ -219,21 +176,6 @@ $(document).ready(function(){
 //});
 //
 (function($) {
-
-	
-	
-//
-//  /**
-//   * Copyright 2012, Digital Fusion
-//   * Licensed under the MIT license.
-//   * http://teamdf.com/jquery-plugins/license/
-//   *
-//   * @author Sam Sehnert
-//   * @desc A small plugin that checks whether elements are within
-//   *     the user visible viewport of a web browser.
-//   *     only accounts for vertical position, not horizontal.
-//   */
-//
   $.fn.visible = function(partial) {
       var $t            = $(this),
           $w            = $(window),
@@ -249,8 +191,9 @@ $(document).ready(function(){
   
 })(jQuery);
 
-var allMods = $(".column-text");
 
+
+var allMods = $(".column-text");
 var pos_objetivo = $("section[name=objetivo]").position().top;
 
 allMods.each(function(i, el) {
