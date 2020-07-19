@@ -647,11 +647,11 @@ b {
 	margin-top:40px;
 	font-size: 1rem;*/
 	text-align:left;
-  pointer-events: none;
+  	pointer-events: none;
 }
 
 .texto-home>img{
-  width: 60%;
+  	width: 60%;
 	max-width:600px;
  	padding-bottom: 10px;
 }
@@ -664,9 +664,9 @@ b {
 	/* font-family: 'RobotoRegular'; */
 }
 .texto-home>h4{
-  color: var(--gris-oscuro);
-  font-family: 'RobotoRegular';
-  font-weight: 100;
+  	color: var(--gris-oscuro);
+  	font-family: 'RobotoRegular';
+  	font-weight: 100;
 }
 
 
@@ -675,8 +675,7 @@ b {
 	/*position:absolute;
 	display:flex;
 		z-index:-10;*/
-	padding:10px;
-	text-align:center;
+		text-align:center;
   		width:100%;
 		max-width:670px;
   	animation: fade-in 5s 1 0s ease-in;
@@ -684,7 +683,10 @@ b {
 
 }
 
-.img-abstracta>object,.img-abstracta>img{width:50%;margin:auto;max-width:500px;}
+.img-abstracta>object,.img-abstracta>img{
+		width:50%;
+		max-width:500px;
+}
 
 object:hover {
   animation: shake 1s cubic-bezier(.36,.07,.19,.97) both;
