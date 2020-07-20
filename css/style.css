@@ -22,12 +22,18 @@
   */
   
   /* Escala de grises */
-  --negro: #1F1F1F;
-  --gris-oscuro:#363636;
+  --negro:#1F1F1F;	 
+  --gris-oscuro:#363636; 
   --gris-medio: #ACACAC;
   --gris-claro:#E1E1E1;
   --blanco: #f7f7f7;
-  
+
+ --negro:#232323;	/*alternativa suave: TESERA*/
+ --gris-oscuro:#4b4e53; /*alternativa suave: TESERA*/
+ --gris-claro:#E7E7E7;  /*alternativa suave: TESERA*/
+
+
+ 
   /* Paleta pentacroma */
   --celeste-claro:#52C0C0;
   --celeste-oscuro:#108AA8;
@@ -77,6 +83,7 @@ table {
 }
 .global,html {
   background-color: var(--blanco);
+  color:var(--gris-oscuro);/*var(--negro);*/
 }
 .global {
   width: 100vw;
@@ -95,7 +102,6 @@ html {
 
 body {
   font-family: RobotoRegular, Oxygen, Ubuntu;
-  color:var(--negro);
   overflow-x: hidden;
   overflow-y: auto;
   position: relative;
@@ -610,17 +616,22 @@ b {
 .black {
   color:var(--negro);
 }
+.gray{
+  color:var(--gris-oscuro);
+}
 
 .white div {
   background-color:var(--blanco);
 }
+
+.gray div ,
 .black div {
   background-color: var(--negro);
 }
 
-.fa {
+/*.fa {
   color: var(--negro);
-}
+}*/
 .dark.fa{
 	color: var(--blanco);
 }
@@ -812,7 +823,7 @@ object:hover {
   cursor: pointer;
 	width:100%;
 }
-.header {  color: var(--negro);}
+.header {}
 .subheader {  color: var(--gris-medio);}
 
 
@@ -1033,15 +1044,16 @@ margin-top: 14px*/
   color:var(--gris-claro);
   justify-content: center;
   display:flex-inline; 
-  padding:60px;
+  padding:50px;
+  width:100%;
 }
 
 .site-footer-wrapper{
-	max-width: 1200;
 	text-align: left;
 	/* width:90%; */
 	padding-bottom:30px;
-	margin: auto;
+	/*margin: auto;
+	max-width: 1200;*/
 }
 
 .site-footer hr
@@ -1168,14 +1180,16 @@ main{
 
 /* COLUMNA CON IMAGEN */
 .column-image{
+	display:flex;flex-direction:column;justify-content:center;
     width: 50%;
     max-width: 780px;
+	/*background-color:var(--celeste-oscuro);*/
 }
 
 .column-image>canvas,
 .column-image>img{
 	width:100%;
-	pointer-events:none;
+	/*pointer-events:none;*/
 }
 
 
@@ -1244,8 +1258,8 @@ main{
 	font-size:8vh;
 	font-family:MontserratBold;
 	font-weight:800;
+		overflow:hidden;
 	/*text-align:center;*/
-	color:var(--blanco);
 }
 .objetivo-words >*:nth-child(1){-ms-animation-delay:0s  ;-webkit-animation-delay: 0s ;  animation-delay: 0s  ;}
 .objetivo-words >*:nth-child(2){-ms-animation-delay:0.5s;-webkit-animation-delay:0.5s;  animation-delay:0.5s ;}
@@ -1393,6 +1407,7 @@ end count stats*/
 		max-width:700px;
 		margin:0px;
 		padding:50px 0px;
+		overflow:hidden;
 	}
 	.column-image{
 		width:100%;
@@ -1434,10 +1449,8 @@ end count stats*/
 
 
 	/*OBJETIVO*/
-	.words{
-		width:100%;
-		padding:5px;
-		font-size:6vh;
+	.objetivo-words{
+		font-size:5.5vh;
 	}
 
 	/*SERVICIOS*/
@@ -1496,8 +1509,11 @@ end count stats*/
   	}
   	.site-footer
   	{
-  	  padding-bottom:0
+		padding:50px 0px;
   	}
+	.site-footer-wrapper{
+		padding:0px 20px!important;
+	}
 	.site-footer-wrapper, .site-footer .copyright-text,.site-footer 
   	{
   	  text-align:center;

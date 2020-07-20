@@ -234,124 +234,24 @@ $(window).scroll(function(event) {
 	(is_bgoscuro)? (setWhite()):(setBlack());
   
 
-Terrain.rotation.z=pos/1000.;rendererAIR.render(sceneAIR,cameraAIR);
-edificio.rotation.z=pos/1000.;rendererGW.render(sceneGW,cameraGW);
+sceneAIR.rotation.y=pos/1000.;rendererAIR.render(sceneAIR,cameraAIR);
+sceneGW.rotation.y=pos/1000.;rendererGW.render(sceneGW,cameraGW);
 
 });
 
 function setBlack(){
         $logo.removeClass("white");
-        $logo.addClass("black");
+        //$logo.addClass("black");
         $btn_menu.removeClass("white");
-        $btn_menu.addClass("black");
+        //$btn_menu.addClass("black");
 };
                                         
 function setWhite(){
-        $logo.removeClass("black");
+        //$logo.removeClass("black");
         $logo.addClass("white");
-        $btn_menu.removeClass("black");
+        //$btn_menu.removeClass("black");
         $btn_menu.addClass("white");
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -556,8 +456,39 @@ rendererGW.setSize(canvasGWWidth, canvasGWHeight);
 
     cameraAIR.updateProjectionMatrix();
     cameraGW.updateProjectionMatrix();
-
-
-
-
 }
+
+
+
+
+
+
+//QGIS:
+Q3D.Config.bgColor = '#f7f7f7';
+Q3D.Config.localMode = true;
+Q3D.Config.AR.MND = 0.0;
+
+//Q3D.Config.AR.MND = 0.0;
+
+var container = document.getElementById("view");
+app.init(container);          // initialize application
+init();                       // initialization for mobile template
+
+app.addEventListener("sceneLoaded", function () {
+  initLayerList();
+});
+
+// load the scene
+app.loadSceneFile("./mods3d/sw-lanin.js", function () {
+  //app.start();
+
+  // North arrow inset
+  //if (Q3D.Config.northArrow.visible) app.buildNorthArrow(document.getElementById("northarrow"), app.scene.userData.rotation);
+
+  //if ("AR" in app.urlParams) {
+  //  document.getElementById("ar-checkbox").checked = true;
+  //  startARMode();
+  //  moveToCurrentLocation();
+  //}
+});
+

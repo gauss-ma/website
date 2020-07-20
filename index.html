@@ -73,6 +73,7 @@
  <script src="js/threejs/gl-matrix-min.js"></script> 
  <script src="js/threejs/three.min.js"></script>
  <script src="js/threejs/OrbitControls.js"></script>
+ <script src="js/threejs/DeviceOrientationControls.js"></script>
  <script src="js/threejs/TerrainLoader.js"></script>
 
 </head>
@@ -81,7 +82,7 @@
 <body class="">
 
 <header>
-	<span id="Logo_gauss" class="Logo_gauss black"><img src="img/icon-gauss.png"></img> &nbsp;gauss </span>
+	<span id="Logo_gauss" class="Logo_gauss"><img src="img/icon-gauss.png"></img> &nbsp;gauss </span>
 
 	<div class="Header_burguer">
 	</div>
@@ -156,10 +157,10 @@
 
 <!--   OBJETIVO   -->
 <section name="objetivo" class="slide center bg-oscuro" style="background-color:var(--celeste-oscuro)">
-	<div class="objetivo-words">
+	<div class="objetivo-words white">
 		<span class="animar_fade-in">Modelos		</span> 
 		<span class="animar_fade-in">computacionales	</span>
-	    	<span class="animar_fade-in">al		</span> 
+	    	<span class="animar_fade-in">al			</span> 
 		<span class="animar_fade-in">servicio		</span>
 		<span class="animar_fade-in">del		</span>
 		<span class="animar_fade-in">ambiente.		</span>
@@ -240,8 +241,12 @@
                 <a class="btn material-design btn-expandir" onclick="$('[name=sw]').addClass('expandido');">Ver más</a>
                 <a class="btn material-design btn-colapsar" onclick="$('[name=sw]').removeClass('expandido');">Ver menos</a>
 	</div>
-	<div class="column-image">
-		  <img src="img/img-sw.png" alt="">
+	<div class="column-image" id="view">
+			<script src="js/threejs/Qgis2threejs.js"></script>
+			<script src="js/threejs/Qgis-mobile.js"></script>
+
+		  <!--img src="img/img-sw.png" alt="" -->
+			<div  style="max-width:800px;background-color:var(--blanco);"> 	</div>
 	</div>
 </section>
 
@@ -257,29 +262,6 @@
                        Realizamos estudios ambientales mediante el uso de herramientas de análisis
                        espacial (GIS). </p>
 		<a class="btn" href="">Ver más</a>
-               <!-- div id="view">
-               		<div id="labels"></div>
-                       <div id="northarrow"></div>
-               	</div>
-                <label class=hidden>
-                        <button class="btn hidden" id="stop-button" title="stop orbitting"><i
-                                        class="fas fa-stop-circle fa-2x"></i></button>
-                        <label class="switch hidden" title="AR mode"></label>
-                        <button class="btn hidden" id="current-location" title="move to current location"><i
-                                        class="fas fa-crosshairs fa-2x hidden"></i></button>
-                        <button class="btn btn2 " id="layers-button" title="layer list"><i
-                                        class="fas fa-layer-group fa-2x"></i></button>
-                        <button class="btn btn3" id="settings-button" title="settings"><i
-                                        class="fas fa-cog fa-2x"></i></button>
-                        <button class="btn btn4" id="info-button" title="about this page"><i
-                                        class="fas fa-info-circle fa-2x"></i></button>
-                        <input type="checkbox hidden" id="ar-checkbox">
-                        <input type="checkbox" class="hidden" id="camera-enabled" checked disabled>
-                        <input class="hidden" type="number" id="fov">
-                        <input type="checkbox" class="hidden" id="save-in-storage">
-                        <button id="settings-ok" class="hidden"></button>
-                        <button id="settings-cancel" class="hidden"></button>
-                </label -->
 	</div>
 </section>
 
