@@ -8,63 +8,62 @@ Q3D.Config.AR = {
   FOV: 70,      // device camera's field of view
   MND: 0        // magnetic North direction (clockwise from upper direction of map, in degrees)
 };
-
-var app = Q3D.application,
-    ARMode = false;
+//
+var app = Q3D.application, ARMode = false;
 var orbitControls, devControls, oldFOV;
-
-
-app.start = function () {
-  if (ARMode) devControls.connect();
-  else orbitControls.enabled = true;
-};
-
-app.pause = function () {
-  if (ARMode) devControls.disconnect();
-  else orbitControls.enabled = false;
-};
-
-app.resume = function () {
-  if (ARMode) devControls.connect();
-  else orbitControls.enabled = true;
-};
-
-app.eventListener.resize = function () {
-  var width, height;
-  if (ARMode) {
-   // var v = document.getElementById("video"),
-   //     asp = window.innerWidth / window.innerHeight,
-   //     vasp = v.videoWidth / v.videoHeight;
-   // if (vasp > asp) {
-   //   width = window.innerWidth;
-   //   height = parseInt(width / vasp);
-   // }
-   // else {
-   //   height = window.innerHeight;
-   //   width = parseInt(height * vasp);
-   // }
-  }
-  else {
-    width = window.innerWidth;
-    height = window.innerHeight;
-  }
-  app.setCanvasSize(width, height);
-  app.render();
-};
-
-app.cameraAction._move = app.cameraAction.move;
-app.cameraAction.move = function () {
-  app.cameraAction._move(app.queryTargetPosition.x,
-                           -app.queryTargetPosition.z,
-                           app.queryTargetPosition.y + Q3D.Config.AR.DH * app.scene.userData.zScale);   // + device height from ground
-};
-
-app._setRotateAnimationMode = app.setRotateAnimationMode;
-app.setRotateAnimationMode = function (enabled) {
-  app._setRotateAnimationMode(enabled);
-  //document.getElementById("stop-button").style.display = (enabled) ? "block" : "none";
-};
-
+//
+//
+//app.start = function () {
+//  if (ARMode) devControls.connect();
+//  else orbitControls.enabled = true;
+//};
+//
+//app.pause = function () {
+//  if (ARMode) devControls.disconnect();
+//  else orbitControls.enabled = false;
+//};
+//
+//app.resume = function () {
+//  if (ARMode) devControls.connect();
+//  else orbitControls.enabled = true;
+//};
+//
+//app.eventListener.resize = function () {
+//  var width, height;
+//  if (ARMode) {
+//   // var v = document.getElementById("video"),
+//   //     asp = window.innerWidth / window.innerHeight,
+//   //     vasp = v.videoWidth / v.videoHeight;
+//   // if (vasp > asp) {
+//   //   width = window.innerWidth;
+//   //   height = parseInt(width / vasp);
+//   // }
+//   // else {
+//   //   height = window.innerHeight;
+//   //   width = parseInt(height * vasp);
+//   // }
+//  }
+//  else {
+//    width = window.innerWidth;
+//    height = window.innerHeight;
+//  }
+//  app.setCanvasSize(width, height);
+//  app.render();
+//};
+//
+//app.cameraAction._move = app.cameraAction.move;
+//app.cameraAction.move = function () {
+//  app.cameraAction._move(app.queryTargetPosition.x,
+//                           -app.queryTargetPosition.z,
+//                           app.queryTargetPosition.y + Q3D.Config.AR.DH * app.scene.userData.zScale);   // + device height from ground
+//};
+//
+//app._setRotateAnimationMode = app.setRotateAnimationMode;
+//app.setRotateAnimationMode = function (enabled) {
+//  app._setRotateAnimationMode(enabled);
+//  //document.getElementById("stop-button").style.display = (enabled) ? "block" : "none";
+//};
+//
 
 function init() {
   //orbitControls = app.controls;

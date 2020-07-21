@@ -377,13 +377,13 @@ Q3D.Scene.prototype.adjustZShift = function () {
 };
 
 
-/*
-Q3D.application
-
-limitations:
-- one renderer
-- one scene
-*/
+///*
+//Q3D.application
+//
+//limitations:
+//- one renderer
+//- one scene
+//*/
 (function () {
   // the application
   var app = {};

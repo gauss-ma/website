@@ -303,7 +303,7 @@ function setWhite(){
  	var edifMaterial = new THREE.MeshLambertMaterial({ color: 0xf7d6a1 });
 	var edificio = new THREE.Mesh( edifGeo, edifMaterial );
 	edificio.castShadow = true;                            	
-		edificio.position.y=1.2
+		edificio.position.y=2.0
 	
 
 
@@ -466,17 +466,17 @@ rendererGW.setSize(canvasGWWidth, canvasGWHeight);
 //QGIS:
 Q3D.Config.bgColor = '#f7f7f7';
 Q3D.Config.localMode = true;
-Q3D.Config.AR.MND = 0.0;
+//Q3D.Config.AR.MND = 0.0;
 
 //Q3D.Config.AR.MND = 0.0;
 
 var container = document.getElementById("view");
 app.init(container);          // initialize application
-init();                       // initialization for mobile template
+//init();                       // initialization for mobile template
 
-app.addEventListener("sceneLoaded", function () {
-  initLayerList();
-});
+//app.addEventListener("sceneLoaded", function () {
+//  initLayerList();
+//});
 
 // load the scene
 app.loadSceneFile("./mods3d/sw-lanin.js", function () {
@@ -490,5 +490,8 @@ app.loadSceneFile("./mods3d/sw-lanin.js", function () {
   //  startARMode();
   //  moveToCurrentLocation();
   //}
+
+	//agregar elementos:
+	//app.scene.add()
 });
 
