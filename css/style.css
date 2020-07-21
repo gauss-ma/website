@@ -365,33 +365,37 @@ header {
 
 
 /* ====> MENU <==== */
-.TabletMenu_root {
-  height: 100hv;
-  width: 100hw;
-  /*display: none;*/
-	opacity:0;
-	/*pointer-events: none;*/
+.TabletMenu_root{
+		padding-top: 100px;
+		padding-bottom: 50px;
+		text-align: right;
+		overflow: hidden;
+		height: 100vh;
+		width: 100vw;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: var(--blanco);
+		box-sizing: border-box;
 	pointer-events:auto;
-  position: absolute;
-  padding-top: 100px;
-  padding-bottom: 50px;
-  text-align: right;
-  overflow: hidden;
-  height: 100vh;
-  width: 100vw;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  background-color: var(--blanco);
-  box-sizing: border-box;
-  	-webkit-animation-name: fade-in;
-  	animation-name: fade-in;
-  	-webkit-animation-duration: 0.1s;
-  	animation-duration: 0.1s;
-  	-webkit-animation-timing-function: cubic-bezier(0.7, 0.17, 0.18, 0.77);
-  	animation-timing-function: cubic-bezier(0.7, 0.17, 0.18, 0.77);
-  	-webkit-animation-fill-mode: forwards;
-  	animation-fill-mode: forwards;
+	opacity:1;
+        transition: opacity 0.5s cubic-bezier(0.7, 0.17, 0.18, 0.77);
+}
+.TabletMenu_root > *{display:none;}
+.TabletMenu_root.fade-out{
+	opacity:0;
+	pointer-events: none;
+/*	-webkit-animation-name: fade-in;                                        
+	        animation-name: fade-in;
+	-webkit-animation-fill-mode: forwards;
+	        animation-fill-mode: forwards;
+	 -webkit-animation-duration: 2.1s;
+	         animation-duration: 2.1s;
+	 -webkit-animation-timing-function: cubic-bezier(0.7, 0.17, 0.18, 0.77);
+	         animation-timing-function: cubic-bezier(0.7, 0.17, 0.18, 0.77);
+	-webkit-animation-direction:normal; 
+		 animation-direction:normal;
+*/
 }
 
 .noscroll-menu {
@@ -493,7 +497,6 @@ header {
   */
 }
 .TabletMenu_email > a {
-	color:var(--gris-oscuro);
   text-decoration: none;
   font-size: 25px;
   display: inline-block;
@@ -508,7 +511,6 @@ header {
 .TabletMenu__youtube,
 .TabletMenu__git,
 .TabletMenu__insta {
-  fill: var(--negro);
   height: 15px;
   width: 15px;
 }

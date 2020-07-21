@@ -10,33 +10,35 @@ document.title = "Gauss";
 $(document).ready(function(){
 
 
-        cerrarMenu();
+        //cerrarMenu();
 
         //ABRIR / CERRAR MENU:
         function abrirMenu(){
                 console.log("Abriendo Menu..");
-                $menu.addClass("activo");
+                $menu.removeClass("fade-out");
+		//$menu.addClass("fade-in");
                 $btn_menu.addClass('burguer_activo');
                 $btn_menu.removeClass('burger_inactivo');
-                $menu.toggle();//show();
+                $menu.children().toggle();//show();
                 $("body").addClass("touch-off no-scroll");
                 setBlack();
         };
 
         function cerrarMenu(){
                 console.log("Cerrando Menu..");
-                $menu.removeClass("activo");
+                //$menu.removeClass("fade-in");
+                $menu.addClass("fade-out");
                 $btn_menu.addClass('burger_inactivo');
                 $btn_menu.removeClass('burguer_activo');
-                $menu.toggle();//$menu.slideUp(); // $menu.hide();
                 $("body").removeClass("touch-off no-scroll");
                 //setWhite();
+                $menu.children().toggle();//$menu.slideUp(); // $menu.hide();
         };
 
         $btn_menu.on('click',function () {
-                if ( $menu.attr('class') == "TabletMenu_root activo") {cerrarMenu()}
-                else if ( $menu.attr('class') == "TabletMenu_root") {abrirMenu()}
-                else {consola.log("tamo todos locos")};
+                if ( $menu.attr('class') == "TabletMenu_root") {cerrarMenu()}
+                else if ( $menu.attr('class') == "TabletMenu_root fade-out") {abrirMenu()}
+                else {console.log("tamo todos locos")};
         });
 
 
@@ -236,7 +238,7 @@ $(window).scroll(function(event) {
 
 sceneAIR.rotation.y=pos/1000.;rendererAIR.render(sceneAIR,cameraAIR);
 sceneGW.rotation.y=pos/1000.;rendererGW.render(sceneGW,cameraGW);
-
+app.scene.rotation.z=pos/100.;app.renderer.render(app.scene,app.camera);//qgis
 });
 
 function setBlack(){
