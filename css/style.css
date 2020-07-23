@@ -626,7 +626,7 @@ header {
 
 object:hover {
   animation: shake 1s cubic-bezier(.36,.07,.19,.97) both;
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(1px, 1px, 1px);
   backface-visibility: hidden;
   perspective: 1000px;
 }
@@ -1093,6 +1093,7 @@ main{
     -moz-box-orient: vertical;
     -ms-flex-direction: column;
      flex-direction: column;
+  padding: 20px;
 	/*margin-top:auto;
 	  width: 100%;    */
 	margin-bottom:5%;
@@ -1111,27 +1112,20 @@ main{
 	margin-top:20px;	
 	padding:10px;
 	width:100px;
-    border: 2px solid var(--negro);
     color: var(--negro);
     text-transform: uppercase;
     text-align: center;
   transition: all 2s cubic-bezier(.19,1,.22,1);
   -webkit-transition: all 2s cubic-bezier(.19,1,.22,1);
 }
-/* .bg-oscuro .btn{
-	border: 2px solid var(--gris-medio);
-	color: var(--gris-medio); 
-} */
 
 .btn:hover{
-	border: 2px solid var(--celeste-oscuro);
 	color:var(--celeste-oscuro);
-
 }
 
 .material-design{
 	border:none;
-	border:1px solid var(--gris-claro);	/*agregado opcional para darle más contraste */
+/* el border generaba un efecto choto cuando había hover, se veía una linea celeste en un frame de la transición */
 	border-radius:4px;
 	color:var(--gris-medio);
 		-webkit-transition: all 0.5s cubic-bezier(.19,1,.22,1);
@@ -1152,25 +1146,23 @@ main{
 
 .material-design-dark{
 	border:none;
-	border:1px solid var(--negro-0);	/* agregado opcional para darle más contraste */
 	border-radius:4px;
   color:var(--gris-medio);
-  /*background-color: var(--gris-oscuro-0)!important;*/
-		-webkit-transition: all 0.5s cubic-bezier(.19,1,.22,1);
+ 		-webkit-transition: all 0.5s cubic-bezier(.19,1,.22,1);
 			transition: all 0.5s cubic-bezier(.19,1,.22,1);
-		-webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
-		   -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
-		        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .4);
+		-webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);
+		   -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);
+		        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);
 }
 
 .material-design-dark:hover{
 	cursor:pointer;
 	border:none;
 	color:var(--celeste-claro);
-  background-color: var(--gris-oscuro-0)!important;
-	-webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .6);
-	   -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .6);
-	        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .6);
+  background-color: var(--gris-oscuro-0);
+	-webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .7);
+	   -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .7);
+	        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .7);
 }
 
 
@@ -1258,6 +1250,9 @@ main{
 		overflow:hidden;
 	/*text-align:center;*/
 }
+
+/* ojo cuando tengamos la palabra final... hay que ajustar los tiempos para que no sea lineal, "la" tarda lo mismo que "computacional" */
+
 .objetivo-words >*:nth-child(1){-ms-animation-delay:0s  ;-webkit-animation-delay: 0s ;  animation-delay: 0s  ;}
 .objetivo-words >*:nth-child(2){-ms-animation-delay:0.5s;-webkit-animation-delay:0.5s;  animation-delay:0.5s ;}
 .objetivo-words >*:nth-child(3){-ms-animation-delay:1s  ;-webkit-animation-delay:1s  ;  animation-delay:1s   ;}
@@ -1559,18 +1554,4 @@ end count stats*/
     font-size: 7vh;
     line-height: 8vh;
   }
-<<<<<<< HEAD
 }
-=======
-
-}
-
-
-
-
-
-
-
-
-
->>>>>>> fc67f6e4fbb4d548570ac484bcfa2ada2e2fcbca
