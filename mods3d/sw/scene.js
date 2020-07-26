@@ -1,4 +1,4 @@
-appGW.loadJSONObject({
+appSW.loadJSONObject({
   "type": "scene",
   "properties": {
     "height": 72.03389830508475,

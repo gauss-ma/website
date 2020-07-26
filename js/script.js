@@ -202,8 +202,8 @@ $(window).scroll(function(event) {
 
 //sceneAIR.rotation.y=pos/1000.;rendererAIR.render(sceneAIR,cameraAIR);
 //sceneGW.rotation.y=pos/1000.;rendererGW.render(sceneGW,cameraGW);
-appAIR.scene.rotation.z=pos/100.;appAIR.renderer.render(appAIR.scene,appAIR.camera);    //qgis
-appGW.scene.rotation.z=pos/100.;appGW.renderer.render(appGW.scene,appGW.camera);		//qgis
+//appAIR.scene.rotation.z=pos/100.;appAIR.renderer.render(appAIR.scene,appAIR.camera);    //qgis
+//appSW.scene.rotation.z=pos/100.;appGW.renderer.render(appGW.scene,appGW.camera);		//qgis
 });
 
 function setBlack(){
@@ -410,11 +410,11 @@ function onWindowResize(){
     //renderer.setSize( window.innerWidth*0.5, window.innerHeight*0.5 );
     //rendererAIR.setSize( window.innerWidth*0.5, window.innerHeight*0.5 );
 
-	//var canvasAIRWidth=$("#canvasAIR").innerWidth();
-	//var canvasAIRHeight=$("#canvasAIR").innerHeight();
-	//rendererAIR.setSize(canvasAIRWidth, canvasAIRHeight);
-    	//cameraAIR.aspect =canvasAIRWidth / canvasAIRHeight;
-    	//cameraAIR.updateProjectionMatrix();
+    //var canvasAIRWidth=$("#canvasAIR").innerWidth();
+    //var canvasAIRHeight=$("#canvasAIR").innerHeight();
+    //rendererAIR.setSize(canvasAIRWidth, canvasAIRHeight);
+    //cameraAIR.aspect =canvasAIRWidth / canvasAIRHeight;
+    //cameraAIR.updateProjectionMatrix();
 
 
     //var canvasGWWidth=$("#canvasGW").innerWidth();
@@ -432,17 +432,11 @@ function onWindowResize(){
 ////QGIS SW:
 Q3D.Config.bgColor = '#f7f7f7';
 Q3D.Config.localMode = true;
-//
-var containerGW = document.getElementById("viewGW");
-var appGW = Q3D.application;
-
-appGW.init(containerGW);          // initialize application
-
-// load the scene
-appGW.loadSceneFile("./mods3d/sw/scene.js", function () {
+var containerSW = document.getElementById("viewGW");
+var appSW = Q3D.application;
+appSW.init(containerSW);          // initialize application
+appSW.loadSceneFile("./mods3d/sw/scene.js", function () {
 });
-
-
 
 //QGIS AIR:
 Q3D_air.Config.bgColor = '#f7f7f7';
@@ -450,7 +444,5 @@ Q3D_air.Config.localMode = true;
 var appAIR = Q3D_air.application;
 var containerAIR = document.getElementById("viewAIR");
 appAIR.init(containerAIR);          // initialize application
-//init();                       // initialization for mobile template
-
 appAIR.loadSceneFile("./mods3d/air/scene.js", function () {
 });
