@@ -163,13 +163,13 @@
 		<p>Simulamos la calidad del aire para fuentes emisoras, utilizando softwar reconocido internacionalmente y aprobado por autoridades regulatorias locales.</p>
 		<div class="expansible">
 			<p>
-        		On Saturday, May 30 at 3:22 p.m. EDT, SpaceX’s Falcon 9 launched Crew Dragon’s second demonstration (Demo-2) mission from Launch Complex 39A (LC-39A) at NASA’s Kennedy Space Center in Florida, and the next day Crew Dragon autonomously docked to the International Space Station. This test flight with NASA astronauts Bob Behnken and Doug Hurley on board the Dragon spacecraft returned human spaceflight to the United States.
+        		Utilizamos modelos atmosféricos y de calidad de aire de distinta complejidad según la naturaleza del problema a resolver. Contamos con modelos gaussianos para screening, estacionarioa (tipo pluma), transitorios (tipo puff) recomendados por las autoridades reulatorias tales como AERSCREEN, AERMOD, y CALPUFF.
         		</p>
         		<p>
-        		Demo-2 is the final major test for SpaceX’s human spaceflight system to be certified by NASA for operational crew missions to and from the International Space Station. SpaceX is returning human spaceflight to the United States with one of the safest, most advanced systems ever built, and NASA’s Commercial Crew Program is a turning point for America’s future in space exploration that lays the groundwork for future missions to the Moon, Mars, and beyond.
+			También modelamos la química atmosférica con modelos numéricos en diferencias finitas acoplados a modelos meteorológicos (WRF-Chem, Chimere, CMAQ, entre otros).
         		</p>
         		<p>
-			You can watch a replay of the launch above
+			Somos concientes de la sensibilidad de la meteorología en los modelos de transporte de contaminantes, y por esto somos muy cuidadosos con los datos que utilizamos en nuestras corridas realizando un procesamiento, filtrado y validacion de los mismos.
         		</p>		
 		</div>
 		<a class="btn material-design btn-expandir" onclick="$('[name=air]').addClass('expandido');">Ver más</a>
@@ -189,15 +189,9 @@
 		<h2>Aguas subterraneas</h2>
 		<p>Modelamos el movimiento de contaminantes en medios  porosos saturados y no saturados mediante el sistema de modelado MODFLOW desarrollado por el USGS.</p>
 		<div class="expansible">
-			<p>
-			On Saturday, May 30 at 3:22 p.m. EDT, SpaceX’s Falcon 9 launched Crew Dragon’s second demonstration (Demo-2) mission from Launch Complex 39A (LC-39A) at NASA’s Kennedy Space Center in Florida, and the next day Crew Dragon autonomously docked to the International Space Station. This test flight with NASA astronauts Bob Behnken and Doug Hurley on board the Dragon spacecraft returned human spaceflight to the United States.
-			</p>
-			<p>
-			Demo-2 is the final major test for SpaceX’s human spaceflight system to be certified by NASA for operational crew missions to and from the International Space Station. SpaceX is returning human spaceflight to the United States with one of the safest, most advanced systems ever built, and NASA’s Commercial Crew Program is a turning point for America’s future in space exploration that lays the groundwork for future missions to the Moon, Mars, and beyond.
-			</p>
-			<p>
-			You can watch a replay of the launch above
-			</p>		
+			<p>El sistema de modelado MODFLOW nos permite simular el flujo tridimensional de agua en medios porosos. Algunos módulos han sido desarrollado para el modelado matemático del transporte de solutos en este medio tales como el MODPATH y el MT3D.</p>
+			<p>Modelamos también la interacción del agua subterranea con la superficie, cuerpos de agua superficiales, flujos en acuiferos kársticos, intrusiones salinas, entre otros.</p>
+			<p>La caracterización hidrogeológica del medio a modelar y los parametros hidráulicos de las formaciones son escenciales en la definicion del medio y contamos con geologos especialistas para la definición de los mismos.</p>		
 		</div>
 		<a class="btn material-design btn-expandir" onclick="$('[name=gw]').addClass('expandido');">Ver más</a>
 		<a class="btn material-design btn-colapsar" onclick="$('[name=gw]').removeClass('expandido');">Ver menos</a>
@@ -216,13 +210,13 @@
 		<p>Modelamos el transporte de especies químicas en ríos y lagos mediante modelos desarrollados y recomendados por EPA tales como WASP, AQUATOX, entre otros.</p>
 	        <div class="expansible">
                         <p>
-                        On Saturday, May 30 at 3:22 p.m. EDT, SpaceX’s Falcon 9 launched Crew Dragon’s second demonstration (Demo-2) mission from Launch Complex 39A (LC-39A) at NASA’s Kennedy Space Center in Florida, and the next day Crew Dragon autonomously docked to the International Space Station. This test flight with NASA astronauts Bob Behnken and Doug Hurley on board the Dragon spacecraft returned human spaceflight to the United States.
+			WASP es uno de los modelos más ampliamente utilizados para el modelado del transporte de contaminantes en cuerpos de agua superficiales. Permite simular diversos procesos tales como la eutrofización, transporte de contaminantes organicos e inorgánicos bajo distintas condiciones meteorológicas y de carga. Este tipo de modelos modelan multiples compuestos en simultáneo contemplando la cinética química propia de cada especie modelada. 
                         </p>
                         <p>
-                        Demo-2 is the final major test for SpaceX’s human spaceflight system to be certified by NASA for operational crew missions to and from the International Space Station. SpaceX is returning human spaceflight to the United States with one of the safest, most advanced systems ever built, and NASA’s Commercial Crew Program is a turning point for America’s future in space exploration that lays the groundwork for future missions to the Moon, Mars, and beyond.
+					
                         </p>
                         <p>
-                        You can watch a replay of the launch above
+
                         </p>
                 </div>
                 <a class="btn material-design btn-expandir" onclick="$('[name=sw]').addClass('expandido');">Ver más</a>
