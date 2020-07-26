@@ -9,7 +9,6 @@ document.title = "Gauss";
 
 $(document).ready(function(){
 
-
         //cerrarMenu();
 
         //ABRIR / CERRAR MENU:
@@ -115,42 +114,6 @@ $("#Logo_gauss").on('click', function() {
 
 
 
-
-// QGIS-CANVAS
-//Q3D.Config.bgColor = '#1f1f1f';
-//Q3D.Config.localMode = true;
-//Q3D.Config.AR.MND = 0.0;
-//
-//var container = document.getElementById("view");
-//app.init(container);          // initialize application
-//init();                       // initialization for mobile template
-//
-//app.addEventListener("sceneLoaded", function () {
-//  initLayerList();
-//});
-//
-//// load the scene
-//app.loadSceneFile("./data/index/scene.js", function () {
-//  app.start();
-//
-//  // North arrow inset
-//  // if (Q3D.Config.northArrow.visible) app.buildNorthArrow(document.getElementById("northarrow"), app.scene.userData.rotation);
-//
-//  // if ("AR" in app.urlParams) {
-//  //   document.getElementById("ar-checkbox").checked = true;
-//  //   startARMode();
-//  //   moveToCurrentLocation();
-//  // }
-//});
-
-
-
-
-
-
-
-
-
 // Animación de contador, using jQuery animate
 //$('.counting').each(function() {
 //  var $this = $(this),
@@ -237,7 +200,7 @@ $(window).scroll(function(event) {
   
 
 sceneAIR.rotation.y=pos/1000.;rendererAIR.render(sceneAIR,cameraAIR);
-sceneGW.rotation.y=pos/1000.;rendererGW.render(sceneGW,cameraGW);
+//sceneGW.rotation.y=pos/1000.;rendererGW.render(sceneGW,cameraGW);
 app.scene.rotation.z=pos/100.;app.renderer.render(app.scene,app.camera);//qgis
 });
 
@@ -245,13 +208,13 @@ function setBlack(){
         $logo.removeClass("white");
         //$logo.addClass("black");
         $btn_menu.removeClass("white");
-        //$btn_menu.addClass("black");
+        $btn_menu.addClass("black");
 };
                                         
 function setWhite(){
         //$logo.removeClass("black");
         $logo.addClass("white");
-        //$btn_menu.removeClass("black");
+        $btn_menu.removeClass("black");
         $btn_menu.addClass("white");
 };
 
@@ -369,68 +332,68 @@ function setWhite(){
 	//animateAIR();
 
 /*CANVAS GW*/
-	var canvasGWWidth=$("#canvasGW").innerWidth();
-	var canvasGWHeight=$("#canvasGW").innerHeight();
-	
- 	// RENDERER
- 	var rendererGW = new THREE.WebGLRenderer({canvas:canvasGW});
- 	//renderer.setSize(window.innerWidth*0.9, window.innerHeight*0.9);
- 		rendererGW.setSize(canvasGWWidth, canvasGWHeight);
- 		rendererGW.setClearColor(0xf7f7f7);
- 		rendererGW.shadowMap.enabled = true;
- 		rendererGW.shadowMap.type = THREE.PCFSoftShadowMap;
-	// ESCENA
-	var sceneGW = new THREE.Scene();
-    		sceneGW.position.x=0;sceneGW.position.y=1;	sceneGW.position.z=0;
-
-	// CAMARA
-        //var camera = new THREE.PerspectiveCamera(25, window.innerWidth/window.innerHeight, .1, 50) //params: zoom, ratioW/H, near, far
-        var cameraGW = new THREE.PerspectiveCamera(50, canvasGWWidth/canvasGWHeight, .1, 500) //params: zoom, ratioW/H, near, far
-        	cameraGW.position.set(3.5,7.1,2.4);
-		cameraGW.lookAt(sceneGW.position);
-	// LUZ
-	//luz ambiente
-	//var light = new THREE.AmbientLight( 0x151515 ); // soft white light
-	//scene.add( light );
-	                                                                                                                          
-	//luz direccionada
-	//var spotLight = new THREE.SpotLight(0xffffff);
-	//spotLight.position.set(camera.position.x+1,camera.position.y+5,camera.position.z+5);
-	//spotLight.castShadow = true;
-	//scene.add(spotLight);
-	                                                                                                                          
-	//DirectionalLight and turn on shadows for the light
-	var lightGW = new THREE.DirectionalLight( 0xf7f7f7, 1.1 );
-	lightGW.position.set(cameraGW.position.x-2,cameraGW.position.y+2,cameraGW.position.z+1);//default; light shining from top
-	lightGW.castShadow = true;            // default false
-	//Set up shadow properties for the light
-	lightGW.shadow.mapSize.width = 25;  // default
-	lightGW.shadow.mapSize.height = 25; // default
-	lightGW.shadow.camera.near = 1;    // default
-	lightGW.shadow.camera.far = 50;     // default
-
-	//CONTROL
-	//var controls = new THREE.OrbitControls( camera, renderer.domElement );
-
-	sceneGW.add(piso );
-        sceneGW.add(AXIS );
-
-	sceneGW.add(edificio );
-	sceneGW.add(lightGW );
-        
-	// Agregar a canvas
-	rendererGW.render(sceneGW,cameraGW);	
-
-	//SETUP ESTÁTICO:
-
-	// Agregar a canvas
-		//function animate() {
-	//   requestAnimationFrame( animate );
-	//     // required if controls.enableDamping or controls.autoRotate are set to true
-	//     controls.update();
-	//     renderer.render( scene, camera );
-    	//}
-	//animate();
+//	var canvasGWWidth=$("#canvasGW").innerWidth();
+//	var canvasGWHeight=$("#canvasGW").innerHeight();
+//	
+// 	// RENDERER
+// 	var rendererGW = new THREE.WebGLRenderer({canvas:canvasGW});
+// 	//renderer.setSize(window.innerWidth*0.9, window.innerHeight*0.9);
+// 		rendererGW.setSize(canvasGWWidth, canvasGWHeight);
+// 		rendererGW.setClearColor(0xf7f7f7);
+// 		rendererGW.shadowMap.enabled = true;
+// 		rendererGW.shadowMap.type = THREE.PCFSoftShadowMap;
+//	// ESCENA
+//	var sceneGW = new THREE.Scene();
+//    		sceneGW.position.x=0;sceneGW.position.y=1;	sceneGW.position.z=0;
+//
+//	// CAMARA
+//        //var camera = new THREE.PerspectiveCamera(25, window.innerWidth/window.innerHeight, .1, 50) //params: zoom, ratioW/H, near, far
+//        var cameraGW = new THREE.PerspectiveCamera(50, canvasGWWidth/canvasGWHeight, .1, 500) //params: zoom, ratioW/H, near, far
+//        	cameraGW.position.set(3.5,7.1,2.4);
+//		cameraGW.lookAt(sceneGW.position);
+//	// LUZ
+//	//luz ambiente
+//	//var light = new THREE.AmbientLight( 0x151515 ); // soft white light
+//	//scene.add( light );
+//	                                                                                                                          
+//	//luz direccionada
+//	//var spotLight = new THREE.SpotLight(0xffffff);
+//	//spotLight.position.set(camera.position.x+1,camera.position.y+5,camera.position.z+5);
+//	//spotLight.castShadow = true;
+//	//scene.add(spotLight);
+//	                                                                                                                          
+//	//DirectionalLight and turn on shadows for the light
+//	var lightGW = new THREE.DirectionalLight( 0xf7f7f7, 1.1 );
+//	lightGW.position.set(cameraGW.position.x-2,cameraGW.position.y+2,cameraGW.position.z+1);//default; light shining from top
+//	lightGW.castShadow = true;            // default false
+//	//Set up shadow properties for the light
+//	lightGW.shadow.mapSize.width = 25;  // default
+//	lightGW.shadow.mapSize.height = 25; // default
+//	lightGW.shadow.camera.near = 1;    // default
+//	lightGW.shadow.camera.far = 50;     // default
+//
+//	//CONTROL
+//	//var controls = new THREE.OrbitControls( camera, renderer.domElement );
+//
+//	sceneGW.add(piso );
+//        sceneGW.add(AXIS );
+//
+//	sceneGW.add(edificio );
+//	sceneGW.add(lightGW );
+//        
+//	// Agregar a canvas
+//	rendererGW.render(sceneGW,cameraGW);	
+//
+//	//SETUP ESTÁTICO:
+//
+//	// Agregar a canvas
+//		//function animate() {
+//	//   requestAnimationFrame( animate );
+//	//     // required if controls.enableDamping or controls.autoRotate are set to true
+//	//     controls.update();
+//	//     renderer.render( scene, camera );
+//    	//}
+//	//animate();
 
 
 
@@ -447,17 +410,16 @@ function onWindowResize(){
 
 	var canvasAIRWidth=$("#canvasAIR").innerWidth();
 	var canvasAIRHeight=$("#canvasAIR").innerHeight();
-	var canvasGWWidth=$("#canvasGW").innerWidth();
-	var canvasGWHeight=$("#canvasGW").innerHeight();
+	rendererAIR.setSize(canvasAIRWidth, canvasAIRHeight);
+    	cameraAIR.aspect =canvasAIRWidth / canvasAIRHeight;
+    	cameraAIR.updateProjectionMatrix();
 
-rendererAIR.setSize(canvasAIRWidth, canvasAIRHeight);
-rendererGW.setSize(canvasGWWidth, canvasGWHeight);
 
-    cameraGW.aspect =canvasGWWidth / canvasGWHeight;
-    cameraAIR.aspect =canvasAIRWidth / canvasAIRHeight;
-
-    cameraAIR.updateProjectionMatrix();
-    cameraGW.updateProjectionMatrix();
+    //var canvasGWWidth=$("#canvasGW").innerWidth();
+    //var canvasGWHeight=$("#canvasGW").innerHeight();
+    //rendererGW.setSize(canvasGWWidth, canvasGWHeight);
+    //cameraGW.aspect =canvasGWWidth / canvasGWHeight;
+    //cameraGW.updateProjectionMatrix();
 }
 
 
@@ -481,7 +443,7 @@ app.init(container);          // initialize application
 //});
 
 // load the scene
-app.loadSceneFile("./mods3d/sw-lanin.js", function () {
+app.loadSceneFile("./mods3d/sw/sw-lanin.js", function () {
   //app.start();
 
   // North arrow inset
@@ -496,4 +458,31 @@ app.loadSceneFile("./mods3d/sw-lanin.js", function () {
 	//agregar elementos:
 	//app.scene.add()
 });
+
+// QGIS-CANVAS
+//Q3D.Config.bgColor = '#1f1f1f';
+//Q3D.Config.localMode = true;
+//Q3D.Config.AR.MND = 0.0;
+//
+//var container = document.getElementById("view");
+//app.init(container);          // initialize application
+//init();                       // initialization for mobile template
+//
+//app.addEventListener("sceneLoaded", function () {
+//  initLayerList();
+//});
+//
+//// load the scene
+//app.loadSceneFile("./data/index/scene.js", function () {
+//  app.start();
+//
+//  // North arrow inset
+//  // if (Q3D.Config.northArrow.visible) app.buildNorthArrow(document.getElementById("northarrow"), app.scene.userData.rotation);
+//
+//  // if ("AR" in app.urlParams) {
+//  //   document.getElementById("ar-checkbox").checked = true;
+//  //   startARMode();
+//  //   moveToCurrentLocation();
+//  // }
+//});
 
