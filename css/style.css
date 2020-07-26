@@ -1456,6 +1456,8 @@ end count stats*/
 	/*OBJETIVO*/
 	.objetivo-words{
 		font-size:5.5vh;
+		padding:0;
+		padding-left:20px;
 	}
 
 	/*SERVICIOS*/
