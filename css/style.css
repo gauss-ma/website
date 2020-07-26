@@ -328,7 +328,6 @@ header {
 
 
 /*BURGUER*/
-
 .burguer_root {
 	position:fixed;
   top: 30px;
@@ -1472,26 +1471,26 @@ end count stats*/
 
 	/*CONTACTOS*/
  	.Contactos_wrapper {
-    -webkit-box-direction: normal;
-    -webkit-box-orient: vertical;
-    -moz-box-direction: normal;
-    -moz-box-orient: vertical;
-    -ms-flex-direction: column;
-     flex-direction: column;
+    		-webkit-box-direction: normal;
+    		-webkit-box-orient: vertical;
+    		-moz-box-direction: normal;
+    		-moz-box-orient: vertical;
+    		-ms-flex-direction: column;
+    		 flex-direction: column;
  	   justify-content:space-between;
 		
  	}
 	.Form-2-col,
  	.Contactos-form-wrapper,
  	.Contactos-info-wrapper {
-    -webkit-box-direction: normal;
-    -webkit-box-orient: vertical;
-    -moz-box-direction: normal;
-    -moz-box-orient: vertical;
-    -ms-flex-direction: column;
-     flex-direction: column;
+    		-webkit-box-direction: normal;
+    		-webkit-box-orient: vertical;
+    		-moz-box-direction: normal;
+    		-moz-box-orient: vertical;
+    		-ms-flex-direction: column;
+    		 flex-direction: column;
 
- 	     text-align:center;
+ 	        text-align:center;
                 justify-content:center;
 	     	align-items:center;
 		width:100%;
@@ -1525,33 +1524,33 @@ end count stats*/
   	}
     
 	/* MENU */       
-   .TabletMenu_root {
-      padding-top: 90px;
-      padding-bottom: 15px;
-   }
-   .TabletMenu_wrapper {
-      margin-right: 5vw;
-   }
-   .TabletMenu_lenguaje {
-     font-size: 18px;
-   }
-   .TabletMenu_lista {
-         bottom:0em;
-   }
-  .TabletMenu_email {
-    height: 24px;
-  }
-  .TabletMenu_email > a {
-    font-size: 18px;
-  }
-  .TabletMenu_links {
-    bottom: 3vh;
-  }
-  .TabletMenu__insta,
-  .TabletMenu__git,
-  .TabletMenu_item ,
-  .TabletMenu_lista {
-    font-size: 7vh;
-    line-height: 8vh;
-  }
+        .TabletMenu_root {
+            padding-top: 90px;
+            padding-bottom: 15px;
+        }
+        .TabletMenu_wrapper {
+            margin-right: 5vw;
+        }
+        .TabletMenu_lenguaje {
+           font-size: 18px;
+        }
+        .TabletMenu_lista {
+               bottom:0em;
+        }
+        /*.TabletMenu_email {
+            height: 24px;
+        }*/
+        .TabletMenu_email > a {
+            font-size: 18px;
+        }
+        .TabletMenu_links {
+          bottom: 3vh;
+        }
+        .TabletMenu__insta,
+        .TabletMenu__git,
+        .TabletMenu_item ,
+        .TabletMenu_lista {
+          font-size: 7vh;
+          line-height: 8vh;
+        }
 }

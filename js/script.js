@@ -9,7 +9,6 @@ document.title = "Gauss";
 
 $(document).ready(function(){
 
-
         //cerrarMenu();
 
         //ABRIR / CERRAR MENU:
@@ -115,42 +114,6 @@ $("#Logo_gauss").on('click', function() {
 
 
 
-
-// QGIS-CANVAS
-//Q3D.Config.bgColor = '#1f1f1f';
-//Q3D.Config.localMode = true;
-//Q3D.Config.AR.MND = 0.0;
-//
-//var container = document.getElementById("view");
-//app.init(container);          // initialize application
-//init();                       // initialization for mobile template
-//
-//app.addEventListener("sceneLoaded", function () {
-//  initLayerList();
-//});
-//
-//// load the scene
-//app.loadSceneFile("./data/index/scene.js", function () {
-//  app.start();
-//
-//  // North arrow inset
-//  // if (Q3D.Config.northArrow.visible) app.buildNorthArrow(document.getElementById("northarrow"), app.scene.userData.rotation);
-//
-//  // if ("AR" in app.urlParams) {
-//  //   document.getElementById("ar-checkbox").checked = true;
-//  //   startARMode();
-//  //   moveToCurrentLocation();
-//  // }
-//});
-
-
-
-
-
-
-
-
-
 // Animación de contador, using jQuery animate
 //$('.counting').each(function() {
 //  var $this = $(this),
@@ -245,13 +208,13 @@ function setBlack(){
         $logo.removeClass("white");
         //$logo.addClass("black");
         $btn_menu.removeClass("white");
-        //$btn_menu.addClass("black");
+        $btn_menu.addClass("black");
 };
                                         
 function setWhite(){
         //$logo.removeClass("black");
         $logo.addClass("white");
-        //$btn_menu.removeClass("black");
+        $btn_menu.removeClass("black");
         $btn_menu.addClass("white");
 };
 
@@ -495,4 +458,31 @@ app.loadSceneFile("./mods3d/sw/sw-lanin.js", function () {
 	//agregar elementos:
 	//app.scene.add()
 });
+
+// QGIS-CANVAS
+//Q3D.Config.bgColor = '#1f1f1f';
+//Q3D.Config.localMode = true;
+//Q3D.Config.AR.MND = 0.0;
+//
+//var container = document.getElementById("view");
+//app.init(container);          // initialize application
+//init();                       // initialization for mobile template
+//
+//app.addEventListener("sceneLoaded", function () {
+//  initLayerList();
+//});
+//
+//// load the scene
+//app.loadSceneFile("./data/index/scene.js", function () {
+//  app.start();
+//
+//  // North arrow inset
+//  // if (Q3D.Config.northArrow.visible) app.buildNorthArrow(document.getElementById("northarrow"), app.scene.userData.rotation);
+//
+//  // if ("AR" in app.urlParams) {
+//  //   document.getElementById("ar-checkbox").checked = true;
+//  //   startARMode();
+//  //   moveToCurrentLocation();
+//  // }
+//});
 
