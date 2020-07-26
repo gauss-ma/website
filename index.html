@@ -176,9 +176,10 @@
 		<a class="btn material-design btn-colapsar" onclick="$('[name=air]').removeClass('expandido');">Ver menos</a>
 
 	</div>
-	<div class="column-image">
-		<!-- img src="img/img-air.png" alt="" -->
-		<canvas id="canvasAIR"> </canvas>
+	<div class="column-image" id="viewAIR">
+		<!--img src="img/img-air.png" alt="" -->
+		<script src="mods3d/air/Qgis2threejs.js"></script>
+		<!--canvas id="canvasAIR"> </canvas-->
 	</div>
 
 </section>
@@ -222,11 +223,9 @@
                 <a class="btn material-design btn-expandir" onclick="$('[name=sw]').addClass('expandido');">Ver más</a>
                 <a class="btn material-design btn-colapsar" onclick="$('[name=sw]').removeClass('expandido');">Ver menos</a>
 	</div>
-	<div class="column-image" id="view">
-			<script src="js/threejs/Qgis2threejs.js"></script>
-			<script src="js/threejs/Qgis-mobile.js"></script>
-		  <!--img src="img/img-sw.png" alt="" -->
-			<div  style="max-width:800px;background-color:var(--blanco);"> 	</div>
+	<div class="column-image" id="viewGW">
+		  <!--img src="img/img-sw-temp.png" alt=""-->
+			<script src="mods3d/sw/Qgis2threejs.js"></script>
 	</div>
 </section>
 

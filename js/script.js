@@ -1,11 +1,12 @@
 // Here u can do your maggic ;)
 //
 //
+document.title = "Gauss";
+
 const $menu=$('.TabletMenu_root');
 const $btn_menu=$('#botonMenu');
 const $logo=$("#Logo_gauss");
 
-document.title = "Gauss";
 
 $(document).ready(function(){
 
@@ -199,9 +200,10 @@ $(window).scroll(function(event) {
 	(is_bgoscuro)? (setWhite()):(setBlack());
   
 
-sceneAIR.rotation.y=pos/1000.;rendererAIR.render(sceneAIR,cameraAIR);
+//sceneAIR.rotation.y=pos/1000.;rendererAIR.render(sceneAIR,cameraAIR);
 //sceneGW.rotation.y=pos/1000.;rendererGW.render(sceneGW,cameraGW);
-app.scene.rotation.z=pos/100.;app.renderer.render(app.scene,app.camera);//qgis
+appAIR.scene.rotation.z=pos/100.;appAIR.renderer.render(appAIR.scene,appAIR.camera);    //qgis
+appGW.scene.rotation.z=pos/100.;appGW.renderer.render(appGW.scene,appGW.camera);		//qgis
 });
 
 function setBlack(){
@@ -230,46 +232,46 @@ function setWhite(){
 
 
 //OBJETOS:
-	//AXIS:
-	var points = [new THREE.Vector3( 0.5, 0, 0 )];
-	points.push( new THREE.Vector3( 0, 0, 0 ) );
-	var material = new THREE.LineBasicMaterial({	color: 0x202020,linewidth:1.2,linecap:'butt'});
-	var geometry = new THREE.BufferGeometry().setFromPoints( points );
-	var lineX = new THREE.Line( geometry, material );
-	var lineY = new THREE.Line( geometry, material );
-	var lineZ = new THREE.Line( geometry, material );
-		lineY.rotation.z = Math.PI*0.5;
-		lineZ.rotation.y = 0.5*Math.PI;
-	var AXIS = new THREE.Group();
-		AXIS.add( lineX );
-		AXIS.add( lineY );
-		AXIS.add( lineZ );
-
-	//Piso
-	var planeGeo = new THREE.PlaneGeometry(150,150,4);
- 	var planeMaterial = new THREE.MeshLambertMaterial({color:0xf7f7f7, reflectivity: 0.3 });
- 		planeMaterial.side = THREE.DoubleSide;
-	var piso  = new THREE.Mesh(planeGeo,planeMaterial);
-	piso.receiveShadow = true;
-	piso.rotation.x = -.5*Math.PI;
-
-	//Terrain:
-	var geometryTerrain = new THREE.PlaneGeometry(8, 8, 10, 10);
-	var materialTerrain = new THREE.MeshLambertMaterial({ color: 0xf7d6a1});
-	materialTerrain.side = THREE.DoubleSide;
-        var Terrain = new THREE.Mesh(geometryTerrain, materialTerrain);
-		Terrain.rotation.y=Math.PI;
-		Terrain.rotation.x=-0.5*Math.PI;
-		Terrain.position.y=2.5;
-		Terrain.castShadow=true;
-
-	//CAJA                                                         	
-	var edifGeo = new THREE.BoxGeometry(.5,0.5,.5);        	
- 	var edifMaterial = new THREE.MeshLambertMaterial({ color: 0xf7d6a1 });
-	var edificio = new THREE.Mesh( edifGeo, edifMaterial );
-	edificio.castShadow = true;                            	
-		edificio.position.y=2.0
-	
+//	//AXIS:
+//	var points = [new THREE.Vector3( 0.5, 0, 0 )];
+//	points.push( new THREE.Vector3( 0, 0, 0 ) );
+//	var material = new THREE.LineBasicMaterial({	color: 0x202020,linewidth:1.2,linecap:'butt'});
+//	var geometry = new THREE.BufferGeometry().setFromPoints( points );
+//	var lineX = new THREE.Line( geometry, material );
+//	var lineY = new THREE.Line( geometry, material );
+//	var lineZ = new THREE.Line( geometry, material );
+//		lineY.rotation.z = Math.PI*0.5;
+//		lineZ.rotation.y = 0.5*Math.PI;
+//	var AXIS = new THREE.Group();
+//		AXIS.add( lineX );
+//		AXIS.add( lineY );
+//		AXIS.add( lineZ );
+//
+//	//Piso
+//	var planeGeo = new THREE.PlaneGeometry(150,150,4);
+// 	var planeMaterial = new THREE.MeshLambertMaterial({color:0xf7f7f7, reflectivity: 0.3 });
+// 		planeMaterial.side = THREE.DoubleSide;
+//	var piso  = new THREE.Mesh(planeGeo,planeMaterial);
+//	piso.receiveShadow = true;
+//	piso.rotation.x = -.5*Math.PI;
+//
+//	//Terrain:
+//	var geometryTerrain = new THREE.PlaneGeometry(8, 8, 10, 10);
+//	var materialTerrain = new THREE.MeshLambertMaterial({ color: 0xf7d6a1});
+//	materialTerrain.side = THREE.DoubleSide;
+//        var Terrain = new THREE.Mesh(geometryTerrain, materialTerrain);
+//		Terrain.rotation.y=Math.PI;
+//		Terrain.rotation.x=-0.5*Math.PI;
+//		Terrain.position.y=2.5;
+//		Terrain.castShadow=true;
+//
+//	//CAJA                                                         	
+//	var edifGeo = new THREE.BoxGeometry(.5,0.5,.5);        	
+// 	var edifMaterial = new THREE.MeshLambertMaterial({ color: 0xf7d6a1 });
+//	var edificio = new THREE.Mesh( edifGeo, edifMaterial );
+//	edificio.castShadow = true;                            	
+//		edificio.position.y=2.0
+//	
 
 
 
@@ -280,57 +282,57 @@ function setWhite(){
 
 
 /*CANVAS AIRE*/
-    var canvasAIRWidth=$("#canvasAIR").innerWidth();
-    var canvasAIRHeight=$("#canvasAIR").innerHeight();
-
-	//RENDERER
-	var rendererAIR = new THREE.WebGLRenderer({canvas:canvasAIR});
-	    rendererAIR.setSize(canvasAIRWidth, canvasAIRHeight);
-	    rendererAIR.setClearColor(0xf7f7f7);
-	    rendererAIR.shadowMap.enabled = true;
-	    rendererAIR.shadowMap.type = THREE.PCFSoftShadowMap;
-
-	//ESCENA:
-   	 var sceneAIR = new THREE.Scene();
-    	sceneAIR.position.x=0;
-	sceneAIR.position.y=1;
-	sceneAIR.position.z=0;
-    	//sceneAIR.add(new THREE.AmbientLight(0xeeeeee));
-
-	//CAMARA
-    	var cameraAIR = new THREE.PerspectiveCamera(45, canvasAIRWidth / canvasAIRHeight, 0.1, 1000);
-    		cameraAIR.position.set(5, 12, 12);
-	
-
-	//CONTROL
-	var controlsAIR = new THREE.OrbitControls( cameraAIR, rendererAIR.domElement );
-
-        //LUZ
-	var lightAIR = new THREE.DirectionalLight( 0xf7f7f7, 1.1 );
-		lightAIR.position.set(cameraAIR.position.x-2,cameraAIR.position.y+3,cameraAIR.position.z+1);//default; light shining from top
-		lightAIR.castShadow = true;            // default false
-		//SetAIRp shadow properties for the light
-		lightAIR.shadow.mapSize.width = 25;  // default
-		lightAIR.shadow.mapSize.height = 25; // default
-		lightAIR.shadow.camera.near = 1;    // default
-		lightAIR.shadow.camera.far = 50;     // default
-
-	//AGREGAR COSAS A LA ESCENA::
-	sceneAIR.add(piso);
-	sceneAIR.add(AXIS);
-        sceneAIR.add(Terrain);
-	sceneAIR.add(lightAIR);
-	
-    	rendererAIR.render(sceneAIR,cameraAIR);
-
-	//function animateAIR() {
-	//   requestAnimationFrame( animateAIR );
-	//     // required if controls.enableDamping or controls.autoRotate are set to true
-	//     controlsAIR.update();
-	//     rendererAIR.render( sceneAIR, cameraAIR );
-	//}
-	//animateAIR();
-
+//    var canvasAIRWidth=$("#canvasAIR").innerWidth();
+//    var canvasAIRHeight=$("#canvasAIR").innerHeight();
+//
+//	//RENDERER
+//	var rendererAIR = new THREE.WebGLRenderer({canvas:canvasAIR});
+//	    rendererAIR.setSize(canvasAIRWidth, canvasAIRHeight);
+//	    rendererAIR.setClearColor(0xf7f7f7);
+//	    rendererAIR.shadowMap.enabled = true;
+//	    rendererAIR.shadowMap.type = THREE.PCFSoftShadowMap;
+//
+//	//ESCENA:
+//   	 var sceneAIR = new THREE.Scene();
+//    	sceneAIR.position.x=0;
+//	sceneAIR.position.y=1;
+//	sceneAIR.position.z=0;
+//    	//sceneAIR.add(new THREE.AmbientLight(0xeeeeee));
+//
+//	//CAMARA
+//    	var cameraAIR = new THREE.PerspectiveCamera(45, canvasAIRWidth / canvasAIRHeight, 0.1, 1000);
+//    		cameraAIR.position.set(5, 12, 12);
+//	
+//
+//	//CONTROL
+//	var controlsAIR = new THREE.OrbitControls( cameraAIR, rendererAIR.domElement );
+//
+//        //LUZ
+//	var lightAIR = new THREE.DirectionalLight( 0xf7f7f7, 1.1 );
+//		lightAIR.position.set(cameraAIR.position.x-2,cameraAIR.position.y+3,cameraAIR.position.z+1);//default; light shining from top
+//		lightAIR.castShadow = true;            // default false
+//		//SetAIRp shadow properties for the light
+//		lightAIR.shadow.mapSize.width = 25;  // default
+//		lightAIR.shadow.mapSize.height = 25; // default
+//		lightAIR.shadow.camera.near = 1;    // default
+//		lightAIR.shadow.camera.far = 50;     // default
+//
+//	//AGREGAR COSAS A LA ESCENA::
+//	sceneAIR.add(piso);
+//	sceneAIR.add(AXIS);
+//        sceneAIR.add(Terrain);
+//	sceneAIR.add(lightAIR);
+//	
+//    	rendererAIR.render(sceneAIR,cameraAIR);
+//
+//	//function animateAIR() {
+//	//   requestAnimationFrame( animateAIR );
+//	//     // required if controls.enableDamping or controls.autoRotate are set to true
+//	//     controlsAIR.update();
+//	//     rendererAIR.render( sceneAIR, cameraAIR );
+//	//}
+//	//animateAIR();
+//
 /*CANVAS GW*/
 //	var canvasGWWidth=$("#canvasGW").innerWidth();
 //	var canvasGWHeight=$("#canvasGW").innerHeight();
@@ -408,11 +410,11 @@ function onWindowResize(){
     //renderer.setSize( window.innerWidth*0.5, window.innerHeight*0.5 );
     //rendererAIR.setSize( window.innerWidth*0.5, window.innerHeight*0.5 );
 
-	var canvasAIRWidth=$("#canvasAIR").innerWidth();
-	var canvasAIRHeight=$("#canvasAIR").innerHeight();
-	rendererAIR.setSize(canvasAIRWidth, canvasAIRHeight);
-    	cameraAIR.aspect =canvasAIRWidth / canvasAIRHeight;
-    	cameraAIR.updateProjectionMatrix();
+	//var canvasAIRWidth=$("#canvasAIR").innerWidth();
+	//var canvasAIRHeight=$("#canvasAIR").innerHeight();
+	//rendererAIR.setSize(canvasAIRWidth, canvasAIRHeight);
+    	//cameraAIR.aspect =canvasAIRWidth / canvasAIRHeight;
+    	//cameraAIR.updateProjectionMatrix();
 
 
     //var canvasGWWidth=$("#canvasGW").innerWidth();
@@ -427,62 +429,28 @@ function onWindowResize(){
 
 
 
-//QGIS:
+////QGIS SW:
 Q3D.Config.bgColor = '#f7f7f7';
 Q3D.Config.localMode = true;
-//Q3D.Config.AR.MND = 0.0;
+//
+var containerGW = document.getElementById("viewGW");
+var appGW = Q3D.application;
 
-//Q3D.Config.AR.MND = 0.0;
-
-var container = document.getElementById("view");
-app.init(container);          // initialize application
-//init();                       // initialization for mobile template
-
-//app.addEventListener("sceneLoaded", function () {
-//  initLayerList();
-//});
+appGW.init(containerGW);          // initialize application
 
 // load the scene
-app.loadSceneFile("./mods3d/sw/sw-lanin.js", function () {
-  //app.start();
-
-  // North arrow inset
-  //if (Q3D.Config.northArrow.visible) app.buildNorthArrow(document.getElementById("northarrow"), app.scene.userData.rotation);
-
-  //if ("AR" in app.urlParams) {
-  //  document.getElementById("ar-checkbox").checked = true;
-  //  startARMode();
-  //  moveToCurrentLocation();
-  //}
-
-	//agregar elementos:
-	//app.scene.add()
+appGW.loadSceneFile("./mods3d/sw/scene.js", function () {
 });
 
-// QGIS-CANVAS
-//Q3D.Config.bgColor = '#1f1f1f';
-//Q3D.Config.localMode = true;
-//Q3D.Config.AR.MND = 0.0;
-//
-//var container = document.getElementById("view");
-//app.init(container);          // initialize application
-//init();                       // initialization for mobile template
-//
-//app.addEventListener("sceneLoaded", function () {
-//  initLayerList();
-//});
-//
-//// load the scene
-//app.loadSceneFile("./data/index/scene.js", function () {
-//  app.start();
-//
-//  // North arrow inset
-//  // if (Q3D.Config.northArrow.visible) app.buildNorthArrow(document.getElementById("northarrow"), app.scene.userData.rotation);
-//
-//  // if ("AR" in app.urlParams) {
-//  //   document.getElementById("ar-checkbox").checked = true;
-//  //   startARMode();
-//  //   moveToCurrentLocation();
-//  // }
-//});
 
+
+//QGIS AIR:
+Q3D_air.Config.bgColor = '#f7f7f7';
+Q3D_air.Config.localMode = true;
+var appAIR = Q3D_air.application;
+var containerAIR = document.getElementById("viewAIR");
+appAIR.init(containerAIR);          // initialize application
+//init();                       // initialization for mobile template
+
+appAIR.loadSceneFile("./mods3d/air/scene.js", function () {
+});

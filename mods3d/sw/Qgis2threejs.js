@@ -455,89 +455,89 @@ Q3D.Scene.prototype.adjustZShift = function () {
       app.render();
     });
 
-    var controls;
-    if (typeof THREE.OrbitControls !== "undefined") {
-      controls = new THREE.OrbitControls(app.camera, app.renderer.domElement);
-      controls.enableKeys = false;
+    //var controls;
+    //if (typeof THREE.OrbitControls !== "undefined") {
+    //  controls = new THREE.OrbitControls(app.camera, app.renderer.domElement);
+    //  controls.enableKeys = false;
 
-      var t = Q3D.Config.viewpoint.lookAt;
-      controls.target.set(t.x, t.y, t.z);
+    //  var t = Q3D.Config.viewpoint.lookAt;
+    //  controls.target.set(t.x, t.y, t.z);
 
-      // custom functions
-      var offset = new THREE.Vector3();
-      var spherical = new THREE.Spherical();
+    //  // custom functions
+    //  var offset = new THREE.Vector3();
+    //  var spherical = new THREE.Spherical();
 
-      controls.moveForward = function (delta) {
-        offset.copy(controls.object.position).sub(controls.target);
-        var targetDistance = offset.length() * Math.tan((controls.object.fov / 2) * Math.PI / 180.0);
-        offset.y = 0;
-        offset.normalize();
-        offset.multiplyScalar(-2 * delta * targetDistance / app.renderer.domElement.clientHeight);
+    //  controls.moveForward = function (delta) {
+    //    offset.copy(controls.object.position).sub(controls.target);
+    //    var targetDistance = offset.length() * Math.tan((controls.object.fov / 2) * Math.PI / 180.0);
+    //    offset.y = 0;
+    //    offset.normalize();
+    //    offset.multiplyScalar(-2 * delta * targetDistance / app.renderer.domElement.clientHeight);
 
-        controls.object.position.add(offset);
-        controls.target.add(offset);
-      };
-      controls.cameraRotate = function (thetaDelta, phiDelta) {
-        offset.copy(controls.target).sub(controls.object.position);
-        spherical.setFromVector3(offset);
+    //    controls.object.position.add(offset);
+    //    controls.target.add(offset);
+    //  };
+    //  controls.cameraRotate = function (thetaDelta, phiDelta) {
+    //    offset.copy(controls.target).sub(controls.object.position);
+    //    spherical.setFromVector3(offset);
 
-        spherical.theta += thetaDelta;
-        spherical.phi -= phiDelta;
+    //    spherical.theta += thetaDelta;
+    //    spherical.phi -= phiDelta;
 
-        // restrict theta/phi to be between desired limits
-        spherical.theta = Math.max(controls.minAzimuthAngle, Math.min(controls.maxAzimuthAngle, spherical.theta));
-        spherical.phi = Math.max(controls.minPolarAngle, Math.min(controls.maxPolarAngle, spherical.phi));
-        spherical.makeSafe();
+    //    // restrict theta/phi to be between desired limits
+    //    spherical.theta = Math.max(controls.minAzimuthAngle, Math.min(controls.maxAzimuthAngle, spherical.theta));
+    //    spherical.phi = Math.max(controls.minPolarAngle, Math.min(controls.maxPolarAngle, spherical.phi));
+    //    spherical.makeSafe();
 
-        offset.setFromSpherical(spherical);
-        controls.target.copy(controls.object.position).add(offset);
-        controls.object.lookAt(controls.target);
-      };
+    //    offset.setFromSpherical(spherical);
+    //    controls.target.copy(controls.object.position).add(offset);
+    //    controls.object.lookAt(controls.target);
+    //  };
 
-      controls.addEventListener("change", function (event) {
-        app.render();
-      });
-    }
+    //  controls.addEventListener("change", function (event) {
+    //    app.render();
+    //  });
+    //}
 
-    app.controls = controls;
-    app.controls.update();
+    //app.controls = controls;
+    //app.controls.update();
 
-    app.labelVisible = Q3D.Config.label.visible;
+    //app.labelVisible = Q3D.Config.label.visible;
 
     // root element of labels
     //app.scene.labelRootElement = document.getElementById("labels");
     //app.scene.labelRootElement.style.display = (app.labelVisible) ? "block" : "none";
 
-    // create a marker for queried point
-    var opt = Q3D.Config.qmarker;
-    app.queryMarker = new THREE.Mesh(new THREE.SphereBufferGeometry(opt.r),
-                                     new THREE.MeshLambertMaterial({color: opt.c, opacity: opt.o, transparent: (opt.o < 1)}));
+    //// create a marker for queried point
+    //var opt = Q3D.Config.qmarker;
+    //app.queryMarker = new THREE.Mesh(new THREE.SphereBufferGeometry(opt.r),
+    //                                 new THREE.MeshLambertMaterial({color: opt.c, opacity: opt.o, transparent: (opt.o < 1)}));
 
-    app.highlightMaterial = new THREE.MeshLambertMaterial({emissive: 0x999900, transparent: true, opacity: 0.5});
-    if (!Q3D.isIE) app.highlightMaterial.side = THREE.DoubleSide;    // Shader compilation error occurs with double sided material on IE11
+    //app.highlightMaterial = new THREE.MeshLambertMaterial({emissive: 0x999900, transparent: true, opacity: 0.5});
+    //if (!Q3D.isIE) app.highlightMaterial.side = THREE.DoubleSide;    // Shader compilation error occurs with double sided material on IE11
 
-    app.selectedObject = null;
-    app.highlightObject = null;
+    //app.selectedObject = null;
+    //app.highlightObject = null;
 
-    app.modelBuilders = [];
-    app._wireframeMode = false;
+    //app.modelBuilders = [];
+    //app._wireframeMode = false;
 
-    // add event listeners
-    app.addEventListener("sceneLoaded", function () {
-      if (Q3D.Config.autoZShift) {
-        app.scene.adjustZShift();
-      }
-      app.render();
-    }, true);
+    //// add event listeners
+    //app.addEventListener("sceneLoaded", function () {
+    //  if (Q3D.Config.autoZShift) {
+    //    app.scene.adjustZShift();
+    //  }
+    //  app.render();
+    //}, true);
 
-    window.addEventListener("keydown", app.eventListener.keydown);
-    window.addEventListener("resize", app.eventListener.resize);
+    //window.addEventListener("keydown", app.eventListener.keydown);
+    //window.addEventListener("resize", app.eventListener.resize);
 
-    app.renderer.domElement.addEventListener("mousedown", app.eventListener.mousedown);
-    app.renderer.domElement.addEventListener("mouseup", app.eventListener.mouseup);
+    //app.renderer.domElement.addEventListener("mousedown", app.eventListener.mousedown);
+    //app.renderer.domElement.addEventListener("mouseup", app.eventListener.mouseup);
 
-    var e = Q3D.$("closebtn");
-    if (e) e.addEventListener("click", app.closePopup);
+    //var e = Q3D.$("closebtn");
+    //if (e) e.addEventListener("click", app.closePopup);
   };
 
   app.parseUrlParameters = function () {
@@ -674,124 +674,124 @@ Q3D.Scene.prototype.adjustZShift = function () {
     }
   };
 
-  app.mouseDownPoint = new THREE.Vector2();
-  app.mouseUpPoint = new THREE.Vector2();
+  //app.mouseDownPoint = new THREE.Vector2();
+  //app.mouseUpPoint = new THREE.Vector2();
 
-  app.eventListener = {
+  //app.eventListener = {
 
-    keydown: function (e) {
-      var controls = app.controls;
-      var panDelta = 3, rotateAngle = 2 * Math.PI / 180;
-      if (e.shiftKey && e.ctrlKey) {
-        switch (e.keyCode) {
-          case 38:  // Shift + Ctrl + UP
-            controls.dollyOut(controls.getZoomScale());
-            break;
-          case 40:  // Shift + Ctrl + DOWN
-            controls.dollyIn(controls.getZoomScale());
-            break;
-          default:
-            return;
-        }
-      }
-      else if (e.shiftKey) {
-        switch (e.keyCode) {
-          case 37:  // LEFT
-            controls.rotateLeft(rotateAngle);
-            break;
-          case 38:  // UP
-            controls.rotateUp(rotateAngle);
-            break;
-          case 39:  // RIGHT
-            controls.rotateLeft(-rotateAngle);
-            break;
-          case 40:  // DOWN
-            controls.rotateUp(-rotateAngle);
-            break;
-          case 82:  // Shift + R
-            controls.reset();
-            break;
-          case 83:  // Shift + S
-            app.showPrintDialog();
-            return;
-          default:
-            return;
-        }
-      }
-      else if (e.ctrlKey) {
-        switch (e.keyCode) {
-          case 37:  // Ctrl + LEFT
-            controls.cameraRotate(rotateAngle, 0);
-            break;
-          case 38:  // Ctrl + UP
-            controls.cameraRotate(0, rotateAngle);
-            break;
-          case 39:  // Ctrl + RIGHT
-            controls.cameraRotate(-rotateAngle, 0);
-            break;
-          case 40:  // Ctrl + DOWN
-            controls.cameraRotate(0, -rotateAngle);
-            break;
-          default:
-            return;
-        }
-      }
-      else {
-        switch (e.keyCode) {
-          case 37:  // LEFT
-            controls.panLeft(panDelta, controls.object.matrix);
-            break;
-          case 38:  // UP
-            controls.moveForward(3 * panDelta);    // horizontally forward
-            break;
-          case 39:  // RIGHT
-            controls.panLeft(-panDelta, controls.object.matrix);
-            break;
-          case 40:  // DOWN
-            controls.moveForward(-3 * panDelta);
-            break;
-          case 27:  // ESC
-            if (Q3D.$("popup").style.display != "none") {
-              app.closePopup();
-            }
-            else if (app.controls.autoRotate) {
-              app.setRotateAnimationMode(false);
-            }
-            return;
-          case 73:  // I
-            app.showInfo();
-            return;
-          case 76:  // L
-            app.setLabelVisible(!app.labelVisible);
-            return;
-          case 82:  // R
-            app.setRotateAnimationMode(!controls.autoRotate);
-            return;
-          case 87:  // W
-            app.setWireframeMode(!app._wireframeMode);
-            return;
-          default:
-            return;
-        }
-      }
-      app.controls.update();
-    },
+  //  keydown: function (e) {
+  //    var controls = app.controls;
+  //    var panDelta = 3, rotateAngle = 2 * Math.PI / 180;
+  //    if (e.shiftKey && e.ctrlKey) {
+  //      switch (e.keyCode) {
+  //        case 38:  // Shift + Ctrl + UP
+  //          controls.dollyOut(controls.getZoomScale());
+  //          break;
+  //        case 40:  // Shift + Ctrl + DOWN
+  //          controls.dollyIn(controls.getZoomScale());
+  //          break;
+  //        default:
+  //          return;
+  //      }
+  //    }
+  //    else if (e.shiftKey) {
+  //      switch (e.keyCode) {
+  //        case 37:  // LEFT
+  //          controls.rotateLeft(rotateAngle);
+  //          break;
+  //        case 38:  // UP
+  //          controls.rotateUp(rotateAngle);
+  //          break;
+  //        case 39:  // RIGHT
+  //          controls.rotateLeft(-rotateAngle);
+  //          break;
+  //        case 40:  // DOWN
+  //          controls.rotateUp(-rotateAngle);
+  //          break;
+  //        case 82:  // Shift + R
+  //          controls.reset();
+  //          break;
+  //        case 83:  // Shift + S
+  //          app.showPrintDialog();
+  //          return;
+  //        default:
+  //          return;
+  //      }
+  //    }
+  //    else if (e.ctrlKey) {
+  //      switch (e.keyCode) {
+  //        case 37:  // Ctrl + LEFT
+  //          controls.cameraRotate(rotateAngle, 0);
+  //          break;
+  //        case 38:  // Ctrl + UP
+  //          controls.cameraRotate(0, rotateAngle);
+  //          break;
+  //        case 39:  // Ctrl + RIGHT
+  //          controls.cameraRotate(-rotateAngle, 0);
+  //          break;
+  //        case 40:  // Ctrl + DOWN
+  //          controls.cameraRotate(0, -rotateAngle);
+  //          break;
+  //        default:
+  //          return;
+  //      }
+  //    }
+  //    else {
+  //      switch (e.keyCode) {
+  //        case 37:  // LEFT
+  //          controls.panLeft(panDelta, controls.object.matrix);
+  //          break;
+  //        case 38:  // UP
+  //          controls.moveForward(3 * panDelta);    // horizontally forward
+  //          break;
+  //        case 39:  // RIGHT
+  //          controls.panLeft(-panDelta, controls.object.matrix);
+  //          break;
+  //        case 40:  // DOWN
+  //          controls.moveForward(-3 * panDelta);
+  //          break;
+  //        case 27:  // ESC
+  //          if (Q3D.$("popup").style.display != "none") {
+  //            app.closePopup();
+  //          }
+  //          else if (app.controls.autoRotate) {
+  //            app.setRotateAnimationMode(false);
+  //          }
+  //          return;
+  //        case 73:  // I
+  //          app.showInfo();
+  //          return;
+  //        case 76:  // L
+  //          app.setLabelVisible(!app.labelVisible);
+  //          return;
+  //        case 82:  // R
+  //          app.setRotateAnimationMode(!controls.autoRotate);
+  //          return;
+  //        case 87:  // W
+  //          app.setWireframeMode(!app._wireframeMode);
+  //          return;
+  //        default:
+  //          return;
+  //      }
+  //    }
+  //    app.controls.update();
+  //  },
 
-    mousedown: function (e) {
-      app.mouseDownPoint.set(e.clientX, e.clientY);
-    },
+  //  mousedown: function (e) {
+  //    app.mouseDownPoint.set(e.clientX, e.clientY);
+  //  },
 
-    mouseup: function (e) {
-      app.mouseUpPoint.set(e.clientX, e.clientY);
-      if (app.mouseDownPoint.equals(app.mouseUpPoint)) app.canvasClicked(e);
-    },
+  //  mouseup: function (e) {
+  //    app.mouseUpPoint.set(e.clientX, e.clientY);
+  //    if (app.mouseDownPoint.equals(app.mouseUpPoint)) app.canvasClicked(e);
+  //  },
 
-    resize: function () {
-      app.setCanvasSize(app.container.clientWidth, app.container.clientHeight);
-      app.render();
-    }
+  //  resize: function () {
+  //    app.setCanvasSize(app.container.clientWidth, app.container.clientHeight);
+  //    app.render();
+  //  }
 
-  };
+  //};
 
   app.setCanvasSize = function (width, height) {
     app.width = width;
@@ -891,17 +891,6 @@ Q3D.Scene.prototype.adjustZShift = function () {
     if (updateControls) app.controls.update();
     app.renderer.render(app.scene, app.camera);
 
-    // North arrow
-    if (app.renderer2) {
-      app.camera.getWorldDirection(vec3);
-      app.camera2.position.copy(vec3.negate().setLength(Q3D.Config.northArrow.cameraDistance));
-      app.camera2.quaternion.copy(app.camera.quaternion);
-
-      app.renderer2.render(app.scene2, app.camera2);
-    }
-
-    // labels
-    app.updateLabelPosition();
   };
 
   // TODO: remove [obsolete] app.setIntervalRender
