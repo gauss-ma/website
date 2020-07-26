@@ -1241,13 +1241,14 @@ main{
 
 /* PALABRAS DE OBJETIVO */
 .objetivo-words{	
-	padding:50px;
+  padding:60px;
+  margin-top: 20px;
 	width:100%;
-	max-width:800px;
-	font-size:8vh;
-	font-family:MontserratBold;
-	font-weight:800;
-		overflow:hidden;
+	max-width:1000px;
+	font-size:9vh;
+	font-family:MontserratExtraBold;
+    font-weight:800;
+	overflow:hidden;
 	/*text-align:center;*/
 }
 
