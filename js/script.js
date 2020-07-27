@@ -200,35 +200,28 @@ $(window).scroll(function(event) {
 	(is_bgoscuro)? (setWhite()):(setBlack());
   
 
-//sceneAIR.rotation.y=pos/1000.;rendererAIR.render(sceneAIR,cameraAIR);
-//sceneGW.rotation.y=pos/1000.;rendererGW.render(sceneGW,cameraGW);
-//appAIR.scene.rotation.z=pos/100.;appAIR.renderer.render(appAIR.scene,appAIR.camera);    //qgis
-//appSW.scene.rotation.z=pos/100.;appGW.renderer.render(appGW.scene,appGW.camera);		//qgis
-//appSW.camera.rotation.y= 0.01*pos;appSW.renderer.render(appSW.scene,appSW.camera)
 
-	phi=0.5;
-	lambda=pos*0.0005;
-	R=130;
-        x = R*Math.cos(lambda);//Math.cos(phi) * 
-        y = R*Math.sin(lambda);//Math.cos(phi) * ;
-        z = R*Math.sin(phi);
+	//camara girando alrededor de la escena (todavia no está bien):
+	R1=120;
+	R2=80;
+	lambda=pos*0.0003;
+	phi=2*Math.PI;
+        x = R1*Math.cos(lambda)*Math.cos(phi);
+        y = R1*Math.sin(lambda)*Math.cos(phi);
+        z = R2*Math.cos(phi);
 	
-//appAIR.camera.rotation.y=lambda;
-appAIR.camera.position.x=x;
-appAIR.camera.position.y=z;
-appAIR.camera.position.z=y;
-appAIR.camera.lookAt(appAIR.scene.position);
-//appAIR.camera.rotation.y=0.01*pos;
-appAIR.renderer.render(appAIR.scene,appAIR.camera)
-
-
-
-
-appSW.camera.position.x=x;
-appSW.camera.position.y=z;
-appSW.camera.position.z=y;
-appSW.camera.lookAt(appSW.scene.position);
-appSW.renderer.render(appSW.scene,appSW.camera)
+	appAIR.camera.position.x=x;
+	appAIR.camera.position.y=z;
+	appAIR.camera.position.z=y;
+	appAIR.camera.lookAt(appAIR.scene.position);
+	appAIR.renderer.render(appAIR.scene,appAIR.camera)
+	
+	
+	appSW.camera.position.x=x;
+	appSW.camera.position.y=z;
+	appSW.camera.position.z=y;
+	appSW.camera.lookAt(appSW.scene.position);
+	appSW.renderer.render(appSW.scene,appSW.camera)
 
 
 
@@ -439,18 +432,21 @@ function onWindowResize(){
     //renderer.setSize( window.innerWidth*0.5, window.innerHeight*0.5 );
     //rendererAIR.setSize( window.innerWidth*0.5, window.innerHeight*0.5 );
 
-    //var canvasAIRWidth=$("#canvasAIR").innerWidth();
-    //var canvasAIRHeight=$("#canvasAIR").innerHeight();
+    var canvasAIRWidth=$("#viewAIR").innerWidth();
+    var canvasAIRHeight=$("#viewAIR").innerHeight();
     //rendererAIR.setSize(canvasAIRWidth, canvasAIRHeight);
     //cameraAIR.aspect =canvasAIRWidth / canvasAIRHeight;
     //cameraAIR.updateProjectionMatrix();
+    appAIR.setCanvasSize(canvasAIRWidth, canvasAIRHeight);
 
 
-    //var canvasGWWidth=$("#canvasGW").innerWidth();
-    //var canvasGWHeight=$("#canvasGW").innerHeight();
+    var canvasSWWidth=$("#viewSW").innerWidth();
+    var canvasSWHeight=$("#viewSW").innerHeight();
     //rendererGW.setSize(canvasGWWidth, canvasGWHeight);
     //cameraGW.aspect =canvasGWWidth / canvasGWHeight;
     //cameraGW.updateProjectionMatrix();
+    appSW.setCanvasSize(canvasSWWidth, canvasSWHeight);
+
 }
 
 
@@ -461,7 +457,7 @@ function onWindowResize(){
 ////QGIS SW:
 Q3D.Config.bgColor = '#f7f7f7';
 Q3D.Config.localMode = true;
-var containerSW = document.getElementById("viewGW");
+var containerSW = document.getElementById("viewSW");
 var appSW = Q3D.application;
 appSW.init(containerSW);          // initialize application
 appSW.loadSceneFile("./mods3d/sw/scene.js", function () {
