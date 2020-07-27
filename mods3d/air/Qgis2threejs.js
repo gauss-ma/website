@@ -798,432 +798,432 @@ Q3D_air.Scene.prototype.adjustZShift = function () {
   })();
 
   // appAIR.updateLabelPosition()
-  (function () {
-    var camera,
-        c2t = new THREE.Vector3(),
-        c2l = new THREE.Vector3();
-
-    appAIR.updateLabelPosition = function () {
-      var rootGroup = appAIR.scene.labelConnectorGroup;
-      if (!appAIR.labelVisible || rootGroup.children.length == 0) return;
-
-      camera = appAIR.camera;
-      camera.getWorldDirection(c2t);
-
-      // make list of [connector object, pt, distance to camera]
-      var obj_dist = [],
-          i, l, k, m,
-          connGroup, conn, pt0;
-
-      for (i = 0, l = rootGroup.children.length; i < l; i++) {
-        connGroup = rootGroup.children[i];
-        if (!connGroup.visible) continue;
-        for (k = 0, m = connGroup.children.length; k < m; k++) {
-          conn = connGroup.children[k];
-          pt0 = conn.geometry.vertices[0];
-          vec3.set(pt0.x, pt0.z, -pt0.y);
-
-          if (c2l.subVectors(vec3, camera.position).dot(c2t) > 0)      // label is in front
-            obj_dist.push([conn, pt0, camera.position.distanceTo(vec3)]);
-          else    // label is in back
-            conn.userData.elem.style.display = "none";
-        }
-      }
-
-      if (obj_dist.length == 0) return;
-
-      // sort label objects in descending order of distances
-      obj_dist.sort(function (a, b) {
-        if (a[2] < b[2]) return 1;
-        if (a[2] > b[2]) return -1;
-        return 0;
-      });
-
-      var widthHalf = appAIR.width / 2,
-          heightHalf = appAIR.height / 2,
-          fixedSize = Q3D_air.Config.label.fixedSize,
-          minFontSize = Q3D_air.Config.label.minFontSize;
-
-      var label, dist, x, y, e, t, fontSize;
-      for (i = 0, l = obj_dist.length; i < l; i++) {
-        label = obj_dist[i][0];
-        pt0 = obj_dist[i][1];
-        dist = obj_dist[i][2];
-
-        // calculate label position
-        vec3.set(pt0.x, pt0.z, -pt0.y).project(camera);
-        x = (vec3.x * widthHalf) + widthHalf;
-        y = -(vec3.y * heightHalf) + heightHalf;
-
-        // set label position
-        e = label.userData.elem;
-        t = "translate(" + (x - (e.offsetWidth / 2)) + "px," + (y - (e.offsetHeight / 2)) + "px)";
-        e.style.display = "block";
-        e.style.zIndex = i + 1;
-        e.style.webkitTransform = t;
-        e.style.transform = t;
-
-        // set font size
-        if (!fixedSize) {
-          if (dist < 10) dist = 10;
-          fontSize = Math.max(Math.round(1000 / dist), minFontSize);
-          e.style.fontSize = fontSize + "px";
-        }
-      }
-    };
-  })();
-
-  appAIR.setLabelVisible = function (visible) {
-    appAIR.labelVisible = visible;
-    appAIR.scene.labelRootElement.style.display = (visible) ? "block" : "none";
-    appAIR.scene.labelConnectorGroup.visible = visible;
-    appAIR.render();
-  };
-
-  appAIR.setRotateAnimationMode = function (enabled) {
-    appAIR.controls.autoRotate = enabled;
-    if (enabled) {
-      appAIR.startAnimation();
-    }
-    else {
-      appAIR.stopAnimation();
-    }
-  };
-
-  appAIR.setWireframeMode = function (wireframe) {
-    if (wireframe == appAIR._wireframeMode) return;
-
-    for (var id in appAIR.scene.mapLayers) {
-      appAIR.scene.mapLayers[id].setWireframeMode(wireframe);
-    }
-
-    appAIR._wireframeMode = wireframe;
-    appAIR.render();
-  };
-
-  appAIR.intersectObjects = function (offsetX, offsetY) {
-    var vec2 = new THREE.Vector2((offsetX / appAIR.width) * 2 - 1,
-                                 -(offsetY / appAIR.height) * 2 + 1);
-    var ray = new THREE.Raycaster();
-    ray.linePrecision = 0.2;
-    ray.setFromCamera(vec2, appAIR.camera);
-    return ray.intersectObjects(appAIR.scene.queryableObjects());
-  };
-
-  appAIR._offset = function (elm) {
-    var top = 0, left = 0;
-    do {
-      top += elm.offsetTop || 0; left += elm.offsetLeft || 0; elm = elm.offsetParent;
-    } while (elm);
-    return {top: top, left: left};
-  };
-
-  appAIR.popup = {
-
-    timerId: null,
-
-    modal: false,
-
-    // show box
-    // obj: html, element or content id ("queryresult" or "pageinfo")
-    // modal: boolean
-    // duration: int [milliseconds]
-    show: function (obj, title, modal, duration) {
-
-      if (modal) appAIR.pause();
-      else if (this.modal) appAIR.resume();
-
-      this.modal = Boolean(modal);
-
-      var content = Q3D_air.$("popupcontent");
-      [content, Q3D_air.$("queryresult"), Q3D_air.$("pageinfo")].forEach(function (e) {
-        if (e) e.style.display = "none";
-      });
-
-      if (obj == "queryresult" || obj == "pageinfo") {
-        Q3D_air.$(obj).style.display = "block";
-      }
-      else {
-        if (obj instanceof HTMLElement) {
-          content.innerHTML = "";
-          content.appendChild(obj);
-        }
-        else {
-          content.innerHTML = obj;
-        }
-        content.style.display = "block";
-      }
-      Q3D_air.$("popupbar").innerHTML = title || "";
-      Q3D_air.$("popup").style.display = "block";
-
-      if (appAIR.popup.timerId !== null) {
-        clearTimeout(appAIR.popup.timerId);
-        appAIR.popup.timerId = null;
-      }
-
-      if (duration) {
-        appAIR.popup.timerId = setTimeout(function () {
-          appAIR.popup.hide();
-        }, duration);
-      }
-    },
-
-    hide: function () {
-      Q3D_air.$("popup").style.display = "none";
-      if (appAIR.popup.timerId !== null) clearTimeout(appAIR.popup.timerId);
-      appAIR.popup.timerId = null;
-      if (this.modal) appAIR.resume();
-    }
-
-  };
-
-  appAIR.showInfo = function () {
-    var url = Q3D_air.$("urlbox");
-    if (url) url.value = appAIR.currentViewUrl();
-    appAIR.popup.show("pageinfo");
-  };
-
-  appAIR.queryTargetPosition = new THREE.Vector3();  // y-up
-
-  appAIR.cameraAction = {
-
-    move: function (x, y, z) {    // z-up
-      if (x === undefined) appAIR.camera.position.copy(appAIR.queryTargetPosition);
-      else appAIR.camera.position.set(x, z, -y);   // y-up
-      appAIR.render(true);
-    },
-
-    vecZoom: new THREE.Vector3(0, 10, 10),    // y-up
-
-    zoomIn: function (x, y, z) {    // z-up
-      if (x === undefined) vec3.copy(appAIR.queryTargetPosition);
-      else vec3.set(x, z, -y);   // y-up
-
-      appAIR.camera.position.addVectors(vec3, appAIR.cameraAction.vecZoom);
-      appAIR.camera.lookAt(vec3.x, vec3.y, vec3.z);
-      if (appAIR.controls.target !== undefined) appAIR.controls.target.copy(vec3);
-      appAIR.render(true);
-    },
-
-    orbit: function (x, y, z) {   // z-up
-      if (appAIR.controls.target === undefined) return;
-
-      if (x === undefined) appAIR.controls.target.copy(appAIR.queryTargetPosition);
-      else appAIR.controls.target.set(x, z, -y);   // y-up
-      appAIR.setRotateAnimationMode(true);
-    }
-
-  };
-
-  appAIR.showQueryResult = function (point, obj, hide_coords) {
-    appAIR.queryTargetPosition.set(point.x, point.z, -point.y);    // y-up
-
-    var layer = appAIR.scene.mapLayers[obj.userData.layerId],
-        e = document.getElementById("qr_layername");
-
-    // layer name
-    if (layer && e) e.innerHTML = layer.properties.name;
-
-    // clicked coordinates
-    e = document.getElementById("qr_coords_table");
-    if (e) {
-      if (hide_coords) {
-        e.classList.add("hidden");
-      }
-      else {
-        e.classList.remove("hidden");
-
-        var pt = appAIR.scene.toMapCoordinates(point.x, point.y, point.z);
-        e = document.getElementById("qr_coords");
-        if (typeof proj4 === "undefined") {
-          e.innerHTML = [pt.x.toFixed(2), pt.y.toFixed(2), pt.z.toFixed(2)].join(", ");
-        }
-        else {
-          var lonLat = proj4(appAIR.scene.userData.proj).inverse([pt.x, pt.y]);
-          e.innerHTML = Q3D_air.Utils.convertToDMS(lonLat[1], lonLat[0]) + ", Elev. " + pt.z.toFixed(2);
-        }
-      }
-    }
-
-    e = document.getElementById("qr_attrs_table");
-    if (e) {
-      for (var i = e.children.length - 1; i >= 0; i--) {
-        if (e.children[i].tagName.toUpperCase() == "TR") e.removeChild(e.children[i]);
-      }
-
-      if (layer && layer.properties.propertyNames !== undefined) {
-        var row;
-        for (var i = 0, l = layer.properties.propertyNames.length; i < l; i++) {
-          row = document.createElement("tr");
-          row.innerHTML = "<td>" + layer.properties.propertyNames[i] + "</td>" +
-                          "<td>" + obj.userData.properties[i] + "</td>";
-          e.appendChild(row);
-        }
-        e.classList.remove("hidden");
-      }
-      else {
-        e.classList.add("hidden");
-      }
-    }
-    appAIR.popup.show("queryresult");
-  };
-
-  appAIR.showPrintDialog = function () {
-
-    function e(tagName, parent, innerHTML) {
-      var elem = document.createElement(tagName);
-      if (parent) parent.appendChild(elem);
-      if (innerHTML) elem.innerHTML = innerHTML;
-      return elem;
-    }
-
-    var f = e("form");
-    f.className = "print";
-
-    var d1 = e("div", f, "Image Size");
-    d1.style.textDecoration = "underline";
-
-    var d2 = e("div", f),
-        l1 = e("label", d2, "Width:"),
-        width = e("input", d2);
-    d2.style.cssFloat = "left";
-    l1.htmlFor = width.id = width.name = "printwidth";
-    width.type = "text";
-    width.value = appAIR.width;
-    e("span", d2, "px,");
-
-    var d3 = e("div", f),
-        l2 = e("label", d3, "Height:"),
-        height = e("input", d3);
-    l2.htmlFor = height.id = height.name = "printheight";
-    height.type = "text";
-    height.value = appAIR.height;
-    e("span", d3, "px");
-
-    var d4 = e("div", f),
-        ka = e("input", d4);
-    ka.type = "checkbox";
-    ka.checked = true;
-    e("span", d4, "Keep Aspect Ratio");
-
-    var d5 = e("div", f, "Option");
-    d5.style.textDecoration = "underline";
-
-    var d6 = e("div", f),
-        bg = e("input", d6);
-    bg.type = "checkbox";
-    bg.checked = true;
-    e("span", d6, "Fill Background");
-
-    var d7 = e("div", f),
-        ok = e("span", d7, "OK"),
-        cancel = e("span", d7, "Cancel");
-    d7.className = "buttonbox";
-
-    e("input", f).type = "submit";
-
-    // event handlers
-    // width and height boxes
-    var aspect = appAIR.width / appAIR.height;
-
-    width.oninput = function () {
-      if (ka.checked) height.value = Math.round(width.value / aspect);
-    };
-
-    height.oninput = function () {
-      if (ka.checked) width.value = Math.round(height.value * aspect);
-    };
-
-    ok.onclick = function () {
-      appAIR.popup.show("Rendering...");
-      window.setTimeout(function () {
-        appAIR.saveCanvasImage(width.value, height.value, bg.checked);
-      }, 10);
-    };
-
-    cancel.onclick = appAIR.closePopup;
-
-    // enter key pressed
-    f.onsubmit = function () {
-      ok.onclick();
-      return false;
-    };
-
-    appAIR.popup.show(f, "Save Image", true);   // modal
-  };
-
-  appAIR.closePopup = function () {
-    appAIR.popup.hide();
-    appAIR.scene.remove(appAIR.queryMarker);
-    appAIR.highlightFeature(null);
-    appAIR.render();
-    if (appAIR._canvasImageUrl) {
-      URL.revokeObjectURL(appAIR._canvasImageUrl);
-      appAIR._canvasImageUrl = null;
-    }
-  };
-
-  appAIR.highlightFeature = function (object) {
-    if (appAIR.highlightObject) {
-      // remove highlight object from the scene
-      appAIR.scene.remove(appAIR.highlightObject);
-      appAIR.selectedObject = null;
-      appAIR.highlightObject = null;
-    }
-
-    if (object === null) return;
-
-    var layer = appAIR.scene.mapLayers[object.userData.layerId];
-    if (layer === undefined || layer.type == Q3D_air.LayerType.DEM) return;
-    if (["Icon", "JSON model", "COLLADA model"].indexOf(layer.objType) != -1) return;
-
-    // create a highlight object (if layer type is Point, slightly bigger than the object)
-    // var highlightObject = new Q3D_air.Group();
-    var s = (layer.type == Q3D_air.LayerType.Point) ? 1.01 : 1;
-
-    var clone = object.clone();
-    clone.traverse(function (obj) {
-      obj.material = appAIR.highlightMaterial;
-    });
-    if (s != 1) clone.scale.set(clone.scale.x * s, clone.scale.y * s, clone.scale.z * s);
-    // highlightObject.add(clone);
-
-    // add the highlight object to the scene
-    appAIR.scene.add(clone);
-
-    appAIR.selectedObject = object;
-    appAIR.highlightObject = clone;
-  };
-
-  appAIR.canvasClicked = function (e) {
-    var canvasOffset = appAIR._offset(appAIR.renderer.domElement);
-    var objs = appAIR.intersectObjects(e.clientX - canvasOffset.left, e.clientY - canvasOffset.top);
-    var obj, pt;
-
-    for (var i = 0, l = objs.length; i < l; i++) {
-      obj = objs[i];
-
-      // query marker
-      pt = {x: obj.point.x, y: -obj.point.z, z: obj.point.y};  // obj's coordinate system is y-up
-      appAIR.queryMarker.position.set(pt.x, pt.y, pt.z);              // this is z-up
-      appAIR.scene.add(appAIR.queryMarker);
-
-      // get layerId of clicked object
-      var layerId, object = obj.object;
-      while (object) {
-        layerId = object.userData.layerId;
-        if (layerId !== undefined) break;
-        object = object.parent;
-      }
-
-      appAIR.highlightFeature(object);
-      appAIR.render();
-      appAIR.showQueryResult(pt, object);
-
-      return;
-    }
-    appAIR.closePopup();
-  };
+  //(function () {
+  //  var camera,
+  //      c2t = new THREE.Vector3(),
+  //      c2l = new THREE.Vector3();
+
+  //  appAIR.updateLabelPosition = function () {
+  //    var rootGroup = appAIR.scene.labelConnectorGroup;
+  //    if (!appAIR.labelVisible || rootGroup.children.length == 0) return;
+
+  //    camera = appAIR.camera;
+  //    camera.getWorldDirection(c2t);
+
+  //    // make list of [connector object, pt, distance to camera]
+  //    var obj_dist = [],
+  //        i, l, k, m,
+  //        connGroup, conn, pt0;
+
+  //    for (i = 0, l = rootGroup.children.length; i < l; i++) {
+  //      connGroup = rootGroup.children[i];
+  //      if (!connGroup.visible) continue;
+  //      for (k = 0, m = connGroup.children.length; k < m; k++) {
+  //        conn = connGroup.children[k];
+  //        pt0 = conn.geometry.vertices[0];
+  //        vec3.set(pt0.x, pt0.z, -pt0.y);
+
+  //        if (c2l.subVectors(vec3, camera.position).dot(c2t) > 0)      // label is in front
+  //          obj_dist.push([conn, pt0, camera.position.distanceTo(vec3)]);
+  //        else    // label is in back
+  //          conn.userData.elem.style.display = "none";
+  //      }
+  //    }
+
+  //    if (obj_dist.length == 0) return;
+
+  //    // sort label objects in descending order of distances
+  //    obj_dist.sort(function (a, b) {
+  //      if (a[2] < b[2]) return 1;
+  //      if (a[2] > b[2]) return -1;
+  //      return 0;
+  //    });
+
+  //    var widthHalf = appAIR.width / 2,
+  //        heightHalf = appAIR.height / 2,
+  //        fixedSize = Q3D_air.Config.label.fixedSize,
+  //        minFontSize = Q3D_air.Config.label.minFontSize;
+
+  //    var label, dist, x, y, e, t, fontSize;
+  //    for (i = 0, l = obj_dist.length; i < l; i++) {
+  //      label = obj_dist[i][0];
+  //      pt0 = obj_dist[i][1];
+  //      dist = obj_dist[i][2];
+
+  //      // calculate label position
+  //      vec3.set(pt0.x, pt0.z, -pt0.y).project(camera);
+  //      x = (vec3.x * widthHalf) + widthHalf;
+  //      y = -(vec3.y * heightHalf) + heightHalf;
+
+  //      // set label position
+  //      e = label.userData.elem;
+  //      t = "translate(" + (x - (e.offsetWidth / 2)) + "px," + (y - (e.offsetHeight / 2)) + "px)";
+  //      e.style.display = "block";
+  //      e.style.zIndex = i + 1;
+  //      e.style.webkitTransform = t;
+  //      e.style.transform = t;
+
+  //      // set font size
+  //      if (!fixedSize) {
+  //        if (dist < 10) dist = 10;
+  //        fontSize = Math.max(Math.round(1000 / dist), minFontSize);
+  //        e.style.fontSize = fontSize + "px";
+  //      }
+  //    }
+  //  };
+  //})();
+
+  //appAIR.setLabelVisible = function (visible) {
+  //  appAIR.labelVisible = visible;
+  //  appAIR.scene.labelRootElement.style.display = (visible) ? "block" : "none";
+  //  appAIR.scene.labelConnectorGroup.visible = visible;
+  //  appAIR.render();
+  //};
+
+  //appAIR.setRotateAnimationMode = function (enabled) {
+  //  appAIR.controls.autoRotate = enabled;
+  //  if (enabled) {
+  //    appAIR.startAnimation();
+  //  }
+  //  else {
+  //    appAIR.stopAnimation();
+  //  }
+  //};
+
+  //appAIR.setWireframeMode = function (wireframe) {
+  //  if (wireframe == appAIR._wireframeMode) return;
+
+  //  for (var id in appAIR.scene.mapLayers) {
+  //    appAIR.scene.mapLayers[id].setWireframeMode(wireframe);
+  //  }
+
+  //  appAIR._wireframeMode = wireframe;
+  //  appAIR.render();
+  //};
+
+  //appAIR.intersectObjects = function (offsetX, offsetY) {
+  //  var vec2 = new THREE.Vector2((offsetX / appAIR.width) * 2 - 1,
+  //                               -(offsetY / appAIR.height) * 2 + 1);
+  //  var ray = new THREE.Raycaster();
+  //  ray.linePrecision = 0.2;
+  //  ray.setFromCamera(vec2, appAIR.camera);
+  //  return ray.intersectObjects(appAIR.scene.queryableObjects());
+  //};
+
+  //appAIR._offset = function (elm) {
+  //  var top = 0, left = 0;
+  //  do {
+  //    top += elm.offsetTop || 0; left += elm.offsetLeft || 0; elm = elm.offsetParent;
+  //  } while (elm);
+  //  return {top: top, left: left};
+  //};
+
+  //appAIR.popup = {
+
+  //  timerId: null,
+
+  //  modal: false,
+
+  //  // show box
+  //  // obj: html, element or content id ("queryresult" or "pageinfo")
+  //  // modal: boolean
+  //  // duration: int [milliseconds]
+  //  show: function (obj, title, modal, duration) {
+
+  //    if (modal) appAIR.pause();
+  //    else if (this.modal) appAIR.resume();
+
+  //    this.modal = Boolean(modal);
+
+  //    var content = Q3D_air.$("popupcontent");
+  //    [content, Q3D_air.$("queryresult"), Q3D_air.$("pageinfo")].forEach(function (e) {
+  //      if (e) e.style.display = "none";
+  //    });
+
+  //    if (obj == "queryresult" || obj == "pageinfo") {
+  //      Q3D_air.$(obj).style.display = "block";
+  //    }
+  //    else {
+  //      if (obj instanceof HTMLElement) {
+  //        content.innerHTML = "";
+  //        content.appendChild(obj);
+  //      }
+  //      else {
+  //        content.innerHTML = obj;
+  //      }
+  //      content.style.display = "block";
+  //    }
+  //    Q3D_air.$("popupbar").innerHTML = title || "";
+  //    Q3D_air.$("popup").style.display = "block";
+
+  //    if (appAIR.popup.timerId !== null) {
+  //      clearTimeout(appAIR.popup.timerId);
+  //      appAIR.popup.timerId = null;
+  //    }
+
+  //    if (duration) {
+  //      appAIR.popup.timerId = setTimeout(function () {
+  //        appAIR.popup.hide();
+  //      }, duration);
+  //    }
+  //  },
+
+  //  hide: function () {
+  //    Q3D_air.$("popup").style.display = "none";
+  //    if (appAIR.popup.timerId !== null) clearTimeout(appAIR.popup.timerId);
+  //    appAIR.popup.timerId = null;
+  //    if (this.modal) appAIR.resume();
+  //  }
+
+  //};
+
+  //appAIR.showInfo = function () {
+  //  var url = Q3D_air.$("urlbox");
+  //  if (url) url.value = appAIR.currentViewUrl();
+  //  appAIR.popup.show("pageinfo");
+  //};
+
+  //appAIR.queryTargetPosition = new THREE.Vector3();  // y-up
+
+  //appAIR.cameraAction = {
+
+  //  move: function (x, y, z) {    // z-up
+  //    if (x === undefined) appAIR.camera.position.copy(appAIR.queryTargetPosition);
+  //    else appAIR.camera.position.set(x, z, -y);   // y-up
+  //    appAIR.render(true);
+  //  },
+
+  //  vecZoom: new THREE.Vector3(0, 10, 10),    // y-up
+
+  //  zoomIn: function (x, y, z) {    // z-up
+  //    if (x === undefined) vec3.copy(appAIR.queryTargetPosition);
+  //    else vec3.set(x, z, -y);   // y-up
+
+  //    appAIR.camera.position.addVectors(vec3, appAIR.cameraAction.vecZoom);
+  //    appAIR.camera.lookAt(vec3.x, vec3.y, vec3.z);
+  //    if (appAIR.controls.target !== undefined) appAIR.controls.target.copy(vec3);
+  //    appAIR.render(true);
+  //  },
+
+  //  orbit: function (x, y, z) {   // z-up
+  //    if (appAIR.controls.target === undefined) return;
+
+  //    if (x === undefined) appAIR.controls.target.copy(appAIR.queryTargetPosition);
+  //    else appAIR.controls.target.set(x, z, -y);   // y-up
+  //    appAIR.setRotateAnimationMode(true);
+  //  }
+
+  //};
+
+  //appAIR.showQueryResult = function (point, obj, hide_coords) {
+  //  appAIR.queryTargetPosition.set(point.x, point.z, -point.y);    // y-up
+
+  //  var layer = appAIR.scene.mapLayers[obj.userData.layerId],
+  //      e = document.getElementById("qr_layername");
+
+  //  // layer name
+  //  if (layer && e) e.innerHTML = layer.properties.name;
+
+  //  // clicked coordinates
+  //  e = document.getElementById("qr_coords_table");
+  //  if (e) {
+  //    if (hide_coords) {
+  //      e.classList.add("hidden");
+  //    }
+  //    else {
+  //      e.classList.remove("hidden");
+
+  //      var pt = appAIR.scene.toMapCoordinates(point.x, point.y, point.z);
+  //      e = document.getElementById("qr_coords");
+  //      if (typeof proj4 === "undefined") {
+  //        e.innerHTML = [pt.x.toFixed(2), pt.y.toFixed(2), pt.z.toFixed(2)].join(", ");
+  //      }
+  //      else {
+  //        var lonLat = proj4(appAIR.scene.userData.proj).inverse([pt.x, pt.y]);
+  //        e.innerHTML = Q3D_air.Utils.convertToDMS(lonLat[1], lonLat[0]) + ", Elev. " + pt.z.toFixed(2);
+  //      }
+  //    }
+  //  }
+
+  //  e = document.getElementById("qr_attrs_table");
+  //  if (e) {
+  //    for (var i = e.children.length - 1; i >= 0; i--) {
+  //      if (e.children[i].tagName.toUpperCase() == "TR") e.removeChild(e.children[i]);
+  //    }
+
+  //    if (layer && layer.properties.propertyNames !== undefined) {
+  //      var row;
+  //      for (var i = 0, l = layer.properties.propertyNames.length; i < l; i++) {
+  //        row = document.createElement("tr");
+  //        row.innerHTML = "<td>" + layer.properties.propertyNames[i] + "</td>" +
+  //                        "<td>" + obj.userData.properties[i] + "</td>";
+  //        e.appendChild(row);
+  //      }
+  //      e.classList.remove("hidden");
+  //    }
+  //    else {
+  //      e.classList.add("hidden");
+  //    }
+  //  }
+  //  appAIR.popup.show("queryresult");
+  //};
+
+  //appAIR.showPrintDialog = function () {
+
+  //  function e(tagName, parent, innerHTML) {
+  //    var elem = document.createElement(tagName);
+  //    if (parent) parent.appendChild(elem);
+  //    if (innerHTML) elem.innerHTML = innerHTML;
+  //    return elem;
+  //  }
+
+  //  var f = e("form");
+  //  f.className = "print";
+
+  //  var d1 = e("div", f, "Image Size");
+  //  d1.style.textDecoration = "underline";
+
+  //  var d2 = e("div", f),
+  //      l1 = e("label", d2, "Width:"),
+  //      width = e("input", d2);
+  //  d2.style.cssFloat = "left";
+  //  l1.htmlFor = width.id = width.name = "printwidth";
+  //  width.type = "text";
+  //  width.value = appAIR.width;
+  //  e("span", d2, "px,");
+
+  //  var d3 = e("div", f),
+  //      l2 = e("label", d3, "Height:"),
+  //      height = e("input", d3);
+  //  l2.htmlFor = height.id = height.name = "printheight";
+  //  height.type = "text";
+  //  height.value = appAIR.height;
+  //  e("span", d3, "px");
+
+  //  var d4 = e("div", f),
+  //      ka = e("input", d4);
+  //  ka.type = "checkbox";
+  //  ka.checked = true;
+  //  e("span", d4, "Keep Aspect Ratio");
+
+  //  var d5 = e("div", f, "Option");
+  //  d5.style.textDecoration = "underline";
+
+  //  var d6 = e("div", f),
+  //      bg = e("input", d6);
+  //  bg.type = "checkbox";
+  //  bg.checked = true;
+  //  e("span", d6, "Fill Background");
+
+  //  var d7 = e("div", f),
+  //      ok = e("span", d7, "OK"),
+  //      cancel = e("span", d7, "Cancel");
+  //  d7.className = "buttonbox";
+
+  //  e("input", f).type = "submit";
+
+  //  // event handlers
+  //  // width and height boxes
+  //  var aspect = appAIR.width / appAIR.height;
+
+  //  width.oninput = function () {
+  //    if (ka.checked) height.value = Math.round(width.value / aspect);
+  //  };
+
+  //  height.oninput = function () {
+  //    if (ka.checked) width.value = Math.round(height.value * aspect);
+  //  };
+
+  //  ok.onclick = function () {
+  //    appAIR.popup.show("Rendering...");
+  //    window.setTimeout(function () {
+  //      appAIR.saveCanvasImage(width.value, height.value, bg.checked);
+  //    }, 10);
+  //  };
+
+  //  cancel.onclick = appAIR.closePopup;
+
+  //  // enter key pressed
+  //  f.onsubmit = function () {
+  //    ok.onclick();
+  //    return false;
+  //  };
+
+  //  appAIR.popup.show(f, "Save Image", true);   // modal
+  //};
+
+  //appAIR.closePopup = function () {
+  //  appAIR.popup.hide();
+  //  appAIR.scene.remove(appAIR.queryMarker);
+  //  appAIR.highlightFeature(null);
+  //  appAIR.render();
+  //  if (appAIR._canvasImageUrl) {
+  //    URL.revokeObjectURL(appAIR._canvasImageUrl);
+  //    appAIR._canvasImageUrl = null;
+  //  }
+  //};
+
+  //appAIR.highlightFeature = function (object) {
+  //  if (appAIR.highlightObject) {
+  //    // remove highlight object from the scene
+  //    appAIR.scene.remove(appAIR.highlightObject);
+  //    appAIR.selectedObject = null;
+  //    appAIR.highlightObject = null;
+  //  }
+
+  //  if (object === null) return;
+
+  //  var layer = appAIR.scene.mapLayers[object.userData.layerId];
+  //  if (layer === undefined || layer.type == Q3D_air.LayerType.DEM) return;
+  //  if (["Icon", "JSON model", "COLLADA model"].indexOf(layer.objType) != -1) return;
+
+  //  // create a highlight object (if layer type is Point, slightly bigger than the object)
+  //  // var highlightObject = new Q3D_air.Group();
+  //  var s = (layer.type == Q3D_air.LayerType.Point) ? 1.01 : 1;
+
+  //  var clone = object.clone();
+  //  clone.traverse(function (obj) {
+  //    obj.material = appAIR.highlightMaterial;
+  //  });
+  //  if (s != 1) clone.scale.set(clone.scale.x * s, clone.scale.y * s, clone.scale.z * s);
+  //  // highlightObject.add(clone);
+
+  //  // add the highlight object to the scene
+  //  appAIR.scene.add(clone);
+
+  //  appAIR.selectedObject = object;
+  //  appAIR.highlightObject = clone;
+  //};
+
+  //appAIR.canvasClicked = function (e) {
+  //  var canvasOffset = appAIR._offset(appAIR.renderer.domElement);
+  //  var objs = appAIR.intersectObjects(e.clientX - canvasOffset.left, e.clientY - canvasOffset.top);
+  //  var obj, pt;
+
+  //  for (var i = 0, l = objs.length; i < l; i++) {
+  //    obj = objs[i];
+
+  //    // query marker
+  //    pt = {x: obj.point.x, y: -obj.point.z, z: obj.point.y};  // obj's coordinate system is y-up
+  //    appAIR.queryMarker.position.set(pt.x, pt.y, pt.z);              // this is z-up
+  //    appAIR.scene.add(appAIR.queryMarker);
+
+  //    // get layerId of clicked object
+  //    var layerId, object = obj.object;
+  //    while (object) {
+  //      layerId = object.userData.layerId;
+  //      if (layerId !== undefined) break;
+  //      object = object.parent;
+  //    }
+
+  //    appAIR.highlightFeature(object);
+  //    appAIR.render();
+  //    appAIR.showQueryResult(pt, object);
+
+  //    return;
+  //  }
+  //  appAIR.closePopup();
+  //};
 
   appAIR.saveCanvasImage = function (width, height, fill_background, saveImageFunc) {
     if (fill_background === undefined) fill_background = true;

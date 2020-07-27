@@ -204,6 +204,35 @@ $(window).scroll(function(event) {
 //sceneGW.rotation.y=pos/1000.;rendererGW.render(sceneGW,cameraGW);
 //appAIR.scene.rotation.z=pos/100.;appAIR.renderer.render(appAIR.scene,appAIR.camera);    //qgis
 //appSW.scene.rotation.z=pos/100.;appGW.renderer.render(appGW.scene,appGW.camera);		//qgis
+//appSW.camera.rotation.y= 0.01*pos;appSW.renderer.render(appSW.scene,appSW.camera)
+
+	phi=0.5;
+	lambda=pos*0.0005;
+	R=130;
+        x = R*Math.cos(lambda);//Math.cos(phi) * 
+        y = R*Math.sin(lambda);//Math.cos(phi) * ;
+        z = R*Math.sin(phi);
+	
+//appAIR.camera.rotation.y=lambda;
+appAIR.camera.position.x=x;
+appAIR.camera.position.y=z;
+appAIR.camera.position.z=y;
+appAIR.camera.lookAt(appAIR.scene.position);
+//appAIR.camera.rotation.y=0.01*pos;
+appAIR.renderer.render(appAIR.scene,appAIR.camera)
+
+
+
+
+appSW.camera.position.x=x;
+appSW.camera.position.y=z;
+appSW.camera.position.z=y;
+appSW.camera.lookAt(appSW.scene.position);
+appSW.renderer.render(appSW.scene,appSW.camera)
+
+
+
+
 });
 
 function setBlack(){
