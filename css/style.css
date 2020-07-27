@@ -555,7 +555,7 @@ header {
 
 .SlideHOME {
 	width:100%;
-	max-width: 1300px;
+	/*max-width: 1300px;*/
 	height:100vh;
 	padding:20px;
   	padding-top:0px;
@@ -582,7 +582,7 @@ header {
 	margin-top:40px;
 	font-size: 1rem;*/
 	text-align:left;
-  	pointer-events: none;
+  	/*pointer-events: none;*/
 }
 
 .texto-home>img{
@@ -625,8 +625,8 @@ header {
 }
 
 object:hover {
-  animation: shake 1s cubic-bezier(.36,.07,.19,.97) both;
-  transform: translate3d(1px, 1px, 1px);
+  /*animation: shake 1s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(1px, 1px, 1px);*/
   backface-visibility: hidden;
   perspective: 1000px;
 }
@@ -1075,9 +1075,9 @@ main{
 }
 .slide > h3{
 	margin-bottom:50px;
-	font-family:MontserratRegular;
 	text-align:center;
 	color:var(--gris-medio);	
+	font-family:MontserratRegular;
 }
 
 
@@ -1313,7 +1313,7 @@ main{
   	opacity:0;
 	max-height:0;
   	overflow:hidden;
-	transition: all 3s cubic-bezier(0.23,1,0.32,1);
+	transition: all 1s ease; /*cubic-bezier(0.23,1,0.32,1);*/
 }
 
      .btn-colapsar{display:none;}
@@ -1394,8 +1394,8 @@ end count stats*/
 	/* GENERAL */
 	h1{font-size:9vh;line-height:9vh;}
 	h2{font-size:7vh;line-height:7vh;}
-	h3{font-size:5vh;line-height:5vh;}
-	h4{font-size:3vh;line-height:3vh;}
+	h3{font-size:3vh;line-height:3vh;}
+	h4{font-size:2vh;line-height:2vh;}
 	a,p {font-size:3vh;line-height:3vh;}
 
 	.slide {
@@ -1408,6 +1408,7 @@ end count stats*/
 		padding:50px 0px;
 		overflow:hidden;
 	}
+	
 	.column-image{
 		width:100%;
 		max-width:700px;
@@ -1437,6 +1438,10 @@ end count stats*/
 
 
 	/* HOME		*/
+
+	.SlideHOME{
+		padding:0;
+	}
 	.img-abstracta>object,.img-abstracta>img{
 		width:70%;
 		margin-bottom:20px;
@@ -1452,6 +1457,7 @@ end count stats*/
 		line-height:4vh;
 	}
 	.texto-home>h4{
+		font-size:2.25vh;
 	}
 
 
