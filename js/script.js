@@ -444,5 +444,5 @@ Q3D_air.Config.localMode = true;
 var appAIR = Q3D_air.application;
 var containerAIR = document.getElementById("viewAIR");
 appAIR.init(containerAIR);          // initialize application
-appAIR.loadSceneFile("./mods3d/air/scene.js", function () {
+appAIR.loadSceneFile("./mods3d/air/scenevflash1.js", function () {
 });
