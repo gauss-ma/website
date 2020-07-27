@@ -173,7 +173,7 @@
 		<span class="animar_fade-in">matemático</span>
     	<span class="animar_fade-in">aplicado</span> 
 		<span class="animar_fade-in">al</span>
-		<span class="animar_fade-in">medio</span>
+		<!-- <span class="animar_fade-in">medio</span> -->
 		<span class="animar_fade-in">ambiente</span>
 
 
@@ -196,7 +196,7 @@
 			También modelamos la química atmosférica con modelos numéricos en diferencias finitas acoplados a modelos meteorológicos (WRF-Chem, Chimere, CMAQ, entre otros).
         		</p>
         		<p>
-			Debido a la sensibilidad a la meteorología en los modelos de transporte de contaminantes, realizamos un procesamiento y control de calidad adicional de estos datos.
+			Debido a la sensibilidad de los modelos de transporte de contaminantes a la meteorología, realizamos un procesamiento y control de calidad adicional de estos datos.
         		</p>		
 		</div>
 		<a class="btn material-design btn-expandir" onclick="$('[name=air]').addClass('expandido');">Ver más</a>
@@ -215,11 +215,11 @@
 	<div class="column-text center animar_fade-in-up" name="gw">
 		<h4>MODELADO</h4>
 		<h2>Aguas subterráneas</h2>
-		<p>Modelamos el movimiento de contaminantes en medios porosos saturados y no saturados mediante el sistema de modelado MODFLOW desarrollado por el USGS.</p>
+		<p>Modelamos el movimiento de contaminantes en medios porosos saturados y no saturados mediante el sistema MODFLOW desarrollado por el USGS.</p>
 		<div class="expansible">
-			<p>MODFLOW nos permite simular el flujo tridimensional de agua en medios porosos. A partir de módulos como MODPATH y el MT3D también no posibilita el modelado matemático del transporte de solutos.</p>
-			<p>Modelamos también la interacción del agua subterranea con la superficie, cuerpos de agua superficiales, flujos en acuiferos kársticos, intrusiones salinas, entre otros.</p>
-			<p>La caracterización hidrogeológica del medio a modelar y los parametros hidráulicos de las formaciones son escenciales en la definicion del medio. Geólogos especializados caracterizan todas las entradas al modelo, asegurando su representatividad.</p>		
+			<p>MODFLOW permite simular el flujo tridimensional de agua en medios porosos. A partir de módulos como MODPATH y el MT3D se posibilita el modelado matemático del transporte de solutos.</p>
+			<p>Consideramos la interacción del agua subterranea con la superficie, cuerpos de agua superficiales, flujos en acuiferos kársticos e intrusiones salinas entre otros.</p>
+			<p>La caracterización hidrogeológica del medio a modelar y los parametros hidráulicos de las formaciones son escenciales en la definicion del medio por lo que realizamos controles adicionales de la calidad de esta información.</p>		
 		</div>
 		<a class="btn material-design btn-expandir" onclick="$('[name=gw]').addClass('expandido');">Ver más</a>
 		<a class="btn material-design btn-colapsar" onclick="$('[name=gw]').removeClass('expandido');">Ver menos</a>
@@ -238,12 +238,12 @@
 		<p>Modelamos el transporte de especies químicas en ríos y lagos mediante modelos desarrollados y recomendados por EPA tales como WASP y AQUATOX entre otros.</p>
 	        <div class="expansible">
                         <p>
-			WASP es uno de los modelos más ampliamente utilizados para el modelado del transporte de contaminantes en cuerpos de agua superficiales. 
-			Permite simular diversos procesos tales como la eutrofización, transporte de contaminantes organicos e inorgánicos bajo distintas condiciones meteorológicas y de carga. 
-			Este tipo de modelos modelan multiples compuestos en simultáneo contemplando la cinética química propia de cada especie modelada. 
+			WASP es uno de los modelos más utilizados para el modelado del transporte de contaminantes en cuerpos de agua superficiales. 
+			Permite simular diversos procesos tales como la eutrofización y el transporte de contaminantes organicos e inorgánicos bajo distintas condiciones meteorológicas y de carga. 
+			 
                         </p>
                         <p>
-					
+							Este tipo de modelos procesan multiples compuestos en simultáneo contemplando la cinética química propia de cada especie modelada.
                         </p>
                         <p>
 
@@ -288,8 +288,8 @@
 	    	</div>
 	    	<div class="step-content">
 					<p>Realizamos proyectos de evaluación de impacto ambiental, con el componente diferencial de poder dar apreciaciones cuantitativas de impacto a partir de procesos de modelado.<br> 
-						Formamos equipos de profesionales independietes ajustado a las necesidades de cada proyecto, asegurando contar con referentes en cada disciplina requerida. <br>
-						Acompañamos el proceso técnico administativo desde los procesos de cada autoridad de aplicación, con profesionales habilitados por las mismas, llegando hasta la obtención del certificado o permiso para la obra o uso evaluado.
+						Formamos equipos de profesionales independientes ajustados a las necesidades de cada proyecto, asegurando contar con referentes en cada disciplina requerida. <br>
+						Acompañamos el proceso técnico administativo desde los procesos de cada autoridad de aplicación, con profesionales habilitados por las mismas, llegando hasta la obtención del certificado o permiso ambiental.
 					</p>
 	    	</div>
 	  </div>
@@ -299,21 +299,23 @@
 	    	  	<p class="subheader">Análisis de Riesgo y caracterización</p>
 	    	</div>
 	    	<div class="step-content">
-	    	    	<p>Aplicamos las herramientas de modelado al estidio de stios contaminados infiriendo las concentraciones de contaminantes en los componentes del ambiente a partir de muestras puntuales.
+	    	    	<p>Aplicamos las herramientas de modelado al estudio de sitios contaminados infiriendo 
+						las concentraciones de contaminantes en los componentes del ambiente a partir de muestras puntuales.
 						<br> 
-						Mediante el proceso de modelado estandarizado por ASTM E 1739 e IRAM 29590, se determinan acciones correctivas basadas en riesgo (RBCA), definiendo valores objetivos de remediación sitio específicos.
+						Mediante el proceso de modelado estandarizado por ASTM E 1739 e IRAM 29590,
+						 se determinan acciones correctivas basadas en riesgo (RBCA), definiendo valores objetivos de remediación sitio-específicos.
 					</p>
 	    	</div>
 	  </div>
 	  <div class="step minimized">
 	    	<div class="step-header">
 	    	  	<h4 class="header">Efluentes gaseosos</h4>
-	    	  	<p class="subheader">Getsión de permisos y modelado de dispersión</p>
+	    	  	<p class="subheader">Gestión de permisos y modelado de dispersión</p>
 	    	</div>
 	    	<div class="step-content">
-	    	    	<p>´Cuando se determina que se requiere un modelado detallado ante una descarga fuera de parámetro, puede ser conveniente 
-						aplicar un modelo gaussiano como AERMOD o lagrangiano como CALPUFF en casos particulares. 
-						Si fuera una situación crítica, se deberían ultimar los recursos computacionales a partir de un modelado numérico mediante WRF-Chem. Estos modelos aplican tanto a monitoreos regulares como a emergencias. 
+	    	    	<p>Ante una descarga de efluentes fuera de parámetro, conviene 
+						aplicar un modelo como AERMOD o CALPUFF según el caso.
+						En situaciones críticas, se ultiman los recursos computacionales a partir de un modelado numérico mediante WRF-Chem. Estos modelos aplican tanto a monitoreos regulares como a emergencias. 
 						<br> 
 						Caracterizamos los procesos asociados a las descargas de efluentes para la obtención de los permisos o licencias requeridos por las autoridades, inclusive autoridades sectoriales como el ENRE.</p>
 	    	</div>
@@ -325,10 +327,26 @@
 	   	</div>
 	   	<div class="step-content">
 	    	    	<p>Acompañamos proceos de implementación de normas ISO de gestión ambiental y participamos como auditores internos. 
-						Damos soporte en el seguimiento de indicadores y agilizamos los procesos internos automatizando la gestión de la información
-						<br> Asistimos en componentes críticos de los sistemas de gestión ambiental como el seguimiento de requisitos legales, formación del personal.</p>
+						Damos soporte en el seguimiento de indicadores y agilizamos los procesos internos automatizando la gestión de la información.
+						<br> Asistimos en componentes críticos de los sistemas de gestión ambiental como el seguimiento de requisitos legales y realización de matrices de aspectos e impactos ambientales.</p>
 	   	</div>
 	 </div>
+
+	 <div class="step minimized">
+		<div class="step-header">
+			  <h4 class="header">Formación de personal</h4>
+			  <p  class="subheader">Desarollo de contenido a medida</p>
+		</div>
+
+		<div class="step-content">
+				 <p>Realizamos capacitaciones orientadas tanto a introducir como profundizar contenido específico de modelado ambiental, herramientas de programación, sistemas de información geográfica y gestión ambiental.
+					 Adicionalmente brindamos contenidos ambientales para audiencias generales, como gestión de residuos, uso racional de recursos naturales y respuesta ante emergencias ambientales.
+				</p>
+		</div>
+  </div>
+
+
+
 	</div>
 	
 	<!-- alternativa tipo grid
