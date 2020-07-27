@@ -208,7 +208,7 @@ $(window).scroll(function(event) {
 	phi=2*Math.PI;
         x = R1*Math.cos(lambda)*Math.cos(phi);
         y = R1*Math.sin(lambda)*Math.cos(phi);
-        z = R2*Math.cos(phi);
+        z = R2*Math.cos(phi)*Math.sin(pos*0.0005);
 	
 	appAIR.camera.position.x=x;
 	appAIR.camera.position.y=z;

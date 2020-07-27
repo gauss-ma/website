@@ -675,37 +675,6 @@ object:hover {
 	text-align:center;
 	  background-color:var(--blanco);
 }
-/*
-	.step.minimized:hover::before,
-	.step::before {
-	  content: '';
-		color:var(--blanco);
-	  position: absolute;
-	  height: 15px;
-	  width: 15px;
-		margin:10px 0px;
-	  border-radius: 50%;
-		border:10px solid var(--blanco);
-	  left:-10px;
-	  transform: translateX(-45%);
-	  z-index: 2;
-	  background-color:var(--celeste-oscuro);
-	  transition: background-color 0.5s ease-in-out;
-	}
-	.step.minimized::before {
-	  background-color:var(--gris-medio);
-	}
-	.step::after {
-	  content: '';
-	  position: absolute;
-	  height: 100%;
-	  width: 2px;
-	  background-color: var(--gris-medio);
-	  left:-10px;
-	  top: 0;
-	  z-index: 1;
-	}
-*/	
 .step.minimized {
   transition: background-color 0.3s ease-in-out;
 }
@@ -727,7 +696,7 @@ object:hover {
 	width:100%;
 }
 .header {}
-.subheader {  color: var(--gris-medio);}
+.subheader {color: var(--gris-medio);}
 
 
 .step-content {
@@ -1478,6 +1447,7 @@ end count stats*/
 	.step{border-bottom:1px solid var(--gris-claro);}
 	.step:before{display:none;}
 
+	.step-content p{padding:10px;padding-top:20px;font-size:2.5vh;line-height:2.5vh;}
 
 
 	/*CONTACTOS*/
