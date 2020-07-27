@@ -196,7 +196,7 @@
 			También modelamos la química atmosférica con modelos numéricos en diferencias finitas acoplados a modelos meteorológicos (WRF-Chem, Chimere, CMAQ, entre otros).
         		</p>
         		<p>
-			Somos concientes de la sensibilidad de la meteorología en los modelos de transporte de contaminantes, y por esto somos muy cuidadosos con los datos que utilizamos en nuestras corridas realizando un procesamiento, filtrado y validacion de los mismos.
+			Debido a la sensibilidad a la meteorología en los modelos de transporte de contaminantes, realizamos un procesamiento y control de calidad adicional de estos datos.
         		</p>		
 		</div>
 		<a class="btn material-design btn-expandir" onclick="$('[name=air]').addClass('expandido');">Ver más</a>
@@ -215,11 +215,11 @@
 	<div class="column-text center animar_fade-in-up" name="gw">
 		<h4>MODELADO</h4>
 		<h2>Aguas subterráneas</h2>
-		<p>Modelamos el movimiento de contaminantes en medios  porosos saturados y no saturados mediante el sistema de modelado MODFLOW desarrollado por el USGS.</p>
+		<p>Modelamos el movimiento de contaminantes en medios porosos saturados y no saturados mediante el sistema de modelado MODFLOW desarrollado por el USGS.</p>
 		<div class="expansible">
-			<p>El sistema de modelado MODFLOW nos permite simular el flujo tridimensional de agua en medios porosos. Algunos módulos han sido desarrollado para el modelado matemático del transporte de solutos en este medio tales como el MODPATH y el MT3D.</p>
+			<p>MODFLOW nos permite simular el flujo tridimensional de agua en medios porosos. A partir de módulos como MODPATH y el MT3D también no posibilita el modelado matemático del transporte de solutos.</p>
 			<p>Modelamos también la interacción del agua subterranea con la superficie, cuerpos de agua superficiales, flujos en acuiferos kársticos, intrusiones salinas, entre otros.</p>
-			<p>La caracterización hidrogeológica del medio a modelar y los parametros hidráulicos de las formaciones son escenciales en la definicion del medio y contamos con geologos especialistas para la definición de los mismos.</p>		
+			<p>La caracterización hidrogeológica del medio a modelar y los parametros hidráulicos de las formaciones son escenciales en la definicion del medio. Geólogos especializados caracterizan todas las entradas al modelo, asegurando su representatividad.</p>		
 		</div>
 		<a class="btn material-design btn-expandir" onclick="$('[name=gw]').addClass('expandido');">Ver más</a>
 		<a class="btn material-design btn-colapsar" onclick="$('[name=gw]').removeClass('expandido');">Ver menos</a>
@@ -238,7 +238,9 @@
 		<p>Modelamos el transporte de especies químicas en ríos y lagos mediante modelos desarrollados y recomendados por EPA tales como WASP y AQUATOX entre otros.</p>
 	        <div class="expansible">
                         <p>
-			WASP es uno de los modelos más ampliamente utilizados para el modelado del transporte de contaminantes en cuerpos de agua superficiales. Permite simular diversos procesos tales como la eutrofización, transporte de contaminantes organicos e inorgánicos bajo distintas condiciones meteorológicas y de carga. Este tipo de modelos modelan multiples compuestos en simultáneo contemplando la cinética química propia de cada especie modelada. 
+			WASP es uno de los modelos más ampliamente utilizados para el modelado del transporte de contaminantes en cuerpos de agua superficiales. 
+			Permite simular diversos procesos tales como la eutrofización, transporte de contaminantes organicos e inorgánicos bajo distintas condiciones meteorológicas y de carga. 
+			Este tipo de modelos modelan multiples compuestos en simultáneo contemplando la cinética química propia de cada especie modelada. 
                         </p>
                         <p>
 					
@@ -267,7 +269,7 @@
                        perspectivas. Generamos cartografía digital en ambientes web.
                        Realizamos estudios ambientales mediante el uso de herramientas de análisis
                        espacial (GIS). </p>
-		<a class="btn material-design-dark" href="">Ver más</a>
+		<!-- <a class="btn material-design-dark" href="">Ver más</a> -->
 	</div>
 </section>
 
