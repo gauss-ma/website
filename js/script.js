@@ -110,52 +110,6 @@ $(document).ready(function(){
 		  });
 
 
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
 });
 
 
@@ -478,47 +432,46 @@ $(window).scroll(function(event) {
 //	//animate();
 
  
- ////QGIS SW:
- Q3D.Config.bgColor = '#f7f7f7';
- Q3D.Config.localMode = true;
- var containerSW = document.getElementById("viewSW");
- var appSW = Q3D.application;
- appSW.init(containerSW);          // initialize application
- appSW.loadSceneFile("./mods3d/sw/scene.js", function () {
- });
+////QGIS SW:
+Q3D.Config.bgColor = '#f7f7f7';
+Q3D.Config.localMode = true;
+var containerSW = document.getElementById("viewSW");
+var appSW = Q3D.application;
+appSW.init(containerSW);          // initialize application
+appSW.loadSceneFile("./mods3d/sw/scene.js", function () {
+});
+
+//QGIS AIR:
+Q3D_air.Config.bgColor = '#f7f7f7';
+Q3D_air.Config.localMode = true;
+var appAIR = Q3D_air.application;
+var containerAIR = document.getElementById("viewAIR");
+appAIR.init(containerAIR);          // initialize application
+appAIR.loadSceneFile("./mods3d/air/scene.js", function () {
+});
  
- //QGIS AIR:
- Q3D_air.Config.bgColor = '#f7f7f7';
- Q3D_air.Config.localMode = true;
- var appAIR = Q3D_air.application;
- var containerAIR = document.getElementById("viewAIR");
- appAIR.init(containerAIR);          // initialize application
- appAIR.loadSceneFile("./mods3d/air/scene.js", function () {
- });
  
- 
-  window.addEventListener( 'resize', onWindowResize, false );
-  function onWindowResize(){
-      //camera.aspect = window.innerWidth / window.innerHeight;
-      //camera.updateProjectionMatrix();
-      //renderer.setSize( window.innerWidth*0.5, window.innerHeight*0.5 );
-      //rendererAIR.setSize( window.innerWidth*0.5, window.innerHeight*0.5 );
-  
-      var canvasAIRWidth=$("#viewAIR").innerWidth();
-      var canvasAIRHeight=$("#viewAIR").innerHeight();
-      //rendererAIR.setSize(canvasAIRWidth, canvasAIRHeight);
-      //cameraAIR.aspect =canvasAIRWidth / canvasAIRHeight;
-      //cameraAIR.updateProjectionMatrix();
-      appAIR.setCanvasSize(canvasAIRWidth, canvasAIRHeight);
-  
-  
-      var canvasSWWidth=$("#viewSW").innerWidth();
-      var canvasSWHeight=$("#viewSW").innerHeight();
-      //rendererGW.setSize(canvasGWWidth, canvasGWHeight);
-      //cameraGW.aspect =canvasGWWidth / canvasGWHeight;
-      //cameraGW.updateProjectionMatrix();
-      appSW.setCanvasSize(canvasSWWidth, canvasSWHeight);
-  
-  }
- 
- onWindowResize();
+function onWindowResize(){
+    //camera.aspect = window.innerWidth / window.innerHeight;
+    //camera.updateProjectionMatrix();
+    //renderer.setSize( window.innerWidth*0.5, window.innerHeight*0.5 );
+    //rendererAIR.setSize( window.innerWidth*0.5, window.innerHeight*0.5 );
+
+    var canvasAIRWidth=$("#viewAIR").innerWidth();
+    var canvasAIRHeight=$("#viewAIR").innerHeight();
+    //rendererAIR.setSize(canvasAIRWidth, canvasAIRHeight);
+    //cameraAIR.aspect =canvasAIRWidth / canvasAIRHeight;
+    //cameraAIR.updateProjectionMatrix();
+    appAIR.setCanvasSize(canvasAIRWidth, canvasAIRHeight);
+
+
+    var canvasSWWidth=$("#viewSW").innerWidth();
+    var canvasSWHeight=$("#viewSW").innerHeight();
+    //rendererGW.setSize(canvasGWWidth, canvasGWHeight);
+    //cameraGW.aspect =canvasGWWidth / canvasGWHeight;
+    //cameraGW.updateProjectionMatrix();
+    appSW.setCanvasSize(canvasSWWidth, canvasSWHeight);
+
+}
+onWindowResize();
+window.addEventListener('resize', onWindowResize, false );

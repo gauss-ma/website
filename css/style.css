@@ -1525,4 +1525,69 @@ end count stats*/
           font-size: 7vh;
           line-height: 8vh;
         }
+
+	
+	/*GEOSP*/
+	.mapas{
+		width:calc(90%)!important;
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.mapas {
+	/*Width = (225 + 20 + 20) * 4 = 1060*/
+	/*3D Transform*/
+	transform: rotateX(60deg) rotateZ(-50deg);
+	transform-style: preserve-3d;
+	/*Preserve 3D style for children*/
+	z-index:0;
+	overflow:hidden;
+	width:calc(30%);
+	margin-bottom:-200px;
+}
+.mapas div {
+	float: left; 
+	margin: 20px;
+	list-style-type: none;
+	/*Hide the lighting gradient from the front face*/
+	background-size: 0, cover;
+	/*Preserve 3D style for children(pseudo elements)*/
+	transform-style: preserve-3d;
+	border-radius:8px;
+}
+.mapas div::nth-child(1) {
+	background: linear-gradient(45deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)); 
+}
+
+.shadow {
+	position: absolute;
+	/*30px smaller from each side*/
+	top: 30px; left: 30px; right: 30px; bottom: 30px;
+	background: rgba(0, 0, 0, 0.5);
+	box-shadow: 20px 20px 30px 30px rgba(0, 0, 0, 0.5);
+	/*Pushing down the shadow to give an elevated feel*/
+	transform: translateZ(-50px);
+}
+
+
+
+
+
+
