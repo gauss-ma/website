@@ -1373,9 +1373,10 @@ end count stats*/
 	.slide {
 		flex-direction:column;
 		justify-content:center;
-		/*align-items:center!important;*/
+		/*align-items:center!important;
 		width:100%;
 		max-width:700px;
+		*/
 		margin:0px;
 		padding:50px 0px;
 	}
@@ -1390,7 +1391,7 @@ end count stats*/
 		max-width:700px;
 		/* align-items:center!important; */
 		/* text-align:center!important; */
-		padding:20px!important;
+		padding:0px 20px!important;
 	}
 	/*.btn{margin:auto!important;}*/
 	.column-image>img{
@@ -1420,12 +1421,14 @@ end count stats*/
 	        padding-bottom: 10px;
 	}
 	.texto-home>h2{
-	        padding-bottom: 2px;
+	        padding-bottom: 5px;
 		font-size:4vh;
-		line-height:4vh;
+		line-height:5vh;
 	}
 	.texto-home>h4{
 		font-size:2.25vh;
+		line-height:2.5vh;
+	        padding-bottom: 5px;
 	}
 
 
