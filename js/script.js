@@ -11,7 +11,6 @@ const $logo=$("#Logo_gauss");
 $(document).ready(function(){
 
         //cerrarMenu();
-
         //ABRIR / CERRAR MENU:
         function abrirMenu(){
                 console.log("Abriendo Menu..");
@@ -35,6 +34,7 @@ $(document).ready(function(){
                 $menu.children().toggle();//$menu.slideUp(); // $menu.hide();
         };
 
+
         $btn_menu.on('click',function () {
                 if ( $menu.attr('class') == "TabletMenu_root") {cerrarMenu()}
                 else if ( $menu.attr('class') == "TabletMenu_root fade-out") {abrirMenu()}
@@ -54,11 +54,18 @@ $(document).ready(function(){
             cerrarMenu()
 
             return false;
-        })
+        });
+	//SCROLLEAR HASTA ARRIBA CUANDO CLICKEAS EN EL LOGO
+	$logo.on('click', function() {
+	    $('body,html').animate({
+	        scrollTop: 0
+	        }, "slow",'swing');
+	    cerrarMenu();
+	    return false;
+	});
 
 
         //STEPER DE SERVICIOS:
-
 		 curOpen = $('.step')[0];
 		  
 		  $('.next-btn').on('click', function() {
@@ -101,19 +108,70 @@ $(document).ready(function(){
 		      }
 		    }
 		  });
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
 });
 
 
-//SCROLLEAR HASTA ARRIBA CUANDO CLICKEAS EN EL LOGO
-$("#Logo_gauss").on('click', function() {
-    $('body,html').animate({
-        scrollTop: 0
-        }, "slow",'swing');
-    cerrarMenu();
-    return false;
-});
-
-
+function setBlack(){
+        $logo.removeClass("white");
+        //$logo.addClass("black");
+        $btn_menu.removeClass("white");
+        $btn_menu.addClass("black");
+};
+                                        
+function setWhite(){
+        //$logo.removeClass("black");
+        $logo.addClass("white");
+        $btn_menu.removeClass("black");
+        $btn_menu.addClass("white");
+};
 
 // Animación de contador, using jQuery animate
 //$('.counting').each(function() {
@@ -228,19 +286,19 @@ $(window).scroll(function(event) {
 
 });
 
-function setBlack(){
-        $logo.removeClass("white");
-        //$logo.addClass("black");
-        $btn_menu.removeClass("white");
-        $btn_menu.addClass("black");
-};
-                                        
-function setWhite(){
-        //$logo.removeClass("black");
-        $logo.addClass("white");
-        $btn_menu.removeClass("black");
-        $btn_menu.addClass("white");
-};
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -419,51 +477,48 @@ function setWhite(){
 //    	//}
 //	//animate();
 
-
-
-////QGIS SW:
-Q3D.Config.bgColor = '#f7f7f7';
-Q3D.Config.localMode = true;
-var containerSW = document.getElementById("viewSW");
-var appSW = Q3D.application;
-appSW.init(containerSW);          // initialize application
-appSW.loadSceneFile("./mods3d/sw/scene.js", function () {
-});
-
-//QGIS AIR:
-Q3D_air.Config.bgColor = '#f7f7f7';
-Q3D_air.Config.localMode = true;
-var appAIR = Q3D_air.application;
-var containerAIR = document.getElementById("viewAIR");
-appAIR.init(containerAIR);          // initialize application
-appAIR.loadSceneFile("./mods3d/air/scenevflash1.js", function () {
-});
-
-
- window.addEventListener( 'resize', onWindowResize, false );
- function onWindowResize(){
-     //camera.aspect = window.innerWidth / window.innerHeight;
-     //camera.updateProjectionMatrix();
-     //renderer.setSize( window.innerWidth*0.5, window.innerHeight*0.5 );
-     //rendererAIR.setSize( window.innerWidth*0.5, window.innerHeight*0.5 );
  
-     var canvasAIRWidth=$("#viewAIR").innerWidth();
-     var canvasAIRHeight=$("#viewAIR").innerHeight();
-     //rendererAIR.setSize(canvasAIRWidth, canvasAIRHeight);
-     //cameraAIR.aspect =canvasAIRWidth / canvasAIRHeight;
-     //cameraAIR.updateProjectionMatrix();
-     appAIR.setCanvasSize(canvasAIRWidth, canvasAIRHeight);
+ ////QGIS SW:
+ Q3D.Config.bgColor = '#f7f7f7';
+ Q3D.Config.localMode = true;
+ var containerSW = document.getElementById("viewSW");
+ var appSW = Q3D.application;
+ appSW.init(containerSW);          // initialize application
+ appSW.loadSceneFile("./mods3d/sw/scene.js", function () {
+ });
+ 
+ //QGIS AIR:
+ Q3D_air.Config.bgColor = '#f7f7f7';
+ Q3D_air.Config.localMode = true;
+ var appAIR = Q3D_air.application;
+ var containerAIR = document.getElementById("viewAIR");
+ appAIR.init(containerAIR);          // initialize application
+ appAIR.loadSceneFile("./mods3d/air/scene.js", function () {
+ });
  
  
-     var canvasSWWidth=$("#viewSW").innerWidth();
-     var canvasSWHeight=$("#viewSW").innerHeight();
-     //rendererGW.setSize(canvasGWWidth, canvasGWHeight);
-     //cameraGW.aspect =canvasGWWidth / canvasGWHeight;
-     //cameraGW.updateProjectionMatrix();
-     appSW.setCanvasSize(canvasSWWidth, canvasSWHeight);
+  window.addEventListener( 'resize', onWindowResize, false );
+  function onWindowResize(){
+      //camera.aspect = window.innerWidth / window.innerHeight;
+      //camera.updateProjectionMatrix();
+      //renderer.setSize( window.innerWidth*0.5, window.innerHeight*0.5 );
+      //rendererAIR.setSize( window.innerWidth*0.5, window.innerHeight*0.5 );
+  
+      var canvasAIRWidth=$("#viewAIR").innerWidth();
+      var canvasAIRHeight=$("#viewAIR").innerHeight();
+      //rendererAIR.setSize(canvasAIRWidth, canvasAIRHeight);
+      //cameraAIR.aspect =canvasAIRWidth / canvasAIRHeight;
+      //cameraAIR.updateProjectionMatrix();
+      appAIR.setCanvasSize(canvasAIRWidth, canvasAIRHeight);
+  
+  
+      var canvasSWWidth=$("#viewSW").innerWidth();
+      var canvasSWHeight=$("#viewSW").innerHeight();
+      //rendererGW.setSize(canvasGWWidth, canvasGWHeight);
+      //cameraGW.aspect =canvasGWWidth / canvasGWHeight;
+      //cameraGW.updateProjectionMatrix();
+      appSW.setCanvasSize(canvasSWWidth, canvasSWHeight);
+  
+  }
  
- }
-
-onWindowResize();
- 
- 
+ onWindowResize();
