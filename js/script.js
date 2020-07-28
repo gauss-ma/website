@@ -421,39 +421,6 @@ function setWhite(){
 
 
 
-
-
-
-
-window.addEventListener( 'resize', onWindowResize, false );
-function onWindowResize(){
-    //camera.aspect = window.innerWidth / window.innerHeight;
-    //camera.updateProjectionMatrix();
-    //renderer.setSize( window.innerWidth*0.5, window.innerHeight*0.5 );
-    //rendererAIR.setSize( window.innerWidth*0.5, window.innerHeight*0.5 );
-
-    var canvasAIRWidth=$("#viewAIR").innerWidth();
-    var canvasAIRHeight=$("#viewAIR").innerHeight();
-    //rendererAIR.setSize(canvasAIRWidth, canvasAIRHeight);
-    //cameraAIR.aspect =canvasAIRWidth / canvasAIRHeight;
-    //cameraAIR.updateProjectionMatrix();
-    appAIR.setCanvasSize(canvasAIRWidth, canvasAIRHeight);
-
-
-    var canvasSWWidth=$("#viewSW").innerWidth();
-    var canvasSWHeight=$("#viewSW").innerHeight();
-    //rendererGW.setSize(canvasGWWidth, canvasGWHeight);
-    //cameraGW.aspect =canvasGWWidth / canvasGWHeight;
-    //cameraGW.updateProjectionMatrix();
-    appSW.setCanvasSize(canvasSWWidth, canvasSWHeight);
-
-}
-
-
-
-
-
-
 ////QGIS SW:
 Q3D.Config.bgColor = '#f7f7f7';
 Q3D.Config.localMode = true;
@@ -471,3 +438,32 @@ var containerAIR = document.getElementById("viewAIR");
 appAIR.init(containerAIR);          // initialize application
 appAIR.loadSceneFile("./mods3d/air/scenevflash1.js", function () {
 });
+
+
+ window.addEventListener( 'resize', onWindowResize, false );
+ function onWindowResize(){
+     //camera.aspect = window.innerWidth / window.innerHeight;
+     //camera.updateProjectionMatrix();
+     //renderer.setSize( window.innerWidth*0.5, window.innerHeight*0.5 );
+     //rendererAIR.setSize( window.innerWidth*0.5, window.innerHeight*0.5 );
+ 
+     var canvasAIRWidth=$("#viewAIR").innerWidth();
+     var canvasAIRHeight=$("#viewAIR").innerHeight();
+     //rendererAIR.setSize(canvasAIRWidth, canvasAIRHeight);
+     //cameraAIR.aspect =canvasAIRWidth / canvasAIRHeight;
+     //cameraAIR.updateProjectionMatrix();
+     appAIR.setCanvasSize(canvasAIRWidth, canvasAIRHeight);
+ 
+ 
+     var canvasSWWidth=$("#viewSW").innerWidth();
+     var canvasSWHeight=$("#viewSW").innerHeight();
+     //rendererGW.setSize(canvasGWWidth, canvasGWHeight);
+     //cameraGW.aspect =canvasGWWidth / canvasGWHeight;
+     //cameraGW.updateProjectionMatrix();
+     appSW.setCanvasSize(canvasSWWidth, canvasSWHeight);
+ 
+ }
+
+onWindowResize();
+ 
+ 

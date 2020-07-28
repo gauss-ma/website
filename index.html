@@ -66,6 +66,9 @@
  	<!--script src="js/threejs/OrbitControls.js"></script-->
  	<!--script src="js/threejs/DeviceOrientationControls.js"></script -->
 
+
+
+
 </head>
 
 
@@ -115,7 +118,7 @@
 <main id="content">
 
 <!--   H O M E   -->
-<section name="home" class="SlideHOME Home">
+<section name="home" class="slide center Home">
 		<div class="img-abstracta">
 			<!--img  src="img/gauss-abstract-asset.svg"></img-->
 			<object type="image/svg+xml" data="img/gauss_abstract.svg"></object>
@@ -135,10 +138,7 @@
 <!--   OBJETIVO   -->
 <section name="objetivo" class="slide center bg-oscuro" style="background-color:var(--celeste-oscuro)">
 	<div class="objetivo-words white">
-		<!-- cuadno haya una versión final hay que ajustar los delays del fade in -->
-		
 		<!-- Actual -->
-		
 		<!-- <span class="animar_fade-in">Modelos		</span> 
 		<span class="animar_fade-in">computacionales	</span>
 	    	<span class="animar_fade-in">al			</span> 
@@ -146,9 +146,7 @@
 		<span class="animar_fade-in">del		</span>
 		<span class="animar_fade-in">ambiente.		</span>
 		 -->
-		
 		<!-- lokita -->
-		
 		<!-- <span class="animar_fade-in">Simulamos</span> 
 		<span class="animar_fade-in">el</span>
 	    <span class="animar_fade-in">impacto</span> 
@@ -158,7 +156,6 @@
 		<span class="animar_fade-in">computacionales</span>
 		 -->
 		<!-- math -->
-		
 		<span class="animar_fade-in">Modelado</span> 
 		<span class="animar_fade-in">matemático</span>
     	<span class="animar_fade-in">aplicado</span> 
@@ -195,9 +192,10 @@
 	</div>
 	<div class="column-image" id="viewAIR">
 		<!--img src="img/img-air.png" alt="" -->
-		<script src="mods3d/air/Qgis2threejs.js"></script>
 		<!--canvas id="canvasAIR"> </canvas-->
 	</div>
+	
+	
 
 </section>
 
@@ -216,7 +214,6 @@
 		<a class="btn material-design btn-colapsar" onclick="$('[name=gw]').removeClass('expandido');">Ver menos</a>
 	</div>
 	<div class="column-image">
-
 		<!-- canvas id="canvasGW"> </canvas-->
 		 <img src="img/img-gw-temp.png" alt="">
 	</div>
@@ -243,9 +240,9 @@
                 <a class="btn material-design btn-expandir" onclick="$('[name=sw]').addClass('expandido');">Ver más</a>
                 <a class="btn material-design btn-colapsar" onclick="$('[name=sw]').removeClass('expandido');">Ver menos</a>
 	</div>
+	
 	<div class="column-image" id="viewSW">
 		  <!--img src="img/img-sw-temp.png" alt=""-->
-			<script src="mods3d/sw/Qgis2threejs.js"></script>
 	</div>
 </section>
 
@@ -381,29 +378,6 @@
       </div>
  -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </section>
 
 
@@ -506,6 +480,9 @@
 
 </body>
 
+<script src="mods3d/air/Qgis2threejs.js"></script>
+<script src="mods3d/sw/Qgis2threejs.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
+
 
 </html>
