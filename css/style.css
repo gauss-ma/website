@@ -1071,7 +1071,7 @@ main{
 }
 .column-text.end   {justify-content:end;   }
 .column-text.start {justify-content:start; }
-.column-text.center{justify-content:center;}
+.column-text.vcenter{justify-content:center;}
 
 
 
@@ -1195,12 +1195,14 @@ main{
     	-ms-flex-direction: column;
     	 flex-direction: column;
 			justify-content:center;
-			align-items:center;
+      align-items:center;
+      
 		/*width:100%;*/
 	}
 	.center>.column-text{
-		/*align-items:center;
-		  text-align:center;*/
+		/* align-items:flex-start; */
+      /* text-align:left; */
+      /* justify-content: left; */
 	}
 	/*.center .btn{margin:auto;}*/
 
@@ -1226,9 +1228,9 @@ main{
 
 .objetivo-words >*:nth-child(1){-ms-animation-delay:0s  ;-webkit-animation-delay: 0s ;  animation-delay: 0s  ;}
 .objetivo-words >*:nth-child(2){-ms-animation-delay:0.5s;-webkit-animation-delay:0.5s;  animation-delay:0.5s ;}
-.objetivo-words >*:nth-child(3){-ms-animation-delay:1s  ;-webkit-animation-delay:1s  ;  animation-delay:1s   ;}
-.objetivo-words >*:nth-child(4){-ms-animation-delay:1.5s;-webkit-animation-delay:1.5s;  animation-delay:1.5s ;}
-.objetivo-words >*:nth-child(5){-ms-animation-delay:2s  ;-webkit-animation-delay:2s  ;  animation-delay:2s   ;}
+.objetivo-words >*:nth-child(3){-ms-animation-delay:0.9s  ;-webkit-animation-delay:0.9s  ;  animation-delay:0.9s   ;}
+.objetivo-words >*:nth-child(4){-ms-animation-delay:1.25s;-webkit-animation-delay:1.25s;  animation-delay:1.25s ;}
+.objetivo-words >*:nth-child(5){-ms-animation-delay:1.75s  ;-webkit-animation-delay:1.75s  ;  animation-delay:1.75s   ;}
 .objetivo-words >*:nth-child(6){-ms-animation-delay:2.5s;-webkit-animation-delay:2.5s;  animation-delay:2.5s ;}
 .objetivo-words >*:nth-child(7){-ms-animation-delay:3s  ;-webkit-animation-delay:3s  ;  animation-delay:3s   ;}
 .objetivo-words >*:nth-child(8){-ms-animation-delay:3.5s;-webkit-animation-delay:3.5s;  animation-delay:3.5s ;}
@@ -1360,6 +1362,8 @@ end count stats*/
 /*@media screen and (max-width: 600px) {*/
 @media (max-width: 670px) {
 
+
+
 	/* GENERAL */
 	h1{font-size:9vh;line-height:9vh;}
 	h2{font-size:7vh;line-height:7vh;}
@@ -1386,8 +1390,8 @@ end count stats*/
 	}
 	.column-text{
 		max-width:700px;
-		align-items:center!important;
-		text-align:center!important;
+		/* align-items:center!important; */
+		/* text-align:center!important; */
 		padding:20px!important;
 	}
 	/*.btn{margin:auto!important;}*/
