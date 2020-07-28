@@ -3,21 +3,6 @@
   /* Paleta de colores GAUSS v1.0 -
   Para mas información, consultar la StyleSheet:
   https://www.figma.com/file/20SQRpHpszMnntGvWCy0ge/Gauss-Stylesheet?node-id=99%3A2 */
-  /* 
-  color: #52C0C0;
-  color: #108AA8;
-  color: #063959;<-buscar reemplazo
-  color: #8C5B8D;
-  color: #F2809F;
-  color: #1F1F1F;
-  color: #363636;
-  color: #ACACAC;
-  color: #E1E1E1;
-  color: #F7F7F7;
-  color: #FEC439;
-  color: #EF3974;
-  color: #37D6FF; 
-  */
   
   /* Escala de grises */
   --negro-0:#1F1F1F;	 
@@ -80,6 +65,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 .global,html {
   background-color: var(--blanco);
   color:var(--gris-oscuro);/*var(--negro);*/
@@ -101,7 +87,6 @@ html {
 
 body {
   font-family: RobotoRegular, Oxygen, Ubuntu;
-  overflow-x: hidden;
   overflow-y: auto;
   position: relative;
   /*height: auto;
@@ -111,6 +96,11 @@ body {
     -moz-font-smoothing: grayscale;
   */
 }
+main{
+	width:100%;
+	/*margin:auto;*/
+}
+
 h1,h2,h3,h4,h5,h6 {
   font-family: MontserratExtraBold, Roboto, Ubuntu;
   max-width:650px;
@@ -592,13 +582,12 @@ header {
   	font-weight: 100;
 }
 
-
-
 .img-abstracta{
 	/*position:absolute;
 	display:flex;
 		z-index:-10;*/
   		width:100%;
+		max-width:720px;
 		text-align:center;
   	animation: fade-in 5s 1 0s ease-in;
 	animation-duration:.8s;
@@ -951,7 +940,6 @@ margin-top: 14px*/
   justify-content: center;
   display:flex-inline; 
   padding:50px;
-  width:100%;
 }
 
 .site-footer-wrapper{
@@ -1002,11 +990,11 @@ a.github:hover >i{  color:inherit;}
 
 
 /*GENERAL  LAYOUT*/
-main{
-	width:100%;
-	/*max-width:1300px;*/
-	/*margin:auto;*/
-}
+
+
+
+
+
 
 .slide {
 	min-height:80vh;
