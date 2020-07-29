@@ -247,8 +247,105 @@ b {
   width: 100%;
   position: fixed;
 }
+/*BOTONES */
+.btn {
+	margin-top:20px;	
+	padding:10px;
+	width:100px;
+    color: var(--negro);
+    text-transform: uppercase;
+    text-align: center;
+  	transition: all 2s cubic-bezier(.19,1,.22,1);
+  	-webkit-transition: all 2s cubic-bezier(.19,1,.22,1);
+}
+.btn:hover{
+	color:var(--celeste-oscuro);
+}
+
+.material-design{
+	border:none;
+/* el border generaba un efecto choto cuando había hover, se veía una linea celeste en un frame de la transición */
+	border-radius:4px;
+	color:var(--gris-medio);
+		-webkit-transition: all 0.5s cubic-bezier(.19,1,.22,1);
+			transition: all 0.5s cubic-bezier(.19,1,.22,1);
+		-webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+		   -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+		        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+}
+.material-design:hover{
+	cursor:pointer;
+	border:none;
+	color:var(--celeste-oscuro);
+	background-color:var(--blanco-0);
+	-webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .3);
+	   -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .3);
+	        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .3);
+}
+
+.material-design-dark{
+	border:none;
+	border-radius:4px;
+  color:var(--gris-medio);
+ 		-webkit-transition: all 0.5s cubic-bezier(.19,1,.22,1);
+			transition: all 0.5s cubic-bezier(.19,1,.22,1);
+		-webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);
+		   -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);
+		        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);
+}
+
+.material-design-dark:hover{
+	cursor:pointer;
+	border:none;
+	color:var(--celeste-claro);
+  background-color: var(--gris-oscuro-0);
+	-webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .7);
+	   -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .7);
+	        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .7);
+}
 
 
+/*TRANSICIONES */
+.animar_fade-in-up{
+	opacity:0;
+}
+.fade-in-up{	
+	-webkit-animation: fade-in-UP 2s cubic-bezier(.19,1,.22,1) forwards;
+        animation: fade-in-UP 2s cubic-bezier(.19,1,.22,1) forwards;
+	/*opacity:1;*/
+	-ms-animation-delay: 0.4s; -webkit-animation-delay: 0.4s;  animation-delay: 0.4s;
+}
+
+
+/*aparicios palabras objetivo*/
+.animar_fade-in{
+	opacity:0;
+}
+
+.fade-in{
+	-webkit-animation: fade-in 4s cubic-bezier(.1,1,.22,1) forwards;
+	animation: fade-in 4s cubic-bezier(.1,1,.22,1) forwards;
+}
+
+
+
+.expandido>.expansible{	
+  	height:auto;
+  	max-height:80vh;
+	padding-bottom:10px;
+	opacity:1;
+}
+.expansible {
+	color:var(--gris-medio);
+  	opacity:0;
+	max-height:0;
+  	overflow:hidden;
+	transition: all 1s ease; /*cubic-bezier(0.23,1,0.32,1);*/
+}
+
+     .btn-colapsar{display:none;}
+.expandido>.btn-colapsar{display:block;}
+.expandido>.btn-expandir{display:none;}
 
 
 
@@ -530,22 +627,15 @@ header {
 /*HOME*/
 
 .slide.Home {
-	height:100vh;
-	/*max-width: 1300px;*/
-/*	padding:20px;
-  	padding-top:0px;
-  	padding-bottom: 50px;
-	width:100%;
-*/
-		-webkit-animation: fade-in-up 0.3s cubic-bezier(.12,.51,.49,.88) forwards; 
-		animation: fade-in-up 0.3s cubic-bezier(.12,.51,.49,.88) forwards; 
+	-webkit-animation: fade-in-up 0.3s cubic-bezier(.12,.51,.49,.88) forwards; 
+	animation: fade-in-up 0.3s cubic-bezier(.12,.51,.49,.88) forwards; 
 }
 
 .texto-home{
 	/*padding-top:200px;
 	margin-top:40px;
-	font-size: 1rem;*/
-	text-align:left;
+	font-size: 1rem;
+	text-align:left;*/
   	/*pointer-events: none;*/
 }
 
@@ -581,7 +671,8 @@ header {
 
 }
 
-.img-abstracta>object,.img-abstracta>img{
+.img-abstracta>object,
+.img-abstracta>img{
 		width:50%;
 		max-width:500px;
 }
@@ -592,6 +683,41 @@ object:hover {
   backface-visibility: hidden;
   perspective: 1000px;
 }
+
+
+/* PALABRAS DE OBJETIVO */
+.objetivo-words{	
+  padding:60px;
+  margin-top: 20px;
+	width:100%;
+	max-width:720px;
+	font-size:9vh;
+	font-family:MontserratExtraBold;
+    font-weight:800;
+	overflow:hidden;
+	/*text-align:center;*/
+}
+
+/* ojo cuando tengamos la palabra final... hay que ajustar los tiempos para que no sea lineal, "la" tarda lo mismo que "computacional" */
+
+.objetivo-words >*:nth-child(1){-ms-animation-delay:0s  ;-webkit-animation-delay: 0s ;  animation-delay: 0s  ;}
+.objetivo-words >*:nth-child(2){-ms-animation-delay:0.5s;-webkit-animation-delay:0.5s;  animation-delay:0.5s ;}
+.objetivo-words >*:nth-child(3){-ms-animation-delay:0.9s  ;-webkit-animation-delay:0.9s  ;  animation-delay:0.9s   ;}
+.objetivo-words >*:nth-child(4){-ms-animation-delay:1.25s;-webkit-animation-delay:1.25s;  animation-delay:1.25s ;}
+.objetivo-words >*:nth-child(5){-ms-animation-delay:1.75s  ;-webkit-animation-delay:1.75s  ;  animation-delay:1.75s   ;}
+.objetivo-words >*:nth-child(6){-ms-animation-delay:2.5s;-webkit-animation-delay:2.5s;  animation-delay:2.5s ;}
+.objetivo-words >*:nth-child(7){-ms-animation-delay:3s  ;-webkit-animation-delay:3s  ;  animation-delay:3s   ;}
+.objetivo-words >*:nth-child(8){-ms-animation-delay:3.5s;-webkit-animation-delay:3.5s;  animation-delay:3.5s ;}
+.objetivo-words >*:nth-child(9){-ms-animation-delay:4s  ;-webkit-animation-delay:4s  ;  animation-delay:4s   ;}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -627,6 +753,7 @@ object:hover {
 	height:100%;
 	background-color:#fff;
 	transition:0.5s;
+   transition-timing-function: ease;
 }
 .layer>img{
 	width:100%;
@@ -645,6 +772,54 @@ object:hover {
 .mapas:hover div.layer:nth-child(2) {transform: translate(0px  ,-0px)  ;  opacity:1.0}
 .mapas:hover div.layer:nth-child(3) {transform: translate(80px,-80px)  ;  opacity:0.9}
 .mapas:hover div.layer:nth-child(4) {transform: translate(160px,-160px);  opacity:0.9}
+
+
+
+
+
+
+
+/* TOXDB COUNT-STATS 
+.StatsContainer {
+	  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+	flex-direction:row;
+	justify-content: center;
+	margin-top: 100px;
+	width: calc(100%);
+	padding-bottom:30px;
+	margin-bottom:30px;
+  text-align: center;
+
+	}
+.StatsContainer > .stats{
+	width: calc(33.3%);
+  font-family: 'MontserratRegular';
+}
+.stats .counting {
+  text-align: center;
+  font-size: 80px;
+    font-weight: 400;
+}
+.stats .texto {
+  font-size: 22px;
+    font-weight: 400;
+  text-align: center;
+	text-transform:uppercase;
+}
+end count stats*/
+
+
+
+
+
+
+
+
+
 
 
 
@@ -747,28 +922,8 @@ object:hover {
 }
 
 .step-content p{padding:40px;}
-/* Cosas irrelavantes de estilo*/
-/*.next-btn {
-  	border: 0;
-	background-color:var(--blanco);
-}
 
-.close-btn {
- 	 border: 0;
-	background-color:var(--blanco);
-	margin-top:20px;
-	margin-bottom:20px;
-}
-
-.close-btn:focus {
-  outline: 0;
-}
-.next-btn:focus {
-  outline: 0;
-}
-*/
-
-/* FORMA DE MOSTRAR SERVICIOS ALTERNATIVA */
+/* FORMA DE MOSTRAR SERVICIOS ALTERNATIVA 
 
 .grid-container {
   display: grid;
@@ -813,7 +968,7 @@ object:hover {
 	}
 	
 }
-
+*/
 
 
 
@@ -1037,16 +1192,11 @@ a.github:hover >i{  color:inherit;}
 	min-height:80vh;
     	padding: 50px;
 	max-width:100vw;
-	/*
-	width: calc(100%); 
-	max-width:1300px;*/
-   	/* text-align: center;*/
   display: -webkit-box;
   display: -moz-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-	/*border-bottom:1px solid var(--gris-claro);*/
 }
 
 
@@ -1070,8 +1220,10 @@ a.github:hover >i{  color:inherit;}
 	    	justify-content: space-between;
 	}
 	.right>.column-text{
-	    /*align-items:end;
-	    text-align:right;*/
+	    /*
+	    align-items:end;
+	    text-align:right;
+	    */
 	}
 	.right>.column-image{
 		text-align:left;
@@ -1086,8 +1238,8 @@ a.github:hover >i{  color:inherit;}
     	-moz-box-orient: vertical;
     	-ms-flex-direction: column;
     	 flex-direction: column;
-			justify-content:center;
-      			align-items:center;
+		justify-content:center;
+      		align-items:center;
 		/*width:100%;*/
 	}
 	.center>.column-text{
@@ -1098,7 +1250,7 @@ a.github:hover >i{  color:inherit;}
 	/*.center .btn{margin:auto;}*/
 
 
-/* SLIDE TITULOS/SUBTITULOS */
+/* SLIDE TITULOS / SUBTITULOS */
 .slide > h2{
 	margin-top:70px;
 	margin-bottom:20px;
@@ -1124,10 +1276,7 @@ a.github:hover >i{  color:inherit;}
     -moz-box-orient: vertical;
     -ms-flex-direction: column;
      flex-direction: column;
-  padding: 20px;
-	/*margin-top:auto;
-	  width: 100%;    */
-	margin-bottom:5%;
+  	padding: 20px;
    	max-width: 600px;
 }
 .column-text.end   {justify-content:end;   }
@@ -1137,254 +1286,22 @@ a.github:hover >i{  color:inherit;}
 /* COLUMNA CON IMAGEN */
 .column-image{
 	display:flex;flex-direction:column;justify-content:center;
-    width: 50%;
-    max-width: 780px;
+    /*width: 50%;*/
+    max-width: 750px;
 	/*background-color:var(--celeste-oscuro);*/
 }
 
 .column-image>canvas,
 .column-image>img{
 	width:100%;
-	/*pointer-events:none;*/
+	pointer-events:none;
 }
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-/*BOTONES */
-.btn {
-	margin-top:20px;	
-	padding:10px;
-	width:100px;
-    color: var(--negro);
-    text-transform: uppercase;
-    text-align: center;
-  transition: all 2s cubic-bezier(.19,1,.22,1);
-  -webkit-transition: all 2s cubic-bezier(.19,1,.22,1);
-}
-
-.btn:hover{
-	color:var(--celeste-oscuro);
-}
-
-.material-design{
-	border:none;
-/* el border generaba un efecto choto cuando había hover, se veía una linea celeste en un frame de la transición */
-	border-radius:4px;
-	color:var(--gris-medio);
-		-webkit-transition: all 0.5s cubic-bezier(.19,1,.22,1);
-			transition: all 0.5s cubic-bezier(.19,1,.22,1);
-		-webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-		   -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-		        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-}
-.material-design:hover{
-	cursor:pointer;
-	border:none;
-	color:var(--celeste-oscuro);
-	background-color:var(--blanco-0);
-	-webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .3);
-	   -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .3);
-	        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .3);
-}
-
-.material-design-dark{
-	border:none;
-	border-radius:4px;
-  color:var(--gris-medio);
- 		-webkit-transition: all 0.5s cubic-bezier(.19,1,.22,1);
-			transition: all 0.5s cubic-bezier(.19,1,.22,1);
-		-webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);
-		   -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);
-		        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);
-}
-
-.material-design-dark:hover{
-	cursor:pointer;
-	border:none;
-	color:var(--celeste-claro);
-  background-color: var(--gris-oscuro-0);
-	-webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .7);
-	   -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .7);
-	        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .7);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* PALABRAS DE OBJETIVO */
-.objetivo-words{	
-  padding:60px;
-  margin-top: 20px;
-	width:100%;
-	max-width:720px;
-	font-size:9vh;
-	font-family:MontserratExtraBold;
-    font-weight:800;
-	overflow:hidden;
-	/*text-align:center;*/
-}
-
-/* ojo cuando tengamos la palabra final... hay que ajustar los tiempos para que no sea lineal, "la" tarda lo mismo que "computacional" */
-
-.objetivo-words >*:nth-child(1){-ms-animation-delay:0s  ;-webkit-animation-delay: 0s ;  animation-delay: 0s  ;}
-.objetivo-words >*:nth-child(2){-ms-animation-delay:0.5s;-webkit-animation-delay:0.5s;  animation-delay:0.5s ;}
-.objetivo-words >*:nth-child(3){-ms-animation-delay:0.9s  ;-webkit-animation-delay:0.9s  ;  animation-delay:0.9s   ;}
-.objetivo-words >*:nth-child(4){-ms-animation-delay:1.25s;-webkit-animation-delay:1.25s;  animation-delay:1.25s ;}
-.objetivo-words >*:nth-child(5){-ms-animation-delay:1.75s  ;-webkit-animation-delay:1.75s  ;  animation-delay:1.75s   ;}
-.objetivo-words >*:nth-child(6){-ms-animation-delay:2.5s;-webkit-animation-delay:2.5s;  animation-delay:2.5s ;}
-.objetivo-words >*:nth-child(7){-ms-animation-delay:3s  ;-webkit-animation-delay:3s  ;  animation-delay:3s   ;}
-.objetivo-words >*:nth-child(8){-ms-animation-delay:3.5s;-webkit-animation-delay:3.5s;  animation-delay:3.5s ;}
-.objetivo-words >*:nth-child(9){-ms-animation-delay:4s  ;-webkit-animation-delay:4s  ;  animation-delay:4s   ;}
-
-
-
-
-/*TRANSICIONES */
-.animar_fade-in-up{
-	opacity:0;
-}
-.fade-in-up{	
-	-webkit-animation: fade-in-UP 2s cubic-bezier(.19,1,.22,1) forwards;
-        animation: fade-in-UP 2s cubic-bezier(.19,1,.22,1) forwards;
-	/*opacity:1;*/
-	-ms-animation-delay: 0.4s; -webkit-animation-delay: 0.4s;  animation-delay: 0.4s;
-}
-
-
-/*aparicios palabras objetivo*/
-.animar_fade-in{
-	opacity:0;
-}
-
-.fade-in{
-	-webkit-animation: fade-in 4s cubic-bezier(.1,1,.22,1) forwards;
-	animation: fade-in 4s cubic-bezier(.1,1,.22,1) forwards;
-}
-
-
-
-.expandido>.expansible{	
-  	height:auto;
-  	max-height:80vh;
-	padding-bottom:10px;
-	opacity:1;
-}
-.expansible {
-	color:var(--gris-medio);
-  	opacity:0;
-	max-height:0;
-  	overflow:hidden;
-	transition: all 1s ease; /*cubic-bezier(0.23,1,0.32,1);*/
-}
-
-     .btn-colapsar{display:none;}
-.expandido>.btn-colapsar{display:block;}
-.expandido>.btn-expandir{display:none;}
-
-
-
-/* COUNT-STATS 
-.StatsContainer {
-	  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-	flex-direction:row;
-	justify-content: center;
-	margin-top: 100px;
-	width: calc(100%);
-	padding-bottom:30px;
-	margin-bottom:30px;
-  text-align: center;
-
-	}
-.StatsContainer > .stats{
-	width: calc(33.3%);
-  font-family: 'MontserratRegular';
-}
-.stats .counting {
-  text-align: center;
-  font-size: 80px;
-    font-weight: 400;
-}
-.stats .texto {
-  font-size: 22px;
-    font-weight: 400;
-  text-align: center;
-	text-transform:uppercase;
-}
-end count stats*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* END GENERAL LAYOUT */
 
 
 /*   RESPONSIVE    */
@@ -1395,11 +1312,9 @@ end count stats*/
 /*@media screen and (max-width: 600px) {*/
 @media (max-width: 670px) {
 
-
-
 	/* GENERAL */
 	h1{font-size:9vh;line-height:9.5vh;  padding-bottom:  3vh;     }
-	h2{font-size:7vh;line-height:7.5vh;  padding-bottom:2.5vh;     }
+	h2{font-size:6.8vh;line-height:7.5vh;  padding-bottom:2.5vh;     }
 	h3{font-size:4vh;line-height:4.25vh; padding-bottom:  4vh;     }
 	h4{font-size:3vh;line-height:3.25vh; padding-bottom:  3vh;     }
 	a,p {font-size:3vh;line-height:3.25vh;    }
@@ -1407,12 +1322,7 @@ end count stats*/
 	.slide {
 		flex-direction:column;
 		justify-content:center;
-		/*align-items:center!important;
-		width:100%;
-		max-width:700px;
-		*/
-		margin:0px;
-		padding:50px 0px;
+		padding:50px 20px;
 	}
 	
 	.column-image{
@@ -1423,11 +1333,8 @@ end count stats*/
 	}
 	.column-text{
 		max-width:700px;
-		/* align-items:center!important; */
-		/* text-align:center!important; */
-		padding:0px 20px!important;
+		padding:0px;
 	}
-	/*.btn{margin:auto!important;}*/
 	.column-image>img{
 		width:100%;
 	}
@@ -1441,16 +1348,10 @@ end count stats*/
 
 
 	/* HOME		*/
-
-	.SlideHOME{
-		padding:0;
-	}
 	.img-abstracta>object,.img-abstracta>img{
 		width:70%;
 		margin-bottom:20px;
 	}
-
-
 	.texto-home>img{
 	        padding-bottom: 10px;
 	}
@@ -1468,9 +1369,8 @@ end count stats*/
 
 	/*OBJETIVO*/
 	.objetivo-words{
-		font-size:7vh;
+		font-size:6vh;
 		padding:0;
-		padding-left:50px;
 	}
 
 	/*GEOSP*/
@@ -1514,14 +1414,12 @@ end count stats*/
     		-moz-box-orient: vertical;
     		-ms-flex-direction: column;
     		 flex-direction: column;
-
- 	        text-align:center;
-                justify-content:center;
-	     	align-items:center;
-		width:100%;
-		padding:0px!important;
+ 	        	text-align:center;
+                	justify-content:center;
+	     		align-items:center;
+			width:100%;
+			padding:0px!important;
  	}
-
  	.Form_campo,
  	.Form-mitad {
  	  	width: 100%;
@@ -1578,11 +1476,5 @@ end count stats*/
           font-size: 7vh;
           line-height: 8vh;
         }
-
-	
-	
-	
-	
-	
 
 }
