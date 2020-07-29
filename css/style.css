@@ -16,7 +16,6 @@
  --gris-medio: #ACACAC;  
  --gris-claro:#E7E7E7;  /*alternativa suave: TESERA*/
  --blanco: #f7f7f7;
-
  
   /* Paleta pentacroma */
   --celeste-claro:#52C0C0;
@@ -31,7 +30,6 @@
   --celeste-saturado:#37D6FF;
   
   /* Familia inicial de tipografías */
-  
   /* 
   font-family: 'Montserrat', sans-serif;
   font-family: 'Nunito Sans', sans-serif;
@@ -39,7 +37,6 @@
   */
   
 }
-
 
 
 a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video {  
@@ -80,27 +77,21 @@ table {
   right: 0;
   z-index: 99999;
 }
+
 html {
   min-height: 100vh;
   width: 100%;
 }
 
 body {
-  font-family: RobotoRegular, Oxygen, Ubuntu;
-  overflow-y: auto;
   position: relative;
-  /*height: auto;
-    -webkit-overflow-scrolling: touch;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -moz-font-smoothing: grayscale;
-  */
+  overflow-y: auto;
+  font-family: RobotoRegular, Oxygen, Ubuntu;
 }
 main{
 	width:100%;
 	/*margin:auto;*/
 }
-
 h1,h2,h3,h4,h5,h6 {
   font-family: MontserratExtraBold, Roboto, Ubuntu;
   max-width:650px;
@@ -114,10 +105,6 @@ p {
 	-webkit-font-smoothing: antialiased !important;
 	-moz-font-smoothing: antialiased !important;
   	text-rendering: optimizelegibility !important;
-  /*
-	font-size: 16px;
-  	line-height: 1.25em;
-  */
         padding: 0 0 0.5em 0;
 }
 h1 {
@@ -127,13 +114,13 @@ h2 {
   font-size: 3em;
 }
 h3 {
-  font-size: 1.5em;
+  font-size: 2em;
 }
 h4{
-  font-size: 1.25em;
+  font-size: 1.5em;
 }
 h5{
-  font-size: 1.em;
+  font-size: 1.0em;
 }
 
 
@@ -607,6 +594,62 @@ object:hover {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+/* SECCION GIS */
+.mapas {
+	/*Width = (225 + 20 + 20) * 4 = 1060*/
+	/*3D Transform
+	transform: rotateX(60deg) rotateZ(-50deg);
+	/*Preserve 3D style for children*/
+	width:360px;
+	height:440px;
+	margin-top:160px;
+	margin-bottom:-100px;
+	position:relative;
+	transform: rotate(-30deg) skew(25deg) scale(0.7);
+}
+.shadow,
+.layer{
+	position:absolute;
+	top:0;
+	left:0;
+	display:block;
+	width:100%;
+	height:100%;
+	background-color:#fff;
+	transition:0.5s;
+}
+.layer>img{
+	width:100%;
+}
+.shadow{
+	opacity:0.1;
+	background-color:#000;
+	border-radius:4px;
+	transform:translate(-10px,10px);
+	transition:0.5s;
+}
+
+.mapas:hover span.shadow{
+	transform: scale(1.1);
+}
+.mapas:hover div.layer:nth-child(2) {transform: translate(0px  ,-0px)  ;  opacity:1.0}
+.mapas:hover div.layer:nth-child(3) {transform: translate(80px,-80px)  ;  opacity:0.9}
+.mapas:hover div.layer:nth-child(4) {transform: translate(160px,-160px);  opacity:0.9}
+
+
+
+
+
 /*SERVICIOS*/
 
 .steps {
@@ -990,12 +1033,6 @@ a.github:hover >i{  color:inherit;}
 
 
 /*GENERAL  LAYOUT*/
-
-
-
-
-
-
 .slide {
 	min-height:80vh;
     	padding: 50px;
@@ -1064,9 +1101,9 @@ a.github:hover >i{  color:inherit;}
 /* SLIDE TITULOS/SUBTITULOS */
 .slide > h2{
 	margin-top:70px;
-	margin-bottom:30px;
+	margin-bottom:20px;
 }
-.slide > h3{
+.slide > h4{
 	margin-bottom:50px;
 	text-align:center;
 	color:var(--gris-medio);	
@@ -1097,8 +1134,6 @@ a.github:hover >i{  color:inherit;}
 .column-text.start {justify-content:start; }
 .column-text.vcenter{justify-content:center;}
 
-
-
 /* COLUMNA CON IMAGEN */
 .column-image{
 	display:flex;flex-direction:column;justify-content:center;
@@ -1115,9 +1150,20 @@ a.github:hover >i{  color:inherit;}
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*BOTONES */
-
-
 .btn {
 	margin-top:20px;	
 	padding:10px;
@@ -1427,6 +1473,12 @@ end count stats*/
 		padding-left:50px;
 	}
 
+	/*GEOSP
+	.mapas{
+		width:calc(90%)!important;
+	}*/
+
+
 	/*SERVICIOS*/
 	.steps{
 		margin:0px;
@@ -1527,60 +1579,9 @@ end count stats*/
         }
 
 	
-	/*GEOSP*/
-	.mapas{
-		width:calc(90%)!important;
-	}
+	
+	
+	
+	
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.mapas {
-	/*Width = (225 + 20 + 20) * 4 = 1060*/
-	/*3D Transform
-	transform: rotateX(60deg) rotateZ(-50deg);
-	/*Preserve 3D style for children*/
-	width:360px;
-	height:440px;
-	margin-top:160px;
-	margin-bottom:-200px;
-	position:relative;
-	transform: rotate(-30deg) skew(25deg) scale(0.7);
-}
-.layer{
-	position:absolute;
-	top:0;
-	left:0;
-	display:block;
-	width:100%;
-	height:100%;
-	background-color:#fff;
-	transition:0.5s;
-}
-.layer>img{
-	width:100%;
-}
-.mapas:hover .layer:nth-child(1) {transform: translate(0px  ,-0px)  ;  opacity:1.0}
-.mapas:hover .layer:nth-child(2) {transform: translate(80px,-80px)  ;  opacity:0.9}
-.mapas:hover .layer:nth-child(3) {transform: translate(160px,-160px);  opacity:0.9}
-
-
-
-
-
