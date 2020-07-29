@@ -114,13 +114,13 @@ h2 {
   font-size: 3em;
 }
 h3 {
-  font-size: 2em;
-}
-h4{
   font-size: 1.5em;
 }
+h4{
+  font-size: 1.25em;
+}
 h5{
-  font-size: 1.0em;
+  font-size: .8em;
 }
 
 
@@ -1400,8 +1400,8 @@ end count stats*/
 	/* GENERAL */
 	h1{font-size:9vh;line-height:9.5vh;  padding-bottom:  3vh;     }
 	h2{font-size:7vh;line-height:7.5vh;  padding-bottom:2.5vh;     }
-	h3{font-size:3vh;line-height:3.25vh; padding-bottom:  2vh;     }
-	h4{font-size:2vh;line-height:2.25vh; padding-bottom:  1vh;     }
+	h3{font-size:4vh;line-height:4.25vh; padding-bottom:  4vh;     }
+	h4{font-size:3vh;line-height:3.25vh; padding-bottom:  3vh;     }
 	a,p {font-size:3vh;line-height:3.25vh;    }
 
 	.slide {
@@ -1473,10 +1473,11 @@ end count stats*/
 		padding-left:50px;
 	}
 
-	/*GEOSP
+	/*GEOSP*/
 	.mapas{
-		width:calc(90%)!important;
-	}*/
+	        width:270px;
+        	height:340px;
+	}
 
 
 	/*SERVICIOS*/
