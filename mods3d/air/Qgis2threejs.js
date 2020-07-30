@@ -720,172 +720,172 @@ Q3D_air.Scene.prototype.adjustZShift = function () {
     }
 
     // functions
-    var saveBlob = function (blob) {
-      var filename = "image.png";
+    //var saveBlob = function (blob) {
+    //  var filename = "image.png";
 
-      // ie
-      if (window.navigator.msSaveBlob !== undefined) {
-        window.navigator.msSaveBlob(blob, filename);
-        appAIR.popup.hide();
-      }
-      else {
-        // create object url
-        if (appAIR._canvasImageUrl) URL.revokeObjectURL(appAIR._canvasImageUrl);
-        appAIR._canvasImageUrl = URL.createObjectURL(blob);
+    //  // ie
+    //  if (window.navigator.msSaveBlob !== undefined) {
+    //    window.navigator.msSaveBlob(blob, filename);
+    //    appAIR.popup.hide();
+    //  }
+    //  else {
+    //    // create object url
+    //    if (appAIR._canvasImageUrl) URL.revokeObjectURL(appAIR._canvasImageUrl);
+    //    appAIR._canvasImageUrl = URL.createObjectURL(blob);
 
-        // display a link to save the image
-        var e = document.createElement("a");
-        e.className = "download-link";
-        e.href = appAIR._canvasImageUrl;
-        e.download = filename;
-        e.innerHTML = "Save";
-        appAIR.popup.show("Click to save the image to a file." + e.outerHTML, "Image is ready");
-      }
-    };
+    //    // display a link to save the image
+    //    var e = document.createElement("a");
+    //    e.className = "download-link";
+    //    e.href = appAIR._canvasImageUrl;
+    //    e.download = filename;
+    //    e.innerHTML = "Save";
+    //    appAIR.popup.show("Click to save the image to a file." + e.outerHTML, "Image is ready");
+    //  }
+    //};
 
-    var saveCanvasImage = saveImageFunc || function (canvas) {
-      if (canvas.toBlob !== undefined) {
-        canvas.toBlob(saveBlob);
-      }
-      else {    // !HTMLCanvasElement.prototype.toBlob
-        // https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement.toBlob
-        var binStr = atob(canvas.toDataURL("image/png").split(',')[1]),
-            len = binStr.length,
-            arr = new Uint8Array(len);
+    //var saveCanvasImage = saveImageFunc || function (canvas) {
+    //  if (canvas.toBlob !== undefined) {
+    //    canvas.toBlob(saveBlob);
+    //  }
+    //  else {    // !HTMLCanvasElement.prototype.toBlob
+    //    // https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement.toBlob
+    //    var binStr = atob(canvas.toDataURL("image/png").split(',')[1]),
+    //        len = binStr.length,
+    //        arr = new Uint8Array(len);
 
-        for (var i = 0; i < len; i++) {
-          arr[i] = binStr.charCodeAt(i);
-        }
+    //    for (var i = 0; i < len; i++) {
+    //      arr[i] = binStr.charCodeAt(i);
+    //    }
 
-        saveBlob(new Blob([arr], {type: "image/png"}));
-      }
-    };
+    //    saveBlob(new Blob([arr], {type: "image/png"}));
+    //  }
+    //};
 
-    var labels = [];    // list of [label point, text]
-    if (appAIR.labelVisible) {
-      var rootGroup = appAIR.scene.labelConnectorGroup, connGroup, conn, pt;
-      for (var i = 0; i < rootGroup.children.length; i++) {
-        connGroup = rootGroup.children[i];
-        if (!connGroup.visible) continue;
-        for (var k = 0; k < connGroup.children.length; k++) {
-          conn = connGroup.children[k];
-          pt = conn.geometry.vertices[0];
-          labels.push({pt: new THREE.Vector3(pt.x, pt.z, -pt.y),      // in world coordinates
-                       text: conn.userData.elem.textContent});
-        }
-      }
-    }
+    //var labels = [];    // list of [label point, text]
+    //if (appAIR.labelVisible) {
+    //  var rootGroup = appAIR.scene.labelConnectorGroup, connGroup, conn, pt;
+    //  for (var i = 0; i < rootGroup.children.length; i++) {
+    //    connGroup = rootGroup.children[i];
+    //    if (!connGroup.visible) continue;
+    //    for (var k = 0; k < connGroup.children.length; k++) {
+    //      conn = connGroup.children[k];
+    //      pt = conn.geometry.vertices[0];
+    //      labels.push({pt: new THREE.Vector3(pt.x, pt.z, -pt.y),      // in world coordinates
+    //                   text: conn.userData.elem.textContent});
+    //    }
+    //  }
+    //}
 
-    var renderLabels = function (ctx) {
-      // context settings
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
+    //var renderLabels = function (ctx) {
+    //  // context settings
+    //  ctx.textAlign = "center";
+    //  ctx.textBaseline = "middle";
 
-      // get label style from css
-      var elem = document.createElement("div");
-      elem.className = "print-label";
-      document.body.appendChild(elem);
-      var style = document.defaultView.getComputedStyle(elem, ""),
-          color = style.color;
-      ctx.font = style.font;
-      document.body.removeChild(elem);
+    //  // get label style from css
+    //  var elem = document.createElement("div");
+    //  elem.className = "print-label";
+    //  document.body.appendChild(elem);
+    //  var style = document.defaultView.getComputedStyle(elem, ""),
+    //      color = style.color;
+    //  ctx.font = style.font;
+    //  document.body.removeChild(elem);
 
-      var widthHalf = width / 2,
-          heightHalf = height / 2,
-          camera = appAIR.camera,
-          c2t = new THREE.Vector3(),
-          c2l = new THREE.Vector3(),
-          v = new THREE.Vector3();
+    //  var widthHalf = width / 2,
+    //      heightHalf = height / 2,
+    //      camera = appAIR.camera,
+    //      c2t = new THREE.Vector3(),
+    //      c2l = new THREE.Vector3(),
+    //      v = new THREE.Vector3();
 
-      camera.getWorldDirection(c2t);
+    //  camera.getWorldDirection(c2t);
 
-      // make a list of [label index, distance to camera]
-      var idx_dist = [];
-      for (var i = 0, l = labels.length; i < l; i++) {
-        idx_dist.push([i, camera.position.distanceTo(labels[i].pt)]);
-      }
+    //  // make a list of [label index, distance to camera]
+    //  var idx_dist = [];
+    //  for (var i = 0, l = labels.length; i < l; i++) {
+    //    idx_dist.push([i, camera.position.distanceTo(labels[i].pt)]);
+    //  }
 
-      // sort label indexes in descending order of distances
-      idx_dist.sort(function (a, b) {
-        if (a[1] < b[1]) return 1;
-        if (a[1] > b[1]) return -1;
-        return 0;
-      });
+    //  // sort label indexes in descending order of distances
+    //  idx_dist.sort(function (a, b) {
+    //    if (a[1] < b[1]) return 1;
+    //    if (a[1] > b[1]) return -1;
+    //    return 0;
+    //  });
 
-      var label, x, y;
-      for (i = 0, l = idx_dist.length; i < l; i++) {
-        label = labels[idx_dist[i][0]];
-        if (c2l.subVectors(label.pt, camera.position).dot(c2t) > 0) {    // label is in front
-          // calculate label position
-          v.copy(label.pt).project(camera);
-          x = (v.x * widthHalf) + widthHalf;
-          y = -(v.y * heightHalf) + heightHalf;
-          if (x < 0 || width <= x || y < 0 || height <= y) continue;
+    //  var label, x, y;
+    //  for (i = 0, l = idx_dist.length; i < l; i++) {
+    //    label = labels[idx_dist[i][0]];
+    //    if (c2l.subVectors(label.pt, camera.position).dot(c2t) > 0) {    // label is in front
+    //      // calculate label position
+    //      v.copy(label.pt).project(camera);
+    //      x = (v.x * widthHalf) + widthHalf;
+    //      y = -(v.y * heightHalf) + heightHalf;
+    //      if (x < 0 || width <= x || y < 0 || height <= y) continue;
 
-          // outline effect
-          ctx.fillStyle = "#FFF";
-          for (var j = 0; j < 9; j++) {
-            if (j != 4) ctx.fillText(label.text, x + Math.floor(j / 3) - 1, y + j % 3 - 1);
-          }
+    //      // outline effect
+    //      ctx.fillStyle = "#FFF";
+    //      for (var j = 0; j < 9; j++) {
+    //        if (j != 4) ctx.fillText(label.text, x + Math.floor(j / 3) - 1, y + j % 3 - 1);
+    //      }
 
-          ctx.fillStyle = color;
-          ctx.fillText(label.text, x, y);
-        }
-      }
-    };
+    //      ctx.fillStyle = color;
+    //      ctx.fillText(label.text, x, y);
+    //    }
+    //  }
+    //};
 
-    var restoreCanvasSize = function () {
-      // restore canvas size
-      if (old_size) appAIR.setCanvasSize(old_size[0], old_size[1]);
-      appAIR.render();
-    };
+    //var restoreCanvasSize = function () {
+    //  // restore canvas size
+    //  if (old_size) appAIR.setCanvasSize(old_size[0], old_size[1]);
+    //  appAIR.render();
+    //};
 
-    // background option
-    if (!fill_background) appAIR.renderer.setClearColor(0, 0);
+    //// background option
+    //if (!fill_background) appAIR.renderer.setClearColor(0, 0);
 
-    // render
-    appAIR.renderer.preserveDrawingBuffer = true;
-    appAIR.renderer.render(appAIR.scene, appAIR.camera);
+    //// render
+    //appAIR.renderer.preserveDrawingBuffer = true;
+    //appAIR.renderer.render(appAIR.scene, appAIR.camera);
 
-    // restore clear color
-    var bgcolor = Q3D_air.Config.bgColor;
-    appAIR.renderer.setClearColor(bgcolor || 0, (bgcolor === null) ? 0 : 1);
+    //// restore clear color
+    //var bgcolor = Q3D_air.Config.bgColor;
+    //appAIR.renderer.setClearColor(bgcolor || 0, (bgcolor === null) ? 0 : 1);
 
-    if ((fill_background && bgcolor === null) || labels.length > 0) {
-      var canvas = document.createElement("canvas");
-      canvas.width = width;
-      canvas.height = height;
+    //if ((fill_background && bgcolor === null) || labels.length > 0) {
+    //  var canvas = document.createElement("canvas");
+    //  canvas.width = width;
+    //  canvas.height = height;
 
-      var ctx = canvas.getContext("2d");
-      if (fill_background && bgcolor === null) {
-        // render "sky-like" background
-        var grad = ctx.createLinearGradient(0, 0, 0, height);
-        grad.addColorStop(0, "#98c8f6");
-        grad.addColorStop(0.4, "#cbebff");
-        grad.addColorStop(1, "#f0f9ff");
-        ctx.fillStyle = grad;
-        ctx.fillRect(0, 0, width, height);
-      }
+    //  var ctx = canvas.getContext("2d");
+    //  if (fill_background && bgcolor === null) {
+    //    // render "sky-like" background
+    //    var grad = ctx.createLinearGradient(0, 0, 0, height);
+    //    grad.addColorStop(0, "#98c8f6");
+    //    grad.addColorStop(0.4, "#cbebff");
+    //    grad.addColorStop(1, "#f0f9ff");
+    //    ctx.fillStyle = grad;
+    //    ctx.fillRect(0, 0, width, height);
+    //  }
 
-      var image = new Image();
-      image.onload = function () {
-        // draw webgl canvas image
-        ctx.drawImage(image, 0, 0, width, height);
+    //  var image = new Image();
+    //  image.onload = function () {
+    //    // draw webgl canvas image
+    //    ctx.drawImage(image, 0, 0, width, height);
 
-        // render labels
-        if (labels.length > 0) renderLabels(ctx);
+    //    // render labels
+    //    if (labels.length > 0) renderLabels(ctx);
 
-        // save canvas image
-        saveCanvasImage(canvas);
-        restoreCanvasSize();
-      };
-      image.src = appAIR.renderer.domElement.toDataURL("image/png");
-    }
-    else {
-      // save webgl canvas image
-      saveCanvasImage(appAIR.renderer.domElement);
-      restoreCanvasSize();
-    }
+    //    // save canvas image
+    //    saveCanvasImage(canvas);
+    //    restoreCanvasSize();
+    //  };
+    //  image.src = appAIR.renderer.domElement.toDataURL("image/png");
+    //}
+    //else {
+    //  // save webgl canvas image
+    //  saveCanvasImage(appAIR.renderer.domElement);
+    //  restoreCanvasSize();
+    //}
   };
 })();
 

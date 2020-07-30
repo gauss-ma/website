@@ -1289,6 +1289,7 @@ a.github:hover >i{  color:inherit;}
 	justify-content:center;
     width: 50%;
     max-width: 750px;
+	min-height:350px;
 }
 .column-image>canvas,
 .column-image>img{
