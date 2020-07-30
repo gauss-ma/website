@@ -585,7 +585,7 @@ header {
 }
 .TabletMenu_item {
   font-family: 'Montserrat', "DejaVu Sans", Verdana, 'sans‑serif';
-  font-weight: 700;
+  font-weight: 800;
   cursor: pointer;
   	-webkit-animation-name: fade-in-down;
   	animation-name: fade-in-down;

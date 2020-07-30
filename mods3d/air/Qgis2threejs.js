@@ -174,40 +174,35 @@ Q3D_air.Scene.prototype.add = function (object) {
 };
 
 Q3D_air.Scene.prototype.loadJSONObject = function (jsonObject) {
-  if (jsonObject.type == "scene") {
-    // set properties
-    if (jsonObject.properties !== undefined) {
-      this.userData = jsonObject.properties;
+    if (jsonObject.type == "scene") {
+      	// set properties
+      	if (jsonObject.properties !== undefined) {
+      	this.userData = jsonObject.properties;
 
-      var w = (this.userData.baseExtent[2] - this.userData.baseExtent[0]),
-          h = (this.userData.baseExtent[3] - this.userData.baseExtent[1]);
+      	var w = (this.userData.baseExtent[2] - this.userData.baseExtent[0]),
+      	    h = (this.userData.baseExtent[3] - this.userData.baseExtent[1]);
 
-      this.userData.scale = this.userData.width / w;
-      this.userData.zScale = this.userData.scale * this.userData.zExaggeration;
+      	this.userData.scale = this.userData.width / w;
+      	this.userData.zScale = this.userData.scale * this.userData.zExaggeration;
 
-      this.userData.origin = {x: this.userData.baseExtent[0] + w / 2,
-                              y: this.userData.baseExtent[1] + h / 2,
-                              z: -this.userData.zShift};
-    }
+      	this.userData.origin = {x: this.userData.baseExtent[0] + w / 2,
+      	                        y: this.userData.baseExtent[1] + h / 2,
+      	                        z: -this.userData.zShift};
+      	}
+    	// load lights
+    	if (jsonObject.lights !== undefined) {
+    	  // remove all existing lights
+    	  this.lightGroup.clear();
+    	}
+    	// build default lights if this scene has no lights yet
+    	if (this.lightGroup.children.length == 0) this.buildDefaultLights();
 
-    // load lights
-    if (jsonObject.lights !== undefined) {
-      // remove all existing lights
-      this.lightGroup.clear();
-
-      // build lights if scene data has lights settings
-      // [not implemented yet]
-    }
-
-    // build default lights if this scene has no lights yet
-    if (this.lightGroup.children.length == 0) this.buildDefaultLights();
-
-    // load layers
-    if (jsonObject.layers !== undefined) {
-      jsonObject.layers.forEach(function (layer) {
-        this.loadJSONObject(layer);
-      }, this);
-    }
+    	// load layers
+    	if (jsonObject.layers !== undefined) {
+    	  jsonObject.layers.forEach(function (layer) {
+    	    this.loadJSONObject(layer);
+    	  }, this);
+    	}
   }
   else if (jsonObject.type == "layer") {
     var layer = this.mapLayers[jsonObject.id];
@@ -451,9 +446,9 @@ Q3D_air.Scene.prototype.adjustZShift = function () {
 
     // scene
     appAIR.scene = new Q3D_air.Scene();
-    appAIR.scene.addEventListener("renderRequest", function (event) {
-      appAIR.render();
-    });
+    //appAIR.scene.addEventListener("renderRequest", function (event) {
+    //appAIR.render();
+    //});
 
   };
 
@@ -616,37 +611,37 @@ Q3D_air.Scene.prototype.adjustZShift = function () {
 
   // rotation: direction to North (clockwise from up (+y), in degrees)
   appAIR.buildNorthArrow = function (container, rotation) {
-    appAIR.renderer2 = new THREE.WebGLRenderer({alpha: true, antialias: true});
-    appAIR.renderer2.setClearColor(0, 0);
-    appAIR.renderer2.setSize(container.clientWidth, container.clientHeight);
+    //appAIR.renderer2 = new THREE.WebGLRenderer({alpha: true, antialias: true});
+    //appAIR.renderer2.setClearColor(0, 0);
+    //appAIR.renderer2.setSize(container.clientWidth, container.clientHeight);
 
-    appAIR.container2 = container;
-    appAIR.container2.appendChild(appAIR.renderer2.domElement);
+    //appAIR.container2 = container;
+    //appAIR.container2.appendChild(appAIR.renderer2.domElement);
 
-    appAIR.camera2 = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 1, 1000);
-    appAIR.camera2.up = appAIR.camera.up;
+    //appAIR.camera2 = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 1, 1000);
+    //appAIR.camera2.up = appAIR.camera.up;
 
-    appAIR.scene2 = new Q3D_air.Scene();
-    appAIR.scene2.buildDefaultLights();
+    //appAIR.scene2 = new Q3D_air.Scene();
+    //appAIR.scene2.buildDefaultLights();
 
-    // an arrow object
-    var geometry = new THREE.Geometry();
-    geometry.vertices.push(
-      new THREE.Vector3(-5, -10, 0),
-      new THREE.Vector3(0, 10, 0),
-      new THREE.Vector3(0, -7, 3),
-      new THREE.Vector3(5, -10, 0)
-    );
-    geometry.faces.push(
-      new THREE.Face3(0, 1, 2),
-      new THREE.Face3(2, 1, 3)
-    );
-    geometry.computeFaceNormals();
+    //// an arrow object
+    //var geometry = new THREE.Geometry();
+    //geometry.vertices.push(
+    //  new THREE.Vector3(-5, -10, 0),
+    //  new THREE.Vector3(0, 10, 0),
+    //  new THREE.Vector3(0, -7, 3),
+    //  new THREE.Vector3(5, -10, 0)
+    //);
+    //geometry.faces.push(
+    //  new THREE.Face3(0, 1, 2),
+    //  new THREE.Face3(2, 1, 3)
+    //);
+    //geometry.computeFaceNormals();
 
-    var material = new THREE.MeshLambertMaterial({color: Q3D_air.Config.northArrow.color, side: THREE.DoubleSide});
-    var mesh = new THREE.Mesh(geometry, material);
-    if (rotation) mesh.rotation.z = -rotation * Math.PI / 180;
-    appAIR.scene2.add(mesh);
+    //var material = new THREE.MeshLambertMaterial({color: Q3D_air.Config.northArrow.color, side: THREE.DoubleSide});
+    //var mesh = new THREE.Mesh(geometry, material);
+    //if (rotation) mesh.rotation.z = -rotation * Math.PI / 180;
+    //appAIR.scene2.add(mesh);
   };
 
   appAIR.currentViewUrl = function () {
@@ -692,27 +687,27 @@ Q3D_air.Scene.prototype.adjustZShift = function () {
   };
 
   // TODO: remove [obsolete] appAIR.setIntervalRender
-  (function () {
-    var _delay, _repeat, _times, _id = null;
-    var func = function () {
-      appAIR.render();
-      if (_repeat <= ++_times) {
-        clearInterval(_id);
-        _id = null;
-      }
-    };
-    appAIR.setIntervalRender = function (delay, repeat) {
-      if (_id === null || _delay != delay) {
-        if (_id !== null) {
-          clearInterval(_id);
-        }
-        _id = setInterval(func, delay);
-        _delay = delay;
-      }
-      _repeat = repeat;
-      _times = 0;
-    };
-  })();
+  //(function () {
+  //  var _delay, _repeat, _times, _id = null;
+  //  var func = function () {
+  //    appAIR.render();
+  //    if (_repeat <= ++_times) {
+  //      clearInterval(_id);
+  //      _id = null;
+  //    }
+  //  };
+  //  appAIR.setIntervalRender = function (delay, repeat) {
+  //    if (_id === null || _delay != delay) {
+  //      if (_id !== null) {
+  //        clearInterval(_id);
+  //      }
+  //      _id = setInterval(func, delay);
+  //      _delay = delay;
+  //    }
+  //    _repeat = repeat;
+  //    _times = 0;
+  //  };
+  //})();
 
   appAIR.saveCanvasImage = function (width, height, fill_background, saveImageFunc) {
     if (fill_background === undefined) fill_background = true;
@@ -893,6 +888,7 @@ Q3D_air.Scene.prototype.adjustZShift = function () {
     }
   };
 })();
+
 
 
 /*
