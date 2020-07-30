@@ -92,15 +92,15 @@ main{
 	width:100%;
 	/*margin:auto;*/
 }
+
 h1,h2,h3{
   font-family: 'Montserrat', "DejaVu Sans", Verdana, 'sans‑serif';
-  font-weight: 700;
+  font-weight: 800;
   max-width:650px;
 }
 h4,h5,h6 {
   font-family: 'Montserrat', "DejaVu Sans", Verdana, 'sans‑serif';
   font-weight: 400;
-
   max-width:650px;
 }
 
@@ -1310,10 +1310,10 @@ a.github:hover >i{  color:inherit;}
 @media (max-width: 670px) {
 
 	/* GENERAL */
-	h1{font-size:9vh;line-height:9.5vh;  padding-bottom:  3vh;     }
+	h1{font-size:9vh;line-height:9.5vh;    padding-bottom:  3vh;     }
 	h2{font-size:6.8vh;line-height:7.5vh;  padding-bottom:2.5vh;     }
-	h3{font-size:4vh;line-height:4.25vh; padding-bottom:  4vh;     }
-	h4{font-size:3vh;line-height:3.25vh; padding-bottom:  3vh;     }
+	h3{font-size:4vh;line-height:4.25vh;   padding-bottom:  4vh;     }
+	h4{font-size:3vh;line-height:3.25vh;   padding-bottom:  3vh;     }
 	a,p {font-size:3vh;line-height:3.25vh;    }
 
 	.slide {
