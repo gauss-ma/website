@@ -2,6 +2,48 @@
 
 
 <head>
+	
+
+	<!-- GOOGLEFONTS -->
+	
+	<!-- <link 
+	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Roboto:wght@400&display=swap" 
+	rel="stylesheet">
+	 -->
+
+
+<!--
+Cascada de intentos para GOOGLE FONTS
+  -->
+
+<!-- [1] -->
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin />
+
+<!-- [2] -->
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Roboto:wght@400&display=swap" />
+
+<!-- [3] -->
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Roboto:wght@400&display=swap"
+      media="print" onload="this.media='all'" />
+
+<!-- [4] -->
+<noscript>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Roboto:wght@400&display=swap" />
+</noscript>
+
+
+
+
+
+
+
+
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152051002-1"></script>
 	<script>
@@ -25,6 +67,9 @@
 	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta name="msapplication-config" content="/static/faviconFiles/browserconfig.xml">
 	<meta name="theme-color" content="#ffffff">
+
+
+
 	<title>Gauss - modelado ambiental</title>
 	<link rel="icon" type="image/png" href="img/icon-gauss.png" sizes="512x512">
 
@@ -46,13 +91,8 @@
 	<script src="https://kit.fontawesome.com/32f3fc8ac1.js" crossorigin="anonymous"></script>
 	<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
 
-	<!-- <script>
-		document.documentElement.style.fontFamily = 'AvenirNextBold';
-		window.__REACT_DEVTOOLS_GLOBAL_HOOK__ = {}
-	</script> -->
-
 	<!-- CSS  -->
-	<link href="css/font-style.css" rel="stylesheet">
+	<!-- <link href="css/font-style.css" rel="stylesheet"> -->
 	<link href="css/transiciones.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 
@@ -60,6 +100,7 @@
 	<script type='text/javascript' src='js/jquery-3.3.1.min.js'></script>
 	<script type='text/javascript' src='js/jquery-migrate.min.js'></script>
 	<script type='text/javascript' src='js/jquery.touchswipe.min.js'></script>
+
 	<!-- threejs -->
  	<script src="js/threejs/gl-matrix-min.js"></script> 
  	<script src="js/threejs/three.min.js"></script>
@@ -127,8 +168,8 @@
 			<!--h1> Gauss </h1-->
 			<img src="img/gauss-logo-font-mont-modif.svg"></img>
 			<h2>modelado ambiental</h2>
-			<h4>Modelos de simulación con fines regulatorios.</h4>
-			<h4>Consultoria, desarrollo y soporte técnico.   </h4>
+			<h4>Modelos de simulación con fines regulatorios<br>
+			Consultoria, desarrollo y soporte técnico</h4>
 		</div>		
 </section>
 
@@ -260,21 +301,23 @@
 <!-- GEO-SP   -->
 
 <section class="slide center bg-oscuro">
-	       <div class="mapas">
+	<div  class="column-image">	  
+	<div class="mapas">
                  <span class="shadow"></span>
                  <div class="layer"> <img src="img/mapa.png"></img></div>
                  <div class="layer"> <img src="img/mapa.png"></img></div>
                  <div class="layer"> <img src="img/mapa.png"></img></div>
-               </div>
-	      
-	<div class="column-text animar_fade-in-up">
+            </div>
+	</div>      
+	
+			<div class="column-text animar_fade-in-up">
   	       <h2 class="white"> Soluciones GIS</h2>
                <p class="white"> Explotamos la dimensión espacial de tu proyecto para darte nuevas
                        perspectivas. Generamos cartografía digital en ambientes web.
                        Realizamos estudios ambientales mediante el uso de herramientas de análisis
                        espacial. </p>
 		<!-- <a class="btn material-design-dark" href="">Ver más</a> -->
-	</div>
+		</div>
 </section>
 <!-- END GEOSP -->
 

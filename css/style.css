@@ -30,12 +30,11 @@
   --celeste-saturado:#37D6FF;
   
   /* Familia inicial de tipografías */
-  /* 
-  font-family: 'Montserrat', sans-serif;
-  font-family: 'Nunito Sans', sans-serif;
-  font-family: 'Roboto', sans-serif; 
-  */
-  
+
+/* Monsterrat&Roboto */
+/* font-family:'Montserrat', "DejaVu Sans", Verdana, sans‑serif;
+font-family:'Roboto',"-apple-system", BlinkMacSystemFont, Tahoma, sans‑serif; */
+
 }
 
 
@@ -86,16 +85,26 @@ html {
 body {
   position: relative;
   overflow-y: auto;
-  font-family: RobotoRegular, Oxygen, Ubuntu;
+  font-family:'Roboto',"-apple-system", BlinkMacSystemFont, Tahoma, sans‑serif;
+  font-weight: 400;
 }
 main{
 	width:100%;
 	/*margin:auto;*/
 }
-h1,h2,h3,h4,h5,h6 {
-  font-family: MontserratExtraBold, Roboto, Ubuntu;
+h1,h2,h3{
+  font-family: 'Montserrat', "DejaVu Sans", Verdana, 'sans‑serif';
+  font-weight: 700;
   max-width:650px;
 }
+h4,h5,h6 {
+  font-family: 'Montserrat', "DejaVu Sans", Verdana, 'sans‑serif';
+  font-weight: 400;
+
+  max-width:650px;
+}
+
+
 
 p {
   font-size: 1.125em;
@@ -389,9 +398,11 @@ header {
   height: 30px;
   float: left;
   font-size: 25px;
-  /*line-height:1.5em;*/margin:0;
+  /*line-height:1.5em;*/
+  margin:0;
   cursor: pointer;
-  font-family: MontserratExtraBold,MontserratBold,AvenirNextBold;
+  font-family: 'Montserrat', "DejaVu Sans", Verdana, 'sans‑serif';
+  font-weight: 800;
 	pointer-events:auto;
 }
 .Logo_gauss img{
@@ -575,7 +586,8 @@ header {
   text-align: right;
 }
 .TabletMenu_item {
-  font-family: MontserratExtraBold,MontserratBold;
+  font-family: 'Montserrat', "DejaVu Sans", Verdana, 'sans‑serif';
+  font-weight: 700;
   cursor: pointer;
   	-webkit-animation-name: fade-in-down;
   	animation-name: fade-in-down;
@@ -649,14 +661,12 @@ header {
 }
 .texto-home>h2{
 	padding-bottom: 20px;
-	/* font-family: 'RobotoRegular'; */
-  		font-family: MontserratRegular;
-		font-size:2.25em;
+	font-size:2.25em;
 }
 .texto-home>h4{
   	color: var(--gris-oscuro);
-  	font-family: 'RobotoRegular';
-  	font-weight: 100;
+  	font-family:'Roboto',"-apple-system", BlinkMacSystemFont, Tahoma, sans‑serif;
+  	font-weight: 400;
 }
 
 .img-abstracta{
@@ -692,9 +702,9 @@ object:hover {
 	width:100%;
 	max-width:720px;
 	font-size:9vh;
-	font-family:MontserratExtraBold;
-    font-weight:800;
-	overflow:hidden;
+	font-family: 'Montserrat', "DejaVu Sans", Verdana, 'sans‑serif';
+  font-weight: 800;
+  overflow:hidden;
 	/*text-align:center;*/
 }
 
@@ -797,7 +807,7 @@ object:hover {
 	}
 .StatsContainer > .stats{
 	width: calc(33.3%);
-  font-family: 'MontserratRegular';
+
 }
 .stats .counting {
   text-align: center;
@@ -877,7 +887,6 @@ end count stats*/
 }
 .step.minimized:hover {
   background-color: var(--blanco-0);
-
 }
 .step.minimized:hover .header { color:var(--celeste-oscuro);}
 
@@ -898,7 +907,7 @@ end count stats*/
  	margin:10px;
 	width: 90%;
   height:350px;
-  line-height: 25px;
+  /* line-height: 150%; */
   display: -webkit-box;
   display: -moz-box;
   display: -webkit-flex;
@@ -944,15 +953,6 @@ end count stats*/
 .grid-elem i{
 	fill: var(--celeste-oscuro);
 	color: var(--celeste-oscuro);
-}
-.grid-elem h5{
-	font-family:MontserratBold;
-}
-
-.grid-elem p{
-	color:var(--gris-medio);
-	font-family:RobotoRegular;
-
 }
 
 @media (max-width: 670px) {
@@ -1133,7 +1133,7 @@ margin-top: 14px*/
   background-color:var(--negro);
   padding:45px 0 20px;
   font-size:15px;
-  line-height:24px;
+  /* line-height:24px; */
   color:var(--gris-claro);
   justify-content: center;
   display:flex-inline; 
@@ -1258,8 +1258,7 @@ a.github:hover >i{  color:inherit;}
 .slide > h4{
 	margin-bottom:50px;
 	text-align:center;
-	color:var(--gris-medio);	
-	font-family:MontserratRegular;
+	color:var(--gris-medio);
 }
 
 
@@ -1329,8 +1328,8 @@ a.github:hover >i{  color:inherit;}
 		width:100%;
 		max-width:700px;
 		margin:0!important;
-		padding:0px;
-	}
+    padding:0px;
+ 	}
 	.column-text{
 		max-width:700px;
 		padding:0px;
@@ -1339,7 +1338,9 @@ a.github:hover >i{  color:inherit;}
 		width:100%;
 	}
 
-
+.btn{
+  align-self: center;
+}
 	/* HEADER */
   	.burguer_root {
     		margin-right: 5vw;
@@ -1358,18 +1359,18 @@ a.github:hover >i{  color:inherit;}
 	.texto-home>h2{
 	        padding-bottom: 5px;
 		font-size:4vh;
-		line-height:5vh;
+		/* line-height:5vh; */
 	}
 	.texto-home>h4{
 		font-size:2.25vh;
-		line-height:2.5vh;
+		/* line-height:2.5vh; */
 	        padding-bottom: 5px;
 	}
 
 
 	/*OBJETIVO*/
 	.objetivo-words{
-		font-size:6vh;
+		font-size:7vh;
 		padding:0;
 	}
 
@@ -1385,13 +1386,17 @@ a.github:hover >i{  color:inherit;}
 		margin:0px;
 		padding:0px;
 		width:90%;
-		max-width:600px;
+    max-width:600px;
+    
 	}
-	.step{border-bottom:1px solid var(--gris-claro);}
-	.step:before{display:none;}
+  .step{border-bottom:1px solid var(--gris-claro);
+   }
 
-	.step-content{display:none!important;}
-	.step-content p{padding:10px;padding-top:20px;font-size:2.5vh;line-height:2.5vh;}
+	.step:before{display:none;}
+ 	.step-content{display:none!important;}
+  .step-content p{padding:10px;padding-top:20px;font-size:2.5vh;line-height:2.5vh;}
+  .step-header{cursor: default;
+  }
 
 
 	/*CONTACTOS*/
