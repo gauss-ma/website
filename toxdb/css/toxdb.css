@@ -253,12 +253,19 @@ header{
   cursor: pointer;
   font-family: "Montserrat","MontserratBold";
 	font-weight:700;
-        pointer-events:auto;
+		pointer-events:auto;
+		
 }
+
+
 .Logo_gauss img{
         height:30px;
 }
 
+.Logo_gauss a{
+	/* height:30px; */
+	color: var(--negro0);
+}
 
 
 .LogoToxDB{
