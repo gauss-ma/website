@@ -393,7 +393,7 @@ header {
   display: -ms-flexbox;
   display: flex;
   position: fixed;
-  left: 5vw;
+  left: 50px;
   top: 25px;
   height: 30px;
   float: left;
@@ -416,13 +416,11 @@ header {
 .burguer_root {
 	position:fixed;
   top: 30px;
-  right:5vw;
+  right:50px;
   cursor: pointer;
 	pointer-events:auto;
   float: right;
 	height:30px;
-  /* display:inline-block; 
-  margin-right: 5vw;*/
   z-index: 10;
 }
 .burguer_root:hover .burger_inactivo > .burguer_top {
@@ -1189,8 +1187,8 @@ a.github:hover >i{  color:inherit;}
 
 /*GENERAL  LAYOUT*/
 .slide {
-	min-height:80vh;
     	padding: 50px;
+	min-height:80vh;
 	max-width:100vw;
   display: -webkit-box;
   display: -moz-box;
@@ -1282,31 +1280,31 @@ a.github:hover >i{  color:inherit;}
 .column-text.start {justify-content:start; }
 .column-text.vcenter{justify-content:center;}
 
+
+
 /* COLUMNA CON IMAGEN */
 .column-image{
-	display:flex;flex-direction:column;justify-content:center;
-    /*width: 50%;*/
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+    width: 50%;
     max-width: 750px;
-	/*background-color:var(--celeste-oscuro);*/
 }
-
 .column-image>canvas,
 .column-image>img{
 	width:100%;
 	pointer-events:none;
 }
 
-
-
-
-
 /* END GENERAL LAYOUT */
 
 
+
+
+
+
+
 /*   RESPONSIVE    */
-
-
-
 
 /*@media screen and (max-width: 600px) {*/
 @media (max-width: 670px) {
@@ -1343,9 +1341,11 @@ a.github:hover >i{  color:inherit;}
 }
 	/* HEADER */
   	.burguer_root {
-    		margin-right: 5vw;
+    		right: 20px;
   	}
-
+	.Logo_gauss{
+		left:20px
+	}
 
 
 	/* HOME		*/
