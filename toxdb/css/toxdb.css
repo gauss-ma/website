@@ -1357,7 +1357,8 @@ visibility:hidden;
 	font-family:'Montserrat';
 	border:2px solid var(--gris-claro);
 	color:var(--gris-medio);background:#fff;cursor:pointer;
-	transition:all .3s transition-property: background-color,box-shadow,transform;
+	transition:all .3s; 
+	transition-property: background-color,box-shadow,transform;
 }
 .form button:hover{color:var(--celeste-oscuro); }
 .form div{content:'Hi';position:absolute;bottom:-15px;right:-20px;width:320px;padding:16px 4px 16px 0;border-radius:6px;font-size:13px;
