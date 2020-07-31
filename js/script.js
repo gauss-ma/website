@@ -211,30 +211,39 @@ $(window).scroll(function(event) {
 	});
 	(is_bgoscuro)? (setWhite()):(setBlack());
   
-
-
-	//camara girando alrededor de la escena (todavia no está bien):
-	R1=120;
-	R2=80;
-	lambda=pos*0.0003;
-	phi=2*Math.PI;
-        x = R1*Math.cos(lambda)*Math.cos(phi);
-        y = R1*Math.sin(lambda)*Math.cos(phi);
-        z = R2*Math.cos(phi)*Math.sin(pos*0.0005);
 	
+	//RENDER MODELOS SOLO CUANDO ESTAN EN EL VIEWPORT:
+  if ($("#viewAIR").visible(true)) {
+		//camara girando alrededor de la escena (todavia no está bien):
+		R1=120;
+		R2=80;
+		lambda=pos*0.0003;
+		phi=2*Math.PI;
+		x = R1*Math.cos(lambda)*Math.cos(phi);
+		y = R1*Math.sin(lambda)*Math.cos(phi);
+		z = R2*Math.cos(phi)*Math.sin(pos*0.0005);
 	appAIR.camera.position.x=x;
 	appAIR.camera.position.y=z;
 	appAIR.camera.position.z=y;
 	appAIR.camera.lookAt(appAIR.scene.position);
 	appAIR.renderer.render(appAIR.scene,appAIR.camera)
-	
-	
+  }	
+
+  if ($("#viewSW").visible(true)) {
+		//camara girando alrededor de la escena (todavia no está bien):
+		R1=120;
+		R2=80;
+		lambda=pos*0.0003;
+		phi=2*Math.PI;
+		x = R1*Math.cos(lambda)*Math.cos(phi);
+		y = R1*Math.sin(lambda)*Math.cos(phi);
+		z = R2*Math.cos(phi)*Math.sin(pos*0.0005);
 	appSW.camera.position.x=x;
 	appSW.camera.position.y=z;
 	appSW.camera.position.z=y;
 	appSW.camera.lookAt(appSW.scene.position);
 	appSW.renderer.render(appSW.scene,appSW.camera)
-
+  }
 
 
 
