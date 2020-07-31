@@ -1409,7 +1409,6 @@ a.github:hover >i{  color:inherit;}
     		-ms-flex-direction: column;
     		 flex-direction: column;
  	   justify-content:space-between;
-		
  	}
 	.Form-2-col,
  	.Contactos-form-wrapper,
@@ -1425,6 +1424,7 @@ a.github:hover >i{  color:inherit;}
 	     		align-items:center;
 			width:100%;
 			padding:0px!important;
+		margin-bottom:20px;
  	}
  	.Form_campo,
  	.Form-mitad {
