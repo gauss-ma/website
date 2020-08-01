@@ -1399,8 +1399,13 @@ a.github:hover >i{  color:inherit;}
 	.step:before{display:none;}
  	.step-content{display:none!important;}
   .step-content p{padding:10px;padding-top:20px;font-size:2.5vh;line-height:2.5vh;}
-  .step-header{cursor: default;
-  }
+  .step-header{cursor: default;}
+  .step-header:hover{color:var(--negro0);}
+  .step.minimized:hover .header{color:var(--negro0);}
+  
+  
+
+
 
 
 	/*CONTACTOS*/
