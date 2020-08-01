@@ -303,23 +303,13 @@ display:flex;
 
 
 /*      TARJETAS         */
-.grid-container{
+.cards{
 	padding-top:10px;
    width:100%;
    max-width:1300px;
 }
 
-.grid-cards{
-        /*
-	display: -webkit-box;
-        display: -moz-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-	*/
-	
-}
-
-.grid-card{
+.card{
 	display: flex;
 	flex-direction:column;
         border-radius: 5px;
@@ -327,7 +317,7 @@ display:flex;
     	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .22);
 	height:100%;
 }
-.grid-card:hover{
+.card:hover{
 	background-color:var(--blanco);
 	background-color:var(--blanco-0);
         box-shadow: 0px 1px 4px rgba(0,0,0,.1),0px 2px 3px rgba(0,0,0,.12),0px 1px 3px rgba(0,0,0,.14);
@@ -340,11 +330,14 @@ display:flex;
 .grid_view {
 	display:grid;
 	grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
-	grid-gap: minmax(5px,auto);/*5px;*/
+	/*grid-gap: minmax(5px,auto);5px;*/
+	grid-gap:1rem;
+	margin: 0 auto;
 }
 .grid_view > li{
 	min-height:100%;
 	padding:5px;
+	max-width:400px;
 }
 /* LIST VIEW */
 .list_view {
@@ -359,14 +352,16 @@ display:flex;
 	margin-bottom:1px;
 	border: 1px solid var(--gris-claro);
 	width:100%;
+	max-width:700px;
 }
-.list_view>li .card-header *{
+.list_view>li> .card-header *{
 	line-height:28px;
 	padding:2px;
 	margin:2px;
 }
-.list_view>li.card-header{
+.list_view>li>.card-header{
      	display:flex;
+	flex-direction:row;
 	justify-content:space-between;
 }
 
@@ -1125,20 +1120,7 @@ cursor: pointer;
 	.specimen_page_nav{
    		padding-left: calc(60px + 0px);
 	}
-	.grid-cards{
-		grid-template-columns: repeat(3, 1fr);
-	}
 }
-
-@media screen and (max-width: 900px) {
-	.grid-cards{
-		grid-template-columns: repeat(2, 1fr);
-	}
-
-}
-
-
-
 
 @media screen and (max-width:700px){
 
@@ -1160,14 +1142,11 @@ cursor: pointer;
 		padding-left:10px;
 		padding-right:10px;
 	}
-	#Logo{right:25px;}
+	.Logo_gauss{right:25px;}
 	.logoToxDB{
 		left:20px;
 			}
 
-	.grid-cards{
-		grid-template-columns: repeat(1, 1fr);
-	}
 }
 
 

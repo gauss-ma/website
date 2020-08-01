@@ -18,12 +18,12 @@ $(document).ready(function () {
 
 		//filtrar:
 		var value = $(this).val().toLowerCase();
-		$(".grid-cards li").filter(function () {
+		$(".cards li").filter(function () {
 			$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
 		});
 
 		//mostrar numero de compuestos
-		n = $("li.grid-card").length - $("li.grid-card").filter(":hidden").length;
+		n = $("li.card").length - $("li.card").filter(":hidden").length;
 		$(".counter-show").empty(); $(".counter-show").append(n)
 		$(".counter-total").empty(); $(".counter-total").append(linker.length)
 	});
@@ -60,7 +60,7 @@ $(document).ready(function () {
 		try {
 			j = SUMMARY_DB.findIndex(x => x.CID === linker[i].CID);
 			item_content += `
-	        <li class='grid-card' onclick="verCompuesto('`+ i + `')">
+	        <li class='card' onclick="verCompuesto('`+ i + `')">
 	                	<div class='card-header'>
 	                	        <h2 class='card-subtitulo'> CAS:`+ linker[i].CAS + `</h2>
 	                	        <h1 class='card-titulo'>`+ linker[i].nombre + `</h1>
@@ -75,11 +75,11 @@ $(document).ready(function () {
 	         </li>`;
 		} catch (error) { console.error(error); continue; }
 	};
-	$(".grid-cards").append(item_content);
+	$(".cards").append(item_content);
 
 	//Contador de tarjetitas en grilla
-	$(".counter-total").append($(".grid-card").length)
-	$(".counter-show").append($(".grid-card").length)
+	$(".counter-total").append($(".card").length)
+	$(".counter-show").append($(".card").length)
 
 
 
@@ -106,14 +106,14 @@ function scrollUp(position) { $('body').animate({ scrollTop: position + 1 }, 500
 //Vista de tarjetitas en grilla o lista:
 function vista(view) {
 	if (view == 'lista') {
-		$(".grid-cards").removeClass("grid_view");
-		$(".grid-cards").addClass("list_view");
+		$(".cards").removeClass("grid_view");
+		$(".cards").addClass("list_view");
 		$(".card-content").slideUp();
 		$(".card-footer").slideUp();
 	}
 	else {
-		$(".grid-cards").removeClass("list_view");
-		$(".grid-cards").addClass("grid_view");
+		$(".cards").removeClass("list_view");
+		$(".cards").addClass("grid_view");
 		$(".card-content").slideDown(300);
 		$(".card-footer").slideDown(500);
 
