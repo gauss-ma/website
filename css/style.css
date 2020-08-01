@@ -258,7 +258,6 @@ b {
 }
 /*BOTONES */
 .btn {
-	margin-top:20px;	
 	padding:10px;
 	width:100px;
     color: var(--negro);
@@ -1157,8 +1156,9 @@ margin-top: 14px*/
 }
 .site-footer h6
 {
-  color:var(var(--blanco));
-  font-size:16px;
+  color:var(--blanco);
+   font-size:16px;
+   font-weight:600;
   text-transform:uppercase;
   margin-top:5px;
   letter-spacing:2px
@@ -1315,7 +1315,7 @@ a.github:hover >i{  color:inherit;}
 	h2{font-size:6.8vh;line-height:7.5vh;  padding-bottom:2.5vh;     }
 	h3{font-size:4vh;line-height:4.25vh;   padding-bottom:  4vh;     }
 	h4{font-size:3vh;line-height:3.25vh;   padding-bottom:  3vh;     }
-	a,p {font-size:3vh;line-height:3.25vh;    }
+	a,p {font-size:2.5vh;line-height:3.0vh;    }
 
 	.slide {
 		flex-direction:column;

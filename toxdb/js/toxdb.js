@@ -60,8 +60,7 @@ $(document).ready(function () {
 		try {
 			j = SUMMARY_DB.findIndex(x => x.CID === linker[i].CID);
 			item_content += `
-	        <li class='grid-card'><a onclick="verCompuesto('`+ i + `')">
-	                <section>
+	        <li class='grid-card' onclick="verCompuesto('`+ i + `')">
 	                	<div class='card-header'>
 	                	        <h2 class='card-subtitulo'> CAS:`+ linker[i].CAS + `</h2>
 	                	        <h1 class='card-titulo'>`+ linker[i].nombre + `</h1>
@@ -73,8 +72,7 @@ $(document).ready(function () {
 					`+ SUMMARY_DB[j].MolecularFormula + `
 	                        	<!--span> `+ SUMMARY_DB[j].CanonicalSMILES + `</span -->
 				</div>
-	                </section>
-	         </a></li>`;
+	         </li>`;
 		} catch (error) { console.error(error); continue; }
 	};
 	$(".grid-cards").append(item_content);
