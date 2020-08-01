@@ -1239,43 +1239,77 @@ a.github:hover >i{  color:inherit;}
 
 
 #ToxicList tr{display:none;}
+
 #showLess,
 #loadMore,.loadmore{
-          	background:#fff;
-        	color:var(--gris-medio);
-            		opacity:0.8;
-border-radius: 20px;
-border: 1px solid#dadce0;
-color:rgba(0,0,0,.87);
-display: inline-flex;
-font-family: "Roboto,Helvetica Neue",sans-serif;
-font-weight: 500;
-line-height: 32px;
-min-height: 32px;
-padding-left: 16px;
-padding-right: 21px;
-text-transform: none;
-margin: 0 10px 0 0;
-margin-top:10px;
-overflow: hidden;
-transition: all 0.2s;
-box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+          	/* background:#fff; */
+        	/* color:var(--gris-medio); */
+            		/* opacity:0.8; */
+/* border-radius: 20px; */
+/* border: 1px solid#dadce0; */
+/* color:rgba(0,0,0,.87); */
+
+/* font-family: "Roboto,Helvetica Neue",sans-serif; */
+/* font-weight: 500; */
+/* text-transform: none; */
+/* margin-top:10px; */
+/* overflow: hidden; */
+/* transition: all 0.2s; */
+/* box-shadow: 0 2px 5px 0 rgba(0,0,0,.26); */
 /* opacity: 0.5; */
 /* background: none !important; */
 /* color: #202020 !important; */
-cursor: pointer;
+/* cursor: pointer; */
 }
-
 
 #showLess:hover,
 #loadMore:hover,
 .loadmore:hover{
-        	opacity:1;
-		color:var(--celeste-oscuro);
+        
+		/* color:var(--celeste-oscuro); */
 		  /* border: 2px solid var(--); */
-		  transform: translateY(-2px);
-		  box-shadow: 0 3px 6px 0 rgba(0,0,0,.26);
-} 
+		  /* transform: translateY(-2px); */
+		  /* box-shadow: 0 3px 6px 0 rgba(0,0,0,.26); */} 
+
+
+#showLess,
+#loadMore,.loadmore{
+	border:none;
+/* el border generaba un efecto choto cuando había hover, se veía una linea celeste en un frame de la transición */
+	border-radius:4px;
+	display: inline-flex;
+	line-height: 32px;
+min-height: 32px;
+padding-left: 16px;
+padding-right: 21px;
+margin: 0 10px 0 0;
+
+	color:var(--gris-medio);
+		-webkit-transition: all 0.5s cubic-bezier(.19,1,.22,1);
+			transition: all 0.5s cubic-bezier(.19,1,.22,1);
+		-webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+		   -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+		        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+}
+#showLess:hover,
+#loadMore:hover,
+.loadmore:hover{
+	cursor:pointer;
+	border:none;
+	opacity:1;
+	color:var(--celeste-oscuro);
+	background-color:var(--blanco-0);
+	-webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .3);
+	   -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .3);
+	        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .3);
+}
+
+
+
+
+
+
+
 
 /*#showLess::before,
 #loadMore::after{
