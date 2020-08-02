@@ -197,24 +197,22 @@ function verCompuesto(index) {
                        <div class='resumen'>
 			<table>
                         <tbody>
-                        <tr><td> <h3>Nombre IUPAC:         </h3> </td><td><i>`+ summary.IUPACName + `</i></td></tr>
-                        <tr><td> <h3>Fórmula Molecular:    </h3> </td><td>`+ summary.MolecularFormula + `</td></tr>
-                        <tr><td> <h3>SMILE canónico:       </h3> </td><td>`+ summary.CanonicalSMILES + `</td></tr> 
-                        <tr><td> <h3>InChI:                </h3> </td><td>`+ summary.InChI + `</td></tr> 
-                        
-                        
-			 <tr><td> <h3>Estructura:           </h3> </td>
+                        <tr><td> <h4>Nombre IUPAC:         </h4> </td><td><i>`+ summary.IUPACName + `</i></td></tr>
+                        <tr><td> <h4>Fórmula Molecular:    </h4> </td><td>`+ summary.MolecularFormula + `</td></tr>
+                        <tr><td> <h4>SMILE canónico:       </h4> </td><td>`+ summary.CanonicalSMILES + `</td></tr> 
+                        <tr><td> <h4>InChI:                </h4> </td><td>`+ summary.InChI + `</td></tr> 
+			<tr><td> <h4>Estructura:           </h4> </td>
 				<td class="imagen">
 				<figure><img src='img/img2D/`+ tox.CID + `.png'></img><figcaption>2D<figcaption></figure>
                                 <figure><img src='img/img3D/`+ tox.CID + `.png'></img><figcaption>3D</figcaption></figure>
 			</td></tr>
-			<tr><td> <h3>CID:                  </h3> </td><td>`+ tox.CID + `</td></tr>
-			<tr><td> <h3>CAS:                  </h3> </td><td>`+ tox.CAS + `</td></tr>
-			<tr><td> <h3>Sinónimos:		   </h3> </td><td>  <div id="sinonimos"><ol></ol></div>   </td></tr>
+			<tr><td> <h4>CID:                  </h4> </td><td>`+ tox.CID + `</td></tr>
+			<tr><td> <h4>CAS:                  </h4> </td><td>`+ tox.CAS + `</td></tr>
+			<tr><td> <h4>Sinónimos:		   </h4> </td><td>  <div id="sinonimos"><ol></ol></div>   </td></tr>
 
-                        <!--tr><td> <h3>Peso Molecular:       </h3> </td><td>`+ summary.MolecularWeight + `</td></tr>
-                        <tr><td> <h3>XLogP:                </h3> </td><td>`+ summary.XLogP + `</td></tr>
-                        <tr><td> <h3>Carga Neta            </h3> </td><td>`+ summary.Charge + `</td></tr -->
+                        <!--tr><td> <h4>Peso Molecular:    </h4> </td><td>`+ summary.MolecularWeight + `</td></tr>
+                        <tr><td> <h4>XLogP:                </h4> </td><td>`+ summary.XLogP + `</td></tr>
+                        <tr><td> <h4>Carga Neta            </h4> </td><td>`+ summary.Charge + `</td></tr -->
                         
                         
                         </tbody>

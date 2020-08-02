@@ -1,13 +1,14 @@
 main,header{
-	width:auto!important;
-	/*width:100%;
+	/*width:auto!important;
+	width:100%;
 	max-width:1300px;
 	*/
-overflow-x:visible;
+overflow-x:hidden;
 }
 
 /* HEADER */
 header{
+	width:100%;
 	position: absolute;
 	height: 64px;
 	border-bottom: 1px solid var(--gris-medio);
@@ -18,6 +19,7 @@ header{
 }
 
 main{
+	width:auto!important;
     padding:64px 50px 48px;
     padding-top:50px;
 }
@@ -59,10 +61,10 @@ main{
 
 
 .Logo_gauss {
-  	position: absolute!important;
+  	position: absolute;
 	top: 25px;
   	left:auto;
-  	right: 60px!important;
+  	right: 60px;
 	pointer-events:auto;
 }
 
@@ -477,12 +479,26 @@ display:flex;
 	margin-top:1px;
 }	
 
+
+
+
+
+
 .specimen_page_nav_header{
 width:100%;
 background-color:var(--blanco);
 height:64px;
 position: relative;
 }
+
+
+.specimen_page_nav_header h1{
+	outline: none;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 .specimen_page_nav >ul>li>button{
 display: inline-block;
 position: relative;
@@ -944,8 +960,8 @@ right: -7px;
 
 .form{
 	width:340px;
-height:440px;
-background:#fff;
+	/*height:440px;*/
+background:var(--blanco-0);
 border-radius:8px;
 box-shadow:0 0 40px -10px #000;
 margin:calc(50vh - 220px) auto;
@@ -956,10 +972,12 @@ box-sizing:border-box;
 	left:calc(50% - 170px);
 	z-index:200;
 visibility:hidden;
+	display:flex;
+		flex-direction:column;
 }
 .form .close {
   position: absolute;
-  top: 20px;
+  top: 10px;
   right: 30px;
   transition: all 200ms;
   font-size: 30px;
@@ -971,28 +989,20 @@ visibility:hidden;
   color: var(--celeste-oscuro);
 }
 
-.form h2{
+.form h3{
 	padding-bottom:5px;
-	font-weight: 800;
-	font-family:'Montserrat';
 	margin:10px 0;
 	border-bottom:2px solid var(--gris-oscuro);
 }
-
 .form input{width:100%;padding:10px;box-sizing:border-box;background:none;outline:none;resize:none;border:0;font-family:'Montserrat',sans-serif;transition:all .3s;border-bottom:2px solid var(--gris-claro);}
 .form input:focus{border-bottom:2px solid var(--celeste-oscuro);}
-.form p:before{content:attr(type);display:block;margin:28px 0 0;font-size:14px;color:#5a5a5a}
-.form button{float:right; padding:8px 12px; margin:8px 0 0; 
-	font-family:'Montserrat';
-	border:2px solid var(--gris-claro);
-	color:var(--gris-medio);background:#fff;cursor:pointer;
-	transition:all .3s; 
-	transition-property: background-color,box-shadow,transform;
+.form p:before{content:attr(type);display:block;margin:24px 0 0;font-size:14px;color:var(--gris-medio);}
+.form button{
+	float:right; 
+	padding:8px 12px;
+	margin:8px 0 0; 
 }
-.form button:hover{color:var(--celeste-oscuro); }
-.form div{content:'Hi';position:absolute;bottom:-15px;right:-20px;width:320px;padding:16px 4px 16px 0;border-radius:6px;font-size:13px;
-}
-span{margin:0 5px 0 15px}
+.form span{margin:0 5px 0 15px}
 
 .form:target {
   visibility: visible;
@@ -1156,25 +1166,27 @@ cursor: pointer;
 
 	main{
 		padding:10px;
-		padding-top:30px;
+		padding-top:60px;
 	}
 	.card{
 		width:90%;
 		margin:auto;
 	}
 	.specimen_page,
-	.specimen_page>section,
-	.specimen_page_nav,
-	.search_toolbar,
-	.top_fixed-search_toolbar{
-		margin-right:0px;
-		margin-left:0px;
-		padding-left:10px;
-		padding-right:10px;
+	.specimen_page>section{
+		padding:0;
+		margin:0;
 	}
-	.Logo_gauss{right:25px;}
-	.logoToxDB{
-		left:20px;
+	.search_toolbar,
+	.specimen_page_nav,
+	.top_fixed-search_toolbar{
+		padding:10px;
+	}
+	.Logo_gauss{
+		right:10px;
+	}
+	.Logo_ToxDB{
+		left:10px;
 			}
 
 	.vista_toolbar{
