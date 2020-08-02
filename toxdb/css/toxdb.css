@@ -26,22 +26,21 @@ main{
 
 /*botones fijos:*/
 .fixed-button {
-  right: 0px;
-  align-items: center;
+	position:fixed; 
+ 	right: 30px;
+  	bottom: 30px;
+  	align-items: center;
+  	justify-content: center;
   background-clip: padding-box;
   background:var(--blanco);
   border-radius: 50%;
-  bottom: 40px;
   border-style: hidden;
   display: flex;
   height: 56px;
-  justify-content: center;
   line-height: 56px;
   margin-right: 10px;
   min-width: 0;
   /* overflow: visible; */
-  position: fixed;
-  transform: translateX(-100%);
   vertical-align: middle;
   width: 56px;
   z-index: 80;
@@ -73,9 +72,10 @@ main{
 	top:10px;      
 	left:60px;        
 	display:flex;
+	flex-direction:row;
 	padding:5px;
-	height:40px;
 	font-size:24px;
+	height:50px;
 	line-height:40px;
 	font-family:'Montserrat', sans-serif;
 	font-weight:bold ;
@@ -83,7 +83,7 @@ main{
 	cursor: pointer;
 	pointer-events:auto;
 }
-.LogoToxDB img{height:100%;}
+.Logo_toxDB > img{height:40px;width:40px;}
 
 
 .botonMenu{
@@ -627,6 +627,7 @@ text-align: left;
 .resumen > table > tbody > tr >.imagen{
 	display:flex;
 	flex-direction:row;
+        flex-wrap:wrap;
 } 
 .resumen > table > tbody > tr >td >figure{
 	width:100px;
@@ -1100,9 +1101,10 @@ cursor: pointer;
 
 
 #sinonimos ol{
-	display:grid;  
-	grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px 10px;
+        display:grid;
+        grid-template-columns: repeat(auto-fill, 0.5fr);
+        grid-gap:0.1rem;
+        margin: 0 auto;
 }
 
 #sinonimos ol >li{
@@ -1189,6 +1191,11 @@ cursor: pointer;
 	.vista_toolbar{
 		flex-direction:column-reverse;
 		align-items:center;
+	}
+
+	.fixed-button {
+		right:0px;
+		bottom:20px;
 	}
 }
 
