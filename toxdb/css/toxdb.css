@@ -3,7 +3,6 @@ main,header{
 	width:100%;
 	max-width:1300px;
 	*/
-overflow-x:hidden;
 }
 
 /* HEADER */
@@ -501,10 +500,13 @@ position: relative;
 	display: inline-block;
 	position: relative;
 	cursor: pointer;
-	min-height: 36px;
+	/*min-height: 36px;
 	min-width: 88px;
-	line-height: 36px;
-	vertical-align: middle;
+	outline: none;
+	border: 0;*/
+	padding:5px 10px;
+	line-height: 22px;
+	justify-content: center;
 	align-items: center;
 	text-align: center;
 	-moz-border-radius: 2px;
@@ -512,15 +514,12 @@ position: relative;
 	box-sizing: border-box;
 	-moz-user-select: none;
 	-moz-user-select: none;
-	outline: none;
-	border: 0;
-	padding: 0 0px;
 	background: transparent;
 	color: currentColor;
 	color:var(--gris-medio);
 	white-space: nowrap;
 	font-weight: 500;
-	font-size: 14px;
+	font-size: 16px;
 	text-decoration: none;
 	overflow: hidden;
 	transition: box-shadow .4s cubic-bezier(0.25,0.8,0.25,1),background-color .4s cubic-bezier(0.25,0.8,0.25,1);
@@ -833,9 +832,10 @@ text-align: left;
 #SeguridadQuimica_figs{
 	display:flex; 
 	flex-direction:row;
+        flex-wrap:wrap;
+	justify-content:center;
 	padding:10px;
 	height:100px;
-	width:80%;
 	max-width:700px;
 
 }
@@ -945,7 +945,9 @@ right: -7px;
 
 /* POPUP DE CONTACTO */
 #feedback-button {
-    fill: var(--gris-medio);
+	color: var(--gris-medio);
+	fill: var(--gris-medio);
+	transition: 0.2s;
     position: fixed;
     bottom:45px;
     left: 3px;
@@ -954,6 +956,7 @@ right: -7px;
 }
 
 #feedback-button:hover{
+    color: var(--celeste-oscuro);
     fill: var(--celeste-oscuro);
 }
 
@@ -971,7 +974,7 @@ box-sizing:border-box;
 	left:calc(50% - 170px);
 	z-index:200;
 visibility:hidden;
-	display:flex;
+		display:flex;
 		flex-direction:column;
 }
 .form .close {
@@ -1196,6 +1199,9 @@ cursor: pointer;
 	.fixed-button {
 		right:0px;
 		bottom:20px;
+	}
+	.specimen_page_nav >ul>li>button{
+	padding:2px 5px;
 	}
 }
 
