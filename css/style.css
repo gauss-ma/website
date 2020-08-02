@@ -167,6 +167,10 @@ a,a:hover {
   background-color: var(--gris-oscuro);
 }
 
+figure,
+figcaption{
+	text-align:center;
+}
 
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {

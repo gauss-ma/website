@@ -4,14 +4,7 @@ $(document).ready(function () {
 	const $logo = $(".Logo_gauss");
 	const $menu = $('.sidebar');
 
-	//MENU DESPLEGABLE:
-	//$('.botonMenu').click(function() {
-	//            //$('.sidebar').slideToggle("fast");
-	//    	$(".sidebar").animate({width:'toggle'},400);
-	//});
-
 	//BUSCADOR / FILTRO
-
 	$(".search_input").on("keyup", function () {
 		$("body").scrollTop(0);
 		$(".search_close").show();
@@ -28,7 +21,6 @@ $(document).ready(function () {
 		$(".counter-total").empty(); $(".counter-total").append(linker.length)
 	});
 
-
 	//FUNCIONES DE SCROLL:
 	toolbar_y = $(".search_toolbar").position().top;
 
@@ -36,8 +28,6 @@ $(document).ready(function () {
 		var position = $(window).scrollTop();
 
 		//console.log(position);
-
-
 		if (position > toolbar_y) { $(".fixed-button.scroll-up").show(); $(".specimen_page_nav").show(); $(".search_toolbar").addClass("top_fixed-search_toolbar"); }
 		else if (position < toolbar_y) { $(".fixed-button.scroll-up").hide(); $(".specimen_page_nav").hide(); $(".search_toolbar").removeClass("top_fixed-search_toolbar"); }
 		else { setBlack(); }
@@ -80,23 +70,6 @@ $(document).ready(function () {
 	//Contador de tarjetitas en grilla
 	$(".counter-total").append($(".card").length)
 	$(".counter-show").append($(".card").length)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 });
 
 
@@ -116,8 +89,6 @@ function vista(view) {
 		$(".cards").addClass("grid_view");
 		$(".card-content").slideDown(300);
 		$(".card-footer").slideDown(500);
-
-
 	};
 }
 
@@ -445,5 +416,3 @@ function verCompuesto(index) {
 	$(".specimen_page").append(navbar);
 
 };
-
-

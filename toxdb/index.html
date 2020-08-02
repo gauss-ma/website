@@ -1,11 +1,40 @@
 <html>
 	<!-- {≡}  -->
 <head>
-	<meta charset="UTF-8">
+	<!--FONTS -->
+	<!-- [1] -->
+	<link rel="preconnect"
+	      href="https://fonts.gstatic.com"
+	      crossorigin />
+	
+	<!-- [2] -->
+	<link rel="preload"
+	      as="style"
+	      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Roboto:wght@400&display=swap" />
+	
+	<!-- [3] -->
+	<link rel="stylesheet"
+	      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Roboto:wght@400&display=swap"
+	      media="print" onload="this.media='all'" />
+	
+	<!-- [4] -->
+	<noscript>
+	  <link rel="stylesheet"
+	        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Roboto:wght@400&display=swap" />
+	</noscript>
+
+	<!-- general -->
+	<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="msapplication-config" content="/static/faviconFiles/browserconfig.xml">
+        <meta name="theme-color" content="#f7f7f7">
+
 	<title>Tox.db</title>
 	<meta name="description" content="Base de datos toxicológica de compuestos de interés ambiental.">
 	<!-- JS LIBS: -->
-	<script type="text/javascript" src="js/jquery-3.3.1.min.js">//JQUERY</script>
+	<script type="text/javascript" src="../js/jquery-3.3.1.min.js">//JQUERY</script>
+	<script type="text/javascript" src="../js/jquery.touchswipe.min.js">//JQUERY</script>
+	<script type="text/javascript" src="../js/jquery-migrate.min.js">//JQUERY</script>
 	<!-- <link rel="stylesheet" type="text/css" href="js/DataTables/datatables.min.css" /> -->
 	<!-- script type="text/javascript" src="js/DataTables/datatables.min.js"></script -->
 	<!-- CSS      -->
@@ -63,9 +92,6 @@
 	  <button class="btn material-design">Enviar</button>
 	</form>
 	</div>
-
-
-
 <header>
 	<span class="Logo_toxDB" onclick="restart();"><img src="img/Recurso 5v2.svg"></img>.db</span>
 	<span class="Logo_gauss"><img src="img/icon-gauss.png"></img> &nbsp;gauss </span>

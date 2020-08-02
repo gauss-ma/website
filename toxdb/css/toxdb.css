@@ -474,16 +474,12 @@ display:flex;
 	display: -ms-flexbox;
 	display: flex;
 	flex-direction: row;
+	justify-content: start;
+        flex-wrap:wrap;
 	border-bottom: 0.01px solid var(--gris-claro); 
 	background-color: var(--blanco);
 	margin-top:1px;
 }	
-
-
-
-
-
-
 .specimen_page_nav_header{
 width:100%;
 background-color:var(--blanco);
@@ -499,33 +495,35 @@ position: relative;
 	text-overflow: ellipsis;
 }
 
+.specimen_page_nav >ul>li{
+}
 .specimen_page_nav >ul>li>button{
-display: inline-block;
-position: relative;
-cursor: pointer;
-min-height: 36px;
-min-width: 88px;
-line-height: 36px;
-vertical-align: middle;
-align-items: center;
-text-align: center;
--moz-border-radius: 2px;
-border-radius: 2px;
-box-sizing: border-box;
--moz-user-select: none;
--moz-user-select: none;
-outline: none;
-border: 0;
-padding: 0 6px;
-background: transparent;
-color: currentColor;
-color:var(--gris-medio);
-white-space: nowrap;
-font-weight: 500;
-font-size: 14px;
-text-decoration: none;
-overflow: hidden;
-transition: box-shadow .4s cubic-bezier(0.25,0.8,0.25,1),background-color .4s cubic-bezier(0.25,0.8,0.25,1);
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	min-height: 36px;
+	min-width: 88px;
+	line-height: 36px;
+	vertical-align: middle;
+	align-items: center;
+	text-align: center;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	box-sizing: border-box;
+	-moz-user-select: none;
+	-moz-user-select: none;
+	outline: none;
+	border: 0;
+	padding: 0 0px;
+	background: transparent;
+	color: currentColor;
+	color:var(--gris-medio);
+	white-space: nowrap;
+	font-weight: 500;
+	font-size: 14px;
+	text-decoration: none;
+	overflow: hidden;
+	transition: box-shadow .4s cubic-bezier(0.25,0.8,0.25,1),background-color .4s cubic-bezier(0.25,0.8,0.25,1);
 }
 
 .specimen_page_nav > ul > li > button:hover,
@@ -1156,13 +1154,9 @@ cursor: pointer;
 
 
 
-
-
-
-
-
 /* MEDIA QUERY */
-@media (max-width:700px){
+
+@media screen and (max-width:700px) {
 
 	main{
 		padding:10px;
@@ -1176,6 +1170,9 @@ cursor: pointer;
 	.specimen_page>section{
 		padding:0;
 		margin:0;
+	}
+	.specimen_page>section{
+		padding-bottom:20px;
 	}
 	.search_toolbar,
 	.specimen_page_nav,
