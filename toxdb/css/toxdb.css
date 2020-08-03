@@ -279,7 +279,11 @@ display:flex;
 	width: auto;
 }
 
+.vista_boton:hover{
+	cursor: pointer;
+	background-color: var(--gris-claro);
 
+}
 
 
 
