@@ -836,7 +836,7 @@ text-align: left;
 #SeguridadQuimica_figs{
 	display:flex; 
 	flex-direction:row;
-        flex-wrap:wrap;
+        /* flex-wrap:wrap; */
 	justify-content:center;
 	padding:10px;
 	height:100px;
@@ -1175,11 +1175,25 @@ cursor: pointer;
 		width:90%;
 		margin:auto;
 	}
+	.card-header{
+		/* display: flex; */
+		justify-content: left;
+		
+	}
+	.card-titulo,.card-subtitulo{
+		padding: 0;
+		margin: 0;
+		flex-direction: row;
+	}
+
+
+
 	.specimen_page,
 	.specimen_page>section{
 		padding:0;
 		margin:0;
 	}
+
 	.specimen_page>section{
 		padding-bottom:20px;
 	}
