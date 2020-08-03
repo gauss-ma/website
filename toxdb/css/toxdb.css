@@ -1,8 +1,7 @@
 main,header{
 	/*width:auto!important;
 	width:100%;
-	max-width:1300px;
-	*/
+	max-width:1300px;*/
 }
 
 /* HEADER */
@@ -17,6 +16,7 @@ header{
 	box-shadow: 1px 1px transparent;
 }
 
+/*  MAIN    */
 main{
 	width:auto!important;
     padding:64px 50px 48px;
@@ -97,64 +97,6 @@ main{
 
 
 
-/*  MAIN    */
-
-
-
-
-
-
-
-
-
-
-
-.sidebar{
-   position:fixed;
-   top:0;
-   right:0;
-   width:400px;
-   height:100%;
-   background-color: var(--blanco);
-   z-index:300;
--webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
-
-
-}
-
-/* .sidebar > nav{ display:block;}
-.sidebar > nav > ul { margin-top:80px;}
-.sidebar > nav > ul > li{
-	display: flex;
-	height: 48px;
-	outline: none;
-	text-decoration: none !important;
-	font-weight: 500;
-	align-items: center;
-}
-.sidebar > nav > ul > li:hover{
-	background-color:violet;
-}
-
-.activo{display: block; } */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* SEARCH TOOLBAR */
 
@@ -188,20 +130,20 @@ box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
 }
 
 .search_input{
-width:100%;
-height:100%;
-border-style:none;
-background-color:transparent;
-border: 0;
-background: none;
-outline: none;
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
-	font-size: 18px;
-	line-height:22px;
-font-weight: 400;
-flex:auto;
+	width:100%;
+	height:100%;
+	border-style:none;
+	background-color:transparent;
+	border: 0;
+	background: none;
+	outline: none;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+		font-size: 18px;
+		line-height:22px;
+	font-weight: 400;
+	flex:auto;
 }
 
 .top_fixed-search_toolbar{
@@ -288,25 +230,6 @@ display:flex;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*      TARJETAS         */
 .cards{
 	padding-top:10px;
@@ -348,6 +271,7 @@ display:flex;
 .list_view {
         display: flex;
  	flex-direction: column;
+	align-items:center;
 }
 
 .list_view > li{
@@ -360,14 +284,15 @@ display:flex;
 	max-width:700px;
 }
 .list_view>li> .card-header *{
-	line-height:28px;
-	padding:2px;
+	line-height:24px;
+	padding:5px;
 	margin:2px;
 }
 .list_view>li>.card-header{
      	display:flex;
-	flex-direction:row;
-	justify-content:space-between;
+	flex-direction:column;
+	/*flex-direction:row;
+	justify-content:space-between;*/
 }
 
 /*  interior de cada tarjeta */
@@ -384,7 +309,7 @@ display:flex;
         line-height: 20px;
 	text-align:center;
         /*margin-top: 12px;*/
-		margin-bottom: 4px;
+		margin-bottom: 5px;
 		cursor: text;
 }
 .card-subtitulo {
@@ -394,7 +319,8 @@ display:flex;
         line-height: 12px;
         min-height: 12px;
 	margin-top:5px;
-	margin-bottom:10px;
+	margin-bottom:0px;
+	color:var(--gris-medio);
   /*border-bottom: 0.05px solid var(--blanco);*/
 }
 .card-content{
