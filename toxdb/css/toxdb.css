@@ -284,9 +284,9 @@ display:flex;
 	max-width:700px;
 }
 .list_view>li> .card-header *{
-	line-height:24px;
-	padding:5px;
-	margin:2px;
+	line-height:22px;
+	padding:0px;
+	margin:0px;
 }
 .list_view>li>.card-header{
      	display:flex;
@@ -324,7 +324,7 @@ display:flex;
   /*border-bottom: 0.05px solid var(--blanco);*/
 }
 .card-content{
-		vertical-align: middle;
+	vertical-align: middle;
         align-items: center;
         text-align: center;
 }
@@ -333,7 +333,6 @@ display:flex;
 }
 .card-footer{
   float: right;
-	margin-right:15px;
 	text-align:right;
 	position:relative;
 	font-size:20px;
@@ -1118,10 +1117,15 @@ cursor: pointer;
 	.specimen_page>section{
 		padding:0;
 		margin:0;
+		overflow-x:hidden;
 	}
 
 	.specimen_page>section{
 		padding-bottom:20px;
+	}
+	.specimen-header_titulo{
+		padding-bottom:0px;
+
 	}
 	.search_toolbar,
 	.specimen_page_nav,
