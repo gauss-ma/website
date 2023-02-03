@@ -526,12 +526,14 @@ material = new THREE.ShaderMaterial( {
     },
     vertexShader: document.getElementById( 'vertexShader' ).textContent,
     fragmentShader: document.getElementById( 'fragmentShader' ).textContent
+    ,wireframe: true	//wireFrame agregado por Ramiro
+
 } );
 
     // create a sphere and assign the material
     mesh = new THREE.Mesh(
         new THREE.IcosahedronGeometry( 20, 4 ),
-        material
+        material,
     );
     scene.add( mesh );
 
