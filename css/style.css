@@ -30,13 +30,11 @@
   --celeste-saturado:#37D6FF;
   
   /* Familia inicial de tipografías */
-
-/* Monsterrat&Roboto */
-/* font-family:'Montserrat', "DejaVu Sans", Verdana, sans‑serif;
+  /* Monsterrat&Roboto */
+  /* font-family:'Montserrat', "DejaVu Sans", Verdana, sans‑serif;
 font-family:'Roboto',"-apple-system", BlinkMacSystemFont, Tahoma, sans‑serif; */
 
 }
-
 
 a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video {  
 margin: 0;  padding: 0;  border: 0;  font-size: 100%;/*  font: inherit;  vertical-align: baseline;*/
@@ -104,8 +102,6 @@ h4,h5,h6 {
   max-width:650px;
 }
 
-
-
 p {
   font-size: 1.125em;
   letter-spacing: .03em;
@@ -132,7 +128,6 @@ h4{
 h5{
   font-size: .8em;
 }
-
 
 :focus {
   color:var(--gris-oscuro);
@@ -341,8 +336,6 @@ b {
 	animation: fade-in 4s cubic-bezier(.1,1,.22,1) forwards;
 }
 
-
-
 .expandido>.expansible{	
   	height:auto;
   	max-height:80vh;
@@ -362,8 +355,6 @@ b {
 .expandido>.btn-expandir{display:none;}
 
 
-
-
 /*  HEADER */
 header {
   position: fixed;
@@ -379,15 +370,13 @@ header {
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
   opacity: 0;
-  -webkit-animation-delay: 1.8s;
-  animation-delay: 1.8s;
+  -webkit-animation-delay: 1.5s;
+  animation-delay: 1.5s;
   display: block;
   width: 100vw;
   height: 6vw;
 	pointer-events:none;
 }
-
-
 
 /* LOGO */
 
@@ -398,8 +387,8 @@ header {
   display: -ms-flexbox;
   display: flex;
   position: fixed;
-  left: 50px;
-  top: 25px;
+  left: 40px;
+  top: 35px;
   height: 30px;
   float: left;
   font-size: 25px;
@@ -423,8 +412,8 @@ header {
 /*BURGUER*/
 .burguer_root {
 	position:fixed;
-  top: 30px;
-  right:50px;
+  top: 35px;
+  right:40px;
   cursor: pointer;
 	pointer-events:auto;
   float: right;
@@ -516,24 +505,24 @@ header {
 
 
 /* ====> MENU <==== */
-.TabletMenu_root{
-		padding-top: 100px;
-		padding-bottom: 50px;
-		text-align: right;
-		overflow: hidden;
-		height: 100vh;
-		width: 100vw;
-		position: absolute;
-		top: 0;
-		left: 0;
-		background-color: var(--blanco);
-		box-sizing: border-box;
+.Menu_root{
+	padding-top: 100px;
+	padding-bottom: 50px;
+	text-align: right;
+	overflow: hidden;
+	height: 100vh;
+	width: 100vw;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: var(--blanco);
+	box-sizing: border-box;
 	pointer-events:auto;
 	opacity:1;
         transition: opacity 0.5s cubic-bezier(0.7, 0.17, 0.18, 0.77);
 }
-.TabletMenu_root > *{display:none;}
-.TabletMenu_root.fade-out{
+.Menu_root > *{display:none;}
+.Menu_root.fade-out{
 	opacity:0;
 	pointer-events: none;
 }
@@ -543,12 +532,12 @@ header {
   overflow: hidden !important;
   width: 100%;
 }
-.TabletMenu_wrapper {
+.Menu_wrapper {
   position: relative;
-  margin-right:5vw;
+  margin-right:3vw;
   height: 100%;
 }
-.TabletMenu_lenguaje {
+.Menu_lenguaje {
   top: 5vh;
   position: absolute;
   right: 0;
@@ -565,21 +554,21 @@ header {
   	animation-fill-mode: both;
 }
 
-.TabletMenu_current {
+.Menu_current {
   color: var(--gris-medio);
   margin-left: 15px;
   cursor: pointer;
   text-decoration: none;
   pointer-events: none;
 }
-.TabletMenu_deshabilitado {
+.Menu_deshabilitado {
   color: var(--gris-oscuro) !important;
   margin-left: 15px;
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
 }
-.TabletMenu_lista {
+.Menu_lista {
   font-size: 10vh;
   line-height: 11vh;
   height: 60%;
@@ -591,7 +580,7 @@ header {
   right: 0;
   text-align: right;
 }
-.TabletMenu_item {
+.Menu_item {
   font-family: 'Montserrat', "DejaVu Sans", Verdana, 'sans‑serif';
   font-weight: 800;
   cursor: pointer;
@@ -604,11 +593,11 @@ header {
   	-webkit-animation-fill-mode: both;
   	animation-fill-mode: both;
 }
-.TabletMenu_item:hover {
+.Menu_item:hover {
 	color:var(--celeste-oscuro);
 }
 
-.TabletMenu_email {
+.Menu_email {
   	-webkit-animation-name: fade-in-down;
   	animation-name: fade-in-down;
   	-webkit-animation-duration: 0.23s;
@@ -619,26 +608,23 @@ header {
   	animation-timing-function: cubic-bezier(0.12, 0.51, 0.49, 0.88);
   	-webkit-animation-fill-mode: both;
   	animation-fill-mode: both;
-}
-.TabletMenu_email > a {
-  text-decoration: none;
-  font-size: 25px;
-  display: inline-block;
+
+      	text-decoration: none;
+  	font-size: 25px;
+  	display: inline-block;
+  	position: absolute;
+  	bottom: 0;
+  	right: 0;
 }
 
-.TabletMenu_links {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-.TabletMenu__linkedin,
-.TabletMenu__youtube,
-.TabletMenu__git,
-.TabletMenu__insta {
+.Menu__whatsapp,
+.Menu__linkedin,
+.Menu__youtube,
+.Menu__git,
+.Menu__insta {
   height: 15px;
   width: 15px;
 }
-
 
 
 
@@ -655,6 +641,8 @@ header {
 	font-size: 1rem;
 	text-align:left;*/
   	/*pointer-events: none;*/
+	position:absolute;
+	top:45%;
 }
 
 .texto-home>img{
@@ -668,6 +656,7 @@ header {
 .texto-home>h2{
 	padding-bottom: 20px;
 	font-size:2.25em;
+	font-weight:600;/*normal;*/
 }
 .texto-home>h4{
   	color: var(--gris-oscuro);
@@ -675,43 +664,16 @@ header {
   	font-weight: 400;
 }
 
-.img-abstracta{
-	/*position:absolute;
-	display:flex;
-		z-index:-10;*/
-  		width:100%;
-		max-width:720px;
-		text-align:center;
-  	animation: fade-in 5s 1 0s ease-in;
-	animation-duration:.8s;
-
-}
-
-.img-abstracta>object,
-.img-abstracta>img{
-		width:50%;
-		max-width:500px;
-}
-
-object:hover {
-  /*animation: shake 1s cubic-bezier(.36,.07,.19,.97) both;
-  transform: translate3d(1px, 1px, 1px);*/
-  backface-visibility: hidden;
-  perspective: 1000px;
-}
-
-
 /* PALABRAS DE OBJETIVO */
 .objetivo-words{	
-  padding:60px;
-  margin-top: 20px;
+	padding:60px;
+	margin-top: 20px;
 	width:100%;
 	max-width:720px;
 	font-size:9vh;
 	font-family: 'Montserrat', "DejaVu Sans", Verdana, 'sans‑serif';
-  font-weight: 800;
-  overflow:hidden;
-	/*text-align:center;*/
+	font-weight: 800;
+	overflow:hidden;
 }
 
 /* ojo cuando tengamos la palabra final... hay que ajustar los tiempos para que no sea lineal, "la" tarda lo mismo que "computacional" */
@@ -725,25 +687,6 @@ object:hover {
 .objetivo-words >*:nth-child(7){-ms-animation-delay:3s  ;-webkit-animation-delay:3s  ;  animation-delay:3s   ;}
 .objetivo-words >*:nth-child(8){-ms-animation-delay:3.5s;-webkit-animation-delay:3.5s;  animation-delay:3.5s ;}
 .objetivo-words >*:nth-child(9){-ms-animation-delay:4s  ;-webkit-animation-delay:4s  ;  animation-delay:4s   ;}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* SECCION GIS */
@@ -788,57 +731,6 @@ object:hover {
 .mapas:hover div.layer:nth-child(2) {transform: translate(0px  ,-0px)  ;  opacity:1.0}
 .mapas:hover div.layer:nth-child(3) {transform: translate(80px,-80px)  ;  opacity:0.9}
 .mapas:hover div.layer:nth-child(4) {transform: translate(160px,-160px);  opacity:0.9}
-
-
-
-
-
-
-
-/* TOXDB COUNT-STATS 
-.StatsContainer {
-	  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-	flex-direction:row;
-	justify-content: center;
-	margin-top: 100px;
-	width: calc(100%);
-	padding-bottom:30px;
-	margin-bottom:30px;
-  text-align: center;
-
-	}
-.StatsContainer > .stats{
-	width: calc(33.3%);
-
-}
-.stats .counting {
-  text-align: center;
-  font-size: 80px;
-    font-weight: 400;
-}
-.stats .texto {
-  font-size: 22px;
-    font-weight: 400;
-  text-align: center;
-	text-transform:uppercase;
-}
-end count stats*/
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*SERVICIOS*/
@@ -938,63 +830,45 @@ end count stats*/
 
 .step-content p{padding:40px;}
 
-/* FORMA DE MOSTRAR SERVICIOS ALTERNATIVA 
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 20px 10px;
-  grid-template-areas: ". . ." ". . .";
-
-	margin-top:50px;
-		padding:50px;
-}
-
-.grid-elem{
-
-}
-
-.grid-elem h4,
-.grid-elem i{
-	fill: var(--celeste-oscuro);
-	color: var(--celeste-oscuro);
-}
-
-@media (max-width: 670px) {
 
 
-	.grid-container{
-		display:flex;
-		flex-direction:column;
-		padding:0px;
+/* TOXDB COUNT-STATS 
+.StatsContainer {
+	  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+	flex-direction:row;
+	justify-content: center;
+	margin-top: 100px;
+	width: calc(100%);
+	padding-bottom:30px;
+	margin-bottom:30px;
+  text-align: center;
+
 	}
-	.grid-elem{
-		padding:20px;
-	}
-	
+.StatsContainer > .stats{
+	width: calc(33.3%);
+
 }
-*/
+.stats .counting {
+  text-align: center;
+  font-size: 80px;
+    font-weight: 400;
+}
+.stats .texto {
+  font-size: 22px;
+    font-weight: 400;
+  text-align: center;
+	text-transform:uppercase;
+}
+END COUNT-STATS*/
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*     CONTACTO         */
+/*CONTACTO*/
 
 .Contactos_wrapper {
    display: -webkit-box;
@@ -1122,14 +996,8 @@ margin-top: 14px*/
 }
 .Info_box >a{
 	font-size:1.25em;
+	margin-top:5px;
 }
-
-
-
-
-
-
-
 
 
 
@@ -1185,19 +1053,10 @@ a.github:hover >i{  color:inherit;}
 
 
 
-
-
-
-
-
-
-
-
-
 /*GENERAL  LAYOUT*/
 .slide {
-    	padding: 50px;
-	min-height:80vh;
+    	padding: 40px;
+	min-height:90vh;
 	max-width:100vw;
   display: -webkit-box;
   display: -moz-box;
@@ -1257,54 +1116,54 @@ a.github:hover >i{  color:inherit;}
 	/*.center .btn{margin:auto;}*/
 
 
-/* SLIDE TITULOS / SUBTITULOS */
-.slide > h2{
-	margin-top:70px;
-	margin-bottom:20px;
-}
-.slide > h4{
-	margin-bottom:50px;
-	text-align:center;
-	color:var(--gris-medio);
-}
+	/* SLIDE TITULOS / SUBTITULOS */
+	.slide > h2{
+		margin-top:70px;
+		margin-bottom:20px;
+	}
+	.slide > h4{
+		margin-bottom:50px;
+		text-align:center;
+		color:var(--gris-medio);
+	}
 
 
-/* COLUMNA CON TEXTO */
-.column-text{
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-    -webkit-box-direction: normal;
-    -webkit-box-orient: vertical;
-    -moz-box-direction: normal;
-    -moz-box-orient: vertical;
-    -ms-flex-direction: column;
-     flex-direction: column;
-  	padding: 20px;
-   	max-width: 600px;
-}
-.column-text.end   {justify-content:end;   }
-.column-text.start {justify-content:start; }
-.column-text.vcenter{justify-content:center;}
+	/* Columna con TEXTO */
+	.column-text{
+	  display: -webkit-box;
+	  display: -moz-box;
+	  display: -webkit-flex;
+	  display: -ms-flexbox;
+	  display: flex;
+	    -webkit-box-direction: normal;
+	    -webkit-box-orient: vertical;
+	    -moz-box-direction: normal;
+	    -moz-box-orient: vertical;
+	    -ms-flex-direction: column;
+	     flex-direction: column;
+	  	padding: 20px;
+	   	max-width: 600px;
+	}
+	.column-text.end   {justify-content:end;   }
+	.column-text.start {justify-content:start; }
+	.column-text.vcenter{justify-content:center;}
+	
+	
+	/* Columna con IMAGEN */
+	.column-image{
+		display:flex;
+		flex-direction:column;
+		justify-content:center;
+	    width: 50%;
+	    max-width: 750px;
+		min-height:350px;
+	}
+	.column-image>canvas,
+	.column-image>img{
+		width:100%;
+		pointer-events:none;
+	}
 
-
-
-/* COLUMNA CON IMAGEN */
-.column-image{
-	display:flex;
-	flex-direction:column;
-	justify-content:center;
-    width: 50%;
-    max-width: 750px;
-	min-height:350px;
-}
-.column-image>canvas,
-.column-image>img{
-	width:100%;
-	pointer-events:none;
-}
 
 /* END GENERAL LAYOUT */
 
@@ -1313,8 +1172,8 @@ a.github:hover >i{  color:inherit;}
 
 
 
-
-/*   RESPONSIVE    */
+/*   RESPONSIVENESS  		  	*/
+/* ESTO ESTÀ FLOJIISIMO!! 		*/
 
 /*@media screen and (max-width: 600px) {*/
 @media (max-width: 670px) {
@@ -1324,8 +1183,9 @@ a.github:hover >i{  color:inherit;}
 	h2{font-size:6.8vh;line-height:7.5vh;  padding-bottom:2.5vh;     }
 	h3{font-size:4vh;line-height:4.25vh;   padding-bottom:  4vh;     }
 	h4{font-size:3vh;line-height:3.25vh;   padding-bottom:  3vh;     }
-  p{font-size:2.5vh; line-height:3.8vh}
-  a{}
+  
+	p{font-size:2.5vh; line-height:3.8vh}
+  	a{}
 
 	.slide {
 		flex-direction:column;
@@ -1343,7 +1203,7 @@ a.github:hover >i{  color:inherit;}
 		width:100%;
 		max-width:700px;
 		margin:0!important;
-    padding:0px;
+    		padding:0px;
  	}
 	.column-text{
 		max-width:700px;
@@ -1353,10 +1213,10 @@ a.github:hover >i{  color:inherit;}
 		width:100%;
 	}
 
-.btn{
-  align-self: center;
-  margin: 20px;
-}
+	.btn{
+	  align-self: center;
+	  margin: 20px;
+	}
 	/* HEADER */
   	.burguer_root {
     		right: 20px;
@@ -1396,35 +1256,31 @@ a.github:hover >i{  color:inherit;}
 	.mapas{
 	        width:270px;
         	height:340px;
-  }
-  
-  .gis{
-  overflow-x:hidden
-  }
+  	}
+  	
+  	.gis{
+  	overflow-x:hidden
+  	}
 
 	/*SERVICIOS*/
 	.steps{
 		margin:0px;
 		padding:0px;
 		width:90%;
-    max-width:600px;
+    		max-width:600px;
     
 	}
-  .step{border-bottom:1px solid var(--gris-claro);
-   }
+  	.step{
+		border-bottom:1px solid var(--gris-claro);
+  	 }
 
-	.step:before{display:none;}
- 	.step-content{display:none!important;}
-  .step-content p{padding:10px;padding-top:20px;font-size:2.5vh;line-height:2.5vh;}
-  .step-header{cursor: default;}
-  .step-header:hover{color:var(--negro0);}
-  .step.minimized:hover .header{color:var(--negro0);}
+  	.step:before{display:none;}
+  	.step-content{display:none!important;}
+  	.step-content p{padding:10px;padding-top:20px;font-size:2.5vh;line-height:2.5vh;}
+  	.step-header{cursor: default;}
+  	.step-header:hover{color:var(--negro0);}
+  	.step.minimized:hover .header{color:var(--negro0);}
   
-  
-
-
-
-
 	/*CONTACTOS*/
  	.Contactos_wrapper {
     		-webkit-box-direction: normal;
@@ -1478,35 +1334,34 @@ a.github:hover >i{  color:inherit;}
   	}
     
 	/* MENU */       
-        .TabletMenu_root {
+        .Menu_root {
             padding-top: 90px;
             padding-bottom: 15px;
         }
-        .TabletMenu_wrapper {
+        .Menu_wrapper {
             margin-right: 5vw;
         }
-        .TabletMenu_lenguaje {
+        .Menu_lenguaje {
            font-size: 18px;
         }
-        .TabletMenu_lista {
+        .Menu_lista {
                bottom:0em;
         }
-        /*.TabletMenu_email {
+        /*.Menu_email {
             height: 24px;
         }*/
-        .TabletMenu_email > a {
+        .Menu_email > a {
             font-size: 18px;
         }
-        .TabletMenu_links {
+        .Menu_links {
           bottom: 3vh;
         }
-        .TabletMenu__insta,
-        .TabletMenu__git,
-        .TabletMenu_item ,
-        .TabletMenu_lista {
+        .Menu__insta,
+        .Menu__git,
+        .Menu_item ,
+        .Menu_lista {
           font-size: 7vh;
           line-height: 8vh;
     
         }
-
 }

@@ -2,40 +2,22 @@
 
 
 <head>
-	
-
 	<!-- GOOGLEFONTS -->
-	
 	<!-- <link 
 	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Roboto:wght@400&display=swap" 
 	rel="stylesheet">
 	 -->
-
-
-<!--
-Cascada de intentos para GOOGLE FONTS
-  -->
-
-<!-- [1] -->
-<link rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin />
-
-<!-- [2] -->
-<link rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Roboto:wght@400&display=swap" />
-
-<!-- [3] -->
-<link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Roboto:wght@400&display=swap"
-      media="print" onload="this.media='all'" />
-
-<!-- [4] -->
-<noscript>
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Roboto:wght@400&display=swap" />
-</noscript>
+	<!-- Cascada de intentos para GOOGLE FONTS -->
+	<!-- [1] -->
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<!-- [2] -->
+	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Roboto:wght@400&display=swap" />
+	<!-- [3] -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Roboto:wght@400&display=swap"  media="print" onload="this.media='all'" />
+	<!-- [4] -->
+	<noscript>  
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Roboto:wght@400&display=swap" />
+	</noscript>
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152051002-1"></script>
@@ -64,7 +46,6 @@ Cascada de intentos para GOOGLE FONTS
 	<title>Gauss - modelado ambiental</title>
 	<link rel="icon" type="image/png" href="img/icon-gauss.png" sizes="512x512">
 
-
 	<!-- Tal vez haga figurar a gauss como empresa en una gglseach -->
 	<script type="application/ld+json">
 		{
@@ -74,7 +55,7 @@ Cascada de intentos para GOOGLE FONTS
 		  "logo": "https://www.gauss-ma.com.ar/img/gauss-icon-monochrome-075pt.svg",
 		  "location": "Argentina"
 		}
-		</script>
+	</script>
 
 	<!-- fa-icons cratejs, safary, etc -->
 	<link rel="mask-icon" href="fonts/safari-pinned-tab.fcceb5.svg" color="#5bbad5">
@@ -97,10 +78,6 @@ Cascada de intentos para GOOGLE FONTS
  	<script src="js/threejs/three.min.js"></script>
  	<!--script src="js/threejs/OrbitControls.js"></script-->
  	<!--script src="js/threejs/DeviceOrientationControls.js"></script -->
-
-
-
-
 </head>
 
 
@@ -111,69 +88,49 @@ Cascada de intentos para GOOGLE FONTS
 
 	<div class="Header_burguer">
 	</div>
-		<div class="burguer_root">
-			<div id="botonMenu" class="burger_inactivo black">
-				<div class="burguer_top burguer_icono"></div>
-				<div class="burguer_medio burguer_icono"></div>
-				<div class="burger_bottom burguer_icono"></div>
-			</div>
+	<div class="burguer_root">
+		<div id="botonMenu" class="burger_inactivo black">
+			<div class="burguer_top burguer_icono"></div>
+			<div class="burguer_medio burguer_icono"></div>
+			<div class="burger_bottom burguer_icono"></div>
 		</div>
+	</div>
 
 	<!--  MENU  -->
-	<div class="TabletMenu_root fade-out">
-	<div class="TabletMenu_wrapper">
-	  <div class="TabletMenu_lenguaje">
-	    <nav>
-	    	<a class="TabletMenu_deshabilitado subrrayar" href="en.html">EN</a>
-	    	<a href="#"class="TabletMenu_current">ES</a>
-	    </nav>
-	  </div>
-	  <nav class="TabletMenu_lista">
-	  	<a href="#" data-scroll="home">     <div class="TabletMenu_item" style="animation-delay: 0.1s;">Principal</div></a>
-	  	<a href="#" data-scroll="modelos">  <div class="TabletMenu_item" style="animation-delay: 0.17s;">Modelos</div></a>
-	  	<a href="#" data-scroll="servicios"><div class="TabletMenu_item" style="animation-delay: 0.24s;">Servicios</div></a>
-	  	<a href="#" data-scroll="contacto"> <div class="TabletMenu_item" style="animation-delay: 0.31s;">Contacto</div></a>
-
-	  	<a class="TabletMenu__insta" title="linkedin" href="https://www.linkedin.com/company/gauss-ma"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-	  	<a class="TabletMenu__git" title="github" href="https://github.com/gauss-ma"><i	class="fab fa-github" aria-hidden="true"></i></a>
-	  	<a class="TabletMenu__insta" title="whatsapp" href="https://api.whatsapp.com/send?phone=155512345678"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+	<div class="Menu_root fade-out">
+	<div class="Menu_wrapper">
+	  <nav class="Menu_lenguaje">
+	  	<a class="Menu_deshabilitado subrrayar" href="en.html">EN</a>
+	  	<a class="Menu_current"                 href="#"      >ES</a>
 	  </nav>
-	  <div class="TabletMenu_links">
-	  	<div class="TabletMenu_email subrrayar">
-			<a target="_self" href="mailto:contacto@gauss-ma.com.ar">contacto@gauss-ma.com.ar</a><br>
-	  	</div>
-	  	<div class="TabletMenu_email subrrayar">
-	  		<a target="_self" href="https://api.whatsapp.com/send?phone=155512345678">+11 15 12345678</a>
-	  	</div>
-	  </div>
-	</div>
-	</div>
+	  <nav class="Menu_lista">
+	  	<a href="#" data-scroll="home">     <div class="Menu_item" style="animation-delay: 0.1s;">Principal</div></a>
+	  	<a href="#" data-scroll="modelos">  <div class="Menu_item" style="animation-delay: 0.17s;">Modelos</div></a>
+	  	<a href="#" data-scroll="servicios"><div class="Menu_item" style="animation-delay: 0.24s;">Servicios</div></a>
+	  	<a href="#" data-scroll="contacto"> <div class="Menu_item" style="animation-delay: 0.31s;">Contacto</div></a>
 
+	  	<a class="Menu__insta" title="linkedin" href="https://www.linkedin.com/company/gauss-ma"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+          	<a class="Menu__git" title="github" href="https://github.com/gauss-ma"><i	class="fab fa-github" aria-hidden="true"></i></a>
+          	<a class="Menu__whatsapp" title="whatsapp" href="https://api.whatsapp.com/send?phone=155512345678"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+		
+	  </nav>
+		<a class="Menu_email subrrayar" target="_self" href="mailto:contacto@gauss-ma.com.ar">contacto@gauss-ma.com.ar</a>
+	</div>
+	</div>
 </header>
 
 <main id="content">
-
 <!--   H O M E   -->
-<section name="home" class="slide center Home">
-
-
-		<div id="container">
-			<div class="title-text" style="position:absolute;margin:auto;top:50%;left:30%">
+<section id="home-container" name="home" class="slide center Home" style="background-image: url( 'img/gauss_abstract.svg' );background-repeat: no-repeat;background-position:center;    background-size: 30%;">
+		<!-- div id="container" style="background-image: url( 'img/gauss_abstract.svg' );background-repeat: no-repeat;background-position:center;"-->
+			<!--div class="title-text texto-home" style="position:absolute;margin:auto;top:50%;left:30%" -->
+			<div class="texto-home">
 				<h1> Gauss <h1>
 				<h2>modelado ambiental</h2>
 				<h4>Modelos de simulación con fines regulatorios<br>
 				Consultoría, desarrollo y soporte técnico</h4>
 			<div>
-		</div>
-		<!--div class="img-abstracta">
-			<object type="image/svg+xml" data="img/gauss_abstract.svg"></object>
-		</div>
-		<div class="texto-home">	
-			<img src="img/gauss-logo-font-mont-modif.svg"></img>
-			<h2>modelado ambiental</h2>
-			<h4>Modelos de simulación con fines regulatorios<br>
-			Consultoría, desarrollo y soporte técnico</h4>
-		</div-->		
+		<!--/div-->
 </section>
 
 
@@ -181,29 +138,18 @@ Cascada de intentos para GOOGLE FONTS
 <section name="objetivo" class="slide Objetivo center bg-oscuro" style="background-color:var(--celeste-oscuro)">
 	<div class="objetivo-words white">
 		<!-- Actual -->
-		<!-- <span class="animar_fade-in">Modelos		</span> 
-		<span class="animar_fade-in">computacionales	</span>
-	    	<span class="animar_fade-in">al			</span> 
-		<span class="animar_fade-in">servicio		</span>
-		<span class="animar_fade-in">del		</span>
-		<span class="animar_fade-in">ambiente.		</span>
-		 -->
-		<!-- lokita -->
-		<!-- <span class="animar_fade-in">Simulamos</span> 
-		<span class="animar_fade-in">el</span>
-	    <span class="animar_fade-in">impacto</span> 
-		<span class="animar_fade-in">ambiental</span>
-		<span class="animar_fade-in">con</span>
-		<span class="animar_fade-in">modelos</span>
-		<span class="animar_fade-in">computacionales</span>
-		 -->
+		<!--span class="animar_fade-in">Modelos		</span--> 
+		<!--span class="animar_fade-in">matemáticos    	</span-->
+	    	<!--span class="animar_fade-in">al		</span--> 
+		<!--span class="animar_fade-in">servicio	</span-->
+		<!--span class="animar_fade-in">del		</span-->
+		<!--span class="animar_fade-in">ambiente 	</span-->
 		<!-- math -->
 		<span class="animar_fade-in">Modelado</span> 
 		<span class="animar_fade-in">matemático</span>
     		<span class="animar_fade-in">aplicado</span> 
 		<span class="animar_fade-in">al</span>
-		<!-- <span class="animar_fade-in">medio</span> -->
-		<span class="animar_fade-in">ambiente</span>
+		<span class="animar_fade-in">ambiente.</span>
 	</div>
 </section>
 <!-- END OBJETIVOS -->
@@ -288,23 +234,14 @@ Cascada de intentos para GOOGLE FONTS
 <!-- END MODELOS -->
 
 
-
-
-
-
-
-
-
-
-
 <!-- GEO-SP   -->
 
 <section class="slide center bg-oscuro gis" >
 	<div class="mapas">
                  <span class="shadow"></span>
-                 <div class="layer"> <img src="img/UNO.gif"></img></div>
-                 <div class="layer"> <img src="img/DOS.png"></img></div>
-                 <div class="layer"> <img src="img/TRES.png"></img></div>
+                 <div class="layer"> <img src="img/mapa1.gif"></img></div>
+                 <div class="layer"> <img src="img/mapa2.png"></img></div>
+                 <div class="layer"> <img src="img/mapa3.png"></img></div>
 	</div>      
 	
 			<div class="column-text animar_fade-in-up">
@@ -317,12 +254,6 @@ Cascada de intentos para GOOGLE FONTS
 		</div>
 </section>
 <!-- END GEOSP -->
-
-
-
-
-
-
 
 
 
@@ -397,57 +328,9 @@ Cascada de intentos para GOOGLE FONTS
 		</div>
   </div>
 
-
-
 	</div>
-	
-	<!-- alternativa tipo grid
-	<div class="grid-container">
-	  <div class="grid-elem">
-	    	        <i class="fa fa-4x fa-cube" aria-hidden="true"></i>
-	  	        <h5 class="subheader">Subtitulo piola</h5>
-	    	        <h4 class="header">Evaluaciones de Impacto Ambiental</h4>
-	    	        <p>Un pequeño texto acá sobre el servicio que ofrecemos, entre otras cosas.<br> Espero que se entienda.</p>
-	  </div>
-	  <div class="grid-elem">
-	    	        <i class="fa fa-4x fa-cube" aria-hidden="true"></i>
-	  	        <h5 class="subheader">Subtitulo piola</h5>
-	    	        <h4 class="header">Análisis de Riesgo para remediación</h4>
-	    	        <p>Un pequeño texto acá sobre el servicio que ofrecemos, entre otras cosas.<br> Espero que se entienda.</p>
-	  </div>
-	  <div class="grid-elem">
-	    	  	<i class="fa fa-4x fa-cube" aria-hidden="true"></i>
-	  	  	<h5 class="subheader">Subtitulo piola</h5>
-	    	  	<h4 class="header">Permisos de emisión y vuelco</h4>
-	    	    	<p>Un pequeño texto acá sobre el servicio que ofrecemos, entre otras cosas.<br> Espero que se entienda.</p>
-	  </div>
-	 <div class="grid-elem">
-	    	  	<i class="fa fa-4x fa-cube" aria-hidden="true"></i>
-	  	  	<h5 class="subheader">Subtitulo piola</h5>
-	   	  	<h4 class="header">Algo relacionado a SGA</h4>
-	    	    	<p>Un pequeño texto acá sobre el servicio que ofrecemos, entre otras cosas.<br> Espero que se entienda.</p>
-	 </div>
-	<div class="grid-elem">
-	    	  	<i class="fa fa-4x fa-cube" aria-hidden="true"></i>
-	  	  	<h5 class="subheader">Subtitulo piola</h5>
-	  	  	<h4 class="header">Algo relacionado a SGA</h4>
-	   	    	<p>Un pequeño texto acá sobre el servicio que ofrecemos, entre otras cosas.<br> Espero que se entienda.</p>
-	</div>
-	<div class="grid-elem">
-	    	  	<i class="fa fa-4x fa-cube" aria-hidden="true"></i>
-	  	  	<h5 class="subheader">Subtitulo piola</h5>
-	  	  	<h4 class="header">Algo relacionado a SGA</h4>
-	   	    	<p>Un pequeño texto acá sobre el servicio que ofrecemos, entre otras cosas.<br> Espero que se entienda.</p>
-	</div>
-      </div>
- -->
-
 </section>
 <!--  END SERVICIOS -->
-
-
-
-
 
 
 <!--   TOXDB   -->
@@ -459,7 +342,9 @@ Cascada de intentos para GOOGLE FONTS
 		<p class="white"> Creamos <strong>Tox.db</strong>: una base de datos abierta a la comunidad de profesionales del ambiente y la salud que compila información relevante de los compuestos químicos de interés regulados. Es una plataforma abierta en constante crecimiento.</p>
 		<p class="white"> Desarrollamos y mantenemos bases de datos con aplicaciones ambientales con el fin de agilizar el acceso y manejo de información.</p>
 		<a class="btn material-design-dark " href="toxdb/index.html">	<div class="text">Ir a Tox.db</div>	</a>
-		<!-- div class="StatsContainer" style="color:white">
+
+
+		<!--div class="StatsContainer" style="color:white">
 			<div class="stats">
 				<div class="counting" data-count="5000">0</div>
 				<h5 class="texto">Compuestos</h5>
@@ -473,21 +358,13 @@ Cascada de intentos para GOOGLE FONTS
 				<div class="counting" data-count="5">0</div>
 				<h5 class="texto">Decretos</h5>
 			</div>
-		</div -->
-		<!-- end container -->
+		</div-->
 	</div>
 </section>
 <!-- END TOXDB -->
 
 
-
-
-
-
-
-
-
-<!--  C O N T A C T O -->
+<!--  CONTACTO -->
 <section name="contacto" class="slide center animar_fade-in-up">
 	<h2>Contacto</h2>
 	<h4>¿En qué podemos ayudarte? </h4>
@@ -516,11 +393,10 @@ Cascada de intentos para GOOGLE FONTS
 				<a class="subrrayar" href="mailto:contacto@gauss-ma.com.ar">contacto@gauss-ma.com.ar</a>
 				<a class="subrrayar" href="#">+11 15 1234-5678</a>
 			</div>
-			<div class="Info_box">	
-				<!-- i class="fa fa-4x fa-life-ring"></i><br -->
+			<!--div class="Info_box">	
 				<p>¿Querés unirte al grupo?<br>¡Contanos tu historia!</p>
                                 <a class="subrrayar" href="mailto:join@gauss-ma.com.ar">join@gauss-ma.com.ar</a>
-			</div>
+			</div-->
 		</div>
 
 	</div>
@@ -550,20 +426,19 @@ Cascada de intentos para GOOGLE FONTS
 
 
 
-
-
 </div>
-
-	
-
 
 </body>
 
+
 <script src="mods3d/air/Qgis2threejs.js"></script>
 <script src="mods3d/sw/Qgis2threejs.js"></script>
+<script src="mods3d/home/ashimaPerlinNoise.js"></script>
+
 <script type="text/javascript" src="js/script.js"></script>
 
 
+<!-- Perlin Noise (BOLA LOCA) -->
 <script type="x-shader/x-vertex" id="vertexShader">
 // Include the Ashima code here!
 
@@ -773,4 +648,6 @@ void main() {
 
 }
 </script>
+
+<!-- END Perlin Noise (BOLA LOCA) -->
 </html>

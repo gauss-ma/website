@@ -599,7 +599,7 @@ Q3D_air.Scene.prototype.adjustZShift = function () {
       appAIR.camera = new THREE.OrthographicCamera(-appAIR.width / 10, appAIR.width / 10, appAIR.height / 10, -appAIR.height / 10, 0.1, 10000);
     }
     else {
-      appAIR.camera = new THREE.PerspectiveCamera(45, appAIR.width / appAIR.height, 0.1, 10000);
+      appAIR.camera = new THREE.PerspectiveCamera(60, appAIR.width / appAIR.height, 0.1, 10000);
     }
 
     var v = Q3D_air.Config.viewpoint,
