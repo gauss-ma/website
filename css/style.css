@@ -1,7 +1,7 @@
 :root{
 
   /* Paleta de colores GAUSS v1.0 -
-  Para mas información, consultar la StyleSheet:
+   * Para mas información, consultar la StyleSheet:
   https://www.figma.com/file/20SQRpHpszMnntGvWCy0ge/Gauss-Stylesheet?node-id=99%3A2 */
   
   /* Escala de grises */
@@ -596,7 +596,10 @@ header {
 .Menu_item:hover {
 	color:var(--celeste-oscuro);
 }
-
+.Menu_icono{
+  height: 10px;
+  width: 10px;
+}
 .Menu_email {
   	-webkit-animation-name: fade-in-down;
   	animation-name: fade-in-down;
@@ -617,14 +620,10 @@ header {
   	right: 0;
 }
 
-.Menu__whatsapp,
-.Menu__linkedin,
-.Menu__youtube,
-.Menu__git,
-.Menu__insta {
-  height: 15px;
-  width: 15px;
-}
+
+
+
+
 
 
 
@@ -1164,7 +1163,6 @@ a.github:hover >i{  color:inherit;}
 		pointer-events:none;
 	}
 
-
 /* END GENERAL LAYOUT */
 
 
@@ -1188,17 +1186,14 @@ a.github:hover >i{  color:inherit;}
   	a{}
 
 	.slide {
-		flex-direction:column;
-		justify-content:center;
-		padding:50px 20px;
+	   flex-direction:column;
+	   justify-content:center;
+	   padding:50px 20px;
 	}
   
-  .home{
-    height: 100vh;
-
-
-
-  }
+        .home{
+           height: 100vh;
+        }
 	.column-image{
 		width:100%;
 		max-width:700px;
@@ -1347,21 +1342,19 @@ a.github:hover >i{  color:inherit;}
         .Menu_lista {
                bottom:0em;
         }
-        /*.Menu_email {
-            height: 24px;
-        }*/
-        .Menu_email > a {
+        .Menu_email {
             font-size: 18px;
         }
         .Menu_links {
           bottom: 3vh;
         }
-        .Menu__insta,
-        .Menu__git,
         .Menu_item ,
         .Menu_lista {
           font-size: 7vh;
           line-height: 8vh;
-    
         }
+	.Menu_icono{
+	  font-size: 5vh;
+	  line-height: 6vh;
+	}
 }

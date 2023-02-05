@@ -10,7 +10,7 @@ var container,
 window.addEventListener( 'load', function() {
 
     // grab the container from the DOM
-    container = document.getElementById( "container" );
+    container = document.getElementById( "home-container" );
 
     // create a scene
     scene = new THREE.Scene();
@@ -34,9 +34,9 @@ material = new THREE.ShaderMaterial( {
             value: 0.0
         }
     },
-    vertexShader: document.getElementById( 'vertexShader' ).textContent,
-    fragmentShader: document.getElementById( 'fragmentShader' ).textContent
-    ,wireframe: true	//wireFrame agregado por Ramiro
+    vertexShader:   document.getElementById( 'vertexShader' ).textContent,
+    fragmentShader: document.getElementById( 'fragmentShader' ).textContent,
+    wireframe: true	//wireFrame agregado por Ramiro
 
 } );
 
@@ -63,5 +63,6 @@ function render() {
     // let there be light
     renderer.render( scene, camera );
     requestAnimationFrame( render );
-
 }
+
+

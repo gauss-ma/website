@@ -80,12 +80,10 @@
  	<!--script src="js/threejs/DeviceOrientationControls.js"></script -->
 </head>
 
-
 <body class="">
 
 <header>
 	<span id="Logo_gauss" class="Logo_gauss"><img src="img/icon-gauss.png"></img> &nbsp;gauss </span>
-
 	<div class="Header_burguer">
 	</div>
 	<div class="burguer_root">
@@ -104,15 +102,14 @@
 	  	<a class="Menu_current"                 href="#"      >ES</a>
 	  </nav>
 	  <nav class="Menu_lista">
-	  	<a href="#" data-scroll="home">     <div class="Menu_item" style="animation-delay: 0.1s;">Principal</div></a>
-	  	<a href="#" data-scroll="modelos">  <div class="Menu_item" style="animation-delay: 0.17s;">Modelos</div></a>
+	  	<a href="#" data-scroll="home"     ><div class="Menu_item" style="animation-delay: 0.10s;">Principal</div></a>
+	  	<a href="#" data-scroll="modelos"  ><div class="Menu_item" style="animation-delay: 0.17s;">Modelos  </div></a>
 	  	<a href="#" data-scroll="servicios"><div class="Menu_item" style="animation-delay: 0.24s;">Servicios</div></a>
-	  	<a href="#" data-scroll="contacto"> <div class="Menu_item" style="animation-delay: 0.31s;">Contacto</div></a>
+	  	<a href="#" data-scroll="contacto" ><div class="Menu_item" style="animation-delay: 0.31s;">Contacto </div></a>
 
-	  	<a class="Menu__insta" title="linkedin" href="https://www.linkedin.com/company/gauss-ma"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-          	<a class="Menu__git" title="github" href="https://github.com/gauss-ma"><i	class="fab fa-github" aria-hidden="true"></i></a>
-          	<a class="Menu__whatsapp" title="whatsapp" href="https://api.whatsapp.com/send?phone=155512345678"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
-		
+	  	<a class="Menu_icono" title="linkedin" href="https://www.linkedin.com/company/gauss-ma"       ><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+          	<a class="Menu_icono" title="github"   href="https://github.com/gauss-ma"                     ><i class="fab fa-github"   aria-hidden="true"></i></a>
+          	<a class="Menu_icono" title="whatsapp" href="https://api.whatsapp.com/send?phone=155512345678"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
 	  </nav>
 		<a class="Menu_email subrrayar" target="_self" href="mailto:contacto@gauss-ma.com.ar">contacto@gauss-ma.com.ar</a>
 	</div>
@@ -122,21 +119,18 @@
 <main id="content">
 <!--   H O M E   -->
 <section id="home-container" name="home" class="slide center Home" style="background-image: url( 'img/gauss_abstract.svg' );background-repeat: no-repeat;background-position:center;    background-size: 30%;">
-		<!-- div id="container" style="background-image: url( 'img/gauss_abstract.svg' );background-repeat: no-repeat;background-position:center;"-->
-			<!--div class="title-text texto-home" style="position:absolute;margin:auto;top:50%;left:30%" -->
-			<div class="texto-home">
-				<h1> Gauss <h1>
-				<h2>modelado ambiental</h2>
-				<h4>Modelos de simulación con fines regulatorios<br>
-				Consultoría, desarrollo y soporte técnico</h4>
-			<div>
-		<!--/div-->
+		<div class="texto-home">
+			<h1> Gauss <h1>
+			<h2>modelado ambiental</h2>
+			<h4>Modelos de simulación con fines regulatorios<br>
+			Consultoría, desarrollo y soporte técnico</h4>
+		<div>
 </section>
 
 
 <!--   OBJETIVO   -->
-<section name="objetivo" class="slide Objetivo center bg-oscuro" style="background-color:var(--celeste-oscuro)">
-	<div class="objetivo-words white">
+<section id="objetivo-container" name="objetivo" class="slide Objetivo center bg-oscuro" style="background-color:var(--celeste-oscuro)">
+	<div class="objetivo-words white" style="position:absolute">
 		<!-- Actual -->
 		<!--span class="animar_fade-in">Modelos		</span--> 
 		<!--span class="animar_fade-in">matemáticos    	</span-->
@@ -213,10 +207,9 @@
                         <p>
 			WASP es uno de los modelos más utilizados para el modelado del transporte de contaminantes en cuerpos de agua superficiales. 
 			Permite simular diversos procesos tales como la eutrofización y el transporte de contaminantes orgánicos e inorgánicos bajo distintas condiciones meteorológicas y de carga. 
-			 
                         </p>
                         <p>
-							Este tipo de modelos procesan múltiples compuestos en simultáneo contemplando la cinética química propia de cada especie modelada.
+			Este tipo de modelos procesan múltiples compuestos en simultáneo contemplando la cinética química propia de cada especie modelada.
                         </p>
                         <p>
 
@@ -227,14 +220,14 @@
 	</div>
 	
 	<div class="column-image" id="viewSW">
-		  <!--img src="img/img-sw-temp.png" alt=""-->
+		<!--img src="img/img-sw-temp.png" alt=""-->
 	</div>
 </section>
 
 <!-- END MODELOS -->
 
 
-<!-- GEO-SP   -->
+<!-- GEO-SP/GIS   -->
 
 <section class="slide center bg-oscuro gis" >
 	<div class="mapas">
@@ -253,12 +246,10 @@
 		<!-- <a class="btn material-design-dark" href="">Ver más</a> -->
 		</div>
 </section>
-<!-- END GEOSP -->
-
+<!-- END GEOSP/GIS -->
 
 
 <!-- SERVICIOS   -->
-
 <section name="servicios" class="slide center animar_fade-in-up">
 	<h2> Servicios </h2>
 	<h4>Trabajamos en las principales demandas profesionales en materia ambiental.</h4>
@@ -406,8 +397,6 @@
 
 </main>
 
-
-
 <footer class="site-footer">
     <div class="site-footer-wrapper">
 	<div class="articulo" >
@@ -423,17 +412,14 @@
 </div>
 </footer>
 
-
-
-
-</div>
-
 </body>
 
 
 <script src="mods3d/air/Qgis2threejs.js"></script>
 <script src="mods3d/sw/Qgis2threejs.js"></script>
-<script src="mods3d/home/ashimaPerlinNoise.js"></script>
+<!-- otros modelos 3d medio homero -->
+<!--script src="mods3d/home/ashimaPerlinNoise.js"></script-->
+<!--script src="mods3d/obj/dusty.js"></script-->
 
 <script type="text/javascript" src="js/script.js"></script>
 
@@ -648,6 +634,7 @@ void main() {
 
 }
 </script>
-
 <!-- END Perlin Noise (BOLA LOCA) -->
+
+
 </html>
