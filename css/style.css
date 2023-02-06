@@ -1167,10 +1167,6 @@ a.github:hover >i{  color:inherit;}
 /* END GENERAL LAYOUT */
 
 
-
-
-
-
 /*   RESPONSIVENESS  		  	*/
 /* ESTO ESTÀ FLOJIISIMO!! 		*/
 
@@ -1247,9 +1243,9 @@ a.github:hover >i{  color:inherit;}
 	  line-height: 7vh;
 	}
 	
-	/* HOME		*/
+	/* HOME */
 	.slide.Home{
-	   	min-height: 100vh;
+	   	min-height: 80vh;
 	       	background-size: 85%;
 	}
 	.texto-home{
@@ -1281,7 +1277,6 @@ a.github:hover >i{  color:inherit;}
 	        width:270px;
         	height:340px;
   	}
-  	
   	.gis{
   	overflow-x:hidden
   	}
@@ -1292,11 +1287,10 @@ a.github:hover >i{  color:inherit;}
 		padding:0px;
 		width:100%;
     		max-width:650px;
-    
 	}
   	.step{
 		border-bottom:1px solid var(--gris-claro);
-  	 }
+  	}
 
   	.step:before{display:none;}
   	.step-content{display:none!important;}
@@ -1340,6 +1334,7 @@ a.github:hover >i{  color:inherit;}
 		text-align:center;
 	     	align-items:center;
 	}
+
 	/* FOOTER */
   	.site-footer [class^=col-]
   	{
@@ -1356,34 +1351,5 @@ a.github:hover >i{  color:inherit;}
   	{
   	  text-align:left;
   	}
-    
-	
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-	
-	
-	
 	
 }
