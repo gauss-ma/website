@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: http://gauss-ma.com.ar/sitemap.xml

@@ -621,17 +621,16 @@ header {
 }
 
 
-
-
-
-
-
-
 /*HOME*/
 
 .slide.Home {
 	-webkit-animation: fade-in-up 0.3s cubic-bezier(.12,.51,.49,.88) forwards; 
 	animation: fade-in-up 0.3s cubic-bezier(.12,.51,.49,.88) forwards; 
+	
+	background-image: url( '../img/gauss_abstract.svg' );
+	background-repeat: no-repeat; 
+	background-position:center;
+       	background-size: 30%;
 }
 
 .texto-home{
@@ -642,13 +641,15 @@ header {
   	/*pointer-events: none;*/
 	position:absolute;
 	top:45%;
+	display:flex;
+	flex-direction:column;
 }
 
-.texto-home>img{
+/*.texto-home>img{
   	width: 70%;
 	max-width:600px;
  	padding-bottom: 20px;
-}
+}*/
 .texto-home>h1{
 
 }
@@ -1190,10 +1191,7 @@ a.github:hover >i{  color:inherit;}
 	   justify-content:center;
 	   padding:50px 20px;
 	}
-  
-        .home{
-           height: 100vh;
-        }
+        
 	.column-image{
 		width:100%;
 		max-width:700px;
@@ -1219,19 +1217,51 @@ a.github:hover >i{  color:inherit;}
 	.Logo_gauss{
 		left:20px
 	}
-
-
-	/* HOME		*/
-	.img-abstracta>object,.img-abstracta>img{
-		width:70%;
-		margin-bottom:20px;
+	/* MENU */       
+	.Menu_root {
+	    padding-top: 90px;
+	    padding-bottom: 15px;
 	}
-	.texto-home>img{
-	        padding-bottom: 10px;
+	.Menu_wrapper {
+	    margin-right: 5vw;
+	}
+	.Menu_lenguaje {
+	   font-size: 18px;
+	}
+	.Menu_lista {
+	       bottom:0em;
+	}
+	.Menu_email {
+	    font-size: 18px;
+	}
+	.Menu_links {
+	  bottom: 3vh;
+	}
+	.Menu_item ,
+	.Menu_lista {
+	  font-size: 7vh;
+	  line-height: 8vh;
+	}
+	.Menu_icono{
+	  font-size: 6vh;
+	  line-height: 7vh;
+	}
+	
+	/* HOME		*/
+	.slide.Home{
+	   	min-height: 100vh;
+	       	background-size: 85%;
+	}
+	.texto-home{
+		top:50%;
+		left:20px;
+	}
+	.texto-home>h1{
+		padding-bottom:0px;
 	}
 	.texto-home>h2{
 	        padding-bottom: 5px;
-		font-size:4vh;
+		font-size:3.5vh;
 		/* line-height:5vh; */
 	}
 	.texto-home>h4{
@@ -1239,7 +1269,6 @@ a.github:hover >i{  color:inherit;}
 		/* line-height:2.5vh; */
 	        padding-bottom: 5px;
 	}
-
 
 	/*OBJETIVO*/
 	.objetivo-words{
@@ -1261,8 +1290,8 @@ a.github:hover >i{  color:inherit;}
 	.steps{
 		margin:0px;
 		padding:0px;
-		width:90%;
-    		max-width:600px;
+		width:100%;
+    		max-width:650px;
     
 	}
   	.step{
@@ -1328,33 +1357,33 @@ a.github:hover >i{  color:inherit;}
   	  text-align:left;
   	}
     
-	/* MENU */       
-        .Menu_root {
-            padding-top: 90px;
-            padding-bottom: 15px;
-        }
-        .Menu_wrapper {
-            margin-right: 5vw;
-        }
-        .Menu_lenguaje {
-           font-size: 18px;
-        }
-        .Menu_lista {
-               bottom:0em;
-        }
-        .Menu_email {
-            font-size: 18px;
-        }
-        .Menu_links {
-          bottom: 3vh;
-        }
-        .Menu_item ,
-        .Menu_lista {
-          font-size: 7vh;
-          line-height: 8vh;
-        }
-	.Menu_icono{
-	  font-size: 5vh;
-	  line-height: 6vh;
-	}
+	
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+	
+	
+	
+	
 }
