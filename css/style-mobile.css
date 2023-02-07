@@ -1,0 +1,186 @@
+/*   RESPONSIVENESS  		  	*/
+/* ESTO ESTÀ FLOJIISIMO!! 		*/
+/*@media screen and (max-width: 600px) {*/
+@media (max-width: 670px) {
+
+/* ====> GENERAL   <==== */
+
+	h1{font-size:9vh;line-height:9.5vh;    padding-bottom:  3vh;     }
+	h2{font-size:6.8vh;line-height:7.5vh;  padding-bottom:2.5vh;     }
+	h3{font-size:4vh;line-height:4.25vh;   padding-bottom:  4vh;     }
+	h4{font-size:3vh;line-height:3.25vh;   padding-bottom:  3vh;     }
+  
+	p{font-size:2.5vh; line-height:3.8vh}
+  	a{}
+
+	.slide {
+	   flex-direction:column;
+	   justify-content:center;
+	   padding:50px 20px;
+	}
+        
+	.column-image{
+		width:100%;
+		max-width:700px;
+		margin:0!important;
+    		padding:0px;
+ 	}
+	.column-text{
+		max-width:700px;
+		padding:0px;
+	}
+	.column-image>img{
+		width:100%;
+	}
+
+	.btn{
+	  align-self: center;
+	  margin: 20px;
+	}
+
+	/* HEADER */
+  	.burguer_root {
+    		right: 20px;
+  	}
+	.Logo_gauss{
+		left:20px
+	}
+
+/* ====> MENU   <==== */
+	.Menu_root {
+	    padding-top: 90px;
+	    padding-bottom: 15px;
+	}
+	.Menu_wrapper {
+	    margin-right: 5vw;
+	}
+	.Menu_lenguaje {
+           font-size: 4vh;
+
+	}
+	.Menu_lista {
+	       bottom:0em;
+	}
+	.Menu_email {
+           font-size: 3vh;
+	}
+	.Menu_item ,
+	.Menu_lista {
+	  font-size: 7vh;
+	  line-height: 8vh;
+	}
+	.Menu_icono{
+	  font-size: 6vh;
+	  line-height: 7vh;
+	}
+	
+/* ====> HOME   <==== */
+	.slide.Home{
+	   	min-height: 80vh;
+	       	background-size: 85%;
+	}
+	.texto-home{
+		top:60%;
+		left:20px;
+	}
+	.texto-home>h1{
+		padding-bottom:0px;
+	}
+	.texto-home>h2{
+	        padding-bottom: 5px;
+		font-size:3.5vh;
+		/* line-height:5vh; */
+	}
+	.texto-home>h3{
+		font-size:2.25vh;
+		/* line-height:2.5vh; */
+	        padding-bottom: 5px;
+	}
+
+/* ====>OBJETIVO<==== */
+	.objetivo-words{
+		font-size:7vh;
+		padding:0;
+	}
+
+/* ====>GIS     <==== */
+	.mapas{
+	        width:270px;
+        	height:340px;
+  	}
+  	.gis{
+  	overflow-x:hidden
+  	}
+
+/* ====>SERVICIOS<==== */
+	.steps{
+		margin:0px;
+		padding:0px;
+		width:100%;
+    		max-width:650px;
+	}
+  	.step{
+		border-bottom:1px solid var(--gris-claro);
+  	}
+
+  	.step:before{display:none;}
+  	.step-content{display:none!important;}
+  	.step-content p{padding:10px;padding-top:20px;font-size:2.5vh;line-height:2.5vh;}
+  	.step-header{cursor: default;}
+  	.step-header:hover{color:var(--negro0);}
+  	.step.minimized:hover .header{color:var(--negro0);}
+  
+/* ====>CONTACTO<==== */
+ 	.Contactos_wrapper {
+    		-webkit-box-direction: normal;
+    		-webkit-box-orient: vertical;
+    		-moz-box-direction: normal;
+    		-moz-box-orient: vertical;
+    		-ms-flex-direction: column;
+    		 flex-direction: column;
+ 	   justify-content:space-between;
+ 	}
+	.Form-2-col,
+ 	.Contactos-form-wrapper,
+ 	.Contactos-info-wrapper {
+    		-webkit-box-direction: normal;
+    		-webkit-box-orient: vertical;
+    		-moz-box-direction: normal;
+    		-moz-box-orient: vertical;
+    		-ms-flex-direction: column;
+    		 flex-direction: column;
+ 	        	text-align:center;
+                	justify-content:center;
+	     		align-items:center;
+			width:100%;
+			padding:0px!important;
+		margin-bottom:20px;
+ 	}
+ 	.Form_campo,
+ 	.Form-mitad {
+ 	  	width: 100%;
+		max-width:300px;
+ 	}
+	.Info_box{
+		text-align:center;
+	     	align-items:center;
+	}
+
+/* ====>FOOTER<==== */
+  	.site-footer [class^=col-]
+  	{
+  	  margin-bottom:30px
+  	}
+  	.site-footer
+  	{
+		padding:50px 0;
+  	}
+	.site-footer-wrapper{
+		padding:0px 20px!important;
+	}
+	.site-footer-wrapper, .site-footer .copyright-text,.site-footer 
+  	{
+  	  text-align:left;
+  	}
+	
+}

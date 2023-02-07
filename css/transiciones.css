@@ -377,3 +377,44 @@
   50%, 70%{    transform: translate3d(-1px, 1px,  0px);   }
 }
 
+
+/*TRANSICIONES */
+.animar_fade-in-up{
+	opacity:0;
+}
+.fade-in-up{
+	-webkit-animation: fade-in-UP 2s cubic-bezier(.19,1,.22,1) forwards;
+        animation: fade-in-UP 2s cubic-bezier(.19,1,.22,1) forwards;
+	/*opacity:1;*/
+	-ms-animation-delay: 0.4s; -webkit-animation-delay: 0.4s;  animation-delay: 0.4s;
+}
+
+
+/*aparicios palabras objetivo*/
+.animar_fade-in{
+	opacity:0;
+}
+
+.fade-in{
+	-webkit-animation: fade-in 4s cubic-bezier(.1,1,.22,1) forwards;
+	animation: fade-in 4s cubic-bezier(.1,1,.22,1) forwards;
+}
+
+.expandido>.expansible{
+  	height:auto;
+  	max-height:80vh;
+	padding-bottom:10px;
+	opacity:1;
+}
+.expansible {
+	color:var(--gris-medio);
+  	opacity:0;
+	max-height:0;
+  	overflow:hidden;
+	transition: all 1s ease; /*cubic-bezier(0.23,1,0.32,1);*/
+}
+
+     .btn-colapsar{display:none;}
+.expandido>.btn-colapsar{display:block;}
+.expandido>.btn-expandir{display:none;}
+

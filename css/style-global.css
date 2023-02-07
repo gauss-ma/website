@@ -1,0 +1,315 @@
+:root{
+  /* Paleta de colores GAUSS v1.0 -
+   * Para mas información, consultar la StyleSheet:
+  https://www.figma.com/file/20SQRpHpszMnntGvWCy0ge/Gauss-Stylesheet?node-id=99%3A2 */
+  
+  /* Escala de grises */
+  --negro-0:#1F1F1F;	 
+  --gris-oscuro-0:#363636; 
+  --gris-medio-0: #ACACAC;  /* todavía no le elegí color */
+  --gris-claro-0:#E1E1E1;
+  --blanco-0: #fafafa;      /* todavía es incoherente esto del 0 xq este blanco-0 es mas claro que el otro y los otros -0 son mas oscuros */
+
+ --negro:#232323;	/*alternativa suave: TESERA*/
+ --gris-oscuro:#4b4e53; /*alternativa suave: TESERA*/
+ --gris-medio: #ACACAC;  
+ --gris-claro:#E7E7E7;  /*alternativa suave: TESERA*/
+ --blanco: #f7f7f7;
+ 
+  /* Paleta pentacroma */
+  --celeste-claro:#52C0C0;
+  --celeste-oscuro:#108AA8;
+  --azul:#063959;
+  --violeta:#8C5B8D;
+  --rosa:#F2809F;
+  
+  /* colores saturados para interacción */
+  --amarillo-saturado:#FEC439;
+  --rosa-saturado: #EF3974;
+  --celeste-saturado:#37D6FF;
+  
+  /* Familia inicial de tipografías */
+  /* Monsterrat&Roboto */
+  /* font-family:'Montserrat', "DejaVu Sans", Verdana, sans‑serif;
+font-family:'Roboto',"-apple-system", BlinkMacSystemFont, Tahoma, sans‑serif; */
+
+}
+
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video {  
+margin: 0;  padding: 0;  border: 0;  font-size: 100%;/*  font: inherit;  vertical-align: baseline;*/
+}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+  display: block;
+}
+ol,ul {
+  list-style: none;
+}
+blockquote,q {
+  quotes: none;
+}
+blockquote:after,
+blockquote:before,
+q:after,
+q:before {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.global,html {
+  background-color: var(--blanco);
+  color:var(--gris-oscuro);/*var(--negro);*/
+}
+.global {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+}
+
+html {
+  min-height: 100vh;
+  width: 100%;
+}
+
+body {
+  position: relative;
+  overflow-y: auto;
+  font-family:'Roboto',"-apple-system", BlinkMacSystemFont, Tahoma, sans‑serif;
+  font-weight: 400;
+}
+main{
+	width:100%;
+	/*margin:auto;*/
+}
+
+h1,h2,h3{
+  font-family: 'Montserrat', "DejaVu Sans", Verdana, 'sans‑serif';
+  font-weight: 800;
+  max-width:650px;
+}
+h4,h5,h6 {
+  font-family: 'Montserrat', "DejaVu Sans", Verdana, 'sans‑serif';
+  font-weight: 400;
+  max-width:650px;
+}
+
+p {
+  font-size: 1.125em;
+  letter-spacing: .03em;
+  max-width:650px;
+  	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased !important;
+	-moz-font-smoothing: antialiased !important;
+  	text-rendering: optimizelegibility !important;
+        padding: 0 0 0.5em 0;
+        line-height: 30px;
+}
+h1 {
+  font-size: 6em;
+}
+h2 {
+  font-size: 3em;
+}
+h3 {
+  font-size: 1.5em;
+}
+h4{
+  font-size: 1.25em;
+}
+h5{
+  font-size: .8em;
+}
+
+:focus {
+  color:var(--gris-oscuro);
+  outline: none;
+}
+a,a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.subrrayar{
+	width:auto!important;
+	/*margin:auto!important;*/
+	padding-bottom:2px;
+}
+.subrrayar:hover{
+	padding-bottom:0px;
+}
+.subrrayar:hover:after {
+  position: relative;
+  display: block;
+  content: "";
+  height: 2px;
+  width: 0;
+  -webkit-animation-name: Efecto_link_subrrayar;
+  animation-name: Efecto_link_subrrayar;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-timing-function: cubic-bezier(0, 0.16, 0.12 0, 1);
+  animation-timing-function: cubic-bezier(0, 0.16, 0.12 0, 1);
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  background-color: var(--gris-oscuro);
+}
+
+figure,
+figcaption{
+	text-align:center;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: var(--gris-medio);
+  background-color: inherit;
+
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: var(--gris-medio);
+  background-color: inherit;
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--gris-medio);
+  background-color: inherit;
+}
+input:focus::placeholder,
+textarea:focus::placeholder {
+  color: var(--celeste-oscuro);
+  background-color: inherit;
+}
+button {
+  border: 0;
+  box-sizing: border-box;
+  background-color: transparent;
+  cursor: pointer;
+	color:inherit;
+}
+
+nav a {
+  text-decoration: none !important;
+  opacity: 0.8;
+}
+nav a:hover {
+  color: var(--celeste-oscuro);
+  opacity: 1;
+}
+
+b {
+  font-weight: bold;
+}
+
+.white {
+  color: var(--blanco);
+}
+.black {
+  color:var(--negro);
+}
+.gray{
+  color:var(--gris-oscuro);
+}
+
+.white div {
+  background-color:var(--blanco);
+}
+
+.gray div ,
+.black div {
+  background-color: var(--negro);
+}
+
+/*.fa {
+  color: var(--negro);
+}*/
+.bg-oscuro.fa{
+	color: var(--blanco);
+}
+
+
+.bg-oscuro{
+  background-color: var(--negro);
+  
+}
+
+
+.no-scroll {
+  overflow-y: hidden;
+}
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+.noscroll {
+  height: 100%;
+  overflow: hidden !important;
+  width: 100%;
+  position: fixed;
+}
+/*BOTONES */
+.btn {
+	padding:10px;
+  width:100px;
+  margin-top: 20px;
+    color: var(--negro);
+    text-transform: uppercase;
+    text-align: center;
+  	transition: all 2s cubic-bezier(.19,1,.22,1);
+  	-webkit-transition: all 2s cubic-bezier(.19,1,.22,1);
+}
+.btn:hover{
+	color:var(--celeste-oscuro);
+}
+
+.material-design{
+	border:none;
+/* el border generaba un efecto choto cuando había hover, se veía una linea celeste en un frame de la transición */
+	border-radius:4px;
+	color:var(--gris-medio);
+		-webkit-transition: all 0.5s cubic-bezier(.19,1,.22,1);
+			transition: all 0.5s cubic-bezier(.19,1,.22,1);
+		-webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+		   -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+		        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+}
+.material-design:hover{
+	cursor:pointer;
+	border:none;
+	color:var(--celeste-oscuro);
+	background-color:var(--blanco-0);
+	-webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .3);
+	   -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .3);
+	        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .3);
+}
+
+.material-design-dark{
+	border:none;
+	border-radius:4px;
+  color:var(--gris-medio);
+ 		-webkit-transition: all 0.5s cubic-bezier(.19,1,.22,1);
+			transition: all 0.5s cubic-bezier(.19,1,.22,1);
+		-webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);
+		   -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);
+		        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);
+}
+
+.material-design-dark:hover{
+	cursor:pointer;
+	border:none;
+	color:var(--celeste-claro);
+  background-color: var(--gris-oscuro-0);
+	-webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .7);
+	   -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .7);
+	        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .7);
+}
+
+

@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
 
 <head>
 	<!-- GOOGLEFONTS -->
@@ -38,8 +39,9 @@
 	<!-- meta name="og:image" content="images/sharing.63ae2f.jpg" -->
 	<!-- meta property="og:image" content="images/sharing.63ae2f.jpg" -->
 	<!-- meta property="og:type" content="website" -->
-	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<meta name="msapplication-config" content="/static/faviconFiles/browserconfig.xml">
+	<!--meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"-->
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+	<!--meta name="msapplication-config" content="/static/faviconFiles/browserconfig.xml"-->
 	<meta name="theme-color" content="#ffffff">
 
 	<title>Gauss - modelado ambiental</title>
@@ -58,19 +60,21 @@
 
 	<!-- fa-icons cratejs, safary, etc -->
 	<link rel="mask-icon" href="fonts/safari-pinned-tab.fcceb5.svg" color="#5bbad5">
-	<link rel="manifest" href="/static/faviconFiles/manifest.json">
+	<!-- link rel="manifest" href="/static/faviconFiles/manifest.json" -->
 	<script src="https://kit.fontawesome.com/32f3fc8ac1.js" crossorigin="anonymous"></script>
 	<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
 
 	<!-- CSS  -->
 	<!-- <link href="css/font-style.css" rel="stylesheet"> -->
 	<link href="css/transiciones.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
+	<link href="css/style-global.css" rel="stylesheet">
+	<link href="css/style.css" 	  rel="stylesheet">
+	<link href="css/style-mobile.css" rel="stylesheet">
 
 	<!-- LIBS -->
-	<script type='text/javascript' src='js/jquery-3.3.1.min.js'></script>
-	<script type='text/javascript' src='js/jquery-migrate.min.js'></script>
-	<script type='text/javascript' src='js/jquery.touchswipe.min.js'></script>
+	<script type='text/javascript' src='js/jquery/jquery-3.6.3.min.js'     ></script>
+	<script type='text/javascript' src='js/jquery/jquery-migrate-1.4.1.min.js'   ></script>
+	<script type='text/javascript' src='js/jquery/jquery.touchswipe.min.js'></script>
 
 	<!-- threejs -->
  	<script src="js/threejs/gl-matrix-min.js"></script> 
@@ -82,7 +86,7 @@
 <body class="">
 
 <header>
-	<span id="Logo_gauss" class="Logo_gauss"><img src="img/icon-gauss.png"></img> &nbsp;gauss </span>
+	<span id="Logo_gauss" class="Logo_gauss"><img alt="icono-gauss" src="img/icon-gauss.png"></img> &nbsp;gauss </span>
 	<div class="Header_burguer">
 	</div>
 	<div class="burguer_root">
@@ -101,16 +105,16 @@
 	  	<a class="Menu_current"                 href="#"      >ES</a>
 	  </nav>
 	  <nav class="Menu_lista">
-	  	<a href="#" data-scroll="home"     ><div class="Menu_item" style="animation-delay: 0.10s;">Principal</div></a>
-	  	<a href="#" data-scroll="modelos"  ><div class="Menu_item" style="animation-delay: 0.17s;">Modelos  </div></a>
-	  	<a href="#" data-scroll="servicios"><div class="Menu_item" style="animation-delay: 0.24s;">Servicios</div></a>
-	  	<a href="#" data-scroll="contacto" ><div class="Menu_item" style="animation-delay: 0.31s;">Contacto </div></a>
+	  	<a href="#" data-scroll="home"      title="Home"      aria-label="Home"     ><div class="Menu_item" style="animation-delay: 0.10s;">Principal</div></a>
+	  	<a href="#" data-scroll="modelos"   title="Modelos"   aria-label="Modelos"  ><div class="Menu_item" style="animation-delay: 0.17s;">Modelos  </div></a>
+	  	<a href="#" data-scroll="servicios" title="Servicios" aria-label="Servicios"><div class="Menu_item" style="animation-delay: 0.24s;">Servicios</div></a>
+	  	<a href="#" data-scroll="contacto"  title="Concato"   aria-label="Concato"  ><div class="Menu_item" style="animation-delay: 0.31s;">Contacto </div></a>
 
-	  	<a class="Menu_icono" title="linkedin" href="https://www.linkedin.com/company/gauss-ma"       ><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-          	<a class="Menu_icono" title="github"   href="https://github.com/gauss-ma"                     ><i class="fab fa-github"   aria-hidden="true"></i></a>
-          	<a class="Menu_icono" title="whatsapp" href="https://api.whatsapp.com/send?phone=1124026236"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+	  	<a class="Menu_icono" title="Linkedin" aria-label="Linkedin" href="https://www.linkedin.com/company/gauss-ma"       ><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+          	<a class="Menu_icono" title="Github"   aria-label="Github"   href="https://github.com/gauss-ma"                     ><i class="fab fa-github"   aria-hidden="true"></i></a>
+          	<a class="Menu_icono" title="Whatsapp" aria-label="Whatsapp" href="https://api.whatsapp.com/send?phone=1124026236"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
 	  </nav>
-		<a class="Menu_email subrrayar" target="_self" href="mailto:contacto@gauss-ma.com.ar">contacto@gauss-ma.com.ar</a>
+		<a class="Menu_email subrrayar" title="email" aria-label="email" target="_self" href="mailto:contacto@gauss-ma.com.ar">contacto@gauss-ma.com.ar</a>
 	</div>
 	</div>
 </header>
@@ -121,8 +125,8 @@
 		<div class="texto-home">
 			<h1> Gauss </h1>
 			<h2>modelado ambiental</h2>
-			<h4>Modelos de simulación con fines regulatorios<br>
-			Consultoría, desarrollo y soporte técnico</h4>
+			<h3>Modelos de simulación con fines regulatorios<br>
+			Consultoría, desarrollo y soporte técnico</h3>
 		<div>
 </section>
 
@@ -164,8 +168,8 @@
 			Debido a la sensibilidad de los modelos de transporte de contaminantes a la meteorología, realizamos un procesamiento y control de calidad adicional de estos datos.
         		</p>		
 		</div>
-		<a class="btn material-design btn-expandir" onclick="$('[name=air]').addClass('expandido');">Ver más</a>
-		<a class="btn material-design btn-colapsar" onclick="$('[name=air]').removeClass('expandido');">Ver menos</a>
+		<a href="" class="btn material-design btn-expandir" onclick="$('[name=air]').addClass('expandido');">Ver más</a>
+		<a href="" class="btn material-design btn-colapsar" onclick="$('[name=air]').removeClass('expandido');">Ver menos</a>
 
 	</div>
 	<div class="column-image" id="viewAIR">
@@ -188,12 +192,12 @@
 			<p>La caracterización hidrogeológica del medio a modelar y los parámetros hidráulicos de las formaciones son esenciales 
 				en la definición del sistema, por lo que realizamos controles adicionales de la calidad de esta información.</p>		
 		</div>
-		<a class="btn material-design btn-expandir" onclick="$('[name=gw]').addClass('expandido');">Ver más</a>
-		<a class="btn material-design btn-colapsar" onclick="$('[name=gw]').removeClass('expandido');">Ver menos</a>
+		<a href="" class="btn material-design btn-expandir" onclick="$('[name=gw]').addClass('expandido');">Ver más</a>
+		<a href="" class="btn material-design btn-colapsar" onclick="$('[name=gw]').removeClass('expandido');">Ver menos</a>
 	</div>
 	<div class="column-image">
 		<!-- canvas id="canvasGW"> </canvas-->
-		 <img src="img/img-gw-temp-optim.png" alt="">
+		 <img src="img/img-gw-temp-optim.png" alt="modelo-gw">
 	</div>
 </section>
 
@@ -214,8 +218,8 @@
 
                         </p>
                 </div>
-                <a class="btn material-design btn-expandir" onclick="$('[name=sw]').addClass('expandido');">Ver más</a>
-                <a class="btn material-design btn-colapsar" onclick="$('[name=sw]').removeClass('expandido');">Ver menos</a>
+                <a href="" class="btn material-design btn-expandir" onclick="$('[name=sw]').addClass('expandido');">Ver más</a>
+                <a href="" class="btn material-design btn-colapsar" onclick="$('[name=sw]').removeClass('expandido');">Ver menos</a>
 	</div>
 	
 	<div class="column-image" id="viewSW">
@@ -231,9 +235,9 @@
 <section class="slide center bg-oscuro gis" >
 	<div class="mapas">
                  <span class="shadow"></span>
-                 <div class="layer"> <img src="img/mapa1.gif"></img></div>
-                 <div class="layer"> <img src="img/mapa2.png"></img></div>
-                 <div class="layer"> <img src="img/mapa3.png"></img></div>
+                 <div class="layer"> <img alt="mapa-base" src="img/mapa1.gif"></img></div>
+                 <div class="layer"> <img alt="mapa-polys" src="img/mapa2.png"></img></div>
+                 <div class="layer"> <img alt="mapa-calles" src="img/mapa3.png"></img></div>
 	</div>      
 	
 		<div class="column-text animar_fade-in-up" style="margin-top:-100px;">
@@ -327,7 +331,7 @@
 <section class="slide center bg-oscuro">
 	<div class="column-text animar_fade-in-up">	
 		<!-- i class="fa fa-code fa-4x" aria-hidden="true" style="fill:white;color:white;margin-bottom:10px;"></i-->
-		<img style="width:150px;padding-bottom:30px;"src="img/Recurso 5v2.svg"/>
+		<img style="width:150px;padding-bottom:30px;" src="img/Recurso 5v2.svg" alt="logo-ToxDB"/>
 		<!--h2 class="white">ToxDB </h2-->
 		<p class="white"> Creamos <strong>Tox.db</strong>: una base de datos abierta a la comunidad de profesionales del ambiente y la salud que compila información relevante de los compuestos químicos de interés regulados. Es una plataforma abierta en constante crecimiento.</p>
 		<p class="white"> Desarrollamos y mantenemos bases de datos con aplicaciones ambientales con el fin de agilizar el acceso y manejo de información.</p>
@@ -409,7 +413,7 @@
 	<div class="container">
 	    	<p>Desarrollamos nuestras herramientas de software que nos permiten dar un servicio diferenciado y las compartimos en nuestro repositorio de código.</p>
 	    	<p>Para contribuir o conocer nuestros desarrollos, visitá <a href="https://github.com/gauss-ma/">github.com/gauss-ma/</a></p>
-	    	<a class="github" href="https://github.com/gauss-ma/"><i class="fa fa-4x fa-github"></i></a>
+	    	<a class="github" title="Github" aria-label="Github" href="https://github.com/gauss-ma/"><i class="fa fa-4x fa-github"></i></a>
 	</div>
 </div>
 </footer>

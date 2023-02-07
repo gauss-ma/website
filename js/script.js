@@ -153,22 +153,42 @@ function setWhite(){
 //
 //});
 //
-(function($) {
-  $.fn.visible = function(partial) {
-      var $t            = $(this),
-          $w            = $(window),
-          viewTop       = $w.scrollTop(),
-          viewBottom    = viewTop + $w.height()/10.,
-          _top          = $t.offset().top,
-          _bottom       = _top + $t.height(),
-          compareTop    = partial === true ? _bottom : _top,
-          compareBottom = partial === true ? _top : _bottom;
-    
-    return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
-  };
-  
-})(jQuery);
 
+//Esta era la funcion de visible de jQuery vieja, me estaba dando problemas cuando agregaba al index.html <!DOCTYPE html>.
+//(function($) {
+//  $.fn.visible = function(partial) {
+//      var $t            = $(this),
+//          $w            = $(window),
+//          viewTop       = $w.scrollTop(),
+//          viewBottom    = viewTop + $w.height()/10.,
+//          _top          = $t.offset().top,
+//          _bottom       = _top + $t.height(),
+//          compareTop    = partial === true ? _bottom : _top,
+//          compareBottom = partial === true ? _top : _bottom;
+//    
+//    return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+//  };
+//  
+//})(jQuery);
+(function($) {
+
+  $.fn.visible = function(partial, hidden) {
+
+    var $t = $(this).eq(0),
+      t = $t.get(0),
+      $w = $(window),
+      viewTop = $w.scrollTop(),
+      viewBottom = viewTop + $w.height(),
+      _top = $t.offset().top,
+      _bottom = _top + $t.height(),
+      compareTop = partial === true ? _bottom : _top,
+      compareBottom = partial === true ? _top : _bottom,
+      clientSize = hidden === true ? t.offsetWidth * t.offsetHeight : true;
+
+    return !!clientSize && ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+  };
+
+})(jQuery);
 
 
 var allMods = $(".animar_fade-in-up");
@@ -250,195 +270,6 @@ $(window).scroll(function(event) {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//OBJETOS:
-//	//AXIS:
-//	var points = [new THREE.Vector3( 0.5, 0, 0 )];
-//	points.push( new THREE.Vector3( 0, 0, 0 ) );
-//	var material = new THREE.LineBasicMaterial({	color: 0x202020,linewidth:1.2,linecap:'butt'});
-//	var geometry = new THREE.BufferGeometry().setFromPoints( points );
-//	var lineX = new THREE.Line( geometry, material );
-//	var lineY = new THREE.Line( geometry, material );
-//	var lineZ = new THREE.Line( geometry, material );
-//		lineY.rotation.z = Math.PI*0.5;
-//		lineZ.rotation.y = 0.5*Math.PI;
-//	var AXIS = new THREE.Group();
-//		AXIS.add( lineX );
-//		AXIS.add( lineY );
-//		AXIS.add( lineZ );
-//
-//	//Piso
-//	var planeGeo = new THREE.PlaneGeometry(150,150,4);
-// 	var planeMaterial = new THREE.MeshLambertMaterial({color:0xf7f7f7, reflectivity: 0.3 });
-// 		planeMaterial.side = THREE.DoubleSide;
-//	var piso  = new THREE.Mesh(planeGeo,planeMaterial);
-//	piso.receiveShadow = true;
-//	piso.rotation.x = -.5*Math.PI;
-//
-//	//Terrain:
-//	var geometryTerrain = new THREE.PlaneGeometry(8, 8, 10, 10);
-//	var materialTerrain = new THREE.MeshLambertMaterial({ color: 0xf7d6a1});
-//	materialTerrain.side = THREE.DoubleSide;
-//        var Terrain = new THREE.Mesh(geometryTerrain, materialTerrain);
-//		Terrain.rotation.y=Math.PI;
-//		Terrain.rotation.x=-0.5*Math.PI;
-//		Terrain.position.y=2.5;
-//		Terrain.castShadow=true;
-//
-//	//CAJA                                                         	
-//	var edifGeo = new THREE.BoxGeometry(.5,0.5,.5);        	
-// 	var edifMaterial = new THREE.MeshLambertMaterial({ color: 0xf7d6a1 });
-//	var edificio = new THREE.Mesh( edifGeo, edifMaterial );
-//	edificio.castShadow = true;                            	
-//		edificio.position.y=2.0
-//	
-
-
-
-
-
-
-
-
-
-/*CANVAS AIRE*/
-//    var canvasAIRWidth=$("#canvasAIR").innerWidth();
-//    var canvasAIRHeight=$("#canvasAIR").innerHeight();
-//
-//	//RENDERER
-//	var rendererAIR = new THREE.WebGLRenderer({canvas:canvasAIR});
-//	    rendererAIR.setSize(canvasAIRWidth, canvasAIRHeight);
-//	    rendererAIR.setClearColor(0xf7f7f7);
-//	    rendererAIR.shadowMap.enabled = true;
-//	    rendererAIR.shadowMap.type = THREE.PCFSoftShadowMap;
-//
-//	//ESCENA:
-//   	 var sceneAIR = new THREE.Scene();
-//    	sceneAIR.position.x=0;
-//	sceneAIR.position.y=1;
-//	sceneAIR.position.z=0;
-//    	//sceneAIR.add(new THREE.AmbientLight(0xeeeeee));
-//
-//	//CAMARA
-//    	var cameraAIR = new THREE.PerspectiveCamera(45, canvasAIRWidth / canvasAIRHeight, 0.1, 1000);
-//    		cameraAIR.position.set(5, 12, 12);
-//	
-//
-//	//CONTROL
-//	var controlsAIR = new THREE.OrbitControls( cameraAIR, rendererAIR.domElement );
-//
-//        //LUZ
-//	var lightAIR = new THREE.DirectionalLight( 0xf7f7f7, 1.1 );
-//		lightAIR.position.set(cameraAIR.position.x-2,cameraAIR.position.y+3,cameraAIR.position.z+1);//default; light shining from top
-//		lightAIR.castShadow = true;            // default false
-//		//SetAIRp shadow properties for the light
-//		lightAIR.shadow.mapSize.width = 25;  // default
-//		lightAIR.shadow.mapSize.height = 25; // default
-//		lightAIR.shadow.camera.near = 1;    // default
-//		lightAIR.shadow.camera.far = 50;     // default
-//
-//	//AGREGAR COSAS A LA ESCENA::
-//	sceneAIR.add(piso);
-//	sceneAIR.add(AXIS);
-//        sceneAIR.add(Terrain);
-//	sceneAIR.add(lightAIR);
-//	
-//    	rendererAIR.render(sceneAIR,cameraAIR);
-//
-//	//function animateAIR() {
-//	//   requestAnimationFrame( animateAIR );
-//	//     // required if controls.enableDamping or controls.autoRotate are set to true
-//	//     controlsAIR.update();
-//	//     rendererAIR.render( sceneAIR, cameraAIR );
-//	//}
-//	//animateAIR();
-//
-/*CANVAS GW*/
-//	var canvasGWWidth=$("#canvasGW").innerWidth();
-//	var canvasGWHeight=$("#canvasGW").innerHeight();
-//	
-// 	// RENDERER
-// 	var rendererGW = new THREE.WebGLRenderer({canvas:canvasGW});
-// 	//renderer.setSize(window.innerWidth*0.9, window.innerHeight*0.9);
-// 		rendererGW.setSize(canvasGWWidth, canvasGWHeight);
-// 		rendererGW.setClearColor(0xf7f7f7);
-// 		rendererGW.shadowMap.enabled = true;
-// 		rendererGW.shadowMap.type = THREE.PCFSoftShadowMap;
-//	// ESCENA
-//	var sceneGW = new THREE.Scene();
-//    		sceneGW.position.x=0;sceneGW.position.y=1;	sceneGW.position.z=0;
-//
-//	// CAMARA
-//        //var camera = new THREE.PerspectiveCamera(25, window.innerWidth/window.innerHeight, .1, 50) //params: zoom, ratioW/H, near, far
-//        var cameraGW = new THREE.PerspectiveCamera(50, canvasGWWidth/canvasGWHeight, .1, 500) //params: zoom, ratioW/H, near, far
-//        	cameraGW.position.set(3.5,7.1,2.4);
-//		cameraGW.lookAt(sceneGW.position);
-//	// LUZ
-//	//luz ambiente
-//	//var light = new THREE.AmbientLight( 0x151515 ); // soft white light
-//	//scene.add( light );
-//	                                                                                                                          
-//	//luz direccionada
-//	//var spotLight = new THREE.SpotLight(0xffffff);
-//	//spotLight.position.set(camera.position.x+1,camera.position.y+5,camera.position.z+5);
-//	//spotLight.castShadow = true;
-//	//scene.add(spotLight);
-//	                                                                                                                          
-//	//DirectionalLight and turn on shadows for the light
-//	var lightGW = new THREE.DirectionalLight( 0xf7f7f7, 1.1 );
-//	lightGW.position.set(cameraGW.position.x-2,cameraGW.position.y+2,cameraGW.position.z+1);//default; light shining from top
-//	lightGW.castShadow = true;            // default false
-//	//Set up shadow properties for the light
-//	lightGW.shadow.mapSize.width = 25;  // default
-//	lightGW.shadow.mapSize.height = 25; // default
-//	lightGW.shadow.camera.near = 1;    // default
-//	lightGW.shadow.camera.far = 50;     // default
-//
-//	//CONTROL
-//	//var controls = new THREE.OrbitControls( camera, renderer.domElement );
-//
-//	sceneGW.add(piso );
-//        sceneGW.add(AXIS );
-//
-//	sceneGW.add(edificio );
-//	sceneGW.add(lightGW );
-//        
-//	// Agregar a canvas
-//	rendererGW.render(sceneGW,cameraGW);	
-//
-//	//SETUP ESTÁTICO:
-//
-//	// Agregar a canvas
-//		//function animate() {
-//	//   requestAnimationFrame( animate );
-//	//     // required if controls.enableDamping or controls.autoRotate are set to true
-//	//     controls.update();
-//	//     renderer.render( scene, camera );
-//    	//}
-//	//animate();
 
  
 ////QGIS SW:
