@@ -381,8 +381,7 @@ header {
 .slide.Home {
 	-webkit-animation: fade-in-up 0.3s cubic-bezier(.12,.51,.49,.88) forwards; 
 	animation: fade-in-up 0.3s cubic-bezier(.12,.51,.49,.88) forwards; 
-	
-	background-image: url( '../img/gauss_abstract.svg' );
+	/*background-image: url( '../img/gauss_abstract.svg' );*/
 	background-repeat: no-repeat; 
 	background-position:center;
        	background-size: 40%;

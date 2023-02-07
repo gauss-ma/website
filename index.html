@@ -45,7 +45,7 @@
 	<meta name="theme-color" content="#ffffff">
 
 	<title>Gauss - modelado ambiental</title>
-	<link rel="icon" type="image/png" href="img/icon-gauss.png" sizes="512x512">
+	<link rel="icon" type="image/png" href="img/icon-gauss.webp" sizes="512x512">
 
 	<!-- Tal vez haga figurar a gauss como empresa en una gglseach -->
 	<script type="application/ld+json">
@@ -60,9 +60,8 @@
 
 	<!-- fa-icons cratejs, safary, etc -->
 	<link rel="mask-icon" href="fonts/safari-pinned-tab.fcceb5.svg" color="#5bbad5">
-	<!-- link rel="manifest" href="/static/faviconFiles/manifest.json" -->
 	<script src="https://kit.fontawesome.com/32f3fc8ac1.js" crossorigin="anonymous"></script>
-	<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+	<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
 
 	<!-- CSS  -->
 	<!-- <link href="css/font-style.css" rel="stylesheet"> -->
@@ -72,21 +71,16 @@
 	<link href="css/style-mobile.css" rel="stylesheet">
 
 	<!-- LIBS -->
-	<script type='text/javascript' src='js/jquery/jquery-3.6.3.min.js'     ></script>
-	<script type='text/javascript' src='js/jquery/jquery-migrate-1.4.1.min.js'   ></script>
-	<script type='text/javascript' src='js/jquery/jquery.touchswipe.min.js'></script>
-
-	<!-- threejs -->
- 	<script src="js/threejs/gl-matrix-min.js"></script> 
- 	<script src="js/threejs/three.min.js"></script>
- 	<!--script src="js/threejs/OrbitControls.js"></script-->
- 	<!--script src="js/threejs/DeviceOrientationControls.js"></script -->
+	<script type='text/javascript' src='js/jquery/jquery-3.6.3.min.js'         ></script>
+	<script type='text/javascript' src='js/jquery/jquery-migrate-1.4.1.min.js' ></script>
+	<script type='text/javascript' src='js/jquery/jquery.touchswipe.min.js'    ></script>
+ 	
 </head>
 
 <body class="">
 
 <header>
-	<span id="Logo_gauss" class="Logo_gauss"><img alt="icono-gauss" src="img/icon-gauss.png"></img> &nbsp;gauss </span>
+	<span id="Logo_gauss" class="Logo_gauss"><img alt="icono-gauss" src="img/icon-gauss.webp"></img> &nbsp;gauss </span>
 	<div class="Header_burguer">
 	</div>
 	<div class="burguer_root">
@@ -105,10 +99,10 @@
 	  	<a class="Menu_current"                 href="#"      >ES</a>
 	  </nav>
 	  <nav class="Menu_lista">
-	  	<a href="#" data-scroll="home"      title="Home"      aria-label="Home"     ><div class="Menu_item" style="animation-delay: 0.10s;">Principal</div></a>
-	  	<a href="#" data-scroll="modelos"   title="Modelos"   aria-label="Modelos"  ><div class="Menu_item" style="animation-delay: 0.17s;">Modelos  </div></a>
-	  	<a href="#" data-scroll="servicios" title="Servicios" aria-label="Servicios"><div class="Menu_item" style="animation-delay: 0.24s;">Servicios</div></a>
-	  	<a href="#" data-scroll="contacto"  title="Concato"   aria-label="Concato"  ><div class="Menu_item" style="animation-delay: 0.31s;">Contacto </div></a>
+	  	<a href="#Home" data-scroll="home"      title="Home"      aria-label="Home"     ><div class="Menu_item" style="animation-delay: 0.10s;">Principal</div></a>
+	  	<a href="#Modelos" data-scroll="modelos"   title="Modelos"   aria-label="Modelos"  ><div class="Menu_item" style="animation-delay: 0.17s;">Modelos  </div></a>
+	  	<a href="#Servicios" data-scroll="servicios" title="Servicios" aria-label="Servicios"><div class="Menu_item" style="animation-delay: 0.24s;">Servicios</div></a>
+	  	<a href="#Contacto" data-scroll="contacto"  title="Concato"   aria-label="Concato"  ><div class="Menu_item" style="animation-delay: 0.31s;">Contacto </div></a>
 
 	  	<a class="Menu_icono" title="Linkedin" aria-label="Linkedin" href="https://www.linkedin.com/company/gauss-ma"       ><i class="fab fa-linkedin" aria-hidden="true"></i></a>
           	<a class="Menu_icono" title="Github"   aria-label="Github"   href="https://github.com/gauss-ma"                     ><i class="fab fa-github"   aria-hidden="true"></i></a>
@@ -121,7 +115,7 @@
 
 <main id="content">
 <!--   H O M E   -->
-<section id="home-container" name="home" class="slide center Home">
+<section id="home-container" name="home" class="slide center Home" style="background-image: url( 'img/gauss_abstract.svg' );">
 		<div class="texto-home">
 			<h1> Gauss </h1>
 			<h2>modelado ambiental</h2>
@@ -197,7 +191,8 @@
 	</div>
 	<div class="column-image">
 		<!-- canvas id="canvasGW"> </canvas-->
-		 <img src="img/img-gw-temp-optim.png" alt="modelo-gw">
+		 <!--img src="img/img-gw-temp-optim.png" alt="modelo-gw" loading="lazy"-->
+		 <img src="img/img-gw-temp-optim.webp" alt="modelo-gw" loading="lazy">
 	</div>
 </section>
 
@@ -235,9 +230,9 @@
 <section class="slide center bg-oscuro gis" >
 	<div class="mapas">
                  <span class="shadow"></span>
-                 <div class="layer"> <img alt="mapa-base" src="img/mapa1.gif"></img></div>
-                 <div class="layer"> <img alt="mapa-polys" src="img/mapa2.png"></img></div>
-                 <div class="layer"> <img alt="mapa-calles" src="img/mapa3.png"></img></div>
+                 <div class="layer"> <img alt="mapa-base"   src="img/mapa1.webp" loading="lazy"></img></div>
+                 <div class="layer"> <img alt="mapa-polys"  src="img/mapa2.webp" loading="lazy"></img></div>
+                 <div class="layer"> <img alt="mapa-calles" src="img/mapa3.webp" loading="lazy"></img></div>
 	</div>      
 	
 		<div class="column-text animar_fade-in-up" style="margin-top:-100px;">
@@ -331,7 +326,7 @@
 <section class="slide center bg-oscuro">
 	<div class="column-text animar_fade-in-up">	
 		<!-- i class="fa fa-code fa-4x" aria-hidden="true" style="fill:white;color:white;margin-bottom:10px;"></i-->
-		<img style="width:150px;padding-bottom:30px;" src="img/Recurso 5v2.svg" alt="logo-ToxDB"/>
+		<img style="width:150px;padding-bottom:30px;" src="img/Recurso 5v2.svg" alt="logo-ToxDB" loading="lazy"/>
 		<!--h2 class="white">ToxDB </h2-->
 		<p class="white"> Creamos <strong>Tox.db</strong>: una base de datos abierta a la comunidad de profesionales del ambiente y la salud que compila información relevante de los compuestos químicos de interés regulados. Es una plataforma abierta en constante crecimiento.</p>
 		<p class="white"> Desarrollamos y mantenemos bases de datos con aplicaciones ambientales con el fin de agilizar el acceso y manejo de información.</p>
@@ -421,226 +416,23 @@
 </body>
 
 
-<script src="mods3d/air/Qgis2threejs.js"></script>
-<script src="mods3d/sw/Qgis2threejs.js"></script>
+
+
+<!-- threejs -->
+<script type="text/javascript" src="js/threejs/gl-matrix-min.js" defer></script> 
+<script type="text/javascript" src="js/threejs/three.min.js"     defer></script>
+<!--script type="text/javascript" src="js/threejs/OrbitControls.js"             defer></script-->
+<!--script type="text/javascript" src="js/threejs/DeviceOrientationControls.js" defer></script -->
+
+<!-- escenas de threeJS -->
+<script src="mods3d/air/Qgis2threejs.js" defer></script>
+<script src="mods3d/sw/Qgis2threejs.js"  defer></script>
 <!-- otros modelos 3d medio homero -->
 <!--script src="mods3d/home/ashimaPerlinNoise.js"></script-->
 <!--script src="mods3d/obj/dusty.js"></script-->
 
-<script type="text/javascript" src="js/script.js"></script>
-
-
-<!-- Perlin Noise (BOLA LOCA) -->
-<script type="x-shader/x-vertex" id="vertexShader">
-// Include the Ashima code here!
-
-varying vec2 vUv;
-varying float noise;
-uniform float time;
-  
-  vec3 mod289(vec3 x)
-{
-  return x - floor(x * (1.0 / 289.0)) * 289.0;
-}
-
-vec4 mod289(vec4 x)
-{
-  return x - floor(x * (1.0 / 289.0)) * 289.0;
-}
-
-vec4 permute(vec4 x)
-{
-  return mod289(((x*34.0)+1.0)*x);
-}
-
-vec4 taylorInvSqrt(vec4 r)
-{
-  return 1.79284291400159 - 0.85373472095314 * r;
-}
-
-vec3 fade(vec3 t) {
-  return t*t*t*(t*(t*6.0-15.0)+10.0);
-}
-
-// Classic Perlin noise
-float cnoise(vec3 P)
-{
-  vec3 Pi0 = floor(P); // Integer part for indexing
-  vec3 Pi1 = Pi0 + vec3(1.0); // Integer part + 1
-  Pi0 = mod289(Pi0);
-  Pi1 = mod289(Pi1);
-  vec3 Pf0 = fract(P); // Fractional part for interpolation
-  vec3 Pf1 = Pf0 - vec3(1.0); // Fractional part - 1.0
-  vec4 ix = vec4(Pi0.x, Pi1.x, Pi0.x, Pi1.x);
-  vec4 iy = vec4(Pi0.yy, Pi1.yy);
-  vec4 iz0 = Pi0.zzzz;
-  vec4 iz1 = Pi1.zzzz;
-
-  vec4 ixy = permute(permute(ix) + iy);
-  vec4 ixy0 = permute(ixy + iz0);
-  vec4 ixy1 = permute(ixy + iz1);
-
-  vec4 gx0 = ixy0 * (1.0 / 7.0);
-  vec4 gy0 = fract(floor(gx0) * (1.0 / 7.0)) - 0.5;
-  gx0 = fract(gx0);
-  vec4 gz0 = vec4(0.5) - abs(gx0) - abs(gy0);
-  vec4 sz0 = step(gz0, vec4(0.0));
-  gx0 -= sz0 * (step(0.0, gx0) - 0.5);
-  gy0 -= sz0 * (step(0.0, gy0) - 0.5);
-
-  vec4 gx1 = ixy1 * (1.0 / 7.0);
-  vec4 gy1 = fract(floor(gx1) * (1.0 / 7.0)) - 0.5;
-  gx1 = fract(gx1);
-  vec4 gz1 = vec4(0.5) - abs(gx1) - abs(gy1);
-  vec4 sz1 = step(gz1, vec4(0.0));
-  gx1 -= sz1 * (step(0.0, gx1) - 0.5);
-  gy1 -= sz1 * (step(0.0, gy1) - 0.5);
-
-  vec3 g000 = vec3(gx0.x,gy0.x,gz0.x);
-  vec3 g100 = vec3(gx0.y,gy0.y,gz0.y);
-  vec3 g010 = vec3(gx0.z,gy0.z,gz0.z);
-  vec3 g110 = vec3(gx0.w,gy0.w,gz0.w);
-  vec3 g001 = vec3(gx1.x,gy1.x,gz1.x);
-  vec3 g101 = vec3(gx1.y,gy1.y,gz1.y);
-  vec3 g011 = vec3(gx1.z,gy1.z,gz1.z);
-  vec3 g111 = vec3(gx1.w,gy1.w,gz1.w);
-
-  vec4 norm0 = taylorInvSqrt(vec4(dot(g000, g000), dot(g010, g010), dot(g100, g100), dot(g110, g110)));
-  g000 *= norm0.x;
-  g010 *= norm0.y;
-  g100 *= norm0.z;
-  g110 *= norm0.w;
-  vec4 norm1 = taylorInvSqrt(vec4(dot(g001, g001), dot(g011, g011), dot(g101, g101), dot(g111, g111)));
-  g001 *= norm1.x;
-  g011 *= norm1.y;
-  g101 *= norm1.z;
-  g111 *= norm1.w;
-
-  float n000 = dot(g000, Pf0);
-  float n100 = dot(g100, vec3(Pf1.x, Pf0.yz));
-  float n010 = dot(g010, vec3(Pf0.x, Pf1.y, Pf0.z));
-  float n110 = dot(g110, vec3(Pf1.xy, Pf0.z));
-  float n001 = dot(g001, vec3(Pf0.xy, Pf1.z));
-  float n101 = dot(g101, vec3(Pf1.x, Pf0.y, Pf1.z));
-  float n011 = dot(g011, vec3(Pf0.x, Pf1.yz));
-  float n111 = dot(g111, Pf1);
-
-  vec3 fade_xyz = fade(Pf0);
-  vec4 n_z = mix(vec4(n000, n100, n010, n110), vec4(n001, n101, n011, n111), fade_xyz.z);
-  vec2 n_yz = mix(n_z.xy, n_z.zw, fade_xyz.y);
-  float n_xyz = mix(n_yz.x, n_yz.y, fade_xyz.x); 
-  return 2.2 * n_xyz;
-}
-
-// Classic Perlin noise, periodic variant
-float pnoise(vec3 P, vec3 rep)
-{
-  vec3 Pi0 = mod(floor(P), rep); // Integer part, modulo period
-  vec3 Pi1 = mod(Pi0 + vec3(1.0), rep); // Integer part + 1, mod period
-  Pi0 = mod289(Pi0);
-  Pi1 = mod289(Pi1);
-  vec3 Pf0 = fract(P); // Fractional part for interpolation
-  vec3 Pf1 = Pf0 - vec3(1.0); // Fractional part - 1.0
-  vec4 ix = vec4(Pi0.x, Pi1.x, Pi0.x, Pi1.x);
-  vec4 iy = vec4(Pi0.yy, Pi1.yy);
-  vec4 iz0 = Pi0.zzzz;
-  vec4 iz1 = Pi1.zzzz;
-
-  vec4 ixy = permute(permute(ix) + iy);
-  vec4 ixy0 = permute(ixy + iz0);
-  vec4 ixy1 = permute(ixy + iz1);
-
-  vec4 gx0 = ixy0 * (1.0 / 7.0);
-  vec4 gy0 = fract(floor(gx0) * (1.0 / 7.0)) - 0.5;
-  gx0 = fract(gx0);
-  vec4 gz0 = vec4(0.5) - abs(gx0) - abs(gy0);
-  vec4 sz0 = step(gz0, vec4(0.0));
-  gx0 -= sz0 * (step(0.0, gx0) - 0.5);
-  gy0 -= sz0 * (step(0.0, gy0) - 0.5);
-
-  vec4 gx1 = ixy1 * (1.0 / 7.0);
-  vec4 gy1 = fract(floor(gx1) * (1.0 / 7.0)) - 0.5;
-  gx1 = fract(gx1);
-  vec4 gz1 = vec4(0.5) - abs(gx1) - abs(gy1);
-  vec4 sz1 = step(gz1, vec4(0.0));
-  gx1 -= sz1 * (step(0.0, gx1) - 0.5);
-  gy1 -= sz1 * (step(0.0, gy1) - 0.5);
-
-  vec3 g000 = vec3(gx0.x,gy0.x,gz0.x);
-  vec3 g100 = vec3(gx0.y,gy0.y,gz0.y);
-  vec3 g010 = vec3(gx0.z,gy0.z,gz0.z);
-  vec3 g110 = vec3(gx0.w,gy0.w,gz0.w);
-  vec3 g001 = vec3(gx1.x,gy1.x,gz1.x);
-  vec3 g101 = vec3(gx1.y,gy1.y,gz1.y);
-  vec3 g011 = vec3(gx1.z,gy1.z,gz1.z);
-  vec3 g111 = vec3(gx1.w,gy1.w,gz1.w);
-
-  vec4 norm0 = taylorInvSqrt(vec4(dot(g000, g000), dot(g010, g010), dot(g100, g100), dot(g110, g110)));
-  g000 *= norm0.x;
-  g010 *= norm0.y;
-  g100 *= norm0.z;
-  g110 *= norm0.w;
-  vec4 norm1 = taylorInvSqrt(vec4(dot(g001, g001), dot(g011, g011), dot(g101, g101), dot(g111, g111)));
-  g001 *= norm1.x;
-  g011 *= norm1.y;
-  g101 *= norm1.z;
-  g111 *= norm1.w;
-
-  float n000 = dot(g000, Pf0);
-  float n100 = dot(g100, vec3(Pf1.x, Pf0.yz));
-  float n010 = dot(g010, vec3(Pf0.x, Pf1.y, Pf0.z));
-  float n110 = dot(g110, vec3(Pf1.xy, Pf0.z));
-  float n001 = dot(g001, vec3(Pf0.xy, Pf1.z));
-  float n101 = dot(g101, vec3(Pf1.x, Pf0.y, Pf1.z));
-  float n011 = dot(g011, vec3(Pf0.x, Pf1.yz));
-  float n111 = dot(g111, Pf1);
-
-  vec3 fade_xyz = fade(Pf0);
-  vec4 n_z = mix(vec4(n000, n100, n010, n110), vec4(n001, n101, n011, n111), fade_xyz.z);
-  vec2 n_yz = mix(n_z.xy, n_z.zw, fade_xyz.y);
-  float n_xyz = mix(n_yz.x, n_yz.y, fade_xyz.x); 
-  return 2.2 * n_xyz;
-}
-
-float turbulence( vec3 p ) {
-    float w = 100.0;
-    float t = -.5;
-    for (float f = 1.0 ; f <= 10.0 ; f++ ){
-        float power = pow( 2.0, f );
-        t += abs( pnoise( vec3( power * p ), vec3( 10.0, 10.0, 10.0 ) ) / power );
-    }
-    return t;
-}
-
-void main() {
-
-    vUv = uv;
-
-    // add time to the noise parameters so it's animated
-    noise = 10.0 *  -.10 * turbulence( .5 * normal + time );
-    float b = 5.0 * pnoise( 0.05 * position + vec3( 2.0 * time ), vec3( 100.0 ) );
-    float displacement = - noise + b;
-    
-    vec3 newPosition = position + normal * displacement;
-    gl_Position = projectionMatrix * modelViewMatrix * vec4( newPosition, 1.0 );
-
-}
-</script>
-
-<script type="x-shader/x-vertex" id="fragmentShader">
-varying vec2 vUv;
-varying float noise;
-
-void main() {
-
-    // compose the colour using the UV coordinate
-    // and modulate it with the noise like ambient occlusion
-    vec3 color = vec3( vUv * ( 1. - 2. * noise ), 0.5 );
-    gl_FragColor = vec4( color.rgb, 0.7 );
-
-}
-</script>
-<!-- END Perlin Noise (BOLA LOCA) -->
+<!-- main JS -->
+<script type="text/javascript" src="js/script.js" defer></script>
 
 
 </html>
