@@ -224,7 +224,7 @@ $(window).scroll(function(event) {
 
 	//cambiar el color de los header segun el fondo
 	var is_bgoscuro=false;
-	$(".bg-oscuro").each(function(){
+	$("[bg=oscuro]").each(function(){
 		var lim_sup = $(this).offset().top - 50;
     		var lim_inf = lim_sup + $(this).height() + 2*50;
 		is_bgoscuro=(is_bgoscuro || (pos >= lim_sup && pos <= lim_inf))

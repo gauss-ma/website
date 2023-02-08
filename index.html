@@ -61,7 +61,6 @@
 	<!-- fa-icons cratejs, safary, etc -->
 	<link rel="mask-icon" href="fonts/safari-pinned-tab.fcceb5.svg" color="#5bbad5">
 	<script src="https://kit.fontawesome.com/32f3fc8ac1.js" crossorigin="anonymous"></script>
-	<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
 
 	<!-- CSS  -->
 	<!-- <link href="css/font-style.css" rel="stylesheet"> -->
@@ -80,7 +79,7 @@
 <body class="">
 
 <header>
-	<span id="Logo_gauss" class="Logo_gauss"><img alt="icono-gauss" src="img/icon-gauss.webp"></img> &nbsp;gauss </span>
+	<span id="Logo_gauss" class="Logo_gauss"><img alt="icono-gauss" src="img/icon-gauss.webp" width="33px" height="30px"></img> &nbsp;gauss </span>
 	<div class="Header_burguer">
 	</div>
 	<div class="burguer_root">
@@ -126,7 +125,7 @@
 
 
 <!--   OBJETIVO   -->
-<section id="objetivo-container" name="objetivo" class="slide Objetivo center bg-oscuro" style="background-color:var(--celeste-oscuro)">
+<section id="objetivo-container" name="objetivo" class="slide Objetivo center" bg="oscuro" style="background-color:var(--celeste-oscuro)">
 	<div class="objetivo-words white">
 		<!-- Actual -->
 		<!--span class="animar_fade-in">Modelos		</span--> 
@@ -162,8 +161,8 @@
 			Debido a la sensibilidad de los modelos de transporte de contaminantes a la meteorología, realizamos un procesamiento y control de calidad adicional de estos datos.
         		</p>		
 		</div>
-		<a href="" class="btn material-design btn-expandir" onclick="$('[name=air]').addClass('expandido');">Ver más</a>
-		<a href="" class="btn material-design btn-colapsar" onclick="$('[name=air]').removeClass('expandido');">Ver menos</a>
+		<button class="btn material-design btn-expandir" onclick="$('[name=air]').addClass('expandido');">Ver más	</button>
+		<button class="btn material-design btn-colapsar" onclick="$('[name=air]').removeClass('expandido');">Ver menos  </button>
 
 	</div>
 	<div class="column-image" id="viewAIR">
@@ -186,8 +185,8 @@
 			<p>La caracterización hidrogeológica del medio a modelar y los parámetros hidráulicos de las formaciones son esenciales 
 				en la definición del sistema, por lo que realizamos controles adicionales de la calidad de esta información.</p>		
 		</div>
-		<a href="" class="btn material-design btn-expandir" onclick="$('[name=gw]').addClass('expandido');">Ver más</a>
-		<a href="" class="btn material-design btn-colapsar" onclick="$('[name=gw]').removeClass('expandido');">Ver menos</a>
+		<button class="btn material-design btn-expandir" onclick="$('[name=gw]').addClass('expandido');">Ver más	</button>
+		<button class="btn material-design btn-colapsar" onclick="$('[name=gw]').removeClass('expandido');">Ver menos	</button>
 	</div>
 	<div class="column-image">
 		<!-- canvas id="canvasGW"> </canvas-->
@@ -213,8 +212,8 @@
 
                         </p>
                 </div>
-                <a href="" class="btn material-design btn-expandir" onclick="$('[name=sw]').addClass('expandido');">Ver más</a>
-                <a href="" class="btn material-design btn-colapsar" onclick="$('[name=sw]').removeClass('expandido');">Ver menos</a>
+                <button class="btn material-design btn-expandir" onclick="$('[name=sw]').addClass('expandido');"   >Ver más	</button>
+                <button class="btn material-design btn-colapsar" onclick="$('[name=sw]').removeClass('expandido');">Ver menos	</button>
 	</div>
 	
 	<div class="column-image" id="viewSW">
@@ -227,7 +226,7 @@
 
 <!-- GEO-SP/GIS   -->
 
-<section class="slide center bg-oscuro gis" >
+<section class="slide center bg-oscuro gis" bg="oscuro" >
 	<div class="mapas">
                  <span class="shadow"></span>
                  <div class="layer"> <img alt="mapa-base"   src="img/mapa1.webp" loading="lazy"></img></div>
@@ -323,10 +322,10 @@
 
 
 <!--   TOXDB   -->
-<section class="slide center bg-oscuro">
+<section class="slide center bg-oscuro" bg="oscuro">
 	<div class="column-text animar_fade-in-up">	
 		<!-- i class="fa fa-code fa-4x" aria-hidden="true" style="fill:white;color:white;margin-bottom:10px;"></i-->
-		<img style="width:150px;padding-bottom:30px;" src="img/Recurso 5v2.svg" alt="logo-ToxDB" loading="lazy"/>
+		<img style="padding-bottom:30px;" width="150px" height="153.133" src="img/Recurso 5v2.svg" alt="logo-ToxDB" loading="lazy"/>
 		<!--h2 class="white">ToxDB </h2-->
 		<p class="white"> Creamos <strong>Tox.db</strong>: una base de datos abierta a la comunidad de profesionales del ambiente y la salud que compila información relevante de los compuestos químicos de interés regulados. Es una plataforma abierta en constante crecimiento.</p>
 		<p class="white"> Desarrollamos y mantenemos bases de datos con aplicaciones ambientales con el fin de agilizar el acceso y manejo de información.</p>
@@ -430,6 +429,9 @@
 <!-- otros modelos 3d medio homero -->
 <!--script src="mods3d/home/ashimaPerlinNoise.js"></script-->
 <!--script src="mods3d/obj/dusty.js"></script-->
+
+<!-- createJS (no se pa que lo pusimos) -->
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
 
 <!-- main JS -->
 <script type="text/javascript" src="js/script.js" defer></script>
