@@ -379,14 +379,14 @@ header {
 /* ====> HOME    <==== */
 
 .slide.Home {
-	-webkit-animation: fade-in-up 0.3s cubic-bezier(.12,.51,.49,.88) forwards; 
-	animation: fade-in-up 0.3s cubic-bezier(.12,.51,.49,.88) forwards; 
-	/*background-image: url( '../img/gauss_abstract.svg' );*/
-	background-repeat: no-repeat; 
-	background-position:center;
-       	background-size: 40%;
+	opacity:0;
 }
 
+.img-home{
+	position:absolute;
+	width:40%;
+	max-width:800px;
+}
 .texto-home{
 	/*padding-top:200px;
 	margin-top:40px;

@@ -205,7 +205,6 @@ $(window).scroll(function(event) {
  	pos=$(window).scrollTop(); 
  	//console.log(pos);
 
-
 	//fade-in palabras de OBJETIVOS:
 	if(pos>=pos_objetivo){
 		$(".objetivo-words").children().addClass("fade-in");
