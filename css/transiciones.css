@@ -84,32 +84,6 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @keyframes fade-in-UP {
   0% {
     opacity: 0;
@@ -132,9 +106,6 @@
     -webkit-transform: none;
   }
 }
-
-
-
 
 
 @-webkit-keyframes Efecto_link_subrrayar {
@@ -180,19 +151,6 @@
     transform: translate3d(0);
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* BURGER */
@@ -385,10 +343,10 @@
 .fade-in-up{
 	-webkit-animation: fade-in-UP 2s cubic-bezier(.19,1,.22,1) forwards;
         animation: fade-in-UP 2s cubic-bezier(.19,1,.22,1) forwards;
-	/*opacity:1;*/
 	-ms-animation-delay: 0.4s; -webkit-animation-delay: 0.4s;  animation-delay: 0.4s;
+	opacity:0;
+	/*opacity:1;*/
 }
-
 
 /*aparicios palabras objetivo*/
 .animar_fade-in{
@@ -398,6 +356,7 @@
 .fade-in{
 	-webkit-animation: fade-in 4s cubic-bezier(.1,1,.22,1) forwards;
 	animation: fade-in 4s cubic-bezier(.1,1,.22,1) forwards;
+	opacity:0;
 }
 
 .expandido>.expansible{

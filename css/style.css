@@ -110,6 +110,52 @@
 		pointer-events:none;
 	}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* END GENERAL LAYOUT */
 
 /*  HEADER */
@@ -258,6 +304,46 @@ header {
   bottom: 0;
 }
 
+
+
+/*BOTON FIJO DE WHATSAPP*/
+.fixed-button-whatsapp {
+        position:fixed;
+        right:  20px;
+        bottom: 20px;
+        align-items: center;
+        justify-content: center;
+  background-clip: padding-box;
+  background:var(--blanco);
+  border-radius: 50%;
+  border-style: hidden;
+  display: flex;
+  height: 40px;
+  line-height: 56px;
+  margin-right: 10px;
+  min-width: 0;
+  /* overflow: visible; */
+  vertical-align: middle;
+  width: 40px;
+  z-index: 80;
+    transition-property: background-color,box-shadow,transform;
+    transition: box-shadow .3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+    background-color: rgba(255, 255, 255, .9);
+        color:var(--gris-medio);
+    opacity:0.8;
+}
+
+.fixed-button-whatsapp{
+	font-size:35px;
+}
+.fixed-button-whatsapp:hover{
+    background-color:#fff;
+    color:#25D366;
+    opacity:1;
+}
+
+
 /* ====> MENU <==== */
 .Menu_root{
 	padding-top: 100px;
@@ -379,7 +465,7 @@ header {
 /* ====> HOME    <==== */
 
 .slide.Home {
-	opacity:0;
+	/*opacity:0;*/
 }
 
 .img-home{

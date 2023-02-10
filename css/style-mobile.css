@@ -46,6 +46,11 @@
 		left:20px
 	}
 
+	.fixed-button-whatsapp {
+        	position:fixed;
+        	right:  0px;
+        	bottom: 0px;
+	}
 /* ====> MENU   <==== */
 	.Menu_root {
 	    padding-top: 90px;
