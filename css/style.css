@@ -309,7 +309,7 @@ header {
 /*BOTON FIJO DE WHATSAPP*/
 .fixed-button-whatsapp {
         position:fixed;
-        right:  20px;
+        right:  15px;
         bottom: 20px;
         align-items: center;
         justify-content: center;
