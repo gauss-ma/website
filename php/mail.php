@@ -21,16 +21,16 @@ $mail = new PHPMailer(true);
 try {
     //$mail->SMTPDebug = 2;  				// Sacar esta línea para no mostrar salida debug
     $mail->isSMTP();
-    $mail->Host = 'mail.gauss-ma.com.ar';               // Host de conexión SMTP
+    $mail->Host = 'mail.gauss-ambiental.com.ar';               // Host de conexión SMTP
     $mail->SMTPAuth = true;
-    $mail->Username = 'mailer@gauss-ma.com.ar';         // Usuario SMTP
+    $mail->Username = 'mailer@gauss-ambiental.com.ar';         // Usuario SMTP
     $mail->Password = '^!DCFM3%(B!q';                   // Password SMTP
     $mail->SMTPSecure = 'tls';                          // Activar seguridad TLS
     $mail->Port = 587;                                  // Puerto SMTP
 
-    $mail->setFrom('mailer@gauss-ma.com.ar');		// Mail del remitente
-    $mail->addAddress("espada@gauss-ma.com.ar");        // Mail del destinatario
-    $mail->addAddress("medrano@gauss-ma.com.ar");       // Mail del destinatario
+    $mail->setFrom('mailer@gauss-ambiental.com.ar');		// Mail del remitente
+    $mail->addAddress("espada@gauss-ambiental.com.ar");        // Mail del destinatario
+    $mail->addAddress("medrano@gauss-ambiental.com.ar");       // Mail del destinatario
  
     $mail->isHTML(true);
     $mail->Subject = "Formulario desde GAUSS de $nombre."; // Asunto del mensaje
@@ -40,7 +40,7 @@ try {
     $mail->send();
 
 
-echo "<script>alert('El mensaje ha sido enviado exitosamente!');window.location = 'https://gauss-ma.com.ar/';</script>";
+echo "<script>alert('El mensaje ha sido enviado exitosamente!');window.location = 'https://gauss-ambiental.com.ar/';</script>";
 } catch (Exception $e) {
     echo "<script>alert('El mensaje no se ha podido enviar, ERROR:</script>",$mail->ErrorInfo;
 }
@@ -50,14 +50,14 @@ $mail_a_usr= new PHPMailer(true);
 
 try {
     $mail_a_usr->isSMTP();
-    $mail_a_usr->Host = 'mail.gauss-ma.com.ar';                 // Host de conexión SMTP
+    $mail_a_usr->Host = 'mail.gauss-ambiental.com.ar';                 // Host de conexión SMTP
     $mail_a_usr->SMTPAuth = true;
-    $mail_a_usr->Username = 'mailer@gauss-ma.com.ar';           // Usuario SMTP
+    $mail_a_usr->Username = 'mailer@gauss-ambiental.com.ar';           // Usuario SMTP
     $mail_a_usr->Password = '^!DCFM3%(B!q';                     // Password SMTP
     $mail_a_usr->SMTPSecure = 'tls';                            // Activar seguridad TLS
     $mail_a_usr->Port = 587;                                    // Puerto SMTP
 
-    $mail_a_usr->setFrom('mailer@gauss-ma.com.ar');		// Mail del remitente
+    $mail_a_usr->setFrom('mailer@gauss-ambiental.com.ar');		// Mail del remitente
     $mail_a_usr->addAddress("$email");                          // Mail del destinatario
  
     $mail_a_usr->isHTML(true);
